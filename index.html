@@ -6,7 +6,7 @@
   <title>Bea Paes | Treino na gestação e no pós-parto</title>
   <meta name="description" content="Programa de treino da Bea Paes para grávidas e mães recentes, feito junto com nutricionista, doula e obstetra.">
   <meta property="og:title" content="Bea Paes | Treino na gestação e no pós-parto">
-  <meta property="og:description" content="Forte na gestação. Inteira no pós-parto. Treino com nutricionista, doula e obstetra do seu lado.">
+  <meta property="og:description" content="Programa de treino da Bea Paes para grávidas e mães recentes, feito junto com nutricionista, doula e obstetra.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#8A1538">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='17' r='13' fill='%238A1538'/%3E%3Cpath d='M12 5l4 3 4-3' stroke='%238A1538' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
@@ -15,14 +15,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@100..125,500..800&family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400&display=swap">
   <link rel="stylesheet" href="style.css">
 </head>
-<!--
-  PREENCHER antes de publicar:
-  - data-whatsapp: número da Bea só com dígitos, com DDI e DDD (ex.: 5511999999999).
-    Enquanto estiver vazio, os botões abrem o direct do Instagram (@beapaes_).
-  - Elementos com a classe "placeholder": foto, apresentação, depoimentos e a resposta sobre online/presencial.
--->
-<body data-whatsapp="" data-instagram="beapaes_">
+<body>
 
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
   <!-- Ilustrações: recortes de papel nas cores do site, reutilizados com <use href="#..."> -->
   <svg class="sprite" aria-hidden="true" focusable="false">
     <defs>
@@ -131,33 +126,49 @@
         <rect class="f-semente" x="74" y="60" width="11" height="14" rx="4"/>
         <path class="f-roma" d="M72 70 C 62 74, 58 92, 60 116 C 62 140, 58 170, 52 230 L112 230 C 106 196, 102 170, 100 146 C 99 120, 100 92, 94 78 C 90 72, 84 70, 72 70 Z"/>
       </symbol>
+      <symbol id="fig-gestante" viewBox="0 0 160 240">
+        <use href="#fig-corpo" width="160" height="240"/>
+        <circle class="f-roma" cx="114" cy="142" r="28"/>
+        <path class="s-semente" stroke-width="11" stroke-linecap="round" d="M80 82 Q 68 126 116 156"/>
+      </symbol>
+      <symbol id="fig-mae-bebe" viewBox="0 0 160 240">
+        <use href="#fig-corpo" width="160" height="240"/>
+        <ellipse class="f-folha" cx="106" cy="112" rx="28" ry="15" transform="rotate(-20 106 112)"/>
+        <circle class="f-semente" cx="129" cy="100" r="10"/>
+        <path class="s-semente" stroke-width="11" stroke-linecap="round" d="M80 82 Q 74 128 118 120"/>
+      </symbol>
+      <symbol id="fig-forca" viewBox="0 0 160 240">
+        <use href="#fig-corpo" width="160" height="240"/>
+        <path class="s-semente" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" d="M80 82 L 76 120 L 100 98"/>
+        <rect class="f-tinta" x="86" y="95" width="30" height="6" rx="3"/>
+        <rect class="f-tinta" x="80" y="84" width="9" height="28" rx="3"/>
+        <rect class="f-tinta" x="113" y="84" width="9" height="28" rx="3"/>
+      </symbol>
     </defs>
   </svg>
 
-  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-
   <header class="topo">
     <div class="topo-inner">
-      <a class="marca" href="#"><svg class="marca-icone" aria-hidden="true"><use href="#il-roma"/></svg>Bea Paes</a>
-      <nav class="menu" aria-label="Seções">
-        <a href="#como-funciona">Como funciona</a>
-        <a href="#equipe">Equipe</a>
-        <a href="#investimento">Investimento</a>
-        <a href="#duvidas">Dúvidas</a>
+      <a class="marca" href="index.html"><svg class="marca-icone" aria-hidden="true"><use href="#il-roma"/></svg>Bea Paes</a>
+      <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-icone" aria-hidden="true"></span><span class="visualmente-oculto">Menu</span></button>
+      <nav id="menu" class="menu" aria-label="Páginas">
+        <a href="programa.html">O programa</a>
+        <a href="gestacao.html">Gestação</a>
+        <a href="alimentacao.html">Alimentação</a>
+        <a href="pos-parto.html">Pós-parto</a>
       </nav>
-      <a class="botao botao-pequeno js-contato" href="https://ig.me/m/beapaes_">Falar com a Bea</a>
+      <a class="botao botao-pequeno" href="quero-entrar.html">Quero entrar</a>
     </div>
   </header>
 
   <main id="conteudo">
-
     <section class="hero">
       <div class="hero-texto">
         <h1>Forte na gestação. Inteira no pós-parto.</h1>
         <p class="lead">Treino para grávidas e mães recentes, feito pela Bea Paes junto com nutricionista, doula e obstetra. Você acompanha o seu ganho de peso, come o que você e o bebê precisam e recupera o seu corpo no seu tempo.</p>
         <div class="acoes">
-          <a class="botao js-contato" href="https://ig.me/m/beapaes_">Falar com a Bea</a>
-          <a class="link" href="#como-funciona">Ver como funciona</a>
+          <a class="botao js-entrar" href="quero-entrar.html">Quero entrar</a>
+          <a class="link" href="programa.html">Ver como funciona</a>
         </div>
       </div>
 
@@ -210,31 +221,61 @@
         <dl class="medos">
           <div class="medo">
             <dt><svg class="ilustra" aria-hidden="true"><use href="#il-balanca"/></svg>“Tenho medo de ganhar peso demais.”</dt>
-            <dd>Ganhar peso na gestação é esperado. O que importa é o ritmo. A nutricionista acompanha o seu ganho em cada fase, e o treino de força ajuda você a manter músculo enquanto a barriga cresce.</dd>
+            <dd>
+              <p>Ganhar peso na gestação é esperado. O que importa é o ritmo. A nutricionista acompanha o seu ganho em cada fase pela curva da Caderneta da Gestante, e o treino de força ajuda você a manter músculo enquanto a barriga cresce.</p>
+              <a class="link" href="alimentacao.html#calculadora">Calcular a faixa de ganho de peso</a>
+            </dd>
           </div>
           <div class="medo">
             <dt><svg class="ilustra" aria-hidden="true"><use href="#il-tigela"/></svg>“Será que estou comendo o que o bebê precisa?”</dt>
-            <dd>Você monta a sua alimentação com a nutricionista, a partir dos seus exames e da sua rotina. Sem dieta restritiva e sem adivinhação.</dd>
+            <dd>
+              <p>Você monta a sua alimentação com a nutricionista, a partir dos seus exames e da sua rotina. Sem dieta restritiva, sem “comer por dois” e sem adivinhação.</p>
+              <a class="link" href="alimentacao.html">Ler o guia de alimentação</a>
+            </dd>
           </div>
           <div class="medo">
             <dt><svg class="ilustra" aria-hidden="true"><use href="#il-kettlebell"/></svg>“Vou demorar para recuperar o meu corpo.”</dt>
-            <dd>A recuperação começa ainda na gestação: chegar forte ao parto ajuda na volta. Depois da liberação do obstetra, a Bea conduz o retorno ao treino passo a passo.</dd>
+            <dd>
+              <p>A recuperação começa ainda na gestação: chegar forte ao parto ajuda na volta. Depois da liberação do obstetra, a Bea conduz o retorno ao treino passo a passo, cuidando do abdômen e do assoalho pélvico.</p>
+              <a class="link" href="pos-parto.html">Ler o guia do pós-parto</a>
+            </dd>
           </div>
         </dl>
       </div>
     </section>
 
-    <section id="como-funciona" class="secao" aria-labelledby="como-titulo">
+    <section class="secao" aria-labelledby="ciencia-titulo">
+      <div class="largura">
+        <h2 id="ciencia-titulo" class="titulo-secao">O que as pesquisas mostram</h2>
+        <p class="secao-intro">O programa segue as diretrizes do Ministério da Saúde, da Organização Mundial da Saúde e das sociedades de obstetrícia. Alguns números que guiam o trabalho:</p>
+        <ul class="evidencias">
+          <li class="evidencia">
+            <p class="evidencia-numero">150 min</p>
+            <p>de atividade física moderada por semana é a recomendação do Ministério da Saúde para gestantes sem contraindicação.</p>
+            <p class="evidencia-fonte">Guia de Atividade Física para a População Brasileira, 2021</p>
+          </li>
+          <li class="evidencia">
+            <p class="evidencia-numero">40%</p>
+            <p>menos risco de diabetes gestacional, pré-eclâmpsia e pressão alta na gestação para quem segue essa recomendação.</p>
+            <p class="evidencia-fonte">Diretriz canadense de atividade física na gestação, 2019</p>
+          </li>
+          <li class="evidencia">
+            <p class="evidencia-numero">25%</p>
+            <p>menos chance de cesárea quando a mulher tem apoio contínuo durante o trabalho de parto, como o de uma doula.</p>
+            <p class="evidencia-fonte">Revisão Cochrane sobre apoio contínuo no parto, 2017</p>
+          </li>
+        </ul>
+        <a class="link" href="gestacao.html">Ler o guia de treino na gestação</a>
+      </div>
+    </section>
+
+    <section class="secao secao-casca" aria-labelledby="como-titulo">
       <div class="largura">
         <h2 id="como-titulo" class="titulo-secao">Começa na gestação e continua depois do parto</h2>
 
         <div class="jornada">
           <div class="etapa">
-            <svg class="etapa-figura" viewBox="0 0 160 240" aria-hidden="true">
-              <use href="#fig-corpo" width="160" height="240"/>
-              <circle class="f-roma" cx="114" cy="142" r="28"/>
-              <path class="s-semente" stroke-width="11" stroke-linecap="round" fill="none" d="M80 82 Q 68 126 116 156"/>
-            </svg>
+            <svg class="etapa-figura" viewBox="0 0 160 240" aria-hidden="true"><use href="#fig-gestante" width="160" height="240"/></svg>
             <h3>Na gestação</h3>
             <ul class="lista">
               <li>Treino de força ajustado a cada trimestre</li>
@@ -245,78 +286,52 @@
           </div>
           <div class="etapa-parto" aria-hidden="true"><span>Parto</span></div>
           <div class="etapa">
-            <svg class="etapa-figura" viewBox="0 0 160 240" aria-hidden="true">
-              <use href="#fig-corpo" width="160" height="240"/>
-              <ellipse class="f-folha" cx="106" cy="112" rx="25" ry="13" transform="rotate(-20 106 112)"/>
-              <circle class="f-semente" cx="126" cy="101" r="9"/>
-              <path class="s-semente" stroke-width="11" stroke-linecap="round" fill="none" d="M80 82 Q 74 128 118 120"/>
-            </svg>
+            <svg class="etapa-figura" viewBox="0 0 160 240" aria-hidden="true"><use href="#fig-mae-bebe" width="160" height="240"/></svg>
             <h3>No pós-parto</h3>
             <ul class="lista">
               <li>Volta ao treino depois da liberação do obstetra</li>
               <li>Reconexão do abdômen e do assoalho pélvico</li>
               <li>Alimentação para a amamentação com a nutricionista</li>
-              <li>Força de volta, no ritmo do sono e da rotina com o bebê</li>
+              <li>Programa de hipertrofia quando o corpo estiver pronto</li>
             </ul>
           </div>
         </div>
 
-        <div class="depois">
-          <h3>Depois: programa de hipertrofia</h3>
-          <p>Com o corpo recuperado, você pode seguir com a Bea no programa de hipertrofia, para ganhar músculo e ficar mais forte.</p>
-          <a class="link js-contato" data-mensagem="Oi, Bea! Quero saber mais sobre o programa de hipertrofia." href="https://ig.me/m/beapaes_">Perguntar sobre a hipertrofia</a>
-        </div>
+        <ul class="equipe-mini" aria-label="Equipe">
+          <li><svg aria-hidden="true"><use href="#il-halter"/></svg>Bea Paes, treino</li>
+          <li><svg aria-hidden="true"><use href="#il-roma-aberta"/></svg>Nutricionista</li>
+          <li><svg aria-hidden="true"><use href="#il-maos"/></svg>Doula</li>
+          <li><svg aria-hidden="true"><use href="#il-estetoscopio"/></svg>Obstetra</li>
+        </ul>
+        <a class="link" href="programa.html">Ver o programa fase por fase</a>
       </div>
     </section>
 
-    <section id="equipe" class="secao secao-casca" aria-labelledby="equipe-titulo">
+    <section class="secao" aria-labelledby="guias-titulo">
       <div class="largura">
-        <h2 id="equipe-titulo" class="titulo-secao">Quatro profissionais cuidando de você</h2>
-
-        <div class="equipe">
-          <div class="bea">
-            <!-- PREENCHER: trocar o bloco abaixo por <img src="img/bea.jpg" alt="Bea Paes"> -->
-            <div class="bea-foto placeholder">Foto da Bea</div>
-            <p class="bea-bio placeholder">Apresentação da Bea: formação, registro profissional e há quanto tempo acompanha gestantes e mães no pós-parto.</p>
-            <a class="link" href="https://www.instagram.com/beapaes_/" rel="noopener">@beapaes_ no Instagram</a>
-          </div>
-
-          <!-- PREENCHER: nomes das parceiras quando as parcerias estiverem fechadas -->
-          <ul class="papeis">
-            <li class="papel">
-              <svg class="papel-icone" aria-hidden="true"><use href="#il-halter"/></svg>
-              <div>
-                <h3>Bea Paes <span>Treino</span></h3>
-                <p>Monta e acompanha os seus treinos em cada fase e conversa com o resto da equipe sobre você.</p>
-              </div>
-            </li>
-            <li class="papel">
-              <svg class="papel-icone" aria-hidden="true"><use href="#il-roma-aberta"/></svg>
-              <div>
-                <h3>Nutricionista <span>Alimentação</span></h3>
-                <p>Acompanha o seu ganho de peso e monta a alimentação da gestação e da amamentação.</p>
-              </div>
-            </li>
-            <li class="papel">
-              <svg class="papel-icone" aria-hidden="true"><use href="#il-maos"/></svg>
-              <div>
-                <h3>Doula <span>Parto</span></h3>
-                <p>Prepara você para o parto e apoia os primeiros dias com o bebê.</p>
-              </div>
-            </li>
-            <li class="papel">
-              <svg class="papel-icone" aria-hidden="true"><use href="#il-estetoscopio"/></svg>
-              <div>
-                <h3>Obstetra <span>Saúde</span></h3>
-                <p>Libera cada fase do treino. Se você já tem obstetra, a Bea alinha o plano com quem já acompanha você.</p>
-              </div>
-            </li>
-          </ul>
+        <h2 id="guias-titulo" class="titulo-secao">Guias para ler com calma</h2>
+        <p class="secao-intro">Conteúdo com base nas diretrizes oficiais, com as fontes no fim de cada página.</p>
+        <div class="guias">
+          <a class="guia" href="gestacao.html">
+            <svg class="guia-figura" viewBox="0 0 160 240" aria-hidden="true"><use href="#fig-gestante" width="160" height="240"/></svg>
+            <span class="guia-titulo">Treinar na gestação</span>
+            <span class="guia-texto">Quanto treinar, o que muda em cada trimestre, sinais para parar e a preparação para o parto.</span>
+          </a>
+          <a class="guia" href="alimentacao.html">
+            <svg class="guia-figura guia-figura-icone" viewBox="0 0 120 120" aria-hidden="true"><use href="#il-tigela" width="120" height="120"/></svg>
+            <span class="guia-titulo">Alimentação e ganho de peso</span>
+            <span class="guia-texto">Calculadora pela Caderneta da Gestante, suplementos do pré-natal e alimentação na amamentação.</span>
+          </a>
+          <a class="guia" href="pos-parto.html">
+            <svg class="guia-figura" viewBox="0 0 160 240" aria-hidden="true"><use href="#fig-mae-bebe" width="160" height="240"/></svg>
+            <span class="guia-titulo">Pós-parto e volta ao treino</span>
+            <span class="guia-texto">Linha do tempo da recuperação, diástase, assoalho pélvico e o programa de hipertrofia.</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="secao" aria-labelledby="relatos-titulo">
+    <section class="secao secao-casca" aria-labelledby="relatos-titulo">
       <div class="largura">
         <h2 id="relatos-titulo" class="titulo-secao">Quem já treinou com a Bea</h2>
         <!-- PREENCHER: depoimentos reais, com autorização das alunas -->
@@ -338,13 +353,13 @@
       </div>
     </section>
 
-    <section id="investimento" class="secao secao-roma" aria-labelledby="investimento-titulo">
+    <section class="secao secao-roma" aria-labelledby="investimento-titulo">
       <svg class="decor-roma" aria-hidden="true"><use href="#il-roma-aberta"/></svg>
       <div class="largura investimento">
         <div>
           <h2 id="investimento-titulo" class="titulo-secao">Gestação e <span class="nowrap">pós-parto</span> em um só programa</h2>
           <p class="preco"><span class="preco-valor">R$ 5.000</span> à vista ou 5x de R$ 1.000</p>
-          <a class="botao botao-claro js-contato" href="https://ig.me/m/beapaes_">Falar com a Bea</a>
+          <a class="botao botao-claro" href="quero-entrar.html">Quero entrar</a>
         </div>
         <div>
           <h3>O que está incluso</h3>
@@ -359,53 +374,33 @@
       </div>
     </section>
 
-    <section id="duvidas" class="secao" aria-labelledby="duvidas-titulo">
+    <section class="secao final">
       <div class="largura largura-texto">
-        <h2 id="duvidas-titulo" class="titulo-secao">Dúvidas</h2>
-        <div class="faq">
-          <details>
-            <summary>Posso treinar grávida?</summary>
-            <p>Na maioria das gestações, sim, e o exercício é recomendado. Antes de começar, o seu obstetra precisa liberar. O treino respeita cada fase e qualquer restrição que ele indicar.</p>
-          </details>
-          <details>
-            <summary>Nunca treinei. Posso começar na gestação?</summary>
-            <p>Pode. O treino começa no seu nível, com cargas leves, e evolui com cuidado.</p>
-          </details>
-          <details>
-            <summary>Em que semana posso entrar?</summary>
-            <p>Em qualquer fase da gestação ou do pós-parto. O programa começa de onde você está.</p>
-          </details>
-          <details>
-            <summary>Quando volto a treinar depois do parto?</summary>
-            <p>Depois da liberação do seu obstetra. Até lá, o foco é descanso e respiração.</p>
-          </details>
-          <details>
-            <summary>É online ou presencial?</summary>
-            <p class="placeholder">Confirmar com a Bea: online, presencial ou os dois, e em qual cidade.</p>
-          </details>
-          <details>
-            <summary>Como funciona o pagamento?</summary>
-            <p>R$ 5.000 à vista ou em 5x de R$ 1.000.</p>
-          </details>
+        <h2 class="titulo-secao">Conte para a Bea em que fase você está</h2>
+        <p>Responda algumas perguntas rápidas e mande a mensagem pronta. Ela responde com os próximos passos e com o que o programa faz na sua fase.</p>
+        <div class="acoes">
+          <a class="botao" href="quero-entrar.html">Quero entrar</a>
+          <a class="link js-contato" href="https://ig.me/m/beapaes_">Prefiro mandar uma mensagem direto</a>
         </div>
       </div>
     </section>
-
-    <section class="secao secao-casca final">
-      <div class="largura largura-texto">
-        <h2 class="titulo-secao">Conte para a Bea em que fase você está</h2>
-        <p>Ela responde com os próximos passos e com o que o programa faz na sua fase.</p>
-        <a class="botao js-contato" href="https://ig.me/m/beapaes_">Falar com a Bea</a>
-      </div>
-    </section>
-
   </main>
 
   <footer class="rodape">
-    <div class="largura rodape-inner">
-      <p class="marca">Bea Paes</p>
-      <p>Este programa não substitui o acompanhamento pré-natal.</p>
-      <a href="https://www.instagram.com/beapaes_/" rel="noopener">Instagram</a>
+    <div class="largura rodape-grid">
+      <div class="rodape-sobre">
+        <p class="marca"><svg class="marca-icone" aria-hidden="true"><use href="#il-roma"/></svg>Bea Paes</p>
+        <p>Treino na gestação e no pós-parto, com nutricionista, doula e obstetra.</p>
+      </div>
+      <nav class="rodape-links" aria-label="Rodapé">
+        <a href="programa.html">O programa</a>
+        <a href="gestacao.html">Treinar na gestação</a>
+        <a href="alimentacao.html">Alimentação e ganho de peso</a>
+        <a href="pos-parto.html">Pós-parto</a>
+        <a href="quero-entrar.html">Quero entrar</a>
+        <a href="https://www.instagram.com/beapaes_/" rel="noopener">Instagram</a>
+      </nav>
+      <p class="rodape-aviso">O conteúdo deste site é informativo e não substitui o acompanhamento pré-natal. Antes de começar ou mudar a sua rotina de exercícios, converse com o seu obstetra.</p>
     </div>
   </footer>
 
