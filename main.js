@@ -202,8 +202,10 @@
       let d;
       if (v <= 40) {
         escala = v <= 12 ? 0.1 + v * 0.012 : 0.25 + ((v - 12) / 28) * 0.75;
-        const mx = 86 + 68 * escala * 0.7;
-        const my = 142 + 34 * escala * 0.45;
+        // A barriga cresce a partir do ponto (86, 132) e a mão fica na parte de baixo dela.
+        const raio = 34 * escala;
+        const mx = 86 + raio * 1.45;
+        const my = 132.2 - 10.2 * escala + raio * 0.55;
         d = `M80 82 Q 68 126 ${mx.toFixed(1)} ${my.toFixed(1)}`;
       } else if (v === 41) {
         escala = 0.2;
