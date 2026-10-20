@@ -8,6 +8,7 @@
   --tinta-suave: #6B5258;
   --segmento: #EFD3D3;
   --segmento-passado: #D49AA8;
+  --folha: #3F6B45;
 
   --fonte-titulo: "Anybody", "Arial Narrow", system-ui, sans-serif;
   --fonte-texto: "Literata", Georgia, serif;
@@ -147,6 +148,9 @@ a {
 }
 
 .marca {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   font-family: var(--fonte-titulo);
   font-weight: 800;
   font-stretch: 125%;
@@ -265,18 +269,10 @@ a {
   fill: var(--tinta-suave);
 }
 
-.disco-centro-1 {
-  font-family: var(--fonte-titulo);
-  font-stretch: 100%;
-  font-weight: 780;
-  font-size: 40px;
-  fill: var(--roma);
-}
-
-.disco-centro-2 {
-  font-family: var(--fonte-texto);
-  font-size: 20px;
-  fill: var(--tinta-suave);
+.barriga {
+  transform-box: fill-box;
+  transform-origin: 0% 50%;
+  transition: transform 0.35s cubic-bezier(0.3, 0.7, 0.3, 1);
 }
 
 .fase {
@@ -339,10 +335,21 @@ a {
   min-height: 9.5rem;
 }
 
-.fase-titulo {
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: var(--tinta);
+.fase-semana {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 760;
+  color: var(--roma);
+}
+
+.fase-nome {
+  display: block;
+  margin-top: 0.2rem;
+  font-family: var(--fonte-texto);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.0625rem;
+  color: var(--tinta-suave);
 }
 
 .fase-texto {
@@ -362,8 +369,14 @@ a {
 }
 
 .secao-roma {
+  position: relative;
+  overflow: hidden;
   background: var(--roma);
   color: var(--leite);
+}
+
+.secao-roma .largura {
+  position: relative;
 }
 
 .largura {
@@ -526,7 +539,17 @@ a {
   font-size: 1rem;
 }
 
+.papeis {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .papel {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: start;
   padding: 1.5rem 0;
   border-top: 2px solid var(--segmento);
 }
@@ -536,7 +559,12 @@ a {
   padding-top: 0;
 }
 
-.papel dt {
+.papel-icone {
+  width: 4rem;
+  height: 4rem;
+}
+
+.papel h3 {
   font-family: var(--fonte-titulo);
   font-size: 1.5rem;
   font-weight: 700;
@@ -547,7 +575,7 @@ a {
   gap: 0.25rem 0.75rem;
 }
 
-.papel dt span {
+.papel h3 span {
   font-family: var(--fonte-texto);
   font-style: italic;
   font-weight: 400;
@@ -555,7 +583,7 @@ a {
   color: var(--tinta-suave);
 }
 
-.papel dd {
+.papel p {
   margin-top: 0.4rem;
   max-width: 36rem;
 }
@@ -621,6 +649,19 @@ a {
 
 .lista-clara li {
   border-bottom-color: rgba(255, 248, 246, 0.2);
+}
+
+.decor-roma {
+  position: absolute;
+  top: clamp(-7rem, -8vw, -3rem);
+  right: clamp(-7rem, -8vw, -3rem);
+  width: clamp(14rem, 32vw, 24rem);
+  height: clamp(14rem, 32vw, 24rem);
+  rotate: 18deg;
+  --il-roma: var(--roma-escura);
+  --il-escura: #5A0C24;
+  --il-casca: #A0284B;
+  --il-semente: #C9415F;
 }
 
 .lista-clara li::before {
@@ -705,6 +746,51 @@ a {
   font-size: 1.125rem;
 }
 
+/* Ilustrações */
+
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.f-roma { fill: var(--il-roma, var(--roma)); }
+.f-escura { fill: var(--il-escura, var(--roma-escura)); }
+.f-semente { fill: var(--il-semente, var(--semente)); }
+.f-casca { fill: var(--il-casca, var(--casca)); }
+.f-leite { fill: var(--il-leite, var(--leite)); }
+.f-tinta { fill: var(--il-tinta, var(--tinta)); }
+.f-folha { fill: var(--il-folha, var(--folha)); }
+.s-tinta { fill: none; stroke: var(--il-tinta, var(--tinta)); }
+.s-semente { fill: none; stroke: var(--il-semente, var(--semente)); }
+.s-casca { fill: none; stroke: var(--il-casca, var(--casca)); }
+.s-escura { fill: none; stroke: var(--il-escura, var(--roma-escura)); }
+
+.oculto {
+  display: none;
+}
+
+.marca-icone {
+  width: 1.6em;
+  height: 1.6em;
+  margin-top: -0.2em;
+}
+
+.ilustra {
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  margin-bottom: 1rem;
+}
+
+.etapa-figura {
+  display: block;
+  width: 9rem;
+  height: 13.5rem;
+  margin-bottom: 1.25rem;
+}
+
 /* Conteúdo a preencher: contorno tracejado para não ir ao ar por engano */
 
 .placeholder {
@@ -744,6 +830,7 @@ a {
   }
 
   .disco-marcador,
+  .barriga,
   .faq summary::after {
     transition: none;
   }

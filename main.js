@@ -10,28 +10,24 @@
       inicio: 0,
       fim: 13 * GRAUS_POR_SEMANA,
       nome: "1º trimestre",
-      titulo: "No 1º trimestre",
       texto: "Fase de enjoo e cansaço para muitas mulheres. O treino se adapta aos seus dias para você continuar se movimentando, e a nutricionista ajuda na alimentação quando comer é difícil.",
     },
     {
       inicio: 13 * GRAUS_POR_SEMANA,
       fim: 27 * GRAUS_POR_SEMANA,
       nome: "2º trimestre",
-      titulo: "No 2º trimestre",
       texto: "A fase com mais energia. Você ganha força nas costas, no quadril e nas pernas, que vão sustentar a barriga, e acompanha o ganho de peso mês a mês com a nutricionista.",
     },
     {
       inicio: 27 * GRAUS_POR_SEMANA,
       fim: 270,
       nome: "3º trimestre",
-      titulo: "No 3º trimestre",
       texto: "Reta final. Mobilidade, respiração e assoalho pélvico para o parto, junto com a preparação da doula. A carga diminui e o cuidado aumenta.",
     },
     {
       inicio: 270,
       fim: 300,
       nome: "primeiras 6 semanas",
-      titulo: "No puerpério",
       texto: "Primeiras semanas com o bebê. Nada de treino pesado: o foco é descanso e respiração enquanto você espera a liberação do obstetra.",
       mensagem: "Oi, Bea! Tive meu bebê há poucas semanas e quero saber mais sobre o programa.",
     },
@@ -39,7 +35,6 @@
       inicio: 300,
       fim: 330,
       nome: "volta ao treino",
-      titulo: "Na volta ao treino",
       texto: "Com a liberação do obstetra, você reconecta abdômen e assoalho pélvico e volta a ganhar força, no ritmo do sono e da amamentação.",
       mensagem: "Oi, Bea! Tive meu bebê e quero voltar a treinar com você.",
     },
@@ -47,7 +42,6 @@
       inicio: 330,
       fim: 360,
       nome: "hipertrofia",
-      titulo: "No programa de hipertrofia",
       texto: "Corpo recuperado, hora de construir músculo. No programa de hipertrofia, o objetivo é ficar mais forte.",
       mensagem: "Oi, Bea! Quero saber mais sobre o programa de hipertrofia.",
     },
@@ -58,10 +52,14 @@
   const svg = document.querySelector(".disco-svg");
   const range = document.getElementById("fase-range");
   const marcador = document.querySelector(".disco-marcador");
-  const centro1 = document.querySelector(".disco-centro-1");
-  const centro2 = document.querySelector(".disco-centro-2");
-  const faseTitulo = document.querySelector(".fase-titulo");
+  const faseSemana = document.querySelector(".fase-semana");
+  const faseNome = document.querySelector(".fase-nome");
   const faseTexto = document.querySelector(".fase-texto");
+  const barriga = document.querySelector(".barriga");
+  const braco = document.querySelector(".braco");
+  const bebe = document.querySelector(".fig-bebe");
+  const kettlebell = document.querySelector(".fig-kettlebell");
+  const halter = document.querySelector(".fig-halter");
   const contatos = document.querySelectorAll(".js-contato");
 
   const whatsapp = (document.body.dataset.whatsapp || "").replace(/\D/g, "");
@@ -135,6 +133,33 @@
     };
   }
 
+  // A figura no centro do disco: a barriga cresce com a semana; no pós-parto ela segura o bebê,
+  // depois um kettlebell e, na hipertrofia, um halter.
+  function desenharFigura(v) {
+    let escala;
+    let d;
+    if (v <= 40) {
+      escala = v <= 12 ? 0.1 + v * 0.012 : 0.25 + ((v - 12) / 28) * 0.75;
+      const mx = 86 + 68 * escala * 0.7;
+      const my = 142 + 34 * escala * 0.45;
+      d = `M80 82 Q 68 126 ${mx.toFixed(1)} ${my.toFixed(1)}`;
+    } else if (v === 41) {
+      escala = 0.2;
+      d = "M80 82 Q 74 128 118 120";
+    } else if (v === 42) {
+      escala = 0.12;
+      d = "M80 82 Q 76 122 82 160";
+    } else {
+      escala = 0.1;
+      d = "M80 82 L 76 120 L 100 98";
+    }
+    barriga.style.transform = `scale(${escala})`;
+    braco.setAttribute("d", d);
+    bebe.classList.toggle("oculto", v !== 41);
+    kettlebell.classList.toggle("oculto", v !== 42);
+    halter.classList.toggle("oculto", v !== 43);
+  }
+
   function linkContato(mensagem) {
     if (whatsapp) return `https://wa.me/${whatsapp}?text=${encodeURIComponent(mensagem)}`;
     return `https://ig.me/m/${instagram}`;
@@ -147,13 +172,14 @@
   }
 
   function atualizar() {
-    const estado = lerValor(Number(range.value));
+    const valor = Number(range.value);
+    const estado = lerValor(valor);
     const fase = FASES[estado.indice];
 
     marcador.style.transform = `rotate(${estado.graus}deg)`;
-    centro1.textContent = estado.linha1;
-    centro2.textContent = estado.linha2;
-    faseTitulo.textContent = fase.titulo;
+    desenharFigura(valor);
+    faseSemana.textContent = estado.linha1;
+    faseNome.textContent = estado.linha2;
     faseTexto.textContent = fase.texto;
     range.setAttribute("aria-valuetext", `${estado.linha1}, ${estado.linha2}`);
 
