@@ -197,7 +197,7 @@ a {
   font-size: clamp(2.5rem, 5.6vw, 4.25rem);
   font-weight: 780;
   color: var(--roma);
-  max-width: 12ch;
+  max-width: 14ch;
 }
 
 .lead {

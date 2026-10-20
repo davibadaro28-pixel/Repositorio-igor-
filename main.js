@@ -73,42 +73,42 @@
         inicio: 0,
         fim: 13 * GRAUS_POR_SEMANA,
         nome: "1º trimestre",
-        texto: "Fase de enjoo e cansaço para muitas mulheres. O treino se adapta aos seus dias para você continuar se movimentando, e a nutricionista ajuda na alimentação quando comer é difícil.",
+        texto: "Enjoo, aversões e cansaço. A Bea monta estratégias para você comer bem nos dias difíceis, com ácido fólico e os nutrientes que o bebê mais precisa agora.",
       },
       {
         inicio: 13 * GRAUS_POR_SEMANA,
         fim: 27 * GRAUS_POR_SEMANA,
         nome: "2º trimestre",
-        texto: "A fase com mais energia. Você ganha força nas costas, no quadril e nas pernas, que vão sustentar a barriga, e acompanha o ganho de peso mês a mês com a nutricionista.",
+        texto: "A fome aumenta e o bebê cresce rápido. O seu ganho de peso é acompanhado mês a mês na curva da Caderneta da Gestante, com ferro, cálcio e proteína no prato.",
       },
       {
         inicio: 27 * GRAUS_POR_SEMANA,
         fim: 270,
         nome: "3º trimestre",
-        texto: "Reta final. Mobilidade, respiração e assoalho pélvico para o parto, junto com a preparação da doula. A carga diminui e o cuidado aumenta.",
+        texto: "Reta final: azia, intestino preso e estômago apertado. Refeições menores e mais frequentes, e a alimentação do pós-parto já planejada, enquanto a doula prepara você para o parto.",
       },
       {
         inicio: 270,
         fim: 300,
         nome: "primeiras 6 semanas",
-        texto: "Primeiras semanas com o bebê. Nada de treino pesado: o foco é descanso e respiração enquanto você espera a liberação do obstetra.",
+        texto: "Primeiras semanas com o bebê. Comida prática e nutritiva para recuperar a energia e sustentar a amamentação, sem dieta restritiva.",
         mensagem: "Oi, Bea! Tive meu bebê há poucas semanas e quero saber mais sobre o programa.",
         ancora: "puerperio",
       },
       {
         inicio: 300,
         fim: 330,
-        nome: "volta ao treino",
-        texto: "Com a liberação do obstetra, você reconecta abdômen e assoalho pélvico e volta a ganhar força, no ritmo do sono e da amamentação.",
-        mensagem: "Oi, Bea! Tive meu bebê e quero voltar a treinar com você.",
+        nome: "recuperação",
+        texto: "Perda de peso gradual e segura, no ritmo do sono e da amamentação, para recuperar o seu corpo sem perder energia.",
+        mensagem: "Oi, Bea! Tive meu bebê e quero recuperar o meu corpo com acompanhamento.",
         ancora: "retorno",
       },
       {
         inicio: 330,
         fim: 360,
         nome: "hipertrofia",
-        texto: "Corpo recuperado, hora de construir músculo. No programa de hipertrofia, o objetivo é ficar mais forte.",
-        mensagem: "Oi, Bea! Quero saber mais sobre o programa de hipertrofia.",
+        texto: "Corpo recuperado, hora de construir músculo. Proteína e energia ajustadas ao seu treino para ganhar massa muscular.",
+        mensagem: "Oi, Bea! Quero saber mais sobre a nutrição para hipertrofia.",
         ancora: "hipertrofia",
       },
     ];
@@ -385,7 +385,6 @@
     const enviar = pronta.querySelector(".js-enviar");
     const copiar = pronta.querySelector(".js-copiar");
     const copiado = pronta.querySelector(".copiado");
-    const avisoLiberacao = form.querySelector(".js-aviso-liberacao");
 
     const valorMarcado = (nome) => {
       const marcado = form.querySelector(`[name="${nome}"]:checked`);
@@ -401,7 +400,6 @@
       form.querySelectorAll("[data-se]").forEach((c) => {
         c.hidden = c.dataset.se !== fase;
       });
-      avisoLiberacao.hidden = valorMarcado("liberacao") !== "Não liberou";
     }
 
     // Pré-preenche a fase escolhida no disco da página inicial (ex.: #semana-20, #retorno).
@@ -420,7 +418,7 @@
       } else if (ancora === "hipertrofia") {
         marcar("fase", "pos");
         el.namedItem("tempo").value = "Mais de 6 meses";
-        marcar("preocupacoes", "Voltar a treinar pesado");
+        marcar("preocupacoes", "Ganhar massa muscular");
       }
       mostrarCondicionais();
     }
@@ -456,12 +454,13 @@
       } else {
         linhas.push(`Fase: pós-parto, ${tempo.toLowerCase()}${parto ? `, parto ${parto.toLowerCase()}` : ""}`);
       }
-      const treino = valorMarcado("treino");
-      if (treino) linhas.push(`Já treinava: ${treino.toLowerCase()}`);
-      const liberacao = valorMarcado("liberacao");
-      if (liberacao) linhas.push(`Liberação do obstetra: ${liberacao.toLowerCase()}`);
-      const preocupacoes = [...form.querySelectorAll('[name="preocupacoes"]:checked')].map((i) => i.value.toLowerCase());
+      const marcados = (nome) => [...form.querySelectorAll(`[name="${nome}"]:checked`)].map((i) => i.value.toLowerCase());
+      const alimentacao = valorMarcado("alimentacao");
+      if (alimentacao) linhas.push(`Minha alimentação hoje: ${alimentacao.toLowerCase()}`);
+      const preocupacoes = marcados("preocupacoes");
       if (preocupacoes.length) linhas.push(`O que mais me preocupa: ${listar(preocupacoes)}`);
+      const saude = marcados("saude");
+      if (saude.length) linhas.push(`Saúde: ${listar(saude)}`);
       const cidade = el.namedItem("cidade").value.trim();
       if (cidade) linhas.push(`Cidade: ${cidade}`);
       const recado = el.namedItem("recado").value.trim();

@@ -153,9 +153,9 @@
       <button class="menu-botao" type="button" aria-expanded="false" aria-controls="menu"><span class="menu-icone" aria-hidden="true"></span><span class="visualmente-oculto">Menu</span></button>
       <nav id="menu" class="menu" aria-label="Páginas">
         <a href="programa.html">O programa</a>
-        <a href="gestacao.html">Gestação</a>
         <a href="alimentacao.html">Alimentação</a>
         <a href="pos-parto.html">Pós-parto</a>
+        <a href="gestacao.html">Exercício</a>
       </nav>
       <a class="botao botao-pequeno" href="quero-entrar.html" aria-current="page">Quero entrar</a>
     </div>
@@ -214,34 +214,34 @@
           </fieldset>
 
           <fieldset>
-            <legend>Você já treinava?</legend>
+            <legend>Como está a sua alimentação hoje?</legend>
             <div class="opcoes">
-              <label class="opcao"><input type="radio" name="treino" value="Sim, com regularidade"> Sim, com regularidade</label>
-              <label class="opcao"><input type="radio" name="treino" value="Às vezes"> Às vezes</label>
-              <label class="opcao"><input type="radio" name="treino" value="Não"> Não</label>
+              <label class="opcao"><input type="radio" name="alimentacao" value="Bem organizada"> Bem organizada</label>
+              <label class="opcao"><input type="radio" name="alimentacao" value="Mais ou menos"> Mais ou menos</label>
+              <label class="opcao"><input type="radio" name="alimentacao" value="Bem bagunçada"> Bem bagunçada</label>
             </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>O seu obstetra já liberou atividade física?</legend>
-            <div class="opcoes">
-              <label class="opcao"><input type="radio" name="liberacao" value="Sim"> Sim</label>
-              <label class="opcao"><input type="radio" name="liberacao" value="Ainda não conversei sobre isso"> Ainda não conversei sobre isso</label>
-              <label class="opcao"><input type="radio" name="liberacao" value="Não liberou"> Não liberou</label>
-            </div>
-            <p class="form-aviso js-aviso-liberacao" hidden>Sem a liberação, o treino não começa. Mande a mensagem mesmo assim: a Bea pode ajudar você a preparar as perguntas para o obstetra.</p>
           </fieldset>
 
           <fieldset>
             <legend>O que mais preocupa você? <span>Marque quantas quiser</span></legend>
             <div class="opcoes">
               <label class="opcao"><input type="checkbox" name="preocupacoes" value="Ganho de peso"> Ganho de peso</label>
-              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Alimentação"> Alimentação</label>
+              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Nutrientes para o bebê"> Nutrientes para o bebê</label>
+              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Enjoo"> Enjoo</label>
+              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Azia ou intestino preso"> Azia ou intestino preso</label>
+              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Amamentação"> Amamentação</label>
               <label class="opcao"><input type="checkbox" name="preocupacoes" value="Recuperar o corpo depois do parto"> Recuperar o corpo depois do parto</label>
-              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Dor nas costas ou no quadril"> Dor nas costas ou no quadril</label>
-              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Perda de urina"> Perda de urina</label>
-              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Preparação para o parto"> Preparação para o parto</label>
-              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Voltar a treinar pesado"> Voltar a treinar pesado</label>
+              <label class="opcao"><input type="checkbox" name="preocupacoes" value="Ganhar massa muscular"> Ganhar massa muscular</label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Algum ponto de saúde? <span>opcional</span></legend>
+            <div class="opcoes">
+              <label class="opcao"><input type="checkbox" name="saude" value="Diabetes gestacional"> Diabetes gestacional</label>
+              <label class="opcao"><input type="checkbox" name="saude" value="Pressão alta"> Pressão alta</label>
+              <label class="opcao"><input type="checkbox" name="saude" value="Anemia"> Anemia</label>
+              <label class="opcao"><input type="checkbox" name="saude" value="Restrição ou intolerância alimentar"> Restrição ou intolerância alimentar</label>
             </div>
           </fieldset>
 
@@ -282,8 +282,8 @@
         <h2 id="depois-titulo">O que acontece depois</h2>
         <ol class="passos passos-compacto">
           <li><p>A Bea lê a sua mensagem e responde.</p></li>
-          <li><p>Vocês conversam sobre a sua rotina, o seu histórico e o que você quer.</p></li>
-          <li><p>Com a liberação do obstetra, o plano da sua fase começa.</p></li>
+          <li><p>Vocês marcam a consulta inicial para entender a sua rotina, os seus exames e o que você quer.</p></li>
+          <li><p>O plano alimentar da sua fase começa.</p></li>
         </ol>
         <p class="entrar-preco">Investimento: R$ 5.000 à vista ou 5x de R$ 1.000.</p>
         <a class="link" href="programa.html">Ver o programa completo</a>
@@ -295,17 +295,17 @@
     <div class="largura rodape-grid">
       <div class="rodape-sobre">
         <p class="marca"><svg class="marca-icone" aria-hidden="true"><use href="#il-roma"/></svg>Bea Paes</p>
-        <p>Treino na gestação e no pós-parto, com nutricionista, doula e obstetra.</p>
+        <p>Nutrição na gestação e no pós-parto, com doula e obstetra parceiras.</p>
       </div>
       <nav class="rodape-links" aria-label="Rodapé">
         <a href="programa.html">O programa</a>
-        <a href="gestacao.html">Treinar na gestação</a>
         <a href="alimentacao.html">Alimentação e ganho de peso</a>
-        <a href="pos-parto.html">Pós-parto</a>
+        <a href="pos-parto.html">Pós-parto e amamentação</a>
+        <a href="gestacao.html">Exercício na gestação</a>
         <a href="quero-entrar.html">Quero entrar</a>
         <a href="https://www.instagram.com/beapaes_/" rel="noopener">Instagram</a>
       </nav>
-      <p class="rodape-aviso">O conteúdo deste site é informativo e não substitui o acompanhamento pré-natal. Antes de começar ou mudar a sua rotina de exercícios, converse com o seu obstetra.</p>
+      <p class="rodape-aviso">O conteúdo deste site é informativo e não substitui o acompanhamento pré-natal. Suplementos, dietas e exercícios devem ser combinados com o seu obstetra.</p>
     </div>
   </footer>
 
