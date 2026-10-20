@@ -1,8 +1,8 @@
 (function () {
-  // PREENCHER: número de WhatsApp da Bea só com dígitos, com DDI e DDD (ex.: 5511999999999).
-  // Enquanto estiver vazio, os botões de contato abrem o direct do Instagram.
+  // WhatsApp da Bea só com dígitos, com DDI e DDD (o mesmo do Linktree dela).
+  // Se ficar vazio, os botões de contato abrem o direct do Instagram.
   const CONFIG = {
-    whatsapp: "",
+    whatsapp: "5511945364807",
     instagram: "beapaes_",
   };
 

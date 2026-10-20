@@ -194,7 +194,7 @@ a {
 }
 
 .hero h1 {
-  font-size: clamp(2.5rem, 5.6vw, 4.25rem);
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
   font-weight: 780;
   color: var(--roma);
   max-width: 14ch;
@@ -530,9 +530,12 @@ a {
   color: var(--tinta-suave);
 }
 
+.bea-retrato,
 .bea img {
   display: block;
   width: 100%;
+  max-width: 100%;
+  height: auto;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   border-radius: 10rem 10rem 1.5rem 1.5rem;
@@ -951,6 +954,69 @@ a {
 
 .guia-texto {
   font-size: 1rem;
+}
+
+/* Assinatura no topo e "Quem é a Bea" */
+
+.assinatura {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.75rem;
+}
+
+.assinatura img {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 0 3px var(--leite), 0 0 0 5px var(--semente);
+}
+
+.assinatura p {
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: var(--tinta-suave);
+}
+
+.assinatura strong {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-weight: 650;
+  color: var(--tinta);
+}
+
+.sobre-bea {
+  display: grid;
+  grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: center;
+}
+
+.sobre-foto {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 12rem 12rem 1.5rem 1.5rem;
+}
+
+.sobre-texto > * + * {
+  margin-top: 1rem;
+}
+
+.sobre-texto .titulo-secao + p {
+  margin-top: 1.5rem;
+}
+
+.sobre-links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.75rem;
 }
 
 /* Topo das páginas internas */
@@ -1904,6 +1970,14 @@ button.botao {
 
   .investimento {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sobre-bea {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .sobre-foto {
+    max-width: 20rem;
   }
 }
 
