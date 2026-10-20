@@ -195,30 +195,54 @@
       };
     }
 
-    // A figura no centro do disco: a barriga cresce com a semana; no pós-parto ela segura o bebê,
-    // depois um kettlebell e, na hipertrofia, um halter.
+    // A figura no centro do disco: a barriga sai de baixo do peito e afunila até a pelve,
+    // crescendo com a semana; no pós-parto ela segura o bebê, depois um kettlebell e,
+    // na hipertrofia, um halter.
+    function bezier(a, b, c, d, t) {
+      const u = 1 - t;
+      return [0, 1].map((i) => u * u * u * a[i] + 3 * u * u * t * b[i] + 3 * u * t * t * c[i] + t * t * t * d[i]);
+    }
+
+    function contornoBarriga(p) {
+      const f = p / 40;
+      const topo = [98, 134 - 44 * f];
+      const base = [104, 188];
+      const frente = [100 + p, topo[1] + 0.56 * (base[1] - topo[1])];
+      const c1 = [topo[0] + 0.25 * p, topo[1] + 0.2 * (frente[1] - topo[1])];
+      const c2 = [frente[0], frente[1] - 0.55 * (frente[1] - topo[1])];
+      const c3 = [frente[0], frente[1] + 0.5 * (base[1] - frente[1])];
+      const c4 = [base[0] + 0.4 * p, base[1] - 0.2 * (base[1] - frente[1])];
+      const pt = (n) => n.map((v) => v.toFixed(1)).join(" ");
+      const mao = bezier(frente, c3, c4, base, 0.3);
+      return {
+        d: `M86 ${topo[1].toFixed(1)} L${pt(topo)} C${pt(c1)} ${pt(c2)} ${pt(frente)} C${pt(c3)} ${pt(c4)} ${pt(base)} L86 ${base[1]} Z`,
+        braco: `M80 82 Q 68 122 ${(mao[0] - 5).toFixed(1)} ${(mao[1] - 1).toFixed(1)}`,
+      };
+    }
+
+    function trocarCaminho(el, d) {
+      el.setAttribute("d", d);
+      el.style.d = `path("${d}")`;
+    }
+
     function desenharFigura(v) {
-      let escala;
+      let p;
       let d;
       if (v <= 40) {
-        escala = v <= 12 ? 0.1 + v * 0.012 : 0.25 + ((v - 12) / 28) * 0.75;
-        // A barriga cresce a partir do ponto (86, 132) e a mão fica na parte de baixo dela.
-        const raio = 34 * escala;
-        const mx = 86 + raio * 1.45;
-        const my = 132.2 - 10.2 * escala + raio * 0.55;
-        d = `M80 82 Q 68 126 ${mx.toFixed(1)} ${my.toFixed(1)}`;
+        p = v <= 12 ? v * 0.3 : 3.6 + ((v - 12) / 28) * 32.4;
       } else if (v === 41) {
-        escala = 0.2;
+        p = 7;
         d = "M80 82 Q 74 128 118 120";
       } else if (v === 42) {
-        escala = 0.12;
+        p = 3;
         d = "M80 82 Q 76 122 82 160";
       } else {
-        escala = 0.1;
+        p = 0;
         d = "M80 82 L 76 120 L 100 98";
       }
-      barriga.style.transform = `scale(${escala})`;
-      braco.setAttribute("d", d);
+      const contorno = contornoBarriga(p);
+      trocarCaminho(barriga, contorno.d);
+      trocarCaminho(braco, d || contorno.braco);
       bebe.classList.toggle("oculto", v !== 41);
       kettlebell.classList.toggle("oculto", v !== 42);
       halter.classList.toggle("oculto", v !== 43);
