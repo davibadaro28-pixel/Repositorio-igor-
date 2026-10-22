@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { IS_PREVIEW } from '../lib/env.js';
 import { useApi } from '../lib/api.js';
 import { brl, dateTimeBR, phone, addressLine, methodLabel, TYPE, CHANNEL } from '../lib/format.js';
 import { useSettings } from './AdminApp.jsx';
@@ -9,10 +10,11 @@ export default function PrintOrder() {
   const { id } = useParams();
   const { data: o } = useApi(`/orders/${id}`);
   const { settings } = useSettings();
+  const navigate = useNavigate();
   const store = settings?.store;
 
   useEffect(() => {
-    if (o && store) setTimeout(() => window.print(), 300);
+    if (o && store && !IS_PREVIEW) setTimeout(() => window.print(), 300);
   }, [o, store]);
 
   if (!o || !store) return <p className="p-4 text-sm">Preparando impressão…</p>;
@@ -68,7 +70,14 @@ export default function PrintOrder() {
         <p className="text-center">Obrigada pela preferência! 🎀</p>
         <p className="text-center text-[10px]">@{store.instagram}</p>
       </div>
-      <p className="mt-4 text-center text-sm text-stone-500 print:hidden">Se a impressão não abriu, use Ctrl+P.</p>
+      {IS_PREVIEW ? (
+        <div className="mt-4 text-center print:hidden">
+          <p className="mb-2 text-sm text-stone-500">No sistema instalado esta comanda vai direto para a impressora térmica.</p>
+          <button onClick={() => navigate(-1)} className="rounded-xl bg-brand-600 px-4 py-2 text-sm font-medium text-white">Voltar</button>
+        </div>
+      ) : (
+        <p className="mt-4 text-center text-sm text-stone-500 print:hidden">Se a impressão não abriu, use Ctrl+P.</p>
+      )}
     </div>
   );
 }

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Download, DollarSign, ShoppingBag, Receipt, Users, XCircle } from 'lucide-react';
 import { useApi, getToken } from '../lib/api.js';
+import { IS_PREVIEW } from '../lib/env.js';
 import { brl, dateBR, todayISO, addDaysISO, pct, qty, methodLabel, CHANNEL, TYPE } from '../lib/format.js';
-import { Button, Card, Input, PageHeader, Spinner, Stat, Table } from '../components/ui.jsx';
+import { Button, Card, Input, PageHeader, Spinner, Stat, Table, useToast } from '../components/ui.jsx';
 import { ColumnChart, BarList } from '../components/charts.jsx';
 import { useSettings } from './AdminApp.jsx';
 
@@ -13,13 +14,16 @@ export default function Reports() {
   const [to, setTo] = useState(todayISO());
   const { data } = useApi(`/reports/summary?from=${from}&to=${to}`);
   const { settings } = useSettings();
+  const toast = useToast();
   const methods = settings?.payment_methods || [];
   const presets = [['Hoje', todayISO(), todayISO()], ['7 dias', addDaysISO(todayISO(), -6), todayISO()], ['30 dias', addDaysISO(todayISO(), -29), todayISO()], ['90 dias', addDaysISO(todayISO(), -89), todayISO()]];
 
   return (
     <>
       <PageHeader title="Relatórios" subtitle="Vendas, produtos, horários, pagamentos e bairros">
-        <a href={`/api/reports/orders.csv?from=${from}&to=${to}&token=${encodeURIComponent(getToken() || '')}`}><Button variant="secondary" icon={Download}>Exportar pedidos (Excel)</Button></a>
+        {IS_PREVIEW
+          ? <Button variant="secondary" icon={Download} onClick={() => toast('Na prévia não dá para baixar arquivos. No sistema instalado, o Excel é baixado aqui.')}>Exportar pedidos (Excel)</Button>
+          : <a href={`/api/reports/orders.csv?from=${from}&to=${to}&token=${encodeURIComponent(getToken() || '')}`}><Button variant="secondary" icon={Download}>Exportar pedidos (Excel)</Button></a>}
       </PageHeader>
       <Card className="mb-4 flex flex-wrap items-end gap-2 p-3">
         <label className="text-xs text-stone-500">De<Input type="date" value={from} onChange={(e) => setFrom(e.target.value)} /></label>

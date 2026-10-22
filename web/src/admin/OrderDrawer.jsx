@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { newTab } from '../lib/env.js';
 import { Printer, MessageCircle, XCircle, Phone, MapPin, CreditCard, Bike, CalendarClock } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { brl, dateTimeBR, phone, addressLine, itemLine, waLink, methodLabel, TYPE, CHANNEL, STATUS } from '../lib/format.js';
@@ -79,7 +81,7 @@ export default function OrderDrawer({ id, onClose, onChange }) {
     <Modal open onClose={onClose} size="lg" title={o ? <span className="flex items-center gap-2">Pedido #{o.id} <StatusBadge status={o.status} /></span> : 'Pedido'}
       footer={o && (
         <>
-          <a href={`/admin/imprimir/${o.id}`} target="_blank" rel="noreferrer"><Button variant="secondary" icon={Printer}>Imprimir</Button></a>
+          <Link to={`/admin/imprimir/${o.id}`} {...newTab}><Button variant="secondary" icon={Printer}>Imprimir</Button></Link>
           {o.customer_phone && (
             <a href={waLink(o.customer_phone, customerMessage(o, settings?.store?.name))} target="_blank" rel="noreferrer">
               <Button variant="secondary" icon={MessageCircle}>WhatsApp</Button>

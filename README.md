@@ -70,6 +70,17 @@ Cria 30 dias de vendas, clientes, encomendas, entregadores e contas de exemplo.
 Logins: `admin / demo1234` · `caixa / caixa123` · `cozinha / cozinha123` · `motoboy / moto123`.
 Os dados de demonstração **não se misturam** com o banco real (`server/data/lacos.db`).
 
+### Prévia no navegador (sem servidor)
+
+```bash
+npm run build:preview      # gera preview-dist/
+```
+
+Gera uma página estática em que o sistema inteiro roda no navegador: as mesmas rotas e regras de `server/`
+sobre um SQLite em memória ([sql.js](https://sql.js.org)), com os dados de demonstração e uma barra para alternar
+entre cardápio, painel da loja e app do entregador. Serve para mostrar o sistema sem hospedar nada; os dados
+ficam só no navegador de quem abre. Os adaptadores estão em `preview/`.
+
 ### Desenvolvimento
 
 ```bash

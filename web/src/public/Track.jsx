@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { CheckCircle2, ChefHat, PackageCheck, Bike, Home, ClipboardCheck, MessageCircle, ArrowLeft, XCircle } from 'lucide-react';
 import { useApi } from '../lib/api.js';
+import { asset } from '../lib/env.js';
 import { brl, dateTimeBR, timeBR, addressLine, itemLine, waLink, TYPE } from '../lib/format.js';
 import { Button, Card, Spinner, cx } from '../components/ui.jsx';
 
@@ -61,7 +62,7 @@ export default function Track() {
       <header className="bg-gradient-to-b from-brand-700 to-brand-500 px-4 pb-16 pt-6 text-white">
         <div className="mx-auto flex max-w-xl items-center gap-3">
           <Link to="/" className="rounded-full bg-white/15 p-2 hover:bg-white/25" aria-label="Voltar"><ArrowLeft className="size-5" /></Link>
-          <img src="/img/logo.jpg" alt="" className="size-10 rounded-full ring-2 ring-white" />
+          <img src={asset('/img/logo.jpg')} alt="" className="size-10 rounded-full ring-2 ring-white" />
           <div>
             <p className="font-script text-2xl leading-none">Laços de Mãe</p>
             <p className="text-xs text-white/80">Pedido #{o.id}</p>

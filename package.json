@@ -13,6 +13,7 @@
     "build": "vite build --config web/vite.config.js",
     "start": "node --no-warnings=ExperimentalWarning server/index.js",
     "demo": "node --no-warnings=ExperimentalWarning server/demo.js",
+    "build:preview": "node preview/build.mjs",
     "test": "node --no-warnings=ExperimentalWarning --test server/test/*.test.js"
   },
   "dependencies": {

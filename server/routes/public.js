@@ -8,10 +8,11 @@ const r = Router();
 
 // Limite simples por IP para evitar spam de pedidos
 const hits = new Map();
-setInterval(() => {
+const sweep = setInterval(() => {
   const t = Date.now();
   for (const [key, list] of hits) if (!list.some((x) => t - x < 3600e3)) hits.delete(key);
-}, 600e3).unref();
+}, 600e3);
+sweep.unref?.();
 function rateLimit(max, windowMs) {
   return (req, _res, next) => {
     const key = `${req.path}:${req.ip}`;

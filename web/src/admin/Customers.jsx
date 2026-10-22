@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Plus, Search, MessageCircle, Gift, Pencil, Download } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
+import { IS_PREVIEW } from '../lib/env.js';
 import { brl, dateBR, dateTimeBR, phone, maskPhone, waLink, TYPE } from '../lib/format.js';
 import { Button, Card, Field, Input, Modal, PageHeader, Spinner, StatusBadge, Table, Tabs, Textarea, useToast, ErrorBox, Empty } from '../components/ui.jsx';
 import { useSettings } from './AdminApp.jsx';
@@ -30,9 +31,11 @@ export default function Customers() {
   const [open, setOpen] = useState(null);
   const [edit, setEdit] = useState(null);
   const { settings } = useSettings();
+  const toast = useToast();
   const menuUrl = window.location.origin;
 
   const exportCsv = () => {
+    if (IS_PREVIEW) return toast('Na prévia não dá para baixar arquivos. No sistema instalado, a lista é baixada aqui.');
     const rows = (list.data || []).map((c) => [c.name, phone(c.phone), c.email || '', c.birthday || '', c.neighborhood || '', c.orders, (c.spent_cents / 100).toFixed(2).replace('.', ','), c.last_order_at || '', c.points]);
     const csv = '﻿' + [['Nome', 'Telefone', 'Email', 'Aniversário', 'Bairro', 'Pedidos', 'Total gasto', 'Última compra', 'Pontos'], ...rows].map((r) => r.map((x) => `"${String(x).replace(/"/g, '""')}"`).join(';')).join('\n');
     const a = document.createElement('a');

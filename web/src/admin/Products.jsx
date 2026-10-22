@@ -193,8 +193,9 @@ function ProductModal({ product, categories, onClose, onSaved }) {
       setSaving(false);
     }
   };
+  const [confirmDel, setConfirmDel] = useState(false);
   const remove = async () => {
-    if (!confirm('Excluir este produto? Se ele já teve vendas, será apenas arquivado.')) return;
+    if (!confirmDel) return setConfirmDel(true);
     await api.del(`/products/${p.id}`);
     onSaved();
   };
@@ -214,7 +215,7 @@ function ProductModal({ product, categories, onClose, onSaved }) {
   return (
     <Modal open onClose={onClose} size="xl" title={p.id ? 'Editar produto' : 'Novo produto'} footer={
       <>
-        {p.id && <Button variant="ghost" className="mr-auto text-red-600" icon={Trash2} onClick={remove}>Excluir</Button>}
+        {p.id && <Button variant={confirmDel ? 'danger' : 'ghost'} className={cx('mr-auto', !confirmDel && 'text-red-600')} icon={Trash2} onClick={remove}>{confirmDel ? 'Confirmar exclusão (vendas antigas só arquivam)' : 'Excluir'}</Button>}
         <Button variant="secondary" onClick={onClose}>Cancelar</Button>
         <Button loading={saving} onClick={save}>Salvar</Button>
       </>

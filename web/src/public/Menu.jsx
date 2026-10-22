@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Search, ShoppingBag, Minus, Plus, MapPin, Clock, Instagram, MessageCircle, Star, X, Trash2, CalendarClock, Bike, Store, ChevronRight } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
+import { asset } from '../lib/env.js';
 import { brl, maskPhone, todayISO, addDaysISO, weekdayOf, parseSP } from '../lib/format.js';
 import { Button, Field, Input, Modal, Select, Spinner, Textarea, cx, ErrorBox } from '../components/ui.jsx';
 
@@ -25,7 +26,7 @@ const save = (k, v) => {
 const DAY_KEYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 function Logo({ className }) {
-  return <img src="/img/logo.jpg" alt="Laços de Mãe" className={cx('rounded-full bg-white object-cover ring-4 ring-white shadow-md', className)} />;
+  return <img src={asset('/img/logo.jpg')} alt="Laços de Mãe" className={cx('rounded-full bg-white object-cover ring-4 ring-white shadow-md', className)} />;
 }
 
 export default function Menu() {

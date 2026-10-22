@@ -1,0 +1,176 @@
+// Dados de exemplo usados pelo modo demonstração (npm run demo) e pela prévia no navegador.
+import { all, get, run, tx, now, today } from './db.js';
+import { hashPassword } from './auth.js';
+import { createOrder, setStatus } from './services/orders.js';
+import { addDays } from './util.js';
+
+let seed = 42;
+const rand = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
+const pick = (list) => list[Math.floor(rand() * list.length)];
+const weighted = (pairs) => {
+  const total = pairs.reduce((s, [, w]) => s + w, 0);
+  let r = rand() * total;
+  for (const [v, w] of pairs) if ((r -= w) <= 0) return v;
+  return pairs[0][0];
+};
+
+const FIRST = ['Ana', 'Beatriz', 'Camila', 'Daniela', 'Eduarda', 'Fernanda', 'Gabriela', 'Helena', 'Isabela', 'Juliana', 'Larissa', 'Mariana', 'Natália', 'Patrícia', 'Renata', 'Sabrina', 'Tatiane', 'Vanessa', 'Carlos', 'Diego', 'Felipe', 'Gustavo', 'João', 'Lucas', 'Marcos', 'Paulo', 'Rafael', 'Thiago', 'Vinícius', 'Bruno'];
+const LAST = ['Silva', 'Santos', 'Oliveira', 'Souza', 'Lima', 'Pereira', 'Costa', 'Ferreira', 'Almeida', 'Rodrigues', 'Gomes', 'Martins', 'Barbosa', 'Rocha'];
+const STREETS = ['Rua Ipê Roxo', 'Rua das Hortênsias', 'Av. Boturussu', 'Rua Pedro Ivo', 'Rua Ernesto Pujol', 'Rua Santa Catarina', 'Rua Mirassol', 'Rua Dom João Neri', 'Av. Paranaguá', 'Rua Jacaraípe'];
+
+/** Gera 30 dias de vendas, clientes, encomendas, estoque e contas de exemplo. */
+export function generateDemoData() {
+  seed = 42;
+  const t = now();
+  tx(() => {
+    const users = [['Bia (caixa)', 'caixa', 'caixa', 'caixa123', 0], ['Cozinha', 'cozinha', 'cozinha', 'cozinha123', 0], ['Rogério', 'motoboy', 'entregador', 'moto123', 700], ['Wesley', 'motoboy2', 'entregador', 'moto123', 700]];
+    for (const [name, login, role, pass, fee] of users) {
+      if (!get('SELECT 1 FROM users WHERE login = ?', login)) {
+        run('INSERT INTO users (name, login, role, password_hash, delivery_fee_cents, phone, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)',
+          name, login, role, hashPassword(pass), fee, '1199' + String(Math.floor(rand() * 1e7)).padStart(7, '0'), t);
+      }
+    }
+    // estoque inicial e mínimos
+    for (const i of all('SELECT * FROM ingredients')) {
+      const base = i.unit === 'un' ? 60 + Math.floor(rand() * 200) : 3000 + Math.floor(rand() * 15000);
+      run('UPDATE ingredients SET stock_qty = ?, min_qty = ? WHERE id = ?', base, Math.round(base * (0.15 + rand() * 0.3)), i.id);
+    }
+    run(`UPDATE ingredients SET stock_qty = min_qty * 0.6 WHERE name IN ('Morango', 'Pote 200 ml', 'Leite em pó Ninho')`);
+    run(`INSERT OR IGNORE INTO coupons (code, type, value, min_order_cents, first_order_only, uses, created_at) VALUES ('PRIMEIRACOMPRA', 'percent', 10, 0, 1, 7, ?)`, t);
+    run(`INSERT OR IGNORE INTO coupons (code, type, value, min_order_cents, uses, created_at) VALUES ('FRETEGRATIS', 'frete', 0, 8000, 12, ?)`, t);
+  });
+
+  const zones = all('SELECT * FROM delivery_zones WHERE active = 1');
+  const customers = Array.from({ length: 45 }, (_, i) => {
+    const z = pick(zones);
+    const month = String(1 + Math.floor(rand() * 12)).padStart(2, '0');
+    const day = String(1 + Math.floor(rand() * 28)).padStart(2, '0');
+    return {
+      name: `${pick(FIRST)} ${pick(LAST)}`,
+      phone: `119${String(60000000 + i * 137911).slice(0, 8)}`,
+      zone: z,
+      birthday: rand() < 0.5 ? (i % 9 === 0 ? today().slice(5, 8) + String(Math.min(28, Number(today().slice(8)) + 2)).padStart(2, '0') : `${month}-${day}`) : undefined,
+      address: { street: pick(STREETS), number: String(10 + Math.floor(rand() * 1900)), complement: rand() < 0.3 ? `Apto ${Math.floor(rand() * 90)}` : '' },
+    };
+  });
+
+  const products = all(
+    `SELECT p.id, p.name, p.featured, p.option_groups, p.lead_time_hours, c.name AS cat FROM products p JOIN categories c ON c.id = p.category_id WHERE p.active = 1`,
+  ).map((p) => ({ ...p, groups: JSON.parse(p.option_groups), variants: all('SELECT id, price_cents FROM product_variants WHERE product_id = ? AND active = 1', p.id) }));
+  const pool = products.filter((p) => !p.lead_time_hours).flatMap((p) => Array(p.featured ? 4 : p.cat === 'Bebidas' ? 2 : 1).fill(p));
+  const cakes = products.filter((p) => /Premium|Torta na travessa|Bolo de banana/.test(p.name));
+  const admin = get(`SELECT * FROM users WHERE login = 'admin'`);
+  const couriers = all(`SELECT * FROM users WHERE role = 'entregador'`);
+
+  const items = (n, list = pool) => Array.from({ length: n }, () => {
+    const p = pick(list);
+    return {
+      variant_id: pick(p.variants).id,
+      qty: rand() < 0.75 ? 1 : 2,
+      options: p.groups.filter((g) => g.min > 0).map((g) => ({ group: g.name, name: pick(g.options).name })),
+    };
+  });
+
+  const backdate = (orderId, ts) => {
+    const shift = (col) => run(`UPDATE orders SET ${col} = ? WHERE id = ? AND ${col} IS NOT NULL`, ts, orderId);
+    ['created_at', 'updated_at', 'confirmed_at', 'ready_at', 'dispatched_at', 'completed_at', 'paid_at'].forEach(shift);
+    run('UPDATE order_payments SET created_at = ? WHERE order_id = ?', ts, orderId);
+    run('UPDATE order_events SET created_at = ? WHERE order_id = ?', ts, orderId);
+    run('UPDATE stock_movements SET created_at = ? WHERE order_id = ?', ts, orderId);
+  };
+
+  const make = (dayOffset, { status = 'concluido', hour } = {}) => {
+    const channel = weighted([['cardapio', 55], ['pdv', 30], ['whatsapp', 10], ['ifood', 5]]);
+    const type = channel === 'pdv' ? 'balcao' : weighted([['entrega', 65], ['retirada', 35]]);
+    const c = channel === 'pdv' && rand() < 0.5 ? null : pick(customers);
+    const method = channel === 'ifood' ? 'ifood' : weighted([['pix', 45], ['credito', 25], ['debito', 15], ['dinheiro', 15]]);
+    const n = weighted([[1, 35], [2, 35], [3, 20], [4, 10]]);
+    const input = {
+      type, channel: channel === 'cardapio' ? 'whatsapp' : channel, status: status === 'novo' ? 'novo' : 'preparo',
+      customer: c ? { name: c.name, phone: c.phone, birthday: c.birthday } : {},
+      zone_id: type === 'entrega' ? c?.zone.id || zones[0].id : null,
+      address: type === 'entrega' ? c?.address || { street: pick(STREETS), number: '100' } : null,
+      payment_method: method,
+      change_for_cents: method === 'dinheiro' && rand() < 0.5 ? 10000 : null,
+      coupon_code: rand() < 0.05 && type === 'entrega' ? 'FRETEGRATIS' : null,
+      items: items(n),
+    };
+    let order;
+    try {
+      order = createOrder(input, { user: admin });
+    } catch {
+      order = createOrder({ ...input, coupon_code: null }, { user: admin }); // cupom abaixo do mínimo
+    }
+    if (channel === 'cardapio') run(`UPDATE orders SET channel = 'cardapio' WHERE id = ?`, order.id);
+    if (type === 'entrega' && status !== 'novo') run('UPDATE orders SET courier_id = ? WHERE id = ?', pick(couriers).id, order.id);
+    const flow = ['pronto', ...(type === 'entrega' ? ['entrega'] : []), 'concluido'];
+    for (const s of flow) {
+      if (['preparo', 'novo', 'cancelado'].includes(status)) break;
+      if (s === 'entrega' && type !== 'entrega') continue;
+      setStatus(order.id, s, admin);
+      if (s === status) break;
+    }
+    if (status === 'cancelado') setStatus(order.id, 'cancelado', admin, { reason: 'Cliente desistiu' });
+    if (dayOffset !== 0) {
+      const h = hour ?? 11 + Math.floor(rand() * 10);
+      const ts = `${addDays(today(), -dayOffset)} ${String(h).padStart(2, '0')}:${String(Math.floor(rand() * 60)).padStart(2, '0')}:00`;
+      backdate(order.id, ts);
+    }
+    return order;
+  };
+
+  for (let d = 29; d >= 1; d--) {
+    const wd = new Date(addDays(today(), -d) + 'T12:00:00Z').getUTCDay();
+    if (wd === 0) continue; // domingo fechado
+    const n = 6 + Math.floor(rand() * 8) + (wd >= 5 ? 6 : 0);
+    for (let i = 0; i < n; i++) make(d, { status: rand() < 0.04 ? 'cancelado' : 'concluido' });
+  }
+
+  // hoje: caixa aberto e pedidos em andamento
+  run('INSERT INTO cash_sessions (opened_by, opened_at, opening_cents) VALUES (?, ?, ?)', admin.id, `${today()} 10:45:00`, 15000);
+  for (let i = 0; i < 6; i++) make(0, { status: 'concluido' });
+  ['novo', 'novo', 'preparo', 'preparo', 'pronto', 'entrega'].forEach((status) => make(0, { status }));
+
+  // encomendas dos próximos dias
+  for (let d = 1; d <= 5; d++) {
+    if (new Date(addDays(today(), d) + 'T12:00:00Z').getUTCDay() === 0) continue; // domingo fechado
+    for (let k = 0; k < 1 + Math.floor(rand() * 3); k++) {
+      const c = pick(customers);
+      const o = createOrder({
+        type: rand() < 0.6 ? 'retirada' : 'entrega', channel: 'whatsapp', status: 'confirmado',
+        customer: { name: c.name, phone: c.phone }, zone_id: c.zone.id, address: c.address,
+        scheduled_for: `${addDays(today(), d)} ${pick(['14:00', '15:30', '17:00', '18:30'])}`,
+        payment_method: 'pix', payments: [{ method: 'pix', amount_cents: 5000 }],
+        items: [...items(1, cakes), ...items(Math.floor(rand() * 2))],
+        notes: rand() < 0.5 ? 'Escrever "Parabéns!" no bolo' : null,
+      }, { user: admin });
+      run(`UPDATE orders SET channel = 'cardapio' WHERE id = ? AND ?`, o.id, rand() < 0.5 ? 1 : 0);
+    }
+  }
+
+  // contas
+  const cat = (name) => get('SELECT id FROM fin_categories WHERE name = ?', name)?.id;
+  const month = today().slice(0, 8);
+  const prevMonth = addDays(month + '01', -1).slice(0, 8);
+  const bills = [
+    ['Aluguel da loja', 'Aluguel', 250000, '10'], ['Conta de luz', 'Energia elétrica', 48000, '15'], ['Sabesp', 'Água', 12000, '18'],
+    ['Gás (botijões)', 'Gás', 26000, '05'], ['Internet + telefone', 'Internet e telefone', 11000, '20'], ['Folha de pagamento', 'Salários e encargos', 320000, '05'],
+    ['DAS Simples Nacional', 'Impostos (DAS)', 60000, '20'], ['Instagram anúncios', 'Marketing', 30000, '25'],
+  ];
+  for (const [desc, c, amount, day] of bills) {
+    for (const [m, paid] of [[prevMonth, true], [month, `${month}${day}` < today()]]) {
+      const due = `${m}${day}`;
+      const overdue = !paid && due < today();
+      run(`INSERT INTO fin_entries (type, category_id, description, amount_cents, due_date, paid_at, status, user_id, created_at) VALUES ('despesa', ?, ?, ?, ?, ?, ?, ?, ?)`,
+        cat(c), desc, amount, due, paid || (overdue && rand() < 0.6) ? due : null, paid || (overdue && rand() < 0.6) ? 'pago' : 'pendente', admin.id, t);
+    }
+  }
+  for (let d = 28; d >= 0; d -= 4) {
+    run(`INSERT INTO fin_entries (type, category_id, description, amount_cents, due_date, paid_at, status, supplier, user_id, created_at) VALUES ('despesa', ?, ?, ?, ?, ?, 'pago', ?, ?, ?)`,
+      cat('Insumos e matéria-prima'), 'Compra de insumos (atacado)', 70000 + Math.floor(rand() * 60000), addDays(today(), -d), addDays(today(), -d), 'Atacadão', admin.id, t);
+    run(`INSERT INTO fin_entries (type, category_id, description, amount_cents, due_date, paid_at, status, supplier, user_id, created_at) VALUES ('despesa', ?, ?, ?, ?, ?, 'pago', ?, ?, ?)`,
+      cat('Embalagens'), 'Embalagens e potes', 15000 + Math.floor(rand() * 15000), addDays(today(), -d), addDays(today(), -d), 'Embalagens Leste', admin.id, t);
+  }
+  run(`INSERT INTO fin_entries (type, category_id, description, amount_cents, due_date, status, supplier, user_id, created_at) VALUES ('receita', ?, 'Encomenda festa infantil (saldo)', 42000, ?, 'pendente', 'Cliente', ?, ?)`,
+    cat('Encomendas e eventos'), addDays(today(), 4), admin.id, t);
+}

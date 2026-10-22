@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Save, Plus, Trash2, Receipt, Plug, QrCode, Copy, DatabaseBackup } from 'lucide-react';
 import { api, getToken } from '../lib/api.js';
+import { IS_PREVIEW } from '../lib/env.js';
 import { Button, Card, Field, Input, MoneyInput, PageHeader, Select, Spinner, Table, Tabs, Textarea, Toggle, useToast, ErrorBox } from '../components/ui.jsx';
 import { useSettings } from './AdminApp.jsx';
 
@@ -201,7 +202,9 @@ function Fiscal({ value, onSaved }) {
         <div className="rounded-xl p-3 ring-1 ring-stone-200">
           <p className="font-medium">Backup</p>
           <p className="mb-2 text-stone-600">Baixe uma cópia completa dos dados (pedidos, clientes, produtos, financeiro). Faça pelo menos uma vez por semana e guarde no Google Drive.</p>
-          <a href={`/api/backup?token=${encodeURIComponent(getToken() || '')}`}><Button variant="secondary" size="sm" icon={DatabaseBackup}>Baixar backup agora</Button></a>
+          {IS_PREVIEW
+            ? <p className="text-xs text-stone-500">Disponível no sistema instalado.</p>
+            : <a href={`/api/backup?token=${encodeURIComponent(getToken() || '')}`}><Button variant="secondary" size="sm" icon={DatabaseBackup}>Baixar backup agora</Button></a>}
         </div>
         <div className="rounded-xl p-3 ring-1 ring-stone-200">
           <p className="font-medium">Impressora térmica</p>
@@ -232,8 +235,14 @@ function Share() {
       </Card>
       <Card className="flex flex-col items-center gap-3 p-5">
         <h3 className="flex items-center gap-2 font-semibold"><QrCode className="size-5" /> QR Code</h3>
-        <img src={qr} alt="QR Code do cardápio" className="size-56 rounded-xl ring-1 ring-stone-200" />
-        <a href={qr} target="_blank" rel="noreferrer"><Button variant="secondary">Abrir para imprimir</Button></a>
+        {IS_PREVIEW ? (
+          <p className="max-w-xs text-center text-sm text-stone-500">O QR Code é gerado com o endereço definitivo do cardápio quando o sistema estiver no ar.</p>
+        ) : (
+          <>
+            <img src={qr} alt="QR Code do cardápio" className="size-56 rounded-xl ring-1 ring-stone-200" />
+            <a href={qr} target="_blank" rel="noreferrer"><Button variant="secondary">Abrir para imprimir</Button></a>
+          </>
+        )}
         <Textarea readOnly className="text-xs" value={`🎀 Peça seus bolos e doces da Laços de Mãe pelo nosso cardápio digital: ${url}`} />
       </Card>
     </div>

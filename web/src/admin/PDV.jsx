@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { newTab } from '../lib/env.js';
 import { Search, Minus, Plus, Trash2, User, X, Printer, CheckCircle2, AlertTriangle, Gift } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { brl, maskPhone, phone } from '../lib/format.js';
@@ -249,7 +250,7 @@ export default function PDV() {
       {payOpen && <PayModal total={total} type={sale.type} scheduled={sale.scheduled} methods={(settings?.payment_methods || []).filter((m) => m.active)} onClose={() => setPayOpen(false)} onFinish={finish} />}
       <Modal open={!!done} onClose={() => setDone(null)} size="sm" title="Venda registrada" footer={
         <>
-          <a href={done ? `/admin/imprimir/${done.id}` : '#'} target="_blank" rel="noreferrer"><Button variant="secondary" icon={Printer}>Imprimir</Button></a>
+          {done && <Link to={`/admin/imprimir/${done.id}`} {...newTab}><Button variant="secondary" icon={Printer}>Imprimir</Button></Link>}
           <Button onClick={() => setDone(null)}>Nova venda</Button>
         </>
       }>

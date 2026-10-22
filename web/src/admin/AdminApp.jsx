@@ -5,6 +5,7 @@ import {
   TicketPercent, BarChart3, Settings, UserCog, LogOut, Menu as MenuIcon, X, ExternalLink, Bell,
 } from 'lucide-react';
 import { api, getToken, setToken, useLiveEvents } from '../lib/api.js';
+import { asset, newTab } from '../lib/env.js';
 import { Button, Field, Input, Modal, Spinner, Toggle, cx, useToast, ErrorBox } from '../components/ui.jsx';
 import Dashboard from './Dashboard.jsx';
 import Orders from './Orders.jsx';
@@ -102,7 +103,7 @@ function Login({ onLogin }) {
     <div className="grid min-h-dvh place-items-center bg-gradient-to-br from-brand-700 via-brand-600 to-brand-400 p-4">
       <form onSubmit={submit} className="w-full max-w-sm rounded-3xl bg-white p-7 shadow-2xl">
         <div className="mb-6 text-center">
-          <img src="/img/logo.jpg" alt="" className="mx-auto size-20 rounded-full ring-4 ring-brand-100" />
+          <img src={asset('/img/logo.jpg')} alt="" className="mx-auto size-20 rounded-full ring-4 ring-brand-100" />
           <h1 className="mt-3 font-script text-4xl text-brand-700">Laços de Mãe</h1>
           <p className="text-sm text-stone-500">Sistema de gestão</p>
         </div>
@@ -168,7 +169,7 @@ function Layout({ children }) {
 
   const brand = (
     <Link to="/admin" className="flex items-center gap-3 px-5 py-5">
-      <img src="/img/logo.jpg" alt="" className="size-10 rounded-full ring-2 ring-white/70" />
+      <img src={asset('/img/logo.jpg')} alt="" className="size-10 rounded-full ring-2 ring-white/70" />
       <div>
         <p className="font-script text-2xl leading-none text-white">Laços de Mãe</p>
         <p className="text-[11px] uppercase tracking-widest text-brand-200">Gestão</p>
@@ -201,7 +202,7 @@ function Layout({ children }) {
               <Bell className="size-4" /> {pending} novo{pending > 1 ? 's' : ''}
             </Link>
           )}
-          <a href="/" target="_blank" rel="noreferrer" className="hidden items-center gap-1 text-sm text-stone-500 hover:text-brand-700 md:flex"><ExternalLink className="size-4" /> Ver cardápio</a>
+          <Link to="/" {...newTab} className="hidden items-center gap-1 text-sm text-stone-500 hover:text-brand-700 md:flex"><ExternalLink className="size-4" /> Ver cardápio</Link>
           <button onClick={() => setPwOpen(true)} className="hidden text-sm text-stone-600 hover:text-brand-700 sm:inline" title="Trocar minha senha">{user.name}</button>
           <button onClick={logout} className="rounded-lg p-1.5 text-stone-500 hover:bg-stone-100" title="Sair" aria-label="Sair"><LogOut className="size-5" /></button>
         </header>
@@ -330,13 +331,21 @@ function LiveProvider({ user, tick, setTick, pending, loadPending, toast, childr
     if (e.new && e.channel === 'cardapio') {
       beep();
       toast(`Novo pedido #${e.id} pelo cardápio digital!`);
-      if (document.hidden && 'Notification' in window && Notification.permission === 'granted') {
-        new Notification('Laços de Mãe', { body: `Novo pedido #${e.id}`, icon: '/img/icon-192.png' });
+      try {
+        if (document.hidden && 'Notification' in window && Notification.permission === 'granted') {
+          new Notification('Laços de Mãe', { body: `Novo pedido #${e.id}`, icon: '/img/icon-192.png' });
+        }
+      } catch {
+        /* notificações bloqueadas */
       }
     }
   });
   useEffect(() => {
-    if ('Notification' in window && Notification.permission === 'default') Notification.requestPermission().catch(() => {});
+    try {
+      if ('Notification' in window && Notification.permission === 'default') Notification.requestPermission().catch(() => {});
+    } catch {
+      /* notificações bloqueadas */
+    }
   }, []);
   return <LiveCtx.Provider value={{ tick, pending }}>{children}</LiveCtx.Provider>;
 }
