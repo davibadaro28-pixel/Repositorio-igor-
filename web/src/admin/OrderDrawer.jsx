@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { newTab } from '../lib/env.js';
 import PlatformBadge from './PlatformBadge.jsx';
+import FiscalBox from './FiscalBox.jsx';
 import { Printer, MessageCircle, XCircle, Phone, MapPin, CreditCard, Bike, CalendarClock, AlertTriangle } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { brl, dateTimeBR, phone, addressLine, itemLine, waLink, methodLabel, TYPE, CHANNEL, STATUS } from '../lib/format.js';
@@ -165,6 +166,8 @@ export default function OrderDrawer({ id, onClose, onChange }) {
             </div>
           </div>
 
+          {user.role !== 'cozinha' && <FiscalBox orderId={o.id} />}
+
           {o.notes && <p className="rounded-xl bg-amber-50 px-3 py-2 text-amber-900"><b>Obs. do pedido:</b> {o.notes}</p>}
           {o.cancel_reason && <p className="rounded-xl bg-red-50 px-3 py-2 text-red-800"><b>Cancelado:</b> {o.cancel_reason}</p>}
 
@@ -204,13 +207,13 @@ export default function OrderDrawer({ id, onClose, onChange }) {
         </div>
       )}
 
-      <CancelModal open={cancelOpen} onClose={() => setCancelOpen(false)} onConfirm={async (reason) => { setCancelOpen(false); await change('cancelado', { reason }); }} />
+      <CancelModal open={cancelOpen} hasNote={o?.fiscal_docs?.some((d) => d.status === 'autorizado')} onClose={() => setCancelOpen(false)} onConfirm={async (reason) => { setCancelOpen(false); await change('cancelado', { reason }); }} />
       {o && <PaymentModal open={payOpen} order={o} methods={methods} onClose={() => setPayOpen(false)} onDone={(r) => { setData(r); onChange?.(r); reload(); setPayOpen(false); }} />}
     </Modal>
   );
 }
 
-function CancelModal({ open, onClose, onConfirm }) {
+function CancelModal({ open, hasNote, onClose, onConfirm }) {
   const [reason, setReason] = useState('');
   return (
     <Modal open={open} onClose={onClose} size="sm" title="Cancelar pedido" footer={
@@ -220,6 +223,7 @@ function CancelModal({ open, onClose, onConfirm }) {
       </>
     }>
       <p className="mb-3 text-sm text-stone-600">O estoque usado volta automaticamente. Informe o motivo (o cliente verá na página do pedido).</p>
+      {hasNote && <p className="mb-3 rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900">A NFC-e deste pedido também será cancelada (a SEFAZ aceita até 30 minutos depois da emissão).</p>}
       <Select value={reason} onChange={(e) => setReason(e.target.value)} className="mb-2">
         <option value="">Selecione…</option>
         <option>Cliente desistiu</option>

@@ -59,6 +59,10 @@ export const today = () => now().slice(0, 10);
 // Migrações simples para bancos criados por versões anteriores
 const hasColumn = (table, column) => all(`PRAGMA table_info(${table})`).some((c) => c.name === column);
 if (!hasColumn('categories', 'section')) db.exec('ALTER TABLE categories ADD COLUMN section TEXT');
+if (!hasColumn('products', 'ncm')) {
+  db.exec(`ALTER TABLE products ADD COLUMN ncm TEXT; ALTER TABLE products ADD COLUMN cest TEXT;
+           ALTER TABLE products ADD COLUMN tax_profile_id INTEGER REFERENCES tax_profiles(id) ON DELETE SET NULL;`);
+}
 
 // Pedidos de apps de delivery: o SQLite não altera CHECK, então a tabela é recriada mantendo os dados
 const ordersSql = get(`SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'orders'`)?.sql || '';
@@ -74,6 +78,7 @@ if (!ordersSql.includes("'99food'")) {
   db.exec('PRAGMA foreign_keys = ON');
   db.exec(schemaSql); // recria os índices
 }
+if (!hasColumn('orders', 'customer_doc')) db.exec('ALTER TABLE orders ADD COLUMN customer_doc TEXT');
 db.exec('CREATE UNIQUE INDEX IF NOT EXISTS idx_orders_external ON orders(external_platform, external_id) WHERE external_id IS NOT NULL');
 
 export function getSetting(key, fallback = null) {

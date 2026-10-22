@@ -32,6 +32,7 @@ export function publicStore() {
     ...store,
     status: storeStatus(store),
     payment_methods: getSetting('payment_methods', []).filter((m) => m.active && m.online).map(({ id, label }) => ({ id, label })),
+    cpf_na_nota: !!getSetting('fiscal', {})?.enabled, // pede "CPF na nota" no checkout
     zones: all('SELECT id, name, fee_cents, min_order_cents FROM delivery_zones WHERE active = 1 ORDER BY name'),
   };
 }

@@ -32,6 +32,22 @@ CREATE TABLE IF NOT EXISTS categories (
   active   INTEGER NOT NULL DEFAULT 1
 );
 
+-- Tributação usada na NFC-e (CFOP, CSOSN/CST do ICMS, PIS e COFINS); cada produto aponta para um perfil
+CREATE TABLE IF NOT EXISTS tax_profiles (
+  id              INTEGER PRIMARY KEY,
+  name            TEXT NOT NULL,
+  cfop            TEXT NOT NULL,
+  icms_cst        TEXT NOT NULL,                 -- CSOSN no Simples Nacional, CST no regime normal
+  icms_aliquota   REAL NOT NULL DEFAULT 0,       -- % (regime normal, CST 00)
+  pis_cst         TEXT NOT NULL DEFAULT '49',
+  pis_aliquota    REAL NOT NULL DEFAULT 0,
+  cofins_cst      TEXT NOT NULL DEFAULT '49',
+  cofins_aliquota REAL NOT NULL DEFAULT 0,
+  ibs_cbs_cst     TEXT,                          -- reforma tributária (exigido no regime normal)
+  ibs_cbs_class   TEXT,
+  active          INTEGER NOT NULL DEFAULT 1
+);
+
 CREATE TABLE IF NOT EXISTS products (
   id              INTEGER PRIMARY KEY,
   category_id     INTEGER NOT NULL REFERENCES categories(id),
@@ -47,6 +63,9 @@ CREATE TABLE IF NOT EXISTS products (
   stock_control   INTEGER NOT NULL DEFAULT 0,  -- controla estoque de produto pronto
   stock_qty       REAL NOT NULL DEFAULT 0,
   position        INTEGER NOT NULL DEFAULT 0,
+  ncm             TEXT,                          -- classificação fiscal (8 dígitos) para a NFC-e
+  cest            TEXT,                          -- só para produtos com substituição tributária
+  tax_profile_id  INTEGER REFERENCES tax_profiles(id) ON DELETE SET NULL,
   created_at      TEXT NOT NULL
 );
 
@@ -189,6 +208,7 @@ CREATE TABLE IF NOT EXISTS orders (
   external_delivered_by TEXT,                    -- 'platform' (entregador do app) ou 'store'
   external_sync_error TEXT,                      -- falha ao avisar a plataforma de uma mudança
   platform_fee_cents INTEGER NOT NULL DEFAULT 0, -- comissão estimada do app de delivery
+  customer_doc    TEXT,                          -- CPF/CNPJ na nota (só dígitos)
   created_by      INTEGER REFERENCES users(id) ON DELETE SET NULL,
   created_at      TEXT NOT NULL,
   updated_at      TEXT NOT NULL,
@@ -235,6 +255,41 @@ CREATE TABLE IF NOT EXISTS order_events (
   user_id    INTEGER REFERENCES users(id) ON DELETE SET NULL,
   created_at TEXT NOT NULL
 );
+
+-- Notas fiscais de consumidor (NFC-e) emitidas para os pedidos
+CREATE TABLE IF NOT EXISTS fiscal_docs (
+  id            INTEGER PRIMARY KEY,
+  order_id      INTEGER NOT NULL REFERENCES orders(id) ON DELETE CASCADE,
+  model         TEXT NOT NULL DEFAULT '65',
+  provider      TEXT NOT NULL,                  -- 'focusnfe' ou 'simulado'
+  environment   TEXT NOT NULL,                  -- 'homologacao', 'producao' ou 'simulado'
+  ref           TEXT NOT NULL UNIQUE,           -- referência enviada ao emissor
+  status        TEXT NOT NULL CHECK (status IN ('processando','autorizado','rejeitado','cancelado','denegado')),
+  number        TEXT,
+  series        TEXT,
+  access_key    TEXT,                           -- chave de acesso (44 dígitos)
+  total_cents   INTEGER NOT NULL DEFAULT 0,
+  customer_doc  TEXT,
+  message       TEXT,                           -- retorno da SEFAZ ou motivo da rejeição
+  alert         TEXT,                           -- algo que precisa de atenção (ex.: pedido cancelado com nota válida)
+  danfe_url     TEXT,
+  xml_url       TEXT,
+  qrcode_url    TEXT,
+  consult_url   TEXT,
+  xml           TEXT,                           -- cópia do XML autorizado (para o contador)
+  cancel_xml_url TEXT,
+  cancel_xml    TEXT,
+  cancel_reason TEXT,
+  cancelled_at  TEXT,
+  contingency   INTEGER NOT NULL DEFAULT 0,
+  payload       TEXT,                           -- JSON enviado ao emissor (conferência)
+  user_id       INTEGER REFERENCES users(id) ON DELETE SET NULL,
+  issued_at     TEXT,
+  created_at    TEXT NOT NULL,
+  updated_at    TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS idx_fiscal_order ON fiscal_docs(order_id);
+CREATE INDEX IF NOT EXISTS idx_fiscal_created ON fiscal_docs(created_at);
 
 -- Itens recebidos do iFood/99Food e o produto correspondente no cardápio da loja
 CREATE TABLE IF NOT EXISTS integration_items (

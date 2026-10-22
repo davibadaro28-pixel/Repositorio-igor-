@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { Bike, Store, ShoppingBag, CalendarClock, Plus, Search, Clock, AlertTriangle } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { brl, minutesSince, timeBR, dateTimeBR, dateBR, phone, todayISO, addDaysISO, TYPE, CHANNEL, STATUS } from '../lib/format.js';
-import { Button, Card, Input, PageHeader, Select, Spinner, StatusBadge, Table, Tabs, cx, useToast, Empty } from '../components/ui.jsx';
+import { Badge, Button, Card, Input, PageHeader, Select, Spinner, StatusBadge, Table, Tabs, cx, useToast, Empty } from '../components/ui.jsx';
 import { useLive } from './AdminApp.jsx';
 import OrderDrawer, { nextAction } from './OrderDrawer.jsx';
 import PlatformBadge from './PlatformBadge.jsx';
+import { FISCAL_STATUS } from './FiscalBox.jsx';
 
 const COLUMNS = [
   { status: 'novo', title: 'Novos', tone: 'border-amber-400' },
@@ -33,6 +34,7 @@ export function OrderCard({ o, onOpen, onAdvance, compact }) {
       <p className="mt-0.5 truncate text-sm font-medium text-stone-800">{o.customer_name || 'Balcão'}</p>
       <p className="truncate text-xs text-stone-500">{CHANNEL[o.channel]}{o.address?.neighborhood ? ` · ${o.address.neighborhood}` : ''}</p>
       {o.external_sync_error && <p className="mt-1 flex items-start gap-1 rounded-md bg-red-50 px-1.5 py-1 text-[11px] font-medium text-red-700"><AlertTriangle className="mt-px size-3 shrink-0" /> {o.external_sync_error}</p>}
+      {(o.fiscal_alert || ['rejeitado', 'denegado'].includes(o.fiscal_status)) && <p className="mt-1 flex items-start gap-1 rounded-md bg-red-50 px-1.5 py-1 text-[11px] font-medium text-red-700"><AlertTriangle className="mt-px size-3 shrink-0" /> {o.fiscal_alert ? 'NFC-e precisa de atenção' : 'NFC-e não emitida: veja o motivo'}</p>}
       {o.scheduled_for && (
         <p className="mt-2 flex items-center gap-1 rounded-lg bg-brand-50 px-2 py-1 text-xs font-medium text-brand-800">
           <CalendarClock className="size-3.5" /> {o.scheduled_for.slice(0, 10) === todayISO() ? 'Hoje' : dateBR(o.scheduled_for)} às {timeBR(o.scheduled_for)}
@@ -45,7 +47,7 @@ export function OrderCard({ o, onOpen, onAdvance, compact }) {
         </ul>
       )}
       <div className="mt-2 flex items-center justify-between gap-2">
-        <span className="text-sm font-semibold">{brl(o.total_cents)} {o.paid ? <span className="text-xs font-medium text-emerald-600">pago</span> : null}</span>
+        <span className="text-sm font-semibold">{brl(o.total_cents)} {o.paid ? <span className="text-xs font-medium text-emerald-600">pago</span> : null} {o.fiscal_status === 'autorizado' ? <span className="text-xs font-medium text-emerald-600">· NFC-e</span> : null}</span>
         {next && onAdvance && (
           <button
             onClick={(e) => { e.stopPropagation(); onAdvance(o, next.status); }}
@@ -162,7 +164,7 @@ function History() {
         </div>
         {!rows.length ? <Empty title="Nenhum pedido no período" /> : (
           <Table>
-            <thead><tr><th>#</th><th>Data</th><th>Cliente</th><th>Canal</th><th>Tipo</th><th>Status</th><th className="text-right">Total</th></tr></thead>
+            <thead><tr><th>#</th><th>Data</th><th>Cliente</th><th>Canal</th><th>Tipo</th><th>Status</th><th>Nota</th><th className="text-right">Total</th></tr></thead>
             <tbody>
               {rows.map((o) => (
                 <tr key={o.id} className="cursor-pointer hover:bg-brand-50/40" onClick={() => setOpen(o.id)}>
@@ -172,6 +174,7 @@ function History() {
                   <td><span className="flex items-center gap-1.5">{o.external_platform ? <PlatformBadge order={o} /> : CHANNEL[o.channel]}</span></td>
                   <td>{TYPE[o.type]}</td>
                   <td><StatusBadge status={o.status} /></td>
+                  <td>{o.fiscal_status ? <Badge className={FISCAL_STATUS[o.fiscal_status].color}>{FISCAL_STATUS[o.fiscal_status].label.replace('NFC-e ', '')}</Badge> : <span className="text-stone-300">—</span>}</td>
                   <td className="text-right font-medium">{brl(o.total_cents)}</td>
                 </tr>
               ))}

@@ -1,7 +1,9 @@
 // Dados de exemplo usados pelo modo demonstração (npm run demo) e pela prévia no navegador.
 import { all, get, run, tx, now, today, getSetting, setSetting } from './db.js';
 import { hashPassword } from './auth.js';
-import { createOrder, setStatus } from './services/orders.js';
+import { createOrder, getOrder, paymentMethods, setStatus } from './services/orders.js';
+import { buildNfce } from './fiscal/nfce.js';
+import { SIM_MESSAGE } from './fiscal/simulado.js';
 import { importExternalOrder, SYSTEM_USER } from './integrations/importer.js';
 import { addDays } from './util.js';
 
@@ -224,4 +226,30 @@ export function generateDemoData() {
   }
   run(`INSERT INTO fin_entries (type, category_id, description, amount_cents, due_date, status, supplier, user_id, created_at) VALUES ('receita', ?, 'Encomenda festa infantil (saldo)', 42000, ?, 'pendente', 'Cliente', ?, ?)`,
     cat('Encomendas e eventos'), addDays(today(), 4), admin.id, t);
+  demoFiscal();
+}
+
+/** Nota fiscal no modo treinamento, com as notas dos últimos dias já emitidas */
+function demoFiscal() {
+  const cfg = { ...getSetting('fiscal', {}), enabled: true, provider: 'simulado', auto_emit: true, razao_social: 'Laços de Mãe Bolos e Doces' };
+  setSetting('fiscal', cfg);
+  const orders = all(
+    `SELECT id, completed_at, dispatched_at FROM orders WHERE status != 'cancelado' AND completed_at >= ? ORDER BY COALESCE(dispatched_at, completed_at)`,
+    `${addDays(today(), -3)} 00:00:00`,
+  );
+  let n = 0;
+  for (const { id, completed_at: done, dispatched_at: out } of orders) {
+    const order = getOrder(id);
+    const { payload, problems } = buildNfce(order, cfg, { methods: paymentMethods(), integrations: getSetting('integrations', {}) });
+    if (problems.length) continue;
+    const at = out || done;
+    n++;
+    run(
+      `INSERT INTO fiscal_docs (order_id, provider, environment, ref, status, number, series, total_cents, customer_doc, message, payload, xml, issued_at, created_at, updated_at)
+       VALUES (?, 'simulado', 'simulado', ?, 'autorizado', ?, 'TREINO', ?, ?, ?, ?, ?, ?, ?, ?)`,
+      id, `DEMOP${id}N1`, String(n), order.total_cents, null, SIM_MESSAGE, JSON.stringify(payload),
+      `<?xml version="1.0" encoding="UTF-8"?>\n<simulacao aviso="DOCUMENTO DE TREINAMENTO - SEM VALOR FISCAL" referencia="DEMOP${id}N1" numero="${n}"/>\n`, at, at, at,
+    );
+  }
+  setSetting('fiscal_sim_seq', n);
 }

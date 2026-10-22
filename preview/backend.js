@@ -16,6 +16,7 @@ import deliveryRoutes from '../server/routes/delivery.js';
 import couponRoutes from '../server/routes/coupons.js';
 import reportRoutes from '../server/routes/reports.js';
 import { admin as integrationRoutes } from '../server/integrations/index.js';
+import fiscalRoutes from '../server/fiscal/routes.js';
 import { Router, dispatch } from './shims/express.js';
 import { exportDatabase, resetDatabase } from './shims/sqlite.js';
 import { Bytes } from './shims/node.js';
@@ -51,7 +52,7 @@ preview.get('/backup', (_req, res) => res.status(501).json({ error: 'Backup disp
 
 const authLayer = Router().use(authenticate);
 const PRIVATE = [authLayer, preview, adminRoutes, catalogRoutes, orderRoutes, cashRoutes, financeRoutes, stockRoutes,
-  customerRoutes, deliveryRoutes, couponRoutes, reportRoutes, integrationRoutes].flatMap((r) => r.layers);
+  customerRoutes, deliveryRoutes, couponRoutes, reportRoutes, integrationRoutes, fiscalRoutes].flatMap((r) => r.layers);
 
 function makeReq(method, url, headers = {}, body) {
   const u = new URL(url, 'http://local');
@@ -97,6 +98,7 @@ function request(method, url, headers, body) {
       setHeader(k, v) { out.headers[k.toLowerCase()] = v; return res; },
       json(obj) { out.body = JSON.stringify(obj); return res.end(); },
       send(text) {
+        if (text instanceof Uint8Array) { out.body = text; return res.end(); } // arquivos (ex.: .zip)
         if (typeof text === 'object') return res.json(text);
         if (!out.headers['content-type']?.startsWith('text/')) out.headers['content-type'] = 'text/plain; charset=utf-8';
         out.body = String(text);

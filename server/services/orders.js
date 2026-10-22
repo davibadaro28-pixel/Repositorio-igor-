@@ -2,6 +2,7 @@ import { randomBytes } from 'node:crypto';
 import { all, get, run, tx, now, getSetting } from '../db.js';
 import { fail } from '../auth.js';
 import { broadcast } from '../realtime.js';
+import { cleanDoc } from '../fiscal/nfce.js';
 
 export const STATUSES = ['novo', 'confirmado', 'preparo', 'pronto', 'entrega', 'concluido', 'cancelado'];
 const STATUS_TIME = { confirmado: 'confirmed_at', preparo: 'confirmed_at', pronto: 'ready_at', entrega: 'dispatched_at', concluido: 'completed_at' };
@@ -250,7 +251,17 @@ function awardPoints(order, direction) {
  *          // somente pelo painel/PDV:
  *          status, payments:[{method, amount_cents}], discount_cents, delivery_fee_cents, redeem_points }
  */
-export function createOrder(input, { user = null, publicMenu = false } = {}) {
+// Quem precisa saber de cada pedido novo (ex.: emitir a NFC-e de uma venda de balcão já concluída)
+const createdListeners = [];
+export const onOrderCreated = (fn) => createdListeners.push(fn);
+
+export function createOrder(input, opts = {}) {
+  const full = insertOrder(input, opts);
+  for (const fn of createdListeners) setTimeout(() => fn(full), 0);
+  return full;
+}
+
+function insertOrder(input, { user = null, publicMenu = false } = {}) {
   const store = getSetting('store');
   const type = input.type;
   if (!['entrega', 'retirada', 'balcao'].includes(type)) fail(400, 'Tipo de pedido inválido');
@@ -266,6 +277,7 @@ export function createOrder(input, { user = null, publicMenu = false } = {}) {
   }
 
   const { lines, subtotal, cost, leadHours } = priceCart(input.items, { publicMenu });
+  const customerDoc = cleanDoc(input.customer_doc); // CPF/CNPJ na nota (opcional)
 
   // agendamento / encomenda
   let scheduled = input.scheduled_for ? String(input.scheduled_for).replace('T', ' ').slice(0, 16) + ':00' : null;
@@ -348,12 +360,12 @@ export function createOrder(input, { user = null, publicMenu = false } = {}) {
     const r = run(
       `INSERT INTO orders (code, channel, type, status, customer_id, customer_name, customer_phone, address, zone_id,
          scheduled_for, subtotal_cents, discount_cents, delivery_fee_cents, total_cents, cost_cents, coupon_code,
-         payment_method, change_for_cents, notes, created_by, created_at, updated_at)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         payment_method, change_for_cents, notes, customer_doc, created_by, created_at, updated_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       newCode(), channel, type, status, customerId, String(customer.name || '').trim() || null, phone,
       address ? JSON.stringify(address) : null, zone?.id || null, scheduled, subtotal, discount, deliveryFee, total, cost,
       coupon?.code || null, input.payment_method || null, changeFor, String(input.notes || '').slice(0, 500) || null,
-      user?.id || null, t, t,
+      customerDoc, user?.id || null, t, t,
     );
     const orderId = Number(r.lastInsertRowid);
     for (const l of lines) {
@@ -461,6 +473,10 @@ export function getOrder(id) {
   order.payments = all('SELECT * FROM order_payments WHERE order_id = ? ORDER BY id', id);
   order.events = all(
     'SELECT e.*, u.name AS user_name FROM order_events e LEFT JOIN users u ON u.id = e.user_id WHERE order_id = ? ORDER BY e.id', id,
+  );
+  order.fiscal_docs = all(
+    `SELECT id, provider, environment, status, number, series, access_key, total_cents, customer_doc, message, alert, danfe_url,
+            qrcode_url, consult_url, contingency, cancel_reason, cancelled_at, issued_at, created_at FROM fiscal_docs WHERE order_id = ? ORDER BY id DESC`, id,
   );
   return order;
 }

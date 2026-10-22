@@ -5,6 +5,7 @@ import { Search, Minus, Plus, Trash2, User, X, Printer, CheckCircle2, AlertTrian
 import { api, useApi } from '../lib/api.js';
 import { brl, maskPhone, phone } from '../lib/format.js';
 import { Button, Card, Field, Input, Modal, MoneyInput, Select, Spinner, Textarea, cx, useToast, ErrorBox } from '../components/ui.jsx';
+import FiscalBox, { maskDoc } from './FiscalBox.jsx';
 import { useSettings } from './AdminApp.jsx';
 
 const emptySale = () => ({
@@ -80,7 +81,7 @@ export default function PDV() {
     } else setSale((s) => ({ ...s, customerInfo: null }));
   };
 
-  const finish = async (payments, method) => {
+  const finish = async (payments, method, customerDoc) => {
     const scheduled = sale.scheduled && sale.day && sale.time ? `${sale.day} ${sale.time}` : null;
     const paidAll = payments.reduce((s, p) => s + p.amount_cents, 0) >= total;
     const status = sale.type === 'balcao' && paidAll && !scheduled ? 'concluido' : scheduled ? 'confirmado' : 'preparo';
@@ -99,6 +100,7 @@ export default function PDV() {
       redeem_points: redeemBlocks ? redeemBlocks * loyalty.redeem_points : 0,
       payment_method: method || payments[0]?.method || null,
       payments,
+      customer_doc: customerDoc || null,
       items: sale.items.map((i) => ({ variant_id: i.variant_id, qty: i.qty, options: i.options, notes: i.notes })),
     };
     const order = await api.post('/orders', body);
@@ -248,7 +250,7 @@ export default function PDV() {
       )}
 
       <PickModal product={picking} onClose={() => setPicking(null)} onAdd={(v, o, n) => { add(picking, v, o, n); setPicking(null); }} />
-      {payOpen && <PayModal total={total} type={sale.type} scheduled={sale.scheduled} methods={(settings?.payment_methods || []).filter((m) => m.active)} onClose={() => setPayOpen(false)} onFinish={finish} />}
+      {payOpen && <PayModal total={total} type={sale.type} scheduled={sale.scheduled} fiscal={settings?.fiscal?.enabled} methods={(settings?.payment_methods || []).filter((m) => m.active)} onClose={() => setPayOpen(false)} onFinish={finish} />}
       <Modal open={!!done} onClose={() => setDone(null)} size="sm" title="Venda registrada" footer={
         <>
           {done && <Link to={`/admin/imprimir/${done.id}`} {...newTab}><Button variant="secondary" icon={Printer}>Imprimir</Button></Link>}
@@ -261,6 +263,7 @@ export default function PDV() {
             <p className="mt-2 text-lg font-semibold">Pedido #{done.id}</p>
             <p className="text-stone-600">{brl(done.total_cents)} {done.paid ? '· pago' : '· a receber'}</p>
             {done.customer_name && <p className="text-sm text-stone-500">{done.customer_name} {phone(done.customer_phone)}</p>}
+            <div className="mt-4 text-left"><FiscalBox orderId={done.id} compact /></div>
           </div>
         )}
       </Modal>
@@ -319,13 +322,14 @@ function PickModal({ product: p, onClose, onAdd }) {
   );
 }
 
-function PayModal({ total, type, scheduled, methods, onClose, onFinish }) {
+function PayModal({ total, type, scheduled, fiscal, methods, onClose, onFinish }) {
   const startLater = type !== 'balcao' || scheduled;
   const [lines, setLines] = useState([{ method: methods[0]?.id || 'dinheiro', amount_cents: startLater ? 0 : total }]);
   const [received, setReceived] = useState(0);
   const [later, setLater] = useState(startLater);
   const [err, setErr] = useState('');
   const [loading, setLoading] = useState(false);
+  const [doc, setDoc] = useState('');
   const sum = lines.reduce((s, l) => s + l.amount_cents, 0);
   const cashLine = lines.find((l) => l.method === 'dinheiro');
   const change = cashLine && received > cashLine.amount_cents ? received - cashLine.amount_cents : 0;
@@ -336,7 +340,7 @@ function PayModal({ total, type, scheduled, methods, onClose, onFinish }) {
     if (!later && sum < total) return setErr(`Faltam ${brl(total - sum)} para fechar a venda`);
     setLoading(true);
     try {
-      await onFinish(lines.filter((l) => l.amount_cents > 0), lines[0].method);
+      await onFinish(lines.filter((l) => l.amount_cents > 0), lines[0].method, doc);
     } catch (e) {
       setErr(e.message);
       setLoading(false);
@@ -370,6 +374,7 @@ function PayModal({ total, type, scheduled, methods, onClose, onFinish }) {
           </div>
         )}
         {!later && <div className={cx('flex justify-between rounded-xl px-3 py-2 text-sm font-medium', sum >= total ? 'bg-emerald-50 text-emerald-800' : 'bg-amber-50 text-amber-800')}><span>Total informado</span><span>{brl(sum)}</span></div>}
+        {fiscal && <Field label="CPF ou CNPJ na nota (opcional)"><Input value={doc} inputMode="numeric" placeholder="000.000.000-00" onChange={(e) => setDoc(maskDoc(e.target.value))} /></Field>}
         <ErrorBox>{err}</ErrorBox>
       </div>
     </Modal>

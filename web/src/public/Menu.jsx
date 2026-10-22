@@ -40,6 +40,9 @@ const LACE = {
   backgroundRepeat: 'repeat-x',
 };
 
+const maskCpf = (v) => String(v || '').replace(/\D/g, '').slice(0, 11)
+  .replace(/^(\d{3})(\d)/, '$1.$2').replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3').replace(/\.(\d{3})(\d{1,2})$/, '.$1-$2');
+
 export default function Menu() {
   const store = useApi('/public/store');
   const menu = useApi('/public/menu');
@@ -480,6 +483,7 @@ function Checkout({ open, onClose, cart, setCart, store }) {
   const [payment, setPayment] = useState('pix');
   const [changeFor, setChangeFor] = useState('');
   const [notes, setNotes] = useState('');
+  const [doc, setDoc] = useState(me.doc || '');
   const [couponTxt, setCouponTxt] = useState('');
   const [coupon, setCoupon] = useState(null);
   const [err, setErr] = useState('');
@@ -536,10 +540,11 @@ function Checkout({ open, onClose, cart, setCart, store }) {
         change_for_cents: payment === 'dinheiro' && changeFor ? Math.round(Number(changeFor.replace(',', '.')) * 100) : null,
         coupon_code: coupon?.code || null,
         notes,
+        customer_doc: store.cpf_na_nota ? doc : null,
         items: cart.map((i) => ({ variant_id: i.variant_id, qty: i.qty, options: i.options, notes: i.notes })),
       };
       const r = await api.post('/public/orders', body);
-      save(ME_KEY, { name, phone: phoneTxt, zone_id: zoneId, address: addr });
+      save(ME_KEY, { name, phone: phoneTxt, zone_id: zoneId, address: addr, doc });
       setCart([]);
       onClose();
       navigate(`/pedido/${r.code}?novo=1`);
@@ -663,6 +668,12 @@ function Checkout({ open, onClose, cart, setCart, store }) {
         </section>
 
         <Field label="Observações do pedido"><Textarea value={notes} onChange={(e) => setNotes(e.target.value)} maxLength={500} placeholder="Ex.: tocar o interfone 12" /></Field>
+
+        {store.cpf_na_nota && (
+          <Field label="CPF na nota (opcional)">
+            <Input value={doc} onChange={(e) => setDoc(maskCpf(e.target.value))} inputMode="numeric" placeholder="000.000.000-00" autoComplete="off" />
+          </Field>
+        )}
 
         <section className="space-y-1 rounded-2xl bg-brand-50/60 p-4 text-sm">
           <div className="flex justify-between"><span>Subtotal</span><span>{brl(subtotal)}</span></div>

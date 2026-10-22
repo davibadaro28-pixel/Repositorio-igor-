@@ -24,7 +24,8 @@ cardápio atual da loja, com as cores e o logo da marca.
 | **Cupons** | Percentual, valor fixo ou frete grátis; mínimo, validade, limite de usos e “só na 1ª compra”. |
 | **Relatórios** | Faturamento por dia, horário e dia da semana, produtos, categorias, formas de pagamento, canais, bairros, ticket médio, cancelamentos. Exporta para Excel (CSV). |
 | **iFood e 99Food** | Pedidos dos apps entram sozinhos no quadro de pedidos (com selo e número do app), na cozinha, no estoque e nos relatórios. Aceitar, “pronto”, “saiu” e cancelar no painel avisam o app. Comissão configurável por app; relatório **Faturamento por canal** com bruto, comissão e líquido; comissão como linha própria na DRE. Itens do app são ligados aos produtos da loja pelo código (ex.: V12) ou na tela “Vincular produtos”. |
-| **Configurações** | Dados da loja, horários, pausar pedidos, tempos, pedido mínimo, formas de pagamento e taxas, fidelidade, dados fiscais, **link e QR Code do cardápio**, **backup com um clique**. |
+| **Notas fiscais (NFC-e)** | Emissão da nota do consumidor pela **Focus NFe** (homologação e produção) com **CPF/CNPJ na nota** no PDV, no pedido e no cardápio digital. Emissão **manual** (botão no pedido) ou **automática** quando o pedido sai para entrega ou é concluído; iFood e 99Food saem com o app como intermediador. DANFE para impressão, consulta, cancelamento em até 30 min (cancelar o pedido cancela a nota), aviso quando falta NCM ou a SEFAZ rejeita, e **.zip com os XMLs e o resumo para o contador**. Tributação por produto (NCM, CEST e perfis com CFOP, CSOSN/CST e PIS/COFINS) já sugerida para confeitaria no Simples Nacional. **Modo treinamento** para a equipe aprender sem valor fiscal. |
+| **Configurações** | Dados da loja, horários, pausar pedidos, tempos, pedido mínimo, formas de pagamento e taxas, fidelidade, **link e QR Code do cardápio**, **backup com um clique**. |
 | **Usuários** | Logins com perfis: Administrador, Gerente, Caixa, Cozinha e Entregador (cada um vê só o que precisa). |
 
 Também: comanda/cupom não fiscal para **impressora térmica 80 mm**, painel inicial com vendas do dia,
@@ -33,12 +34,12 @@ encomendas, contas vencendo, estoque baixo e aniversariantes.
 ## Comparação honesta com o Saipos
 
 Feito: cardápio digital, delivery próprio, PDV, KDS, Kanban, caixa, estoque com ficha técnica, CMV teórico e real,
-financeiro/DRE, CRM e fidelidade, cupons, app do entregador, relatórios, perfis de acesso, impressão.
+financeiro/DRE, CRM e fidelidade, cupons, app do entregador, relatórios, perfis de acesso, impressão,
+pedidos do iFood e da 99Food, NFC-e.
 
 **Ainda não incluído** (precisam de contratos/credenciais de terceiros):
 
-- **NFC-e** – a tela de dados fiscais já existe; falta integrar um emissor (Focus NFe, NFE.io ou PlugNotas) com
-  certificado A1 e CSC da SEFAZ-SP.
+- **NF-e (modelo 55)** para vendas a empresas e **NFS-e**; hoje o sistema emite só NFC-e (consumidor).
 - **TEF/maquininha integrada**, **robô de WhatsApp com IA**, **roteirização automática** e **totem**.
 
 ## iFood e 99Food
@@ -86,7 +87,8 @@ npm run build
 npm run demo         # usa um banco separado: server/data/demo.db
 ```
 
-Cria 30 dias de vendas, clientes, encomendas, entregadores e contas de exemplo.
+Cria 30 dias de vendas, clientes, encomendas, entregadores e contas de exemplo, com a NFC-e no
+modo treinamento (notas simuladas, sem valor fiscal).
 Logins: `admin / demo1234` · `caixa / caixa123` · `cozinha / cozinha123` · `motoboy / moto123`.
 Os dados de demonstração **não se misturam** com o banco real (`server/data/lacos.db`).
 
@@ -108,6 +110,35 @@ npm run dev          # API com recarga automática (porta 3000)
 npm run dev:web      # front-end com Vite (porta 5173, usa a API acima)
 npm test             # testes da API
 ```
+
+## Nota fiscal (NFC-e)
+
+A emissão é feita pela **Focus NFe** (emissor terceirizado): ela guarda o certificado digital A1 e o CSC da loja,
+assina o XML, fala com a SEFAZ-SP e gera o DANFE. O sistema só precisa do **token** e do **CNPJ**.
+Em São Paulo o SAT deixou de ser aceito em 2026, então a NFC-e é o caminho para o balcão e o delivery.
+
+Para ligar (passo a passo também na tela **Notas fiscais → Configuração**):
+
+1. **Contador**: confirmar o regime, o credenciamento para NFC-e na SEFAZ-SP e conferir NCM/perfis em **Tributação**
+   (as sugestões iniciais são de confeitaria no Simples Nacional: bolos e doces CFOP 5101/CSOSN 102; bebidas
+   CFOP 5405/CSOSN 500 com PIS/COFINS monofásico; bebidas com substituição tributária costumam exigir CEST).
+2. **Certificado A1** (e-CNPJ .pfx) e **CSC** da SEFAZ-SP; cadastrar a empresa na Focus NFe com eles.
+3. Colar o **token de homologação**, testar a conexão e emitir alguns pedidos (homologação não tem valor fiscal).
+4. Colar o **token de produção** e mudar para Produção. Ligar a emissão automática se quiser.
+
+Como a nota é montada:
+
+- Itens com NCM, CFOP e impostos do perfil do produto; desconto distribuído entre os itens; taxa de entrega da loja
+  como "outras despesas" (quando o entregador é do app, a taxa não é da loja e fica fora).
+- Formas de pagamento convertidas para os códigos da nota (configurável: Pix estático ou dinâmico, vale-refeição…);
+  cartão e Pix entram como "não integrados" (maquininha separada).
+- Delivery sai como "entrega a domicílio"; iFood e 99Food como intermediadores (CNPJ do app + identificador da loja).
+- Regime normal: o grupo **IBS/CBS** da reforma tributária (obrigatório desde agosto de 2026) é preenchido a partir
+  do CST e da classificação informados no perfil. No Simples Nacional a exigência começa em 2027.
+- Rejeitada? O motivo aparece no pedido; corrigido o cadastro, "Emitir de novo" reenvia com a mesma referência.
+  Sem resposta da SEFAZ, a nota fica "processando" e o sistema consulta de novo sozinho.
+- Os XMLs autorizados e de cancelamento ficam guardados no banco e saem no **.zip para o contador**.
+- `FOCUS_API_URL` troca o endereço da API (os testes usam um servidor que imita a Focus NFe).
 
 ## Colocar no ar
 
@@ -133,6 +164,7 @@ Variáveis de ambiente:
 | `DB_PATH` | `server/data/lacos.db` | Arquivo do banco |
 | `UPLOAD_DIR` | `server/data/uploads` | Fotos enviadas pelo painel |
 | `ADMIN_PASSWORD` | gerada | Senha do primeiro `admin` |
+| `FOCUS_API_URL` | Focus NFe (homologação/produção) | Só para testes da emissão de NFC-e |
 
 **Backup:** Configurações → Fiscal e integrações → “Baixar backup agora” (ou copie o arquivo do banco).
 
@@ -144,6 +176,7 @@ Variáveis de ambiente:
 4. Usuários: criar logins da equipe (caixa, cozinha, entregadores).
 5. Estoque: ajustar o custo dos insumos (os iniciais são **estimativas**) e completar as fichas técnicas.
 6. Divulgar o link/QR Code do cardápio (Configurações → Divulgar cardápio).
+7. Notas fiscais: treinar a equipe no **modo treinamento** e, com o contador, ligar a NFC-e (ver acima).
 
 ## Tecnologia
 
@@ -156,6 +189,8 @@ Variáveis de ambiente:
 server/            API, banco (schema.sql), regras de pedido, seed e demonstração
   routes/          rotas por módulo
   services/        pedidos, estoque, pagamentos, fidelidade
+  fiscal/          NFC-e: montagem da nota, Focus NFe, modo treinamento, .zip do contador
+  integrations/    iFood e 99Food
   seed/catalog.json  cardápio real da loja
 web/src/public     cardápio digital e acompanhamento do pedido
 web/src/admin      painel de gestão

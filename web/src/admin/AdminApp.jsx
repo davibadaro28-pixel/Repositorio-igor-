@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 import { NavLink, Route, Routes, Navigate, useNavigate, Link } from 'react-router-dom';
 import {
   LayoutDashboard, ClipboardList, ShoppingCart, ChefHat, CalendarDays, Wallet, Landmark, Package, Cake, Users, Bike,
-  TicketPercent, BarChart3, Settings, UserCog, LogOut, Menu as MenuIcon, X, ExternalLink, Bell, Plug,
+  TicketPercent, BarChart3, Settings, UserCog, LogOut, Menu as MenuIcon, X, ExternalLink, Bell, Plug, Receipt,
 } from 'lucide-react';
 import { api, getToken, setToken, useLiveEvents } from '../lib/api.js';
 import { asset, newTab } from '../lib/env.js';
@@ -24,6 +24,8 @@ import SettingsPage from './Settings.jsx';
 import UsersPage from './Users.jsx';
 import PrintOrder from './PrintOrder.jsx';
 import Integrations from './Integrations.jsx';
+import Fiscal from './Fiscal.jsx';
+import FiscalReceipt from './FiscalReceipt.jsx';
 
 // ---------- Sessão ----------
 
@@ -49,6 +51,7 @@ export const NAV = [
   { to: '/admin/produtos', label: 'Cardápio e produtos', icon: Cake, module: 'produtos' },
   { to: '/admin/estoque', label: 'Estoque e CMV', icon: Package, module: 'estoque' },
   { to: '/admin/financeiro', label: 'Financeiro', icon: Landmark, module: 'financeiro' },
+  { to: '/admin/fiscal', label: 'Notas fiscais', icon: Receipt, module: 'fiscal' },
   { to: '/admin/clientes', label: 'Clientes', icon: Users, module: 'clientes' },
   { to: '/admin/entregas', label: 'Entregas', icon: Bike, module: 'entregas' },
   { to: '/admin/cupons', label: 'Cupons', icon: TicketPercent, module: 'cupons' },
@@ -297,6 +300,7 @@ export default function AdminApp() {
         <LiveProvider user={user} tick={tick} setTick={setTick} pending={pending} loadPending={loadPending} toast={toast}>
           <Routes>
             <Route path="imprimir/:id" element={<PrintOrder />} />
+            <Route path="nota/:id" element={<FiscalReceipt />} />
             <Route path="*" element={
               <Layout>
                 <Routes>
@@ -307,6 +311,7 @@ export default function AdminApp() {
                   <Route path="encomendas" element={<Guard module="encomendas"><Encomendas /></Guard>} />
                   <Route path="caixa" element={<Guard module="caixa"><Cash /></Guard>} />
                   <Route path="financeiro" element={<Guard module="financeiro"><Finance /></Guard>} />
+                  <Route path="fiscal" element={<Guard module="fiscal"><Fiscal /></Guard>} />
                   <Route path="estoque" element={<Guard module="estoque"><Stock /></Guard>} />
                   <Route path="produtos" element={<Guard module="produtos"><Products /></Guard>} />
                   <Route path="clientes" element={<Guard module="clientes"><Customers /></Guard>} />

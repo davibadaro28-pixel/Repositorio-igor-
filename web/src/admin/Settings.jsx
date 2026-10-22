@@ -156,39 +156,17 @@ function Loyalty({ value, onSaved }) {
   );
 }
 
-function Fiscal({ value, onSaved }) {
-  const [f, setF] = useState(value || {});
-  const { save, err, saving } = useSave('fiscal', onSaved);
-  const set = (k) => (e) => setF({ ...f, [k]: e.target.value });
+function Fiscal({ value }) {
+  const env = value?.provider === 'simulado' ? 'modo treinamento' : value?.ambiente === 'producao' ? 'produção' : 'homologação';
   return (
     <div className="grid gap-4 xl:grid-cols-2">
-      <Card className="space-y-3 p-5">
+      <Card className="h-fit space-y-3 p-5">
         <h3 className="flex items-center gap-2 font-semibold"><Receipt className="size-5 text-brand-500" /> Nota fiscal (NFC-e)</h3>
-        <p className="rounded-xl bg-amber-50 px-3 py-2 text-sm text-amber-900">
-          A emissão de NFC-e exige certificado digital A1, credenciamento na SEFAZ-SP e um emissor homologado (ex.: Focus NFe, NFE.io, PlugNotas).
-          Guarde aqui os dados da empresa; a integração com o emissor escolhido é o próximo passo do projeto.
+        <p className={value?.enabled ? 'text-sm text-emerald-700' : 'text-sm text-stone-600'}>
+          {value?.enabled ? `Emissão ligada (${env})${value.auto_emit ? ', com emissão automática' : ''}.` : 'Emissão desligada.'}
         </p>
-        <div className="grid gap-3 sm:grid-cols-2">
-          <Field label="Razão social" className="sm:col-span-2"><Input value={f.razao_social || ''} onChange={set('razao_social')} /></Field>
-          <Field label="CNPJ"><Input value={f.cnpj || ''} onChange={set('cnpj')} /></Field>
-          <Field label="Inscrição estadual"><Input value={f.ie || ''} onChange={set('ie')} /></Field>
-          <Field label="Regime tributário">
-            <Select value={f.regime || 'simples_nacional'} onChange={set('regime')}>
-              <option value="simples_nacional">Simples Nacional</option>
-              <option value="mei">MEI</option>
-              <option value="lucro_presumido">Lucro presumido</option>
-            </Select>
-          </Field>
-          <Field label="Ambiente">
-            <Select value={f.ambiente || 'homologacao'} onChange={set('ambiente')}><option value="homologacao">Homologação (testes)</option><option value="producao">Produção</option></Select>
-          </Field>
-          <Field label="Emissor"><Select value={f.provider || ''} onChange={set('provider')}><option value="">—</option><option value="focusnfe">Focus NFe</option><option value="nfeio">NFE.io</option><option value="plugnotas">PlugNotas</option></Select></Field>
-          <Field label="Token do emissor"><Input type="password" value={f.token || ''} onChange={set('token')} /></Field>
-          <Field label="ID do CSC"><Input value={f.csc_id || ''} onChange={set('csc_id')} /></Field>
-          <Field label="CSC"><Input type="password" value={f.csc || ''} onChange={set('csc')} /></Field>
-        </div>
-        <ErrorBox>{err}</ErrorBox>
-        <Button icon={Save} loading={saving} onClick={() => save(f)}>Salvar dados fiscais</Button>
+        <p className="text-sm text-stone-600">Emissor, CNPJ, formas de pagamento na nota, NCM e perfis tributários dos produtos ficam na tela Notas fiscais.</p>
+        <Link to="/admin/fiscal"><Button variant="secondary" icon={Receipt}>Abrir Notas fiscais</Button></Link>
       </Card>
       <Card className="h-fit space-y-3 p-5 text-sm">
         <h3 className="flex items-center gap-2 font-semibold"><Plug className="size-5 text-brand-500" /> Integrações</h3>

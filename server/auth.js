@@ -46,7 +46,7 @@ export function userFromToken(token) {
 // Módulos que cada perfil pode acessar (o painel usa a mesma tabela para montar o menu)
 export const PERMISSIONS = {
   admin: ['*'],
-  gerente: ['dashboard', 'pedidos', 'pdv', 'cozinha', 'encomendas', 'caixa', 'financeiro', 'estoque', 'produtos', 'clientes', 'entregas', 'cupons', 'relatorios', 'configuracoes'],
+  gerente: ['dashboard', 'pedidos', 'pdv', 'cozinha', 'encomendas', 'caixa', 'financeiro', 'fiscal', 'estoque', 'produtos', 'clientes', 'entregas', 'cupons', 'relatorios', 'configuracoes'],
   caixa: ['dashboard', 'pedidos', 'pdv', 'cozinha', 'encomendas', 'caixa', 'clientes', 'entregas'],
   cozinha: ['pedidos', 'cozinha', 'encomendas'],
   entregador: ['entregador'],

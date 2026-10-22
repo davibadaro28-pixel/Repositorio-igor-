@@ -5,9 +5,10 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { db, all, get, run, now, getSetting, setSetting } from '../db.js';
 import {
-  can, createSession, fail, hashPassword, PERMISSIONS, requireAuth, requireModule, verifyPassword,
+  createSession, fail, hashPassword, PERMISSIONS, requireAuth, requireModule, verifyPassword,
 } from '../auth.js';
 import { subscribe } from '../realtime.js';
+import { fiscalConfig } from '../fiscal/service.js';
 import { rateLimit } from './public.js';
 import { bool, cents, int, required, str } from '../util.js';
 
@@ -46,16 +47,14 @@ r.get('/stream', requireAuth, subscribe);
 
 // ---------- Configurações ----------
 
-const SETTING_KEYS = ['store', 'payment_methods', 'loyalty', 'fiscal'];
+const SETTING_KEYS = ['store', 'payment_methods', 'loyalty'];
 
-r.get('/settings', requireAuth, (req, res) => {
+r.get('/settings', requireAuth, (_req, res) => {
   const out = {};
   for (const k of SETTING_KEYS) out[k] = getSetting(k);
-  if (!can(req.user, 'configuracoes')) {
-    delete out.fiscal;
-  } else if (out.fiscal?.token) {
-    out.fiscal = { ...out.fiscal, token: '********' };
-  }
+  // só o resumo da nota fiscal (sem tokens): o painel decide se mostra "Emitir NFC-e"; o resto fica em /fiscal/config
+  const { enabled, provider, ambiente, auto_emit: autoEmit, razao_social: razaoSocial } = fiscalConfig();
+  out.fiscal = { enabled, provider, ambiente, auto_emit: autoEmit, razao_social: razaoSocial };
   res.json(out);
 });
 
@@ -93,10 +92,6 @@ r.put('/settings/:key', requireModule('configuracoes'), (req, res) => {
       redeem_points: Math.max(1, int(value.redeem_points, 100)),
       redeem_value_cents: cents(value.redeem_value_cents || 0),
     };
-  }
-  if (key === 'fiscal') {
-    const cur = getSetting('fiscal', {});
-    value = { ...cur, ...value, token: value.token === '********' ? cur.token : str(value.token, 300) || '' };
   }
   setSetting(key, value);
   res.json(getSetting(key));

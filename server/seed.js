@@ -56,10 +56,67 @@ export const DEFAULT_INTEGRATIONS = {
 
 const DEFAULT_LOYALTY = { enabled: true, points_per_real: 1, redeem_points: 100, redeem_value_cents: 1000 };
 
-const DEFAULT_FISCAL = {
-  enabled: false, provider: '', token: '', cnpj: '', ie: '', razao_social: '', regime: 'simples_nacional',
-  ambiente: 'homologacao', csc_id: '', csc: '',
+// NFC-e: os dados da empresa, o certificado A1 e o CSC ficam cadastrados no emissor (Focus NFe);
+// aqui ficam só o token de acesso e as regras de emissão. Tributação: ver TAX_PROFILES e NCM_SUGGESTIONS.
+export const DEFAULT_FISCAL = {
+  enabled: false,
+  provider: 'focusnfe',            // 'focusnfe' ou 'simulado' (treinamento, sem valor fiscal)
+  ambiente: 'homologacao',         // 'homologacao' (testes) ou 'producao'
+  token_homologacao: '',
+  token_producao: '',
+  cnpj: '',
+  razao_social: '',
+  regime: 'simples_nacional',      // 'simples_nacional', 'mei' ou 'normal'
+  auto_emit: false,                // emite sozinho quando o pedido sai para entrega ou é concluído
+  auto_channels: ['pdv', 'cardapio', 'whatsapp', 'telefone', 'ifood', '99food', 'outro'],
+  default_profile_id: null,
+  // código da forma de pagamento na nota (tPag) para cada forma cadastrada na loja
+  payment_codes: { pix: '20', dinheiro: '01', credito: '03', debito: '04', vr: '11', va: '10', ifood: '99', '99food': '99' },
+  // CNPJ dos apps de delivery (intermediadores); o identificador da loja vem das integrações
+  intermediarios: { ifood: { cnpj: '14380200000121', id: '' }, '99food': { cnpj: '18033552000161', id: '' } },
+  info_adicional: '',
 };
+
+// Perfis comuns de padaria/confeitaria no Simples Nacional — confirmar com o contador antes de emitir em produção
+export const TAX_PROFILES = [
+  { key: 'producao', name: 'Produção própria (Simples Nacional)', cfop: '5101', icms_cst: '102', pis_cst: '49', cofins_cst: '49' },
+  { key: 'revenda_st', name: 'Revenda com substituição tributária – bebidas (Simples Nacional)', cfop: '5405', icms_cst: '500', pis_cst: '04', cofins_cst: '04' },
+  { key: 'revenda', name: 'Revenda sem substituição tributária (Simples Nacional)', cfop: '5102', icms_cst: '102', pis_cst: '49', cofins_cst: '49' },
+];
+
+// Sugestão de NCM por categoria do cardápio (o nome do produto tem prioridade)
+const NCM_SUGGESTIONS = {
+  byName: [[/água/i, '22011000', 'revenda_st'], [/coca|guaraná|refri/i, '22021000', 'revenda_st'], [/^cookie/i, '19053100'], [/pudim/i, '21069090']],
+  byCategory: {
+    'Bolo Premium': '19059090', 'Bolos Caseiros': '19059090', 'Torta na Travessa': '19059090', 'Bolo em Fatia': '19059090',
+    'Bolo no Pote (200ml)': '19059090', 'Bolo Gelado': '19059090', 'Tortinhas da Laços': '19059090', 'Pudim (Novidade)': '21069090',
+    'Delícias de Morango': '18069000', 'Delícias da Laços': '18069000', 'Doces Gourmet (unidade)': '18069000', Brownie: '19059090',
+    Cookies: '19053100', 'Salgados (Lançamento)': '19059090', Bebidas: '22021000', 'Cobertura Extra': '21069090',
+  },
+};
+
+/** Cria os perfis tributários e sugere NCM para os produtos que ainda não têm (bancos novos e antigos) */
+export function seedFiscal() {
+  tx(() => {
+    if (!get('SELECT 1 FROM tax_profiles LIMIT 1')) {
+      for (const p of TAX_PROFILES) {
+        run('INSERT INTO tax_profiles (name, cfop, icms_cst, pis_cst, cofins_cst) VALUES (?, ?, ?, ?, ?)', p.name, p.cfop, p.icms_cst, p.pis_cst, p.cofins_cst);
+      }
+    }
+    const profileId = (key) => get('SELECT id FROM tax_profiles WHERE name = ?', TAX_PROFILES.find((p) => p.key === key).name)?.id ?? null;
+    const cfg = getSetting('fiscal', {});
+    if (cfg.ncm_suggested) return;
+    const products = all('SELECT p.id, p.name, c.name AS category FROM products p JOIN categories c ON c.id = p.category_id WHERE p.ncm IS NULL');
+    for (const p of products) {
+      const hit = NCM_SUGGESTIONS.byName.find(([re]) => re.test(p.name));
+      const ncm = hit?.[1] || NCM_SUGGESTIONS.byCategory[p.category];
+      if (!ncm) continue;
+      run('UPDATE products SET ncm = ?, tax_profile_id = COALESCE(tax_profile_id, ?) WHERE id = ?', ncm, hit?.[2] ? profileId(hit[2]) : null, p.id);
+    }
+    // só uma vez: produtos cadastrados depois recebem o NCM na tela de tributação
+    setSetting('fiscal', { ...cfg, default_profile_id: cfg.default_profile_id || profileId('producao'), ncm_suggested: true });
+  });
+}
 
 // Faixas atuais do delivery: até 4 km R$ 12; de 5 a 12 km R$ 20
 const DEFAULT_ZONES = [
@@ -103,11 +160,26 @@ const RECIPES = {
   'Água': [['Água 500 ml', 1]],
 };
 
+// Versões antigas guardavam só os dados da empresa e um token único
+function migrateFiscal(old) {
+  if (!old) return DEFAULT_FISCAL;
+  const token = old.token || '';
+  return {
+    ...DEFAULT_FISCAL,
+    cnpj: String(old.cnpj || '').replace(/\D/g, ''),
+    razao_social: old.razao_social || '',
+    regime: old.regime === 'lucro_presumido' ? 'normal' : old.regime || 'simples_nacional',
+    ambiente: old.ambiente === 'producao' ? 'producao' : 'homologacao',
+    token_homologacao: old.ambiente === 'producao' ? '' : token,
+    token_producao: old.ambiente === 'producao' ? token : '',
+  };
+}
+
 export function seedIfEmpty() {
   if (!getSetting('store')) setSetting('store', DEFAULT_STORE);
   if (!getSetting('payment_methods')) setSetting('payment_methods', DEFAULT_PAYMENT_METHODS);
   if (!getSetting('loyalty')) setSetting('loyalty', DEFAULT_LOYALTY);
-  if (!getSetting('fiscal')) setSetting('fiscal', DEFAULT_FISCAL);
+  if (!getSetting('fiscal')?.payment_codes) setSetting('fiscal', migrateFiscal(getSetting('fiscal')));
   if (!getSetting('integrations')) setSetting('integrations', DEFAULT_INTEGRATIONS);
   const methods = getSetting('payment_methods', []);
   if (!methods.some((m) => m.id === '99food')) {
@@ -165,6 +237,8 @@ export function seedIfEmpty() {
       }
     }
   });
+
+  seedFiscal();
 
   if (!get('SELECT 1 FROM users LIMIT 1')) {
     const password = process.env.ADMIN_PASSWORD || randomBytes(6).toString('base64url');

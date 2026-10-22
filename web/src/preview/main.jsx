@@ -9,7 +9,7 @@ import { todayISO } from '../lib/format.js';
 import App from '../App.jsx';
 
 // Prévia: o sistema inteiro roda no navegador, com dados de demonstração guardados neste aparelho.
-const SAVE_KEY = 'lacos_preview_db_v3';
+const SAVE_KEY = 'lacos_preview_db_v4';
 
 if (!Map.groupBy) {
   Map.groupBy = (list, fn) => list.reduce((m, x) => m.set(fn(x), [...(m.get(fn(x)) || []), x]), new Map());

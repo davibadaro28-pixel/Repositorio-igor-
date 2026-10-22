@@ -15,6 +15,7 @@ import deliveryRoutes from './routes/delivery.js';
 import couponRoutes from './routes/coupons.js';
 import reportRoutes from './routes/reports.js';
 import { admin as integrationRoutes, hooks as integrationHooks, startIntegrations } from './integrations/index.js';
+import fiscalRoutes from './fiscal/routes.js';
 
 seedIfEmpty();
 
@@ -32,7 +33,7 @@ app.use((_req, res, next) => {
 app.use('/api/public', publicRoutes);
 app.use('/api', integrationHooks);
 app.use('/api', authenticate);
-for (const routes of [adminRoutes, catalogRoutes, orderRoutes, cashRoutes, financeRoutes, stockRoutes, customerRoutes, deliveryRoutes, couponRoutes, reportRoutes, integrationRoutes]) {
+for (const routes of [adminRoutes, catalogRoutes, orderRoutes, cashRoutes, financeRoutes, stockRoutes, customerRoutes, deliveryRoutes, couponRoutes, reportRoutes, integrationRoutes, fiscalRoutes]) {
   app.use('/api', routes);
 }
 app.use('/api', (_req, _res, next) => next(new HttpError(404, 'Rota não encontrada')));

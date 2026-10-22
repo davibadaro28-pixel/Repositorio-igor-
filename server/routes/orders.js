@@ -6,6 +6,10 @@ import { broadcast } from '../realtime.js';
 import { date, int, str } from '../util.js';
 
 const r = Router();
+
+// situação da última nota fiscal de cada pedido (selo no quadro e no histórico)
+const FISCAL_COLS = `(SELECT f.status FROM fiscal_docs f WHERE f.order_id = o.id ORDER BY f.id DESC LIMIT 1) AS fiscal_status,
+  (SELECT f.alert FROM fiscal_docs f WHERE f.order_id = o.id ORDER BY f.id DESC LIMIT 1) AS fiscal_alert`;
 const view = requireModule('pedidos', 'pdv', 'cozinha', 'encomendas', 'caixa');
 const manage = requireModule('pedidos', 'pdv', 'caixa');
 
@@ -19,7 +23,7 @@ function itemsFor(ids) {
 r.get('/orders/board', view, (_req, res) => {
   const t = today();
   const orders = all(
-    `SELECT o.*, u.name AS courier_name FROM orders o LEFT JOIN users u ON u.id = o.courier_id
+    `SELECT o.*, u.name AS courier_name, ${FISCAL_COLS} FROM orders o LEFT JOIN users u ON u.id = o.courier_id
      WHERE o.status NOT IN ('concluido','cancelado') OR substr(o.updated_at, 1, 10) = ?
      ORDER BY COALESCE(o.scheduled_for, o.created_at), o.id`, t,
   ).map(hydrate);
@@ -46,7 +50,7 @@ r.get('/orders', view, (req, res) => {
   }
   const limit = Math.min(int(req.query.limit, 200), 1000);
   const orders = all(
-    `SELECT o.*, u.name AS courier_name FROM orders o LEFT JOIN users u ON u.id = o.courier_id
+    `SELECT o.*, u.name AS courier_name, ${FISCAL_COLS} FROM orders o LEFT JOIN users u ON u.id = o.courier_id
      ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
      ORDER BY ${req.query.by === 'scheduled' ? 'o.scheduled_for ASC' : 'o.id DESC'} LIMIT ?`, ...params, limit,
   ).map(hydrate);
