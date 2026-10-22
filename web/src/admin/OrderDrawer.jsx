@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { newTab } from '../lib/env.js';
-import { Printer, MessageCircle, XCircle, Phone, MapPin, CreditCard, Bike, CalendarClock } from 'lucide-react';
+import PlatformBadge from './PlatformBadge.jsx';
+import { Printer, MessageCircle, XCircle, Phone, MapPin, CreditCard, Bike, CalendarClock, AlertTriangle } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { brl, dateTimeBR, phone, addressLine, itemLine, waLink, methodLabel, TYPE, CHANNEL, STATUS } from '../lib/format.js';
 import { Button, Field, Modal, Select, StatusBadge, Textarea, MoneyInput, useToast, ErrorBox } from '../components/ui.jsx';
@@ -13,7 +14,9 @@ export function nextAction(o) {
     case 'novo': return o.scheduled_for ? { status: 'confirmado', label: 'Confirmar encomenda' } : { status: 'preparo', label: 'Aceitar e preparar' };
     case 'confirmado': return { status: 'preparo', label: 'Iniciar preparo' };
     case 'preparo': return { status: 'pronto', label: 'Marcar como pronto' };
-    case 'pronto': return o.type === 'entrega' ? { status: 'entrega', label: 'Saiu para entrega' } : { status: 'concluido', label: o.type === 'retirada' ? 'Cliente retirou' : 'Concluir' };
+    case 'pronto':
+      if (o.type !== 'entrega') return { status: 'concluido', label: o.type === 'retirada' ? 'Cliente retirou' : 'Concluir' };
+      return { status: 'entrega', label: o.external_delivered_by === 'platform' ? 'Entregador do app retirou' : 'Saiu para entrega' };
     case 'entrega': return { status: 'concluido', label: 'Entregue' };
     default: return null;
   }
@@ -74,11 +77,25 @@ export default function OrderDrawer({ id, onClose, onChange }) {
     }
   };
 
+  const resync = async () => {
+    setBusy(true);
+    try {
+      const r = await api.post(`/integrations/orders/${id}/resync`);
+      setData(r);
+      onChange?.(r);
+      toast('Plataforma atualizada');
+    } catch (e) {
+      setErr(e.message);
+    } finally {
+      setBusy(false);
+    }
+  };
+
   const next = o && nextAction(o);
   const paid = o?.payments.reduce((s, p) => s + p.amount_cents, 0) || 0;
 
   return (
-    <Modal open onClose={onClose} size="lg" title={o ? <span className="flex items-center gap-2">Pedido #{o.id} <StatusBadge status={o.status} /></span> : 'Pedido'}
+    <Modal open onClose={onClose} size="lg" title={o ? <span className="flex flex-wrap items-center gap-2">Pedido #{o.id} <PlatformBadge order={o} /> <StatusBadge status={o.status} /></span> : 'Pedido'}
       footer={o && (
         <>
           <Link to={`/admin/imprimir/${o.id}`} {...newTab}><Button variant="secondary" icon={Printer}>Imprimir</Button></Link>
@@ -99,6 +116,15 @@ export default function OrderDrawer({ id, onClose, onChange }) {
       {!o ? <p className="py-10 text-center text-stone-400">Carregando…</p> : (
         <div className="space-y-4 text-sm">
           <ErrorBox>{err}</ErrorBox>
+          {o.external_sync_error && (
+            <div className="flex flex-wrap items-center justify-between gap-2 rounded-xl bg-red-50 px-3 py-2 text-red-800 ring-1 ring-red-200">
+              <span className="flex items-start gap-2"><AlertTriangle className="mt-0.5 size-4 shrink-0" /> {o.external_sync_error}</span>
+              <Button size="sm" variant="secondary" loading={busy} onClick={resync}>Tentar de novo</Button>
+            </div>
+          )}
+          {o.external_platform && o.external_delivered_by === 'platform' && o.type === 'entrega' && (
+            <p className="rounded-xl bg-stone-50 px-3 py-2 text-stone-600">A entrega é feita pelo entregador do {CHANNEL[o.external_platform]}. Avise quando estiver pronto.</p>
+          )}
           <div className="grid gap-3 sm:grid-cols-2">
             <div className="space-y-1">
               <p className="text-base font-semibold">{o.customer_name || 'Cliente balcão'}</p>
@@ -144,7 +170,7 @@ export default function OrderDrawer({ id, onClose, onChange }) {
 
           {user.role !== 'cozinha' && o.status !== 'cancelado' && (
             <div className="grid gap-3 sm:grid-cols-2">
-              {o.type === 'entrega' && (
+              {o.type === 'entrega' && o.external_delivered_by !== 'platform' && (
                 <Field label={<span className="flex items-center gap-1"><Bike className="size-4" /> Entregador</span>}>
                   <Select value={o.courier_id || ''} onChange={(e) => patch({ courier_id: e.target.value || null })}>
                     <option value="">— sem entregador —</option>

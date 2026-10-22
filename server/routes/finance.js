@@ -119,7 +119,7 @@ r.get('/finance/dre', (req, res) => {
   const s = get(
     `SELECT COALESCE(SUM(subtotal_cents), 0) AS produtos, COALESCE(SUM(delivery_fee_cents), 0) AS entregas,
             COALESCE(SUM(discount_cents), 0) AS descontos, COALESCE(SUM(total_cents), 0) AS liquida,
-            COALESCE(SUM(cost_cents), 0) AS cmv, COUNT(*) AS pedidos
+            COALESCE(SUM(cost_cents), 0) AS cmv, COALESCE(SUM(platform_fee_cents), 0) AS comissoes, COUNT(*) AS pedidos
      FROM orders WHERE status != 'cancelado' AND created_at BETWEEN ? AND ?`, fromTs, toTs,
   );
   const fees = get(
@@ -138,11 +138,11 @@ r.get('/finance/dre', (req, res) => {
   const despesas = allDespesas.filter((d) => !d.is_cmv);
   const outras = get(`SELECT COALESCE(SUM(amount_cents), 0) AS v FROM fin_entries WHERE type = 'receita' AND due_date BETWEEN ? AND ?`, from, to).v;
   const totalDespesas = despesas.reduce((a, d) => a + d.valor, 0);
-  const lucroBruto = s.liquida - cmv - fees;
+  const lucroBruto = s.liquida - cmv - fees - s.comissoes;
   res.json({
     from, to, cmv_mode: mode, cmv_ficha: s.cmv, compras_insumos: compras,
     receita_bruta: s.produtos + s.entregas, produtos: s.produtos, entregas: s.entregas, descontos: s.descontos,
-    receita_liquida: s.liquida, cmv, taxas: fees, lucro_bruto: lucroBruto, outras_receitas: outras,
+    receita_liquida: s.liquida, cmv, taxas: fees, comissoes: s.comissoes, lucro_bruto: lucroBruto, outras_receitas: outras,
     despesas, total_despesas: totalDespesas, resultado: lucroBruto + outras - totalDespesas, pedidos: s.pedidos,
   });
 });

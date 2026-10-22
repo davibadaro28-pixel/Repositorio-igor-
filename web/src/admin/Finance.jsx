@@ -224,7 +224,8 @@ function DRE({ from, to }) {
             <Row label="(−) Descontos" value={data.descontos} neg indent />
             <Row label="Receita líquida" value={data.receita_liquida} strong note={`${data.pedidos} pedidos`} />
             <Row label={mode === 'ficha' ? '(−) CMV pela ficha técnica' : '(−) CMV: compras de insumos e embalagens'} value={data.cmv} neg indent />
-            <Row label="(−) Taxas de cartão / apps" value={data.taxas} neg indent />
+            <Row label="(−) Comissões iFood e 99Food" value={data.comissoes || 0} neg indent note="estimada pelo % configurado em iFood e 99Food" />
+            <Row label="(−) Taxas de cartão" value={data.taxas} neg indent />
             <Row label="Lucro bruto" value={data.lucro_bruto} strong />
             {data.outras_receitas > 0 && <Row label="(+) Outras receitas" value={data.outras_receitas} indent />}
             {data.despesas.map((d) => <Row key={d.categoria} label={`(−) ${d.categoria}`} value={d.valor} neg indent />)}

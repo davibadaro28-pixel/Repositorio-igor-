@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Bike, Store, ShoppingBag, CalendarClock, Plus, Search, Clock } from 'lucide-react';
+import { Bike, Store, ShoppingBag, CalendarClock, Plus, Search, Clock, AlertTriangle } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { brl, minutesSince, timeBR, dateTimeBR, dateBR, phone, todayISO, addDaysISO, TYPE, CHANNEL, STATUS } from '../lib/format.js';
 import { Button, Card, Input, PageHeader, Select, Spinner, StatusBadge, Table, Tabs, cx, useToast, Empty } from '../components/ui.jsx';
 import { useLive } from './AdminApp.jsx';
 import OrderDrawer, { nextAction } from './OrderDrawer.jsx';
+import PlatformBadge from './PlatformBadge.jsx';
 
 const COLUMNS = [
   { status: 'novo', title: 'Novos', tone: 'border-amber-400' },
@@ -24,13 +25,14 @@ export function OrderCard({ o, onOpen, onAdvance, compact }) {
   return (
     <div onClick={onOpen} className={cx('cursor-pointer rounded-xl bg-white p-3 shadow-sm ring-1 transition hover:shadow-md', o.status === 'novo' ? 'ring-amber-300' : 'ring-stone-200', late && 'ring-2 ring-red-300')}>
       <div className="flex items-center justify-between gap-2">
-        <p className="flex items-center gap-1.5 font-semibold text-stone-900"><TypeIcon type={o.type} /> #{o.id}</p>
+        <p className="flex items-center gap-1.5 font-semibold text-stone-900"><TypeIcon type={o.type} /> #{o.id} <PlatformBadge order={o} /></p>
         <span className={cx('flex shrink-0 items-center gap-1 rounded-full px-2 py-0.5 text-xs font-medium', late ? 'bg-red-100 text-red-700' : 'bg-stone-100 text-stone-600')}>
           <Clock className="size-3" /> {mins < 60 ? `${mins} min` : timeBR(o.created_at)}
         </span>
       </div>
       <p className="mt-0.5 truncate text-sm font-medium text-stone-800">{o.customer_name || 'Balcão'}</p>
       <p className="truncate text-xs text-stone-500">{CHANNEL[o.channel]}{o.address?.neighborhood ? ` · ${o.address.neighborhood}` : ''}</p>
+      {o.external_sync_error && <p className="mt-1 flex items-start gap-1 rounded-md bg-red-50 px-1.5 py-1 text-[11px] font-medium text-red-700"><AlertTriangle className="mt-px size-3 shrink-0" /> {o.external_sync_error}</p>}
       {o.scheduled_for && (
         <p className="mt-2 flex items-center gap-1 rounded-lg bg-brand-50 px-2 py-1 text-xs font-medium text-brand-800">
           <CalendarClock className="size-3.5" /> {o.scheduled_for.slice(0, 10) === todayISO() ? 'Hoje' : dateBR(o.scheduled_for)} às {timeBR(o.scheduled_for)}
@@ -123,10 +125,11 @@ function History() {
   const [from, setFrom] = useState(addDaysISO(todayISO(), -6));
   const [to, setTo] = useState(todayISO());
   const [status, setStatus] = useState('');
+  const [channel, setChannel] = useState('');
   const [q, setQ] = useState('');
   const [query, setQuery] = useState('');
   const { tick } = useLive();
-  const list = useApi(`/orders?from=${from}&to=${to}&status=${status}&q=${encodeURIComponent(query)}&limit=500`, [tick]);
+  const list = useApi(`/orders?from=${from}&to=${to}&status=${status}&channel=${channel}&q=${encodeURIComponent(query)}&limit=500`, [tick]);
   const [open, setOpen] = useState(null);
   const rows = list.data || [];
   const total = rows.filter((o) => o.status !== 'cancelado').reduce((s, o) => s + o.total_cents, 0);
@@ -139,6 +142,12 @@ function History() {
           <Select value={status} onChange={(e) => setStatus(e.target.value)}>
             <option value="">Todos</option>
             {Object.entries(STATUS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
+          </Select>
+        </label>
+        <label className="text-xs text-stone-500">Canal
+          <Select value={channel} onChange={(e) => setChannel(e.target.value)}>
+            <option value="">Todos</option>
+            {Object.entries(CHANNEL).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
           </Select>
         </label>
         <form onSubmit={(e) => { e.preventDefault(); setQuery(q); }} className="flex flex-1 gap-2">
@@ -160,7 +169,7 @@ function History() {
                   <td className="font-medium">{o.id}</td>
                   <td className="whitespace-nowrap">{dateTimeBR(o.created_at)}</td>
                   <td>{o.customer_name || '—'}<span className="block text-xs text-stone-500">{phone(o.customer_phone)}</span></td>
-                  <td>{CHANNEL[o.channel]}</td>
+                  <td><span className="flex items-center gap-1.5">{o.external_platform ? <PlatformBadge order={o} /> : CHANNEL[o.channel]}</span></td>
                   <td>{TYPE[o.type]}</td>
                   <td><StatusBadge status={o.status} /></td>
                   <td className="text-right font-medium">{brl(o.total_cents)}</td>

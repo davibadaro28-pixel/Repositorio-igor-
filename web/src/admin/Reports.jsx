@@ -40,6 +40,40 @@ export default function Reports() {
             <Stat label="Cancelados" value={data.cancelled.n} sub={brl(data.cancelled.v)} icon={XCircle} tone="red" />
           </div>
 
+          <Card>
+            <div className="border-b border-stone-100 px-4 py-3">
+              <h3 className="font-semibold">Faturamento por canal</h3>
+              <p className="text-xs text-stone-500">Loja, cardápio digital e apps de delivery juntos. Líquido = bruto − comissão dos apps − taxas de cartão.</p>
+            </div>
+            <Table>
+              <thead><tr><th>Canal</th><th className="text-right">Pedidos</th><th className="text-right">Ticket médio</th><th className="text-right">Bruto</th><th className="text-right">Comissão apps</th><th className="text-right">Taxas</th><th className="text-right">Líquido</th></tr></thead>
+              <tbody>
+                {data.byChannel.map((c) => (
+                  <tr key={c.channel}>
+                    <td className="font-medium">{CHANNEL[c.channel] || c.channel}</td>
+                    <td className="text-right">{c.orders}</td>
+                    <td className="text-right">{brl(c.avg_ticket_cents)}</td>
+                    <td className="text-right">{brl(c.revenue_cents)}</td>
+                    <td className="text-right text-red-700">{c.commission_cents ? `− ${brl(c.commission_cents)}` : '—'}</td>
+                    <td className="text-right text-red-700">{c.payment_fee_cents ? `− ${brl(c.payment_fee_cents)}` : '—'}</td>
+                    <td className="text-right font-semibold">{brl(c.net_cents)}</td>
+                  </tr>
+                ))}
+                <tr className="bg-stone-50 font-semibold">
+                  <td>Total</td>
+                  <td className="text-right">{data.byChannel.reduce((s, c) => s + c.orders, 0)}</td>
+                  <td />
+                  <td className="text-right">{brl(data.byChannel.reduce((s, c) => s + c.revenue_cents, 0))}</td>
+                  {['commission_cents', 'payment_fee_cents'].map((k) => {
+                    const v = data.byChannel.reduce((s, c) => s + c[k], 0);
+                    return <td key={k} className="text-right text-red-700">{v ? `− ${brl(v)}` : '—'}</td>;
+                  })}
+                  <td className="text-right">{brl(data.byChannel.reduce((s, c) => s + c.net_cents, 0))}</td>
+                </tr>
+              </tbody>
+            </Table>
+          </Card>
+
           <Card className="p-4">
             <h3 className="mb-2 font-semibold">Faturamento por dia</h3>
             <ColumnChart data={data.byDay.map((d) => ({ label: dateBR(d.day).slice(0, 5), value: d.revenue_cents, tip: dateBR(d.day), extra: `${d.orders} pedidos` }))} />
@@ -71,7 +105,7 @@ export default function Reports() {
             <Card className="p-4"><h3 className="mb-3 font-semibold">Por categoria</h3><BarList data={data.categories.map((c) => ({ label: c.name, value: c.revenue_cents, sub: `${qty(c.qty)} un` }))} /></Card>
             <Card className="p-4"><h3 className="mb-3 font-semibold">Por forma de pagamento</h3><BarList data={data.byPayment.map((p) => ({ label: methodLabel(methods, p.method), value: p.amount_cents, sub: p.fee_cents ? `taxa ${brl(p.fee_cents)}` : '' }))} /></Card>
             <Card className="p-4 space-y-5">
-              <div><h3 className="mb-3 font-semibold">Por canal</h3><BarList data={data.byChannel.map((c) => ({ label: CHANNEL[c.channel], value: c.revenue_cents, sub: `${c.orders} ped.` }))} /></div>
+              <div><h3 className="mb-3 font-semibold">Por canal (bruto)</h3><BarList data={data.byChannel.map((c) => ({ label: CHANNEL[c.channel], value: c.revenue_cents, sub: `${c.orders} ped.` }))} /></div>
               <div><h3 className="mb-3 font-semibold">Por tipo</h3><BarList data={data.byType.map((c) => ({ label: TYPE[c.type], value: c.revenue_cents, sub: `${c.orders} ped.` }))} /></div>
             </Card>
           </div>

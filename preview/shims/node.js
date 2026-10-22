@@ -40,6 +40,11 @@ export function scryptSync(password, salt, len) {
   }
   return out;
 }
+const unavailable = () => {
+  throw new Error('Indisponível na prévia');
+};
+export const createHash = () => ({ update: () => ({ digest: unavailable }) });
+export const createHmac = () => ({ update: () => ({ digest: unavailable }) });
 export function timingSafeEqual(a, b) {
   if (a.length !== b.length) return false;
   let d = 0;
@@ -72,4 +77,4 @@ export const basename = (p) => String(p).split('/').pop();
 export const fileURLToPath = () => '/server/db.js';
 export const tmpdir = () => '/tmp';
 
-export default { randomBytes, scryptSync, timingSafeEqual, readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, join, dirname, basename, fileURLToPath, tmpdir };
+export default { randomBytes, scryptSync, timingSafeEqual, createHash, createHmac, readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, join, dirname, basename, fileURLToPath, tmpdir };

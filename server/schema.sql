@@ -158,7 +158,7 @@ CREATE TABLE IF NOT EXISTS cash_movements (
 CREATE TABLE IF NOT EXISTS orders (
   id              INTEGER PRIMARY KEY,
   code            TEXT NOT NULL UNIQUE,          -- código público de acompanhamento
-  channel         TEXT NOT NULL CHECK (channel IN ('cardapio','pdv','whatsapp','telefone','ifood','outro')),
+  channel         TEXT NOT NULL CHECK (channel IN ('cardapio','pdv','whatsapp','telefone','ifood','99food','outro')),
   type            TEXT NOT NULL CHECK (type IN ('entrega','retirada','balcao')),
   status          TEXT NOT NULL CHECK (status IN ('novo','confirmado','preparo','pronto','entrega','concluido','cancelado')),
   customer_id     INTEGER REFERENCES customers(id) ON DELETE SET NULL,
@@ -182,6 +182,13 @@ CREATE TABLE IF NOT EXISTS orders (
   stock_applied   INTEGER NOT NULL DEFAULT 0,
   points_awarded  INTEGER NOT NULL DEFAULT 0,
   cancel_reason   TEXT,
+  external_platform TEXT,                        -- 'ifood' ou '99food' quando veio de app de delivery
+  external_id     TEXT,                          -- id do pedido na plataforma (texto: ids de 64 bits)
+  external_code   TEXT,                          -- número curto que aparece no app
+  external_status TEXT,                          -- último status informado pela plataforma
+  external_delivered_by TEXT,                    -- 'platform' (entregador do app) ou 'store'
+  external_sync_error TEXT,                      -- falha ao avisar a plataforma de uma mudança
+  platform_fee_cents INTEGER NOT NULL DEFAULT 0, -- comissão estimada do app de delivery
   created_by      INTEGER REFERENCES users(id) ON DELETE SET NULL,
   created_at      TEXT NOT NULL,
   updated_at      TEXT NOT NULL,
@@ -227,6 +234,18 @@ CREATE TABLE IF NOT EXISTS order_events (
   note       TEXT,
   user_id    INTEGER REFERENCES users(id) ON DELETE SET NULL,
   created_at TEXT NOT NULL
+);
+
+-- Itens recebidos do iFood/99Food e o produto correspondente no cardápio da loja
+CREATE TABLE IF NOT EXISTS integration_items (
+  id           INTEGER PRIMARY KEY,
+  platform     TEXT NOT NULL,
+  external_key TEXT NOT NULL,                   -- código do item no app ou "nome:<nome>"
+  name         TEXT NOT NULL,
+  variant_id   INTEGER REFERENCES product_variants(id) ON DELETE SET NULL,
+  seen         INTEGER NOT NULL DEFAULT 0,
+  last_seen_at TEXT,
+  UNIQUE (platform, external_key)
 );
 
 CREATE TABLE IF NOT EXISTS fin_categories (

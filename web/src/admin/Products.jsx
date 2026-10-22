@@ -111,6 +111,7 @@ export default function Products() {
                     {p.variants.map((v) => (
                       <span key={v.id} className="mr-3 whitespace-nowrap">
                         {v.name && <span className="text-stone-500">{v.name}: </span>}<b>{brl(v.price_cents)}</b>
+                        <span className="ml-1 font-mono text-[11px] text-stone-400" title="Código para o iFood e a 99Food (Código PDV)">V{v.id}</span>
                         {v.cost_cents > 0 && <span className={cx('ml-1 text-xs', v.margin_pct < 60 ? 'text-amber-600' : 'text-emerald-600')}>margem {pct(v.margin_pct)}</span>}
                       </span>
                     ))}

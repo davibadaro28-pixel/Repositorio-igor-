@@ -5,6 +5,7 @@ import { minutesSince, timeBR, dateBR, todayISO } from '../lib/format.js';
 import { Button, PageHeader, Spinner, cx, useToast } from '../components/ui.jsx';
 import { useLive } from './AdminApp.jsx';
 import { TypeIcon } from './Orders.jsx';
+import PlatformBadge from './PlatformBadge.jsx';
 
 function Ticket({ o, onMove }) {
   const mins = minutesSince(o.confirmed_at || o.created_at);
@@ -12,7 +13,7 @@ function Ticket({ o, onMove }) {
   return (
     <div className={cx('flex flex-col rounded-2xl bg-white shadow ring-2', late ? 'ring-red-400' : o.status === 'pronto' ? 'ring-emerald-400' : 'ring-transparent')}>
       <div className={cx('flex items-center justify-between rounded-t-2xl px-4 py-2 text-white', o.status === 'pronto' ? 'bg-emerald-600' : o.status === 'preparo' ? 'bg-brand-600' : 'bg-sky-600')}>
-        <span className="flex items-center gap-2 text-lg font-bold"><TypeIcon type={o.type} className="size-5" /> #{o.id}</span>
+        <span className="flex items-center gap-2 text-lg font-bold"><TypeIcon type={o.type} className="size-5" /> #{o.id} <PlatformBadge order={o} /></span>
         <span className="text-sm font-medium">{o.scheduled_for ? `para ${timeBR(o.scheduled_for)}` : `${mins} min`}</span>
       </div>
       <div className="flex-1 px-4 py-3">

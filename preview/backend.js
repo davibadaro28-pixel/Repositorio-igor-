@@ -15,6 +15,7 @@ import customerRoutes from '../server/routes/customers.js';
 import deliveryRoutes from '../server/routes/delivery.js';
 import couponRoutes from '../server/routes/coupons.js';
 import reportRoutes from '../server/routes/reports.js';
+import { admin as integrationRoutes } from '../server/integrations/index.js';
 import { Router, dispatch } from './shims/express.js';
 import { exportDatabase, resetDatabase } from './shims/sqlite.js';
 import { Bytes } from './shims/node.js';
@@ -50,7 +51,7 @@ preview.get('/backup', (_req, res) => res.status(501).json({ error: 'Backup disp
 
 const authLayer = Router().use(authenticate);
 const PRIVATE = [authLayer, preview, adminRoutes, catalogRoutes, orderRoutes, cashRoutes, financeRoutes, stockRoutes,
-  customerRoutes, deliveryRoutes, couponRoutes, reportRoutes].flatMap((r) => r.layers);
+  customerRoutes, deliveryRoutes, couponRoutes, reportRoutes, integrationRoutes].flatMap((r) => r.layers);
 
 function makeReq(method, url, headers = {}, body) {
   const u = new URL(url, 'http://local');
@@ -64,6 +65,8 @@ function makeReq(method, url, headers = {}, body) {
       headers: Object.fromEntries(Object.entries(headers).map(([k, v]) => [k.toLowerCase(), v])),
       body: body ?? {},
       ip: '127.0.0.1',
+      protocol: 'https',
+      get: (h) => headers[h] ?? headers[h.toLowerCase()],
       on: (ev, fn) => (listeners[ev] = fn),
     },
     listeners,

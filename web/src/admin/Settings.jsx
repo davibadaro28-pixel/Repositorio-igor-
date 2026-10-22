@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Save, Plus, Trash2, Receipt, Plug, QrCode, Copy, DatabaseBackup } from 'lucide-react';
 import { api, getToken } from '../lib/api.js';
 import { IS_PREVIEW } from '../lib/env.js';
@@ -192,8 +193,8 @@ function Fiscal({ value, onSaved }) {
       <Card className="h-fit space-y-3 p-5 text-sm">
         <h3 className="flex items-center gap-2 font-semibold"><Plug className="size-5 text-brand-500" /> Integrações</h3>
         <div className="rounded-xl p-3 ring-1 ring-stone-200">
-          <p className="font-medium">iFood</p>
-          <p className="text-stone-600">Pedidos do iFood podem ser lançados no PDV com o canal “iFood” e forma de pagamento “Pago no iFood”, assim entram no estoque, no quadro de pedidos e nos relatórios. A integração automática exige cadastro como parceiro na plataforma de desenvolvedores do iFood.</p>
+          <p className="font-medium">iFood e 99Food</p>
+          <p className="text-stone-600">Os pedidos dos apps entram sozinhos no quadro de pedidos, na cozinha, no estoque e nos relatórios. <Link to="/admin/integracoes" className="font-medium text-brand-700 underline">Configurar integrações</Link></p>
         </div>
         <div className="rounded-xl p-3 ring-1 ring-stone-200">
           <p className="font-medium">WhatsApp</p>

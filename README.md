@@ -23,6 +23,7 @@ cardápio atual da loja, com as cores e o logo da marca.
 | **Entregas** | Bairros e taxas, entregadores, entregas em andamento e acerto por período. **App do entregador** (`/entregador`): entregas atribuídas, rota no Google Maps, valor a cobrar e troco, “Saí”/“Entreguei”. |
 | **Cupons** | Percentual, valor fixo ou frete grátis; mínimo, validade, limite de usos e “só na 1ª compra”. |
 | **Relatórios** | Faturamento por dia, horário e dia da semana, produtos, categorias, formas de pagamento, canais, bairros, ticket médio, cancelamentos. Exporta para Excel (CSV). |
+| **iFood e 99Food** | Pedidos dos apps entram sozinhos no quadro de pedidos (com selo e número do app), na cozinha, no estoque e nos relatórios. Aceitar, “pronto”, “saiu” e cancelar no painel avisam o app. Comissão configurável por app; relatório **Faturamento por canal** com bruto, comissão e líquido; comissão como linha própria na DRE. Itens do app são ligados aos produtos da loja pelo código (ex.: V12) ou na tela “Vincular produtos”. |
 | **Configurações** | Dados da loja, horários, pausar pedidos, tempos, pedido mínimo, formas de pagamento e taxas, fidelidade, dados fiscais, **link e QR Code do cardápio**, **backup com um clique**. |
 | **Usuários** | Logins com perfis: Administrador, Gerente, Caixa, Cozinha e Entregador (cada um vê só o que precisa). |
 
@@ -38,9 +39,28 @@ financeiro/DRE, CRM e fidelidade, cupons, app do entregador, relatórios, perfis
 
 - **NFC-e** – a tela de dados fiscais já existe; falta integrar um emissor (Focus NFe, NFE.io ou PlugNotas) com
   certificado A1 e CSC da SEFAZ-SP.
-- **iFood automático** – hoje o pedido do iFood é lançado no PDV com o canal “iFood”; a integração automática
-  exige cadastro de parceiro no portal de desenvolvedores do iFood.
 - **TEF/maquininha integrada**, **robô de WhatsApp com IA**, **roteirização automática** e **totem**.
+
+## iFood e 99Food
+
+A integração está pronta; para ligar é preciso ter as credenciais de cada app (passo a passo na tela
+**iFood e 99Food** do painel) e o sistema publicado num endereço HTTPS.
+
+| | iFood | 99Food |
+|---|---|---|
+| Como chegam os pedidos | Busca a cada 30 s (polling) e confirma os eventos. Enquanto roda, a loja fica aberta no iFood. Webhook opcional em `/api/hooks/ifood`. | Webhook em `https://<seu-domínio>/api/hooks/99food`, assinatura MD5 conferida |
+| Credenciais | Client ID, Client Secret e Merchant ID (Portal do Desenvolvedor iFood) | App ID, App Secret e código da loja `app_shop_id` (developer-food.99app.com) |
+| O painel avisa o app | aceitar (`confirm`), preparo, pronto (`readyToPickup`), saiu (`dispatch`, entrega própria), cancelar | aceitar (`confirm`, em até 5 min), pronto, saiu e entregue (entrega própria), cancelar |
+
+- Os preços e totais vêm do app (o cardápio dos apps costuma ter preços próprios). Quando a entrega é feita pelo app,
+  a taxa de entrega não entra no faturamento da loja.
+- Ids de pedido da 99Food têm 64 bits e são tratados como texto para não perder dígitos.
+- Se avisar o app falhar, o pedido mostra o erro e o botão “Tentar de novo”.
+- “Simular pedido de teste” cria um pedido no formato real de cada app, sem conexão, para treinar a equipe.
+- Os testes (`npm test`) usam servidores que imitam as duas APIs; `IFOOD_API_URL` e `FOOD99_API_URL` trocam o endereço das APIs.
+- Antes de usar com pedidos reais, valide no ambiente de testes de cada plataforma: a 99Food exige certificação do
+  aplicativo, e as regras do iFood para aplicativos podem pedir homologação.
+- Ainda não sincroniza o cardápio (preços, fotos, esgotados) com os apps nem o repasse financeiro; isso continua no portal de cada app.
 
 ## Como rodar no computador
 

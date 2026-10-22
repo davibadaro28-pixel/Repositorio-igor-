@@ -189,7 +189,7 @@ export function paymentMethods() {
   return getSetting('payment_methods', []);
 }
 
-function recordPayments(orderId, payments, userId) {
+export function recordPayments(orderId, payments, userId) {
   const methods = paymentMethods();
   const session = openCashSession();
   const t = now();
@@ -207,7 +207,7 @@ function recordPayments(orderId, payments, userId) {
   }
 }
 
-function settlePaid(order) {
+export function settlePaid(order) {
   const paid = get('SELECT COALESCE(SUM(amount_cents), 0) AS s FROM order_payments WHERE order_id = ?', order.id).s;
   if (paid >= order.total_cents && !order.paid) run('UPDATE orders SET paid = 1, paid_at = ? WHERE id = ?', now(), order.id);
 }
@@ -342,7 +342,7 @@ export function createOrder(input, { user = null, publicMenu = false } = {}) {
 
     let status = 'novo';
     if (!publicMenu && input.status && STATUSES.includes(input.status) && input.status !== 'cancelado') status = input.status;
-    const channel = publicMenu ? 'cardapio' : ['pdv', 'whatsapp', 'telefone', 'ifood', 'outro'].includes(input.channel) ? input.channel : 'pdv';
+    const channel = publicMenu ? 'cardapio' : ['pdv', 'whatsapp', 'telefone', 'ifood', '99food', 'outro'].includes(input.channel) ? input.channel : 'pdv';
 
     const changeFor = input.payment_method === 'dinheiro' && input.change_for_cents ? Math.round(Number(input.change_for_cents)) : null;
     const r = run(
@@ -390,7 +390,21 @@ export function createOrder(input, { user = null, publicMenu = false } = {}) {
 
 // ---------- Mudança de status ----------
 
-export function setStatus(orderId, status, user, { note, reason } = {}) {
+// Quem precisa saber de cada mudança (ex.: avisar o iFood/99Food que o pedido ficou pronto)
+const statusListeners = [];
+export const onStatusChange = (fn) => statusListeners.push(fn);
+
+/** opts.fromPlatform: a mudança veio do próprio app de delivery (não precisa avisá-lo de volta) */
+export function setStatus(orderId, status, user, opts = {}) {
+  const before = get('SELECT status FROM orders WHERE id = ?', orderId)?.status;
+  const full = changeStatus(orderId, status, user, opts);
+  if (before !== status && full.status === status) {
+    for (const fn of statusListeners) setTimeout(() => fn(full, status, opts), 0);
+  }
+  return full;
+}
+
+function changeStatus(orderId, status, user, { note, reason } = {}) {
   if (!STATUSES.includes(status)) fail(400, 'Status inválido');
   return tx(() => {
     const order = get('SELECT * FROM orders WHERE id = ?', orderId);

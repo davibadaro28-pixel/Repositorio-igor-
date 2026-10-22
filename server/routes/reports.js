@@ -37,7 +37,7 @@ r.get('/reports/dashboard', requireModule('dashboard'), (_req, res) => {
      WHERE o.${VALID} AND o.created_at >= ? GROUP BY i.name ORDER BY qty DESC LIMIT 8`, `${addDays(t, -6)} 00:00:00`,
   );
   const channels = all(
-    `SELECT channel, type, COUNT(*) AS orders, SUM(total_cents) AS revenue_cents FROM orders
+    `SELECT channel, type, COUNT(*) AS orders, SUM(total_cents) AS revenue_cents, SUM(platform_fee_cents) AS commission_cents FROM orders
      WHERE ${VALID} AND created_at BETWEEN ? AND ? GROUP BY channel, type`, ...day(t),
   );
   const upcoming = all(
@@ -77,10 +77,12 @@ r.get('/reports/summary', requireModule('relatorios'), (req, res) => {
     `SELECT CAST(strftime('%w', created_at) AS INTEGER) AS weekday, COUNT(*) AS orders, SUM(total_cents) AS revenue_cents FROM orders
      WHERE ${VALID} AND created_at BETWEEN ? AND ? GROUP BY weekday ORDER BY weekday`, fromTs, toTs,
   );
+  // faturamento consolidado: loja + apps de delivery, com comissões e taxas para chegar ao líquido
   const byChannel = all(
-    `SELECT channel, COUNT(*) AS orders, SUM(total_cents) AS revenue_cents FROM orders
-     WHERE ${VALID} AND created_at BETWEEN ? AND ? GROUP BY channel ORDER BY revenue_cents DESC`, fromTs, toTs,
-  );
+    `SELECT o.channel, COUNT(*) AS orders, SUM(o.total_cents) AS revenue_cents, SUM(o.platform_fee_cents) AS commission_cents,
+       COALESCE(SUM((SELECT SUM(p.fee_cents) FROM order_payments p WHERE p.order_id = o.id)), 0) AS payment_fee_cents
+     FROM orders o WHERE o.${VALID} AND o.created_at BETWEEN ? AND ? GROUP BY o.channel ORDER BY revenue_cents DESC`, fromTs, toTs,
+  ).map((c) => ({ ...c, net_cents: c.revenue_cents - c.commission_cents - c.payment_fee_cents, avg_ticket_cents: Math.round(c.revenue_cents / c.orders) }));
   const byType = all(
     `SELECT type, COUNT(*) AS orders, SUM(total_cents) AS revenue_cents FROM orders
      WHERE ${VALID} AND created_at BETWEEN ? AND ? GROUP BY type ORDER BY revenue_cents DESC`, fromTs, toTs,

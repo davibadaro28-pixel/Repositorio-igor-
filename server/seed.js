@@ -45,7 +45,14 @@ const DEFAULT_PAYMENT_METHODS = [
   { id: 'vr', label: 'Vale-refeição (VR, Alelo, Pluxee, Ticket)', fee_pct: 0, active: true, online: true },
   { id: 'va', label: 'Vale-alimentação', fee_pct: 0, active: true, online: true },
   { id: 'ifood', label: 'Pago no iFood', fee_pct: 0, active: true, online: false },
+  { id: '99food', label: 'Pago na 99Food', fee_pct: 0, active: true, online: false },
 ];
+
+// Comissão em % sobre o valor dos produtos (ver o plano contratado em cada app)
+export const DEFAULT_INTEGRATIONS = {
+  ifood: { enabled: false, client_id: '', client_secret: '', merchant_id: '', commission_pct: 0, auto_accept: false },
+  food99: { enabled: false, app_id: '', app_secret: '', app_shop_id: '', commission_pct: 0, auto_accept: false },
+};
 
 const DEFAULT_LOYALTY = { enabled: true, points_per_real: 1, redeem_points: 100, redeem_value_cents: 1000 };
 
@@ -101,6 +108,11 @@ export function seedIfEmpty() {
   if (!getSetting('payment_methods')) setSetting('payment_methods', DEFAULT_PAYMENT_METHODS);
   if (!getSetting('loyalty')) setSetting('loyalty', DEFAULT_LOYALTY);
   if (!getSetting('fiscal')) setSetting('fiscal', DEFAULT_FISCAL);
+  if (!getSetting('integrations')) setSetting('integrations', DEFAULT_INTEGRATIONS);
+  const methods = getSetting('payment_methods', []);
+  if (!methods.some((m) => m.id === '99food')) {
+    setSetting('payment_methods', [...methods, DEFAULT_PAYMENT_METHODS.find((m) => m.id === '99food')]);
+  }
 
   const t = now();
   tx(() => {

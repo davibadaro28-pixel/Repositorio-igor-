@@ -134,7 +134,8 @@ export default function PDV() {
             <option value="pdv">Venda no balcão</option>
             <option value="whatsapp">Pedido por WhatsApp</option>
             <option value="telefone">Pedido por telefone</option>
-            <option value="ifood">iFood</option>
+            <option value="ifood">iFood (lançado à mão)</option>
+            <option value="99food">99Food (lançado à mão)</option>
             <option value="outro">Outro canal</option>
           </Select>
           <label className="flex shrink-0 items-center gap-1.5"><input type="checkbox" className="accent-brand-600" checked={sale.scheduled} onChange={(e) => setSale((s) => ({ ...s, scheduled: e.target.checked }))} /> Encomenda</label>

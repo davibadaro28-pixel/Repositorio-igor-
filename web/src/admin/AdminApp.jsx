@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 import { NavLink, Route, Routes, Navigate, useNavigate, Link } from 'react-router-dom';
 import {
   LayoutDashboard, ClipboardList, ShoppingCart, ChefHat, CalendarDays, Wallet, Landmark, Package, Cake, Users, Bike,
-  TicketPercent, BarChart3, Settings, UserCog, LogOut, Menu as MenuIcon, X, ExternalLink, Bell,
+  TicketPercent, BarChart3, Settings, UserCog, LogOut, Menu as MenuIcon, X, ExternalLink, Bell, Plug,
 } from 'lucide-react';
 import { api, getToken, setToken, useLiveEvents } from '../lib/api.js';
 import { asset, newTab } from '../lib/env.js';
@@ -23,6 +23,7 @@ import Reports from './Reports.jsx';
 import SettingsPage from './Settings.jsx';
 import UsersPage from './Users.jsx';
 import PrintOrder from './PrintOrder.jsx';
+import Integrations from './Integrations.jsx';
 
 // ---------- Sessão ----------
 
@@ -53,6 +54,7 @@ export const NAV = [
   { to: '/admin/cupons', label: 'Cupons', icon: TicketPercent, module: 'cupons' },
   { to: '/admin/relatorios', label: 'Relatórios', icon: BarChart3, module: 'relatorios' },
   { group: 'Sistema' },
+  { to: '/admin/integracoes', label: 'iFood e 99Food', icon: Plug, module: 'configuracoes' },
   { to: '/admin/configuracoes', label: 'Configurações', icon: Settings, module: 'configuracoes' },
   { to: '/admin/usuarios', label: 'Usuários', icon: UserCog, module: 'usuarios' },
 ];
@@ -312,6 +314,7 @@ export default function AdminApp() {
                   <Route path="cupons" element={<Guard module="cupons"><Coupons /></Guard>} />
                   <Route path="relatorios" element={<Guard module="relatorios"><Reports /></Guard>} />
                   <Route path="configuracoes" element={<Guard module="configuracoes"><SettingsPage /></Guard>} />
+                  <Route path="integracoes" element={<Guard module="configuracoes"><Integrations /></Guard>} />
                   <Route path="usuarios" element={<Guard module="usuarios"><UsersPage /></Guard>} />
                   <Route path="*" element={<Navigate to="/admin" replace />} />
                 </Routes>
@@ -328,9 +331,9 @@ function LiveProvider({ user, tick, setTick, pending, loadPending, toast, childr
   useLiveEvents((e) => {
     setTick((t) => t + 1);
     if (canAccess(user, 'pedidos')) loadPending();
-    if (e.new && e.channel === 'cardapio') {
+    if (e.new && ['cardapio', 'ifood', '99food'].includes(e.channel)) {
       beep();
-      toast(`Novo pedido #${e.id} pelo cardápio digital!`);
+      toast(`Novo pedido #${e.id} ${e.channel === 'cardapio' ? 'pelo cardápio digital' : `do ${e.channel === 'ifood' ? 'iFood' : '99Food'}`}!`);
       try {
         if (document.hidden && 'Notification' in window && Notification.permission === 'granted') {
           new Notification('Laços de Mãe', { body: `Novo pedido #${e.id}`, icon: '/img/icon-192.png' });

@@ -14,13 +14,15 @@ import customerRoutes from './routes/customers.js';
 import deliveryRoutes from './routes/delivery.js';
 import couponRoutes from './routes/coupons.js';
 import reportRoutes from './routes/reports.js';
+import { admin as integrationRoutes, hooks as integrationHooks, startIntegrations } from './integrations/index.js';
 
 seedIfEmpty();
 
 export const app = express();
 app.set('trust proxy', 1);
 app.disable('x-powered-by');
-app.use(express.json({ limit: '5mb' }));
+// guarda o corpo original: os webhooks dos apps de delivery são assinados sobre ele
+app.use(express.json({ limit: '5mb', verify: (req, _res, buf) => { req.rawBody = buf.toString('utf8'); } }));
 app.use((_req, res, next) => {
   res.setHeader('X-Content-Type-Options', 'nosniff');
   res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
@@ -28,8 +30,9 @@ app.use((_req, res, next) => {
 });
 
 app.use('/api/public', publicRoutes);
+app.use('/api', integrationHooks);
 app.use('/api', authenticate);
-for (const routes of [adminRoutes, catalogRoutes, orderRoutes, cashRoutes, financeRoutes, stockRoutes, customerRoutes, deliveryRoutes, couponRoutes, reportRoutes]) {
+for (const routes of [adminRoutes, catalogRoutes, orderRoutes, cashRoutes, financeRoutes, stockRoutes, customerRoutes, deliveryRoutes, couponRoutes, reportRoutes, integrationRoutes]) {
   app.use('/api', routes);
 }
 app.use('/api', (_req, _res, next) => next(new HttpError(404, 'Rota não encontrada')));
@@ -52,6 +55,7 @@ app.use((err, _req, res, _next) => {
 });
 
 export function start(port = Number(process.env.PORT) || 3000) {
+  startIntegrations();
   return app.listen(port, () => {
     console.log(`Laços de Mãe rodando em http://localhost:${port}`);
     console.log(`  Cardápio digital: http://localhost:${port}/`);

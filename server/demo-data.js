@@ -1,7 +1,8 @@
 // Dados de exemplo usados pelo modo demonstração (npm run demo) e pela prévia no navegador.
-import { all, get, run, tx, now, today } from './db.js';
+import { all, get, run, tx, now, today, getSetting, setSetting } from './db.js';
 import { hashPassword } from './auth.js';
 import { createOrder, setStatus } from './services/orders.js';
+import { importExternalOrder, SYSTEM_USER } from './integrations/importer.js';
 import { addDays } from './util.js';
 
 let seed = 42;
@@ -21,6 +22,12 @@ const STREETS = ['Rua Ipê Roxo', 'Rua das Hortênsias', 'Av. Boturussu', 'Rua P
 /** Gera 30 dias de vendas, clientes, encomendas, estoque e contas de exemplo. */
 export function generateDemoData() {
   seed = 42;
+  const integrations = getSetting('integrations', {});
+  setSetting('integrations', {
+    ...integrations,
+    ifood: { ...integrations.ifood, commission_pct: 15.2 }, // exemplo: plano básico 12% + 3,2% de pagamento online
+    food99: { ...integrations.food99, commission_pct: 10 },
+  });
   const t = now();
   tx(() => {
     const users = [['Bia (caixa)', 'caixa', 'caixa', 'caixa123', 0], ['Cozinha', 'cozinha', 'cozinha', 'cozinha123', 0], ['Rogério', 'motoboy', 'entregador', 'moto123', 700], ['Wesley', 'motoboy2', 'entregador', 'moto123', 700]];
@@ -79,8 +86,50 @@ export function generateDemoData() {
     run('UPDATE stock_movements SET created_at = ? WHERE order_id = ?', ts, orderId);
   };
 
-  const make = (dayOffset, { status = 'concluido', hour } = {}) => {
-    const channel = weighted([['cardapio', 55], ['pdv', 30], ['whatsapp', 10], ['ifood', 5]]);
+  // pedido vindo do iFood ou da 99Food, pelo mesmo caminho da integração real
+  const fromApp = (platform, n, status) => {
+    const c = pick(customers);
+    const type = weighted([['entrega', 85], ['retirada', 15]]);
+    const lines = Array.from({ length: n }, () => {
+      const p = pick(pool);
+      const v = pick(p.variants);
+      const qty = rand() < 0.8 ? 1 : 2;
+      const unit = Math.round((v.price_cents * 1.15) / 10) * 10; // preço de app costuma ser maior
+      return { external_key: rand() < 0.75 ? `V${v.id}` : null, name: rand() < 0.75 ? p.name : `${p.name} (app)`, qty, total_cents: unit * qty, options: [] };
+    });
+    const { order } = importExternalOrder({
+      platform,
+      external_id: `DEMO-${platform}-${Math.floor(rand() * 1e12)}`,
+      external_code: String(platform === 'ifood' ? 1000 + Math.floor(rand() * 9000) : 1 + Math.floor(rand() * 60)),
+      type,
+      delivered_by: platform === 'ifood' && rand() < 0.7 ? 'platform' : 'store',
+      customer: { name: c.name },
+      address: type === 'entrega' ? { ...c.address, neighborhood: c.zone.name } : null,
+      items: lines,
+      delivery_fee_cents: 799,
+      payment: { method: platform, prepaid: true },
+      notes: [platform === 'ifood' ? 'Pedido do iFood' : 'Pedido da 99Food'],
+    });
+    const flow = ['preparo', 'pronto', ...(type === 'entrega' ? ['entrega'] : []), 'concluido'];
+    for (const s of flow) {
+      if (status === 'novo') break;
+      setStatus(order.id, s, SYSTEM_USER, { fromPlatform: true });
+      if (s === status) break;
+    }
+    if (status === 'cancelado') setStatus(order.id, 'cancelado', SYSTEM_USER, { fromPlatform: true, reason: 'Cancelado no app' });
+    return order;
+  };
+
+  const make = (dayOffset, { status = 'concluido', hour, channel: forced } = {}) => {
+    const channel = forced || weighted([['cardapio', 45], ['pdv', 28], ['whatsapp', 7], ['ifood', 14], ['99food', 6]]);
+    if (channel === 'ifood' || channel === '99food') {
+      const order = fromApp(channel, weighted([[1, 40], [2, 40], [3, 20]]), status);
+      if (dayOffset !== 0) {
+        const h = hour ?? 11 + Math.floor(rand() * 10);
+        backdate(order.id, `${addDays(today(), -dayOffset)} ${String(h).padStart(2, '0')}:${String(Math.floor(rand() * 60)).padStart(2, '0')}:00`);
+      }
+      return order;
+    }
     const type = channel === 'pdv' ? 'balcao' : weighted([['entrega', 65], ['retirada', 35]]);
     const c = channel === 'pdv' && rand() < 0.5 ? null : pick(customers);
     const method = channel === 'ifood' ? 'ifood' : weighted([['pix', 45], ['credito', 25], ['debito', 15], ['dinheiro', 15]]);
@@ -129,7 +178,9 @@ export function generateDemoData() {
   // hoje: caixa aberto e pedidos em andamento
   run('INSERT INTO cash_sessions (opened_by, opened_at, opening_cents) VALUES (?, ?, ?)', admin.id, `${today()} 10:45:00`, 15000);
   for (let i = 0; i < 6; i++) make(0, { status: 'concluido' });
-  ['novo', 'novo', 'preparo', 'preparo', 'pronto', 'entrega'].forEach((status) => make(0, { status }));
+  ['novo', 'novo', 'preparo', 'preparo', 'pronto', 'entrega'].forEach((status) => make(0, { status, channel: weighted([['cardapio', 60], ['pdv', 40]]) }));
+  make(0, { status: 'novo', channel: 'ifood' });
+  make(0, { status: 'preparo', channel: '99food' });
 
   // encomendas dos próximos dias
   for (let d = 1; d <= 5; d++) {

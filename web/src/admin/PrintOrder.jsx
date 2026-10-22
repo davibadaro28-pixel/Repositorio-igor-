@@ -32,7 +32,8 @@ export default function PrintOrder() {
         </div>
         {line}
         <p className="text-center text-[18px] font-bold">PEDIDO #{o.id}</p>
-        <p className="text-center font-bold">{TYPE[o.type].toUpperCase()} · {CHANNEL[o.channel]}</p>
+        <p className="text-center font-bold">{TYPE[o.type].toUpperCase()} · {CHANNEL[o.channel]}{o.external_code ? ` #${o.external_code}` : ''}</p>
+        {o.external_platform && o.external_delivered_by === 'platform' && o.type === 'entrega' && <p className="text-center">Entrega pelo {CHANNEL[o.external_platform]}</p>}
         <p className="text-center">{dateTimeBR(o.created_at)}</p>
         {o.scheduled_for && <p className="mt-1 border border-black p-1 text-center font-bold">ENCOMENDA PARA {dateTimeBR(o.scheduled_for)}</p>}
         {line}

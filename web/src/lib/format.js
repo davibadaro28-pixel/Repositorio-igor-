@@ -66,7 +66,7 @@ export const STATUS = {
 };
 
 export const TYPE = { entrega: 'Entrega', retirada: 'Retirada', balcao: 'Balcão' };
-export const CHANNEL = { cardapio: 'Cardápio digital', pdv: 'PDV', whatsapp: 'WhatsApp', telefone: 'Telefone', ifood: 'iFood', outro: 'Outro' };
+export const CHANNEL = { cardapio: 'Cardápio digital', pdv: 'PDV', whatsapp: 'WhatsApp', telefone: 'Telefone', ifood: 'iFood', '99food': '99Food', outro: 'Outro' };
 
 export function methodLabel(methods, id) {
   return methods?.find((m) => m.id === id)?.label || id || '—';

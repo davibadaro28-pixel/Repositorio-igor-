@@ -9,7 +9,8 @@ if (dbPath !== ':memory:') mkdirSync(dirname(dbPath), { recursive: true });
 
 export const db = new DatabaseSync(dbPath);
 db.exec('PRAGMA journal_mode = WAL; PRAGMA foreign_keys = ON; PRAGMA busy_timeout = 5000;');
-db.exec(readFileSync(join(here, 'schema.sql'), 'utf8'));
+const schemaSql = readFileSync(join(here, 'schema.sql'), 'utf8');
+db.exec(schemaSql);
 
 const cache = new Map();
 function stmt(sql) {
@@ -58,6 +59,22 @@ export const today = () => now().slice(0, 10);
 // Migrações simples para bancos criados por versões anteriores
 const hasColumn = (table, column) => all(`PRAGMA table_info(${table})`).some((c) => c.name === column);
 if (!hasColumn('categories', 'section')) db.exec('ALTER TABLE categories ADD COLUMN section TEXT');
+
+// Pedidos de apps de delivery: o SQLite não altera CHECK, então a tabela é recriada mantendo os dados
+const ordersSql = get(`SELECT sql FROM sqlite_master WHERE type = 'table' AND name = 'orders'`)?.sql || '';
+if (!ordersSql.includes("'99food'")) {
+  const create = /CREATE TABLE IF NOT EXISTS orders \([\s\S]*?\n\);/.exec(schemaSql)[0].replace('IF NOT EXISTS orders', 'orders_new');
+  const oldCols = all('PRAGMA table_info(orders)').map((c) => c.name);
+  db.exec('PRAGMA foreign_keys = OFF');
+  tx(() => {
+    db.exec(create);
+    const cols = all('PRAGMA table_info(orders_new)').map((c) => c.name).filter((c) => oldCols.includes(c)).join(', ');
+    db.exec(`INSERT INTO orders_new (${cols}) SELECT ${cols} FROM orders; DROP TABLE orders; ALTER TABLE orders_new RENAME TO orders;`);
+  });
+  db.exec('PRAGMA foreign_keys = ON');
+  db.exec(schemaSql); // recria os índices
+}
+db.exec('CREATE UNIQUE INDEX IF NOT EXISTS idx_orders_external ON orders(external_platform, external_id) WHERE external_id IS NOT NULL');
 
 export function getSetting(key, fallback = null) {
   const row = get('SELECT value FROM settings WHERE key = ?', key);
