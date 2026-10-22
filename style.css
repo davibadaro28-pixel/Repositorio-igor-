@@ -933,6 +933,14 @@ a {
   background: var(--segmento);
 }
 
+.secao-casca .guia {
+  background: var(--leite);
+}
+
+.secao-casca .guia:hover {
+  background: var(--segmento);
+}
+
 .guia-figura {
   width: 5rem;
   height: 7.5rem;
@@ -1017,6 +1025,110 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1.75rem;
+}
+
+/* História da Bea */
+
+.capitulos {
+  list-style: none;
+  padding: 0;
+  margin: clamp(2.5rem, 5vw, 4rem) 0 0;
+  position: relative;
+}
+
+.capitulos::before {
+  content: "";
+  position: absolute;
+  top: 2rem;
+  bottom: 2rem;
+  left: 50%;
+  width: 2px;
+  background: var(--segmento);
+}
+
+.capitulo {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: center;
+  padding-block: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.capitulo::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: -0.55rem 0 0 -0.55rem;
+  border-radius: 50%;
+  background: var(--roma);
+  border: 3px solid var(--leite);
+  box-shadow: 0 0 0 2px var(--roma);
+}
+
+.capitulo-foto {
+  display: block;
+  justify-self: end;
+  width: 100%;
+  max-width: 20rem;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 10rem 10rem 1.5rem 1.5rem;
+}
+
+.capitulo:nth-child(even) .capitulo-foto {
+  order: 2;
+  justify-self: start;
+}
+
+.capitulo:nth-child(even) .capitulo-texto {
+  justify-self: end;
+}
+
+.capitulo-foto-vazia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: var(--casca);
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 0.9375rem;
+}
+
+.capitulo-foto-vazia svg {
+  width: 40%;
+  height: auto;
+  max-height: 55%;
+}
+
+.capitulo-texto {
+  max-width: 26rem;
+}
+
+.capitulo-quando {
+  font-family: var(--fonte-titulo);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--tinta-suave);
+}
+
+.capitulo h3 {
+  margin: 0.3rem 0 0.75rem;
+  font-size: clamp(1.4rem, 2.6vw, 1.875rem);
+  font-weight: 740;
+  color: var(--roma);
+}
+
+.historia-fim {
+  margin-top: clamp(3rem, 6vw, 5rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  border-top: 2px solid var(--segmento);
 }
 
 /* Topo das páginas internas */
@@ -1976,6 +2088,32 @@ button.botao {
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .capitulos::before {
+    left: 0.55rem;
+  }
+
+  .capitulo {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.25rem;
+    padding-left: 2.25rem;
+  }
+
+  .capitulo::before {
+    top: 2.5rem;
+    left: 0.55rem;
+  }
+
+  .capitulo .capitulo-foto,
+  .capitulo:nth-child(even) .capitulo-foto {
+    order: 0;
+    justify-self: start;
+    max-width: 18rem;
+  }
+
+  .capitulo:nth-child(even) .capitulo-texto {
+    justify-self: start;
+  }
+
   .sobre-foto {
     max-width: 20rem;
   }
@@ -2050,4 +2188,8 @@ button.botao {
 
 .nowrap {
   white-space: nowrap;
+}
+
+.capitulo-foto.placeholder {
+  border-radius: 10rem 10rem 1.5rem 1.5rem;
 }
