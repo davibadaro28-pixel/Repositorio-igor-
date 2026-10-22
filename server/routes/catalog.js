@@ -17,12 +17,13 @@ r.get('/categories', read, (_req, res) => {
 
 r.post('/categories', write, (req, res) => {
   const pos = get('SELECT COALESCE(MAX(position), -1) + 1 AS p FROM categories').p;
-  const x = run('INSERT INTO categories (name, position) VALUES (?, ?)', required(req.body.name, 'o nome'), pos);
+  const x = run('INSERT INTO categories (name, section, position) VALUES (?, ?, ?)', required(req.body.name, 'o nome'), str(req.body.section, 60), pos);
   res.status(201).json(get('SELECT * FROM categories WHERE id = ?', x.lastInsertRowid));
 });
 
 r.put('/categories/:id', write, (req, res) => {
-  run('UPDATE categories SET name = ?, active = ? WHERE id = ?', required(req.body.name, 'o nome'), bool(req.body.active ?? 1), int(req.params.id));
+  run('UPDATE categories SET name = ?, section = ?, active = ? WHERE id = ?',
+    required(req.body.name, 'o nome'), str(req.body.section, 60), bool(req.body.active ?? 1), int(req.params.id));
   res.json(get('SELECT * FROM categories WHERE id = ?', int(req.params.id)));
 });
 

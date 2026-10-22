@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS sessions (
 CREATE TABLE IF NOT EXISTS categories (
   id       INTEGER PRIMARY KEY,
   name     TEXT NOT NULL,
+  section  TEXT,                                 -- agrupamento no cardápio (ex.: Bolos, Docinhos)
   position INTEGER NOT NULL DEFAULT 0,
   active   INTEGER NOT NULL DEFAULT 1
 );

@@ -107,7 +107,7 @@ export function seedIfEmpty() {
     if (!get('SELECT 1 FROM categories LIMIT 1')) {
       const catalog = JSON.parse(readFileSync(join(here, 'seed', 'catalog.json'), 'utf8'));
       catalog.forEach((cat, ci) => {
-        const c = run('INSERT INTO categories (name, position) VALUES (?, ?)', cat.name, ci);
+        const c = run('INSERT INTO categories (name, section, position) VALUES (?, ?, ?)', cat.name, cat.section || null, ci);
         cat.products.forEach((p, pi) => {
           const groups = (p.option_groups || []).map((g) => ({
             ...g, options: g.options.map((o) => ({ name: o.name, price_cents: Math.round((o.price || 0) * 100) })),

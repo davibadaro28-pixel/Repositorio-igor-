@@ -39,7 +39,7 @@ export function publicStore() {
 r.get('/store', (_req, res) => res.json(publicStore()));
 
 r.get('/menu', (_req, res) => {
-  const categories = all('SELECT id, name FROM categories WHERE active = 1 ORDER BY position, id');
+  const categories = all('SELECT id, name, section FROM categories WHERE active = 1 ORDER BY position, id');
   const products = all(
     `SELECT id, category_id, name, description, image, available, featured, lead_time_hours, option_groups
      FROM products WHERE active = 1 AND online = 1 ORDER BY position, id`,

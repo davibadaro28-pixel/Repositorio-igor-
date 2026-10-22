@@ -1,575 +1,5 @@
 [
  {
-  "name": "Salgados (Lançamento)",
-  "products": [
-   {
-    "name": "Tortinha salgada Frango c/ Requeijão",
-    "description": "",
-    "image": "/img/produtos/tortinha-salgada-frango-c-requeijao.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 19.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Torta+ bolo gelado + Coquinha GRÁTIS",
-    "description": "- Torta de Frango c/ Requeijão\n- Bolo Gelado\n- Coquinha GRÁTIS",
-    "image": "/img/produtos/torta-bolo-gelado-coquinha-gratis.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 33.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false,
-    "option_groups": [
-     {
-      "name": "Sabor do bolo gelado",
-      "min": 1,
-      "max": 1,
-      "options": [
-       {
-        "name": "Doce de Leite c/ Coco",
-        "price": 0
-       },
-       {
-        "name": "Abacaxi com Ninho",
-        "price": 0
-       },
-       {
-        "name": "Prestígio",
-        "price": 0
-       },
-       {
-        "name": "Brigadeiro c/ Mousse de Chocolate",
-        "price": 0
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "name": "Torta + Coquinha GRÁTIS",
-    "description": "Torta de frango com requeijão \nCoquinha GRÁTIS",
-    "image": "/img/produtos/torta-coquinha-gratis.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 22.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Torta + Cookies + Coquinha GRÁTIS",
-    "description": "- Torta de Frango c/ Requeijão\n- Cookies de Nutella\n- Coquinha GRÁTIS",
-    "image": "/img/produtos/torta-cookies-coquinha-gratis.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 41.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Empada de Frango c/ Requeijão",
-    "description": "",
-    "image": "/img/produtos/empada-de-frango-c-requeijao.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 11.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Empada de Calabresa c/ Requeijão",
-    "description": "",
-    "image": "/img/produtos/empada-de-calabresa-c-requeijao.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 11.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Empada + Bolo Gelado + Coquinha",
-    "description": "",
-    "image": "/img/produtos/empada-bolo-gelado-coquinha.webp",
-    "variants": [
-     {
-      "name": "Empada de Frango c/ Requeijão",
-      "price": 24.99
-     },
-     {
-      "name": "Empada de Calabresa c/ Requeijão",
-      "price": 24.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false,
-    "option_groups": [
-     {
-      "name": "Sabor do bolo gelado",
-      "min": 1,
-      "max": 1,
-      "options": [
-       {
-        "name": "Doce de Leite c/ Coco",
-        "price": 0
-       },
-       {
-        "name": "Abacaxi com Ninho",
-        "price": 0
-       },
-       {
-        "name": "Prestígio",
-        "price": 0
-       },
-       {
-        "name": "Brigadeiro c/ Mousse de Chocolate",
-        "price": 0
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "name": "Empada + Cookies Nutella + Coquinha",
-    "description": "",
-    "image": "/img/produtos/empada-cookies-nutella-coquinha.webp",
-    "variants": [
-     {
-      "name": "Empada de Frango c/ Requeijão",
-      "price": 32.99
-     },
-     {
-      "name": "Empada de Calabresa c/ Requeijão",
-      "price": 32.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
- },
- {
-  "name": "Pudim (Novidade)",
-  "products": [
-   {
-    "name": "Pudim - Tradicional",
-    "description": "Nosso clássico pudim de leite condensado, super cremoso e com textura aveludada, preparado no estilo tradicional bem lisinho, sem furinhos, garantindo uma experiência suave a cada colherada. Finalizado com uma irresistível calda de caramelo dourado que traz o equilíbrio perfeito de doçura.\n\n\nTAMANHOS/PESOS:\n\nPEQUENO- 110G\nMÉDIO- 600G\nGRANDE- 1.1KG",
-    "image": "/img/produtos/pudim-tradicional.webp",
-    "variants": [
-     {
-      "name": "Pequeno (110g)",
-      "price": 14.99
-     },
-     {
-      "name": "Médio (600g)",
-      "price": 54.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
- },
- {
-  "name": "Cookies",
-  "products": [
-   {
-    "name": "Cookie - Tradicional",
-    "description": "1 unidade",
-    "image": "/img/produtos/cookie-tradicional.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 15.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Cookie - Nutella",
-    "description": "1 unidade",
-    "image": "/img/produtos/cookie-nutella.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 18.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
- },
- {
-  "name": "Bolo Gelado",
-  "products": [
-   {
-    "name": "Bolo Gelado - Doce de Leite c/ Coco",
-    "description": "",
-    "image": "/img/produtos/bolo-gelado-doce-de-leite-c-coco.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 11
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Bolo gelado - Abacaxi Com Ninho",
-    "description": "Bolo gelado de massa branca, molhadinho, com recheio cremoso Mousse de leite Ninho e abacaxi caramelizado.\n100g aproximadamente",
-    "image": "/img/produtos/bolo-gelado-abacaxi-com-ninho.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 11
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Bolo gelado - Prestígio",
-    "description": "Bolo gelado com massa de cacau, recheado com beijinho cremoso e brigadeiro gourmet ao leite, finalizado com uma camada de coco ralado.\n100g aproximadamente",
-    "image": "/img/produtos/bolo-gelado-prestigio.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 11
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "BG - Brigadeiro c/ Mousse Chocolate",
-    "description": "Bolo gelado com massa de cacau bem úmida, recheado com brigadeiro gourmet ao leite e uma mousse de chocolate super cremosa.\n100g aproximadamente",
-    "image": "/img/produtos/bg-brigadeiro-c-mousse-chocolate.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 11
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
- },
- {
-  "name": "Brownie",
-  "products": [
-   {
-    "name": "Brownie - Tradicional",
-    "description": "Brownie Tradicional 🍫\n-1 UNIDADE\n\nCasquinha crocante e intenso sabor de chocolate.\nNosso clássico artesanal que conquista na primeira mordida.",
-    "image": "/img/produtos/brownie-tradicional.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 20.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Brownie - Ninho com nutella",
-    "description": "Brownie de Ninho com Nutella 🍫\n-1 UNIDADE\n\nBrownie super cremoso e intenso, coberto com Brigadeiro de Ninho e finalizado com Nutella. Uma combinação equilibrada, doce na medida certa e simplesmente irresistível. 💛",
-    "image": "/img/produtos/brownie-ninho-com-nutella.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 24.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Brownie - Brigadeiro ao leite",
-    "description": "Brownie de Brigadeiro Gourmet ao Leite 🍫\n- 1 UNIDADE\n\nBrownie super cremoso e intenso, finalizado com uma generosa camada de brigadeiro gourmet ao leite — cremoso e irresistível. \nA escolha perfeita para quem ama chocolate em dobro. 💛",
-    "image": "/img/produtos/brownie-brigadeiro-ao-leite.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 24.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Brownie - Com sorvete",
-    "description": "Brownie com Sorvete 🍫🍨\n- 1 UNIDADE\n\nBrownie super macio e cremoso, acompanhado de uma generosa porção de sorvete de creme, servido à parte para você combinar como preferir. A harmonia perfeita entre o chocolate intenso e a suavidade do sorvete de creme.",
-    "image": "/img/produtos/brownie-com-sorvete.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 26.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
- },
- {
-  "name": "Tortinhas da Laços",
-  "products": [
-   {
-    "name": "Tortinha de Limão",
-    "description": "A Tortinha da Laços sabor limão traz a combinação perfeita entre a crocância da farofinha de bolacha e a leveza do mousse de limão, finalizada com chantilly de limão para um toque ainda mais especial.\n\nPeso médio: 120g",
-    "image": "/img/produtos/tortinha-de-limao.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 12
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Tortinha de Abacaxi",
-    "description": "A Tortinha da Laços sabor Abacaxi une a crocância da farofinha de bolacha à suavidade do mousse de abacaxi, finalizada com chantilly e pedaços de abacaxi para um sabor equilibrado e irresistível.\n\nPeso médio: 120g",
-    "image": "/img/produtos/tortinha-de-abacaxi.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 12
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Tortinha de Morango",
-    "description": "Leve e cremosa, a Tortinha da Laços sabor Morango combina farofinha crocante de bolacha com um suave mousse de morango, finalizada com chantilly e pedaços de morango.\n\nPeso médio: 120g",
-    "image": "/img/produtos/tortinha-de-morango.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 12
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Tortinha de Maracujá",
-    "description": "A Tortinha da Laços sabor Maracujá une a crocância da farofinha de bolacha à cremosidade do mousse de maracujá, finalizada com chantilly de maracujá para um sabor equilibrado e irresistível.\n\nPeso médio: 120g",
-    "image": "/img/produtos/tortinha-de-maracuja.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 12
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
- },
- {
-  "name": "Bolo em Fatia",
-  "products": [
-   {
-    "name": "Fatia - Trufado de maracujá",
-    "description": "",
-    "image": "/img/produtos/fatia-trufado-de-maracuja.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 17
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Fatia - Red Velvet",
-    "description": "Massa pão de ló vermelho, macio e fofinho com recheio cremoso de brigadeiro de leite ninho",
-    "image": "/img/produtos/fatia-red-velvet.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 17
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Fatia - Ninho c/ frutas vermelhas",
-    "description": "",
-    "image": "/img/produtos/fatia-ninho-c-frutas-vermelhas.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 17
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Fatia - Doce de leite com nozes",
-    "description": "",
-    "image": "/img/produtos/fatia-doce-de-leite-com-nozes.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 17
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Fatia - Brigadeiro de chocolate",
-    "description": "",
-    "image": "/img/produtos/fatia-brigadeiro-de-chocolate.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 17
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Fatia - Cenoura com brigadeiro",
-    "description": "",
-    "image": "/img/produtos/fatia-cenoura-com-brigadeiro.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 17
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Fatia - Prestigio",
-    "description": "",
-    "image": "/img/produtos/fatia-prestigio.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 17
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
- },
- {
-  "name": "Bolo no Pote (200ml)",
-  "products": [
-   {
-    "name": "Bolo no pote - Abacaxi com Ninho",
-    "description": "Delicioso bolo de pote com massa de pão de ló branca, abacaxi caramelizado artesanalmente e camadas de mousse de leite Ninho super cremoso.",
-    "image": "/img/produtos/bolo-no-pote-abacaxi-com-ninho.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 19
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Doce de Leite c/ Brigadeiro Branco",
-    "description": "Bolo de pote com massa de pão de ló branca, camadas de brigadeiro branco cremoso e doce de leite artesanal.",
-    "image": "/img/produtos/doce-de-leite-c-brigadeiro-branco.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 19
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Bolo no pote - Dois Amores",
-    "description": "Bolo de pote com massa de chocolate macia, camadas de brigadeiro gourmet ao leite super cremoso e brigadeiro branco.",
-    "image": "/img/produtos/bolo-no-pote-dois-amores.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 21
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": true
-   },
-   {
-    "name": "Bolo no pote - Maracujá Trufado",
-    "description": "Bolo de pote com massa de cacau macia, camadas de brigadeiro artesanal de maracujá feito com a fruta in natura e brigadeiro gourmet ao leite.",
-    "image": "/img/produtos/bolo-no-pote-maracuja-trufado.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 21
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Bolo no pote - Ninho com Morango",
-    "description": "Bolo de pote com massa branca leve, camadas de mousse de leite Ninho cremoso e morangos frescos.",
-    "image": "/img/produtos/bolo-no-pote-ninho-com-morango.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 21
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Bolo no pote - Ninho com Nutella",
-    "description": "Bolo de pote com massa branca macia, camadas de brigadeiro de ninho e mousse de ninho, finalizado com Nutella.",
-    "image": "/img/produtos/bolo-no-pote-ninho-com-nutella.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 21
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
- },
- {
   "name": "Bolo Premium",
   "products": [
    {
@@ -708,108 +138,8 @@
     "lead_time_hours": 0,
     "featured": false
    }
-  ]
- },
- {
-  "name": "Delícias de Morango",
-  "products": [
-   {
-    "name": "Bombom de morango - Leite ninho",
-    "description": "Brigadeiro de Ninho com morango, mergulhado no chocolate ao leite.\nPeso aproximado: 75g",
-    "image": "/img/produtos/bombom-de-morango-leite-ninho.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 15.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": true
-   },
-   {
-    "name": "Bombom de morango - Chocolate",
-    "description": "Brigadeiro ao leite com morango, mergulhado no chocolate ao leite.\nPeso aproximado: 75g",
-    "image": "/img/produtos/bombom-de-morango-chocolate.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 15.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Coxinha brigadeiro com morango",
-    "description": "Coxinha gourmet de brigadeiro com morango e granulado em cima.\nPeso aproximado: 75g",
-    "image": "/img/produtos/coxinha-brigadeiro-com-morango.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 12.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Coxinha ninho com morango",
-    "description": "Coxinha gourmet de brigadeiro de ninho e morango.\nPeso aproximado: 75g",
-    "image": "/img/produtos/coxinha-ninho-com-morango.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 12.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Coxinha ninho com nutella",
-    "description": "Brigadeiro de ninho, morango e Nutella.",
-    "image": "/img/produtos/coxinha-ninho-com-nutella.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 14.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Coxinha Ferrero",
-    "description": "Brigadeiro gourmet, Morango, amendoim e Nutella.",
-    "image": "/img/produtos/coxinha-ferrero.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 14.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
- },
- {
-  "name": "Doces Gourmet (unidade)",
-  "products": [
-   {
-    "name": "Docinho - brigadeiro Gourmet",
-    "description": "Brigadeiro gourmet\n25g",
-    "image": "/img/produtos/docinho-brigadeiro-gourmet.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 8.99
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
+  ],
+  "section": "Bolos"
  },
  {
   "name": "Bolos Caseiros",
@@ -1048,38 +378,8 @@
     "lead_time_hours": 24,
     "featured": false
    }
-  ]
- },
- {
-  "name": "Delícias da Laços",
-  "products": [
-   {
-    "name": "Delicia da Laços - Bombom de Uva",
-    "description": "Feito com brigadeiro branco, brigadeiro ao leite e uva verde frescas e selecionadas.",
-    "image": "/img/produtos/delicia-da-lacos-bombom-de-uva.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 22
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   },
-   {
-    "name": "Delicia da Laços - Mousse de Maracujá",
-    "description": "Mousse trufado de maracujá feito com a própria fruta, combinado brigadeiro gourmet ao leite.\nEm média 230g",
-    "image": "/img/produtos/delicia-da-lacos-mousse-de-maracuja.webp",
-    "variants": [
-     {
-      "name": null,
-      "price": 22
-     }
-    ],
-    "lead_time_hours": 0,
-    "featured": false
-   }
-  ]
+  ],
+  "section": "Bolos"
  },
  {
   "name": "Torta na Travessa",
@@ -1127,7 +427,721 @@
     "lead_time_hours": 0,
     "featured": false
    }
-  ]
+  ],
+  "section": "Bolos"
+ },
+ {
+  "name": "Bolo em Fatia",
+  "products": [
+   {
+    "name": "Fatia - Trufado de maracujá",
+    "description": "",
+    "image": "/img/produtos/fatia-trufado-de-maracuja.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Fatia - Red Velvet",
+    "description": "Massa pão de ló vermelho, macio e fofinho com recheio cremoso de brigadeiro de leite ninho",
+    "image": "/img/produtos/fatia-red-velvet.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Fatia - Ninho c/ frutas vermelhas",
+    "description": "",
+    "image": "/img/produtos/fatia-ninho-c-frutas-vermelhas.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Fatia - Doce de leite com nozes",
+    "description": "",
+    "image": "/img/produtos/fatia-doce-de-leite-com-nozes.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Fatia - Brigadeiro de chocolate",
+    "description": "",
+    "image": "/img/produtos/fatia-brigadeiro-de-chocolate.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Fatia - Cenoura com brigadeiro",
+    "description": "",
+    "image": "/img/produtos/fatia-cenoura-com-brigadeiro.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Fatia - Prestigio",
+    "description": "",
+    "image": "/img/produtos/fatia-prestigio.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Fatias e potes"
+ },
+ {
+  "name": "Bolo no Pote (200ml)",
+  "products": [
+   {
+    "name": "Bolo no pote - Abacaxi com Ninho",
+    "description": "Delicioso bolo de pote com massa de pão de ló branca, abacaxi caramelizado artesanalmente e camadas de mousse de leite Ninho super cremoso.",
+    "image": "/img/produtos/bolo-no-pote-abacaxi-com-ninho.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 19
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Doce de Leite c/ Brigadeiro Branco",
+    "description": "Bolo de pote com massa de pão de ló branca, camadas de brigadeiro branco cremoso e doce de leite artesanal.",
+    "image": "/img/produtos/doce-de-leite-c-brigadeiro-branco.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 19
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Bolo no pote - Dois Amores",
+    "description": "Bolo de pote com massa de chocolate macia, camadas de brigadeiro gourmet ao leite super cremoso e brigadeiro branco.",
+    "image": "/img/produtos/bolo-no-pote-dois-amores.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": true
+   },
+   {
+    "name": "Bolo no pote - Maracujá Trufado",
+    "description": "Bolo de pote com massa de cacau macia, camadas de brigadeiro artesanal de maracujá feito com a fruta in natura e brigadeiro gourmet ao leite.",
+    "image": "/img/produtos/bolo-no-pote-maracuja-trufado.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Bolo no pote - Ninho com Morango",
+    "description": "Bolo de pote com massa branca leve, camadas de mousse de leite Ninho cremoso e morangos frescos.",
+    "image": "/img/produtos/bolo-no-pote-ninho-com-morango.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Bolo no pote - Ninho com Nutella",
+    "description": "Bolo de pote com massa branca macia, camadas de brigadeiro de ninho e mousse de ninho, finalizado com Nutella.",
+    "image": "/img/produtos/bolo-no-pote-ninho-com-nutella.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Fatias e potes"
+ },
+ {
+  "name": "Bolo Gelado",
+  "products": [
+   {
+    "name": "Bolo Gelado - Doce de Leite c/ Coco",
+    "description": "",
+    "image": "/img/produtos/bolo-gelado-doce-de-leite-c-coco.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 11
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Bolo gelado - Abacaxi Com Ninho",
+    "description": "Bolo gelado de massa branca, molhadinho, com recheio cremoso Mousse de leite Ninho e abacaxi caramelizado.\n100g aproximadamente",
+    "image": "/img/produtos/bolo-gelado-abacaxi-com-ninho.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 11
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Bolo gelado - Prestígio",
+    "description": "Bolo gelado com massa de cacau, recheado com beijinho cremoso e brigadeiro gourmet ao leite, finalizado com uma camada de coco ralado.\n100g aproximadamente",
+    "image": "/img/produtos/bolo-gelado-prestigio.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 11
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "BG - Brigadeiro c/ Mousse Chocolate",
+    "description": "Bolo gelado com massa de cacau bem úmida, recheado com brigadeiro gourmet ao leite e uma mousse de chocolate super cremosa.\n100g aproximadamente",
+    "image": "/img/produtos/bg-brigadeiro-c-mousse-chocolate.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 11
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Fatias e potes"
+ },
+ {
+  "name": "Tortinhas da Laços",
+  "products": [
+   {
+    "name": "Tortinha de Limão",
+    "description": "A Tortinha da Laços sabor limão traz a combinação perfeita entre a crocância da farofinha de bolacha e a leveza do mousse de limão, finalizada com chantilly de limão para um toque ainda mais especial.\n\nPeso médio: 120g",
+    "image": "/img/produtos/tortinha-de-limao.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 12
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Tortinha de Abacaxi",
+    "description": "A Tortinha da Laços sabor Abacaxi une a crocância da farofinha de bolacha à suavidade do mousse de abacaxi, finalizada com chantilly e pedaços de abacaxi para um sabor equilibrado e irresistível.\n\nPeso médio: 120g",
+    "image": "/img/produtos/tortinha-de-abacaxi.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 12
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Tortinha de Morango",
+    "description": "Leve e cremosa, a Tortinha da Laços sabor Morango combina farofinha crocante de bolacha com um suave mousse de morango, finalizada com chantilly e pedaços de morango.\n\nPeso médio: 120g",
+    "image": "/img/produtos/tortinha-de-morango.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 12
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Tortinha de Maracujá",
+    "description": "A Tortinha da Laços sabor Maracujá une a crocância da farofinha de bolacha à cremosidade do mousse de maracujá, finalizada com chantilly de maracujá para um sabor equilibrado e irresistível.\n\nPeso médio: 120g",
+    "image": "/img/produtos/tortinha-de-maracuja.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 12
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Fatias e potes"
+ },
+ {
+  "name": "Pudim (Novidade)",
+  "products": [
+   {
+    "name": "Pudim - Tradicional",
+    "description": "Nosso clássico pudim de leite condensado, super cremoso e com textura aveludada, preparado no estilo tradicional bem lisinho, sem furinhos, garantindo uma experiência suave a cada colherada. Finalizado com uma irresistível calda de caramelo dourado que traz o equilíbrio perfeito de doçura.\n\n\nTAMANHOS/PESOS:\n\nPEQUENO- 110G\nMÉDIO- 600G\nGRANDE- 1.1KG",
+    "image": "/img/produtos/pudim-tradicional.webp",
+    "variants": [
+     {
+      "name": "Pequeno (110g)",
+      "price": 14.99
+     },
+     {
+      "name": "Médio (600g)",
+      "price": 54.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Fatias e potes"
+ },
+ {
+  "name": "Delícias de Morango",
+  "products": [
+   {
+    "name": "Bombom de morango - Leite ninho",
+    "description": "Brigadeiro de Ninho com morango, mergulhado no chocolate ao leite.\nPeso aproximado: 75g",
+    "image": "/img/produtos/bombom-de-morango-leite-ninho.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 15.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": true
+   },
+   {
+    "name": "Bombom de morango - Chocolate",
+    "description": "Brigadeiro ao leite com morango, mergulhado no chocolate ao leite.\nPeso aproximado: 75g",
+    "image": "/img/produtos/bombom-de-morango-chocolate.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 15.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Coxinha brigadeiro com morango",
+    "description": "Coxinha gourmet de brigadeiro com morango e granulado em cima.\nPeso aproximado: 75g",
+    "image": "/img/produtos/coxinha-brigadeiro-com-morango.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 12.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Coxinha ninho com morango",
+    "description": "Coxinha gourmet de brigadeiro de ninho e morango.\nPeso aproximado: 75g",
+    "image": "/img/produtos/coxinha-ninho-com-morango.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 12.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Coxinha ninho com nutella",
+    "description": "Brigadeiro de ninho, morango e Nutella.",
+    "image": "/img/produtos/coxinha-ninho-com-nutella.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 14.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Coxinha Ferrero",
+    "description": "Brigadeiro gourmet, Morango, amendoim e Nutella.",
+    "image": "/img/produtos/coxinha-ferrero.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 14.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Docinhos"
+ },
+ {
+  "name": "Delícias da Laços",
+  "products": [
+   {
+    "name": "Delicia da Laços - Bombom de Uva",
+    "description": "Feito com brigadeiro branco, brigadeiro ao leite e uva verde frescas e selecionadas.",
+    "image": "/img/produtos/delicia-da-lacos-bombom-de-uva.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 22
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Delicia da Laços - Mousse de Maracujá",
+    "description": "Mousse trufado de maracujá feito com a própria fruta, combinado brigadeiro gourmet ao leite.\nEm média 230g",
+    "image": "/img/produtos/delicia-da-lacos-mousse-de-maracuja.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 22
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Docinhos"
+ },
+ {
+  "name": "Doces Gourmet (unidade)",
+  "products": [
+   {
+    "name": "Docinho - brigadeiro Gourmet",
+    "description": "Brigadeiro gourmet\n25g",
+    "image": "/img/produtos/docinho-brigadeiro-gourmet.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 8.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Docinhos"
+ },
+ {
+  "name": "Brownie",
+  "products": [
+   {
+    "name": "Brownie - Tradicional",
+    "description": "Brownie Tradicional 🍫\n-1 UNIDADE\n\nCasquinha crocante e intenso sabor de chocolate.\nNosso clássico artesanal que conquista na primeira mordida.",
+    "image": "/img/produtos/brownie-tradicional.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 20.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Brownie - Ninho com nutella",
+    "description": "Brownie de Ninho com Nutella 🍫\n-1 UNIDADE\n\nBrownie super cremoso e intenso, coberto com Brigadeiro de Ninho e finalizado com Nutella. Uma combinação equilibrada, doce na medida certa e simplesmente irresistível. 💛",
+    "image": "/img/produtos/brownie-ninho-com-nutella.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 24.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Brownie - Brigadeiro ao leite",
+    "description": "Brownie de Brigadeiro Gourmet ao Leite 🍫\n- 1 UNIDADE\n\nBrownie super cremoso e intenso, finalizado com uma generosa camada de brigadeiro gourmet ao leite — cremoso e irresistível. \nA escolha perfeita para quem ama chocolate em dobro. 💛",
+    "image": "/img/produtos/brownie-brigadeiro-ao-leite.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 24.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Brownie - Com sorvete",
+    "description": "Brownie com Sorvete 🍫🍨\n- 1 UNIDADE\n\nBrownie super macio e cremoso, acompanhado de uma generosa porção de sorvete de creme, servido à parte para você combinar como preferir. A harmonia perfeita entre o chocolate intenso e a suavidade do sorvete de creme.",
+    "image": "/img/produtos/brownie-com-sorvete.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 26.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Docinhos"
+ },
+ {
+  "name": "Cookies",
+  "products": [
+   {
+    "name": "Cookie - Tradicional",
+    "description": "1 unidade",
+    "image": "/img/produtos/cookie-tradicional.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 15.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Cookie - Nutella",
+    "description": "1 unidade",
+    "image": "/img/produtos/cookie-nutella.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 18.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Docinhos"
+ },
+ {
+  "name": "Salgados (Lançamento)",
+  "products": [
+   {
+    "name": "Tortinha salgada Frango c/ Requeijão",
+    "description": "",
+    "image": "/img/produtos/tortinha-salgada-frango-c-requeijao.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 19.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Torta+ bolo gelado + Coquinha GRÁTIS",
+    "description": "- Torta de Frango c/ Requeijão\n- Bolo Gelado\n- Coquinha GRÁTIS",
+    "image": "/img/produtos/torta-bolo-gelado-coquinha-gratis.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 33.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Sabor do bolo gelado",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Doce de Leite c/ Coco",
+        "price": 0
+       },
+       {
+        "name": "Abacaxi com Ninho",
+        "price": 0
+       },
+       {
+        "name": "Prestígio",
+        "price": 0
+       },
+       {
+        "name": "Brigadeiro c/ Mousse de Chocolate",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Torta + Coquinha GRÁTIS",
+    "description": "Torta de frango com requeijão \nCoquinha GRÁTIS",
+    "image": "/img/produtos/torta-coquinha-gratis.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 22.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Torta + Cookies + Coquinha GRÁTIS",
+    "description": "- Torta de Frango c/ Requeijão\n- Cookies de Nutella\n- Coquinha GRÁTIS",
+    "image": "/img/produtos/torta-cookies-coquinha-gratis.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 41.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Empada de Frango c/ Requeijão",
+    "description": "",
+    "image": "/img/produtos/empada-de-frango-c-requeijao.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 11.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Empada de Calabresa c/ Requeijão",
+    "description": "",
+    "image": "/img/produtos/empada-de-calabresa-c-requeijao.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 11.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   },
+   {
+    "name": "Empada + Bolo Gelado + Coquinha",
+    "description": "",
+    "image": "/img/produtos/empada-bolo-gelado-coquinha.webp",
+    "variants": [
+     {
+      "name": "Empada de Frango c/ Requeijão",
+      "price": 24.99
+     },
+     {
+      "name": "Empada de Calabresa c/ Requeijão",
+      "price": 24.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Sabor do bolo gelado",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Doce de Leite c/ Coco",
+        "price": 0
+       },
+       {
+        "name": "Abacaxi com Ninho",
+        "price": 0
+       },
+       {
+        "name": "Prestígio",
+        "price": 0
+       },
+       {
+        "name": "Brigadeiro c/ Mousse de Chocolate",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Empada + Cookies Nutella + Coquinha",
+    "description": "",
+    "image": "/img/produtos/empada-cookies-nutella-coquinha.webp",
+    "variants": [
+     {
+      "name": "Empada de Frango c/ Requeijão",
+      "price": 32.99
+     },
+     {
+      "name": "Empada de Calabresa c/ Requeijão",
+      "price": 32.99
+     }
+    ],
+    "lead_time_hours": 0,
+    "featured": false
+   }
+  ],
+  "section": "Salgados"
  },
  {
   "name": "Bebidas",
@@ -1197,7 +1211,8 @@
     "lead_time_hours": 0,
     "featured": false
    }
-  ]
+  ],
+  "section": "Bebidas e extras"
  },
  {
   "name": "Cobertura Extra",
@@ -1228,6 +1243,7 @@
     "lead_time_hours": 0,
     "featured": false
    }
-  ]
+  ],
+  "section": "Bebidas e extras"
  }
 ]

@@ -55,6 +55,10 @@ const fmt = new Intl.DateTimeFormat('sv-SE', {
 export const now = (date = new Date()) => fmt.format(date).replace('T', ' ');
 export const today = () => now().slice(0, 10);
 
+// Migrações simples para bancos criados por versões anteriores
+const hasColumn = (table, column) => all(`PRAGMA table_info(${table})`).some((c) => c.name === column);
+if (!hasColumn('categories', 'section')) db.exec('ALTER TABLE categories ADD COLUMN section TEXT');
+
 export function getSetting(key, fallback = null) {
   const row = get('SELECT value FROM settings WHERE key = ?', key);
   return row ? JSON.parse(row.value) : fallback;

@@ -76,7 +76,10 @@ export default function Products() {
           <button onClick={() => setCat('')} className={cx('w-full rounded-lg px-3 py-2 text-left text-sm font-medium cursor-pointer', !cat ? 'bg-brand-50 text-brand-700' : 'hover:bg-stone-50')}>Todas</button>
           {categories.data.map((c, i) => (
             <div key={c.id} className={cx('group flex items-center rounded-lg', String(cat) === String(c.id) ? 'bg-brand-50 text-brand-700' : 'hover:bg-stone-50')}>
-              <button onClick={() => setCat(String(c.id))} className={cx('flex-1 px-3 py-2 text-left text-sm cursor-pointer', !c.active && 'text-stone-400 line-through')}>{c.name} <span className="text-xs text-stone-400">{c.products}</span></button>
+              <button onClick={() => setCat(String(c.id))} className={cx('flex-1 px-3 py-2 text-left text-sm cursor-pointer', !c.active && 'text-stone-400 line-through')}>
+                {c.name} <span className="text-xs text-stone-400">{c.products}</span>
+                {c.section && <span className="block text-[11px] uppercase tracking-wide text-stone-400">{c.section}</span>}
+              </button>
               <div className="flex opacity-0 transition group-hover:opacity-100">
                 <button onClick={() => moveCat(i, -1)} className="p-1 text-stone-400 hover:text-stone-700" aria-label="Subir"><ArrowUp className="size-3.5" /></button>
                 <button onClick={() => moveCat(i, 1)} className="p-1 text-stone-400 hover:text-stone-700" aria-label="Descer"><ArrowDown className="size-3.5" /></button>
@@ -129,19 +132,20 @@ export default function Products() {
 
       {editing && <ProductModal product={editing} categories={categories.data} onClose={() => setEditing(null)} onSaved={() => { setEditing(null); products.reload(); categories.reload(); toast('Produto salvo'); }} />}
       {recipe && <RecipeModal product={recipe} onClose={() => { setRecipe(null); products.reload(); }} />}
-      {catModal && <CategoryModal cat={catModal} onClose={() => setCatModal(null)} onSaved={() => { setCatModal(null); categories.reload(); }} />}
+      {catModal && <CategoryModal cat={catModal} sections={[...new Set(categories.data.map((c) => c.section).filter(Boolean))]} onClose={() => setCatModal(null)} onSaved={() => { setCatModal(null); categories.reload(); }} />}
     </>
   );
 }
 
-function CategoryModal({ cat, onClose, onSaved }) {
+function CategoryModal({ cat, sections, onClose, onSaved }) {
   const [name, setName] = useState(cat.name);
+  const [section, setSection] = useState(cat.section || '');
   const [active, setActive] = useState(cat.active ?? 1);
   const [err, setErr] = useState('');
   const save = async () => {
     try {
-      if (cat.id) await api.put(`/categories/${cat.id}`, { name, active });
-      else await api.post('/categories', { name });
+      if (cat.id) await api.put(`/categories/${cat.id}`, { name, section, active });
+      else await api.post('/categories', { name, section });
       onSaved();
     } catch (e) {
       setErr(e.message);
@@ -164,6 +168,10 @@ function CategoryModal({ cat, onClose, onSaved }) {
     }>
       <div className="space-y-3">
         <Field label="Nome"><Input value={name} onChange={(e) => setName(e.target.value)} autoFocus /></Field>
+        <Field label="Seção no cardápio" hint="Agrupa categorias no cardápio digital. Ex.: Bolos, Docinhos, Bebidas e extras">
+          <Input value={section} onChange={(e) => setSection(e.target.value)} list="menu-sections" />
+          <datalist id="menu-sections">{sections.map((x) => <option key={x} value={x} />)}</datalist>
+        </Field>
         {cat.id && <Toggle checked={!!active} onChange={(v) => setActive(v ? 1 : 0)} label="Categoria visível" />}
         <ErrorBox>{err}</ErrorBox>
       </div>
