@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-script: "Dancing Script", cursive;
+
+  --color-brand-50: #fdf2f5;
+  --color-brand-100: #fbe4ea;
+  --color-brand-200: #f6c9d5;
+  --color-brand-300: #eda0b4;
+  --color-brand-400: #da7584;
+  --color-brand-500: #c24d6d;
+  --color-brand-600: #973358;
+  --color-brand-700: #7d2949;
+  --color-brand-800: #62213a;
+  --color-brand-900: #4a1a2d;
+
+  --color-cream: #fff9f6;
+  --color-gold: #c9a45c;
+}
+
+html,
+body {
+  background: var(--color-cream);
+  color: #2b1d22;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgb(151 51 88 / 0.45); }
+  100% { box-shadow: 0 0 0 14px rgb(151 51 88 / 0); }
+}
+.animate-ring {
+  animation: pulse-ring 1.4s ease-out infinite;
+}
+
+/* Impressão de comanda (80 mm) */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 76mm;
+  }
+  @page {
+    size: 80mm auto;
+    margin: 2mm;
+  }
+}
