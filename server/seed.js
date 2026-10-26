@@ -14,6 +14,7 @@ const DEFAULT_STORE = {
   whatsapp: '5511963406419',
   phone: '(11) 96340-6419',
   instagram: 'lacos_de_mae',
+  logo: '/img/logo.jpg',             // vazio = iniciais do nome
   address: 'Av. Boturussu, 1785 – Parque Boturussu, São Paulo – SP, 03801-000',
   notice: '',
   hours: {

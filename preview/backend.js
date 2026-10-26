@@ -4,6 +4,7 @@ import { authenticate } from '../server/auth.js';
 import { get, run } from '../server/db.js';
 import { seedIfEmpty } from '../server/seed.js';
 import { generateDemoData } from '../server/demo-data.js';
+import { applyGenericBrand } from '../server/brand.js';
 import publicRoutes from '../server/routes/public.js';
 import adminRoutes from '../server/routes/admin.js';
 import catalogRoutes from '../server/routes/catalog.js';
@@ -29,6 +30,7 @@ function prepareData() {
   if (!get('SELECT 1 FROM orders LIMIT 1')) generateDemoData();
   // fotos dos produtos ficam ao lado da página publicada
   run(`UPDATE products SET image = substr(image, 2) WHERE image LIKE '/img/%'`);
+  if (__MARCA__ === 'generica') applyGenericBrand();
 }
 prepareData();
 

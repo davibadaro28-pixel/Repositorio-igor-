@@ -5,7 +5,8 @@ import {
   TicketPercent, BarChart3, Settings, UserCog, LogOut, Menu as MenuIcon, X, ExternalLink, Bell, Plug, Receipt,
 } from 'lucide-react';
 import { api, getToken, setToken, useLiveEvents } from '../lib/api.js';
-import { asset, newTab } from '../lib/env.js';
+import { newTab } from '../lib/env.js';
+import { BrandLogo, useStoreBrand } from '../components/Brand.jsx';
 import { Button, Field, Input, Modal, Spinner, Toggle, cx, useToast, ErrorBox } from '../components/ui.jsx';
 import Dashboard from './Dashboard.jsx';
 import Orders from './Orders.jsx';
@@ -86,6 +87,7 @@ function beep() {
 }
 
 function Login({ onLogin }) {
+  const brand = useStoreBrand();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
@@ -108,8 +110,8 @@ function Login({ onLogin }) {
     <div className="grid min-h-dvh place-items-center bg-gradient-to-br from-brand-700 via-brand-600 to-brand-400 p-4">
       <form onSubmit={submit} className="w-full max-w-sm rounded-3xl bg-white p-7 shadow-2xl">
         <div className="mb-6 text-center">
-          <img src={asset('/img/logo.jpg')} alt="" className="mx-auto size-20 rounded-full ring-4 ring-brand-100" />
-          <h1 className="mt-3 font-script text-4xl text-brand-700">Laços de Mãe</h1>
+          <BrandLogo store={brand} className="mx-auto size-20 text-2xl ring-4 ring-brand-100" />
+          <h1 className="mt-3 font-script text-4xl text-brand-700">{brand?.name || '\u00a0'}</h1>
           <p className="text-sm text-stone-500">Sistema de gestão</p>
         </div>
         <div className="space-y-3">
@@ -144,6 +146,7 @@ function StoreToggle() {
 
 function Layout({ children }) {
   const { user, logout } = useAuth();
+  const { settings } = useSettings();
   const { pending } = useLive();
   const [open, setOpen] = useState(false);
   const [pwOpen, setPwOpen] = useState(false);
@@ -174,9 +177,9 @@ function Layout({ children }) {
 
   const brand = (
     <Link to="/admin" className="flex items-center gap-3 px-5 py-5">
-      <img src={asset('/img/logo.jpg')} alt="" className="size-10 rounded-full ring-2 ring-white/70" />
+      <BrandLogo store={settings?.store} className="size-10 text-sm ring-2 ring-white/70" />
       <div>
-        <p className="font-script text-2xl leading-none text-white">Laços de Mãe</p>
+        <p className="font-script text-2xl leading-none text-white">{settings?.store?.name}</p>
         <p className="text-[11px] uppercase tracking-widest text-brand-200">Gestão</p>
       </div>
     </Link>
@@ -333,6 +336,7 @@ export default function AdminApp() {
 }
 
 function LiveProvider({ user, tick, setTick, pending, loadPending, toast, children }) {
+  const storeName = useSettings()?.settings?.store?.name;
   useLiveEvents((e) => {
     setTick((t) => t + 1);
     if (canAccess(user, 'pedidos')) loadPending();
@@ -341,7 +345,7 @@ function LiveProvider({ user, tick, setTick, pending, loadPending, toast, childr
       toast(`Novo pedido #${e.id} ${e.channel === 'cardapio' ? 'pelo cardápio digital' : `do ${e.channel === 'ifood' ? 'iFood' : '99Food'}`}!`);
       try {
         if (document.hidden && 'Notification' in window && Notification.permission === 'granted') {
-          new Notification('Laços de Mãe', { body: `Novo pedido #${e.id}`, icon: '/img/icon-192.png' });
+          new Notification(storeName || 'Novo pedido', { body: `Novo pedido #${e.id}`, icon: '/img/icon-192.png' });
         }
       } catch {
         /* notificações bloqueadas */

@@ -17,4 +17,10 @@ if (!get('SELECT 1 FROM orders LIMIT 1')) {
   console.log('Logins de teste: admin/demo1234 · caixa/caixa123 · cozinha/cozinha123 · motoboy/moto123');
 }
 
+// DEMO_MARCA=generica: mesma demonstração com o nome "Sua Doceria Aqui" (para apresentar a outras lojas)
+if (process.env.DEMO_MARCA === 'generica') {
+  const { applyGenericBrand } = await import('./brand.js');
+  applyGenericBrand();
+}
+
 start();

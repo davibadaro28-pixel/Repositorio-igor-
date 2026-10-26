@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Save, Plus, Trash2, Receipt, Plug, QrCode, Copy, DatabaseBackup } from 'lucide-react';
+import { Save, Plus, Trash2, Receipt, Plug, QrCode, Copy, DatabaseBackup, ImagePlus } from 'lucide-react';
 import { api, getToken } from '../lib/api.js';
 import { IS_PREVIEW } from '../lib/env.js';
 import { Button, Card, Field, Input, MoneyInput, PageHeader, Select, Spinner, Table, Tabs, Textarea, Toggle, useToast, ErrorBox } from '../components/ui.jsx';
 import { useSettings } from './AdminApp.jsx';
+import { uploadImage } from './Products.jsx';
+import { BrandLogo } from '../components/Brand.jsx';
 
 const DAYS = [['monday', 'Segunda'], ['tuesday', 'Terça'], ['wednesday', 'Quarta'], ['thursday', 'Quinta'], ['friday', 'Sexta'], ['saturday', 'Sábado'], ['sunday', 'Domingo']];
 
@@ -56,11 +58,24 @@ function Store({ value, onSaved }) {
     <div className="grid gap-4 xl:grid-cols-2">
       <Card className="space-y-3 p-5">
         <h3 className="font-semibold">Dados da loja</h3>
+        <div className="flex items-center gap-4">
+          <BrandLogo store={s} className="size-16 shrink-0 text-xl ring-2 ring-brand-100" />
+          <div className="flex flex-wrap gap-2">
+            <label className="inline-flex cursor-pointer items-center gap-1.5 rounded-xl bg-white px-3 py-2 text-sm font-medium text-stone-700 ring-1 ring-stone-200 hover:bg-stone-50">
+              <ImagePlus className="size-4" /> {s.logo ? 'Trocar logo' : 'Enviar logo'}
+              <input type="file" accept="image/*" className="hidden" onChange={async (e) => {
+                const f = e.target.files?.[0];
+                if (f) setS({ ...s, logo: await uploadImage(f) });
+              }} />
+            </label>
+            {s.logo !== '' && <Button variant="ghost" size="sm" onClick={() => setS({ ...s, logo: '' })}>Usar iniciais</Button>}
+          </div>
+        </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Field label="Nome"><Input value={s.name} onChange={set('name')} /></Field>
           <Field label="Subtítulo"><Input value={s.tagline} onChange={set('tagline')} /></Field>
           <Field label="Frase de destaque" className="sm:col-span-2"><Input value={s.slogan} onChange={set('slogan')} /></Field>
-          <Field label="WhatsApp que recebe pedidos" hint="Com DDI e DDD, só números. Ex.: 5511963406419"><Input value={s.whatsapp} onChange={set('whatsapp')} /></Field>
+          <Field label="WhatsApp que recebe pedidos" hint="Com DDI e DDD, só números. Ex.: 5511912345678"><Input value={s.whatsapp} onChange={set('whatsapp')} /></Field>
           <Field label="Telefone exibido"><Input value={s.phone} onChange={set('phone')} /></Field>
           <Field label="Instagram (sem @)"><Input value={s.instagram} onChange={set('instagram')} /></Field>
           <Field label="Endereço" className="sm:col-span-2"><Input value={s.address} onChange={set('address')} /></Field>
@@ -195,6 +210,7 @@ function Fiscal({ value }) {
 }
 
 function Share() {
+  const { settings } = useSettings();
   const url = window.location.origin;
   const toast = useToast();
   const qr = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=10&data=${encodeURIComponent(url)}`;
@@ -222,7 +238,7 @@ function Share() {
             <a href={qr} target="_blank" rel="noreferrer"><Button variant="secondary">Abrir para imprimir</Button></a>
           </>
         )}
-        <Textarea readOnly className="text-xs" value={`🎀 Peça seus bolos e doces da Laços de Mãe pelo nosso cardápio digital: ${url}`} />
+        <Textarea readOnly className="text-xs" value={`🎀 Peça seus bolos e doces da ${settings?.store?.name || 'nossa loja'} pelo nosso cardápio digital: ${url}`} />
       </Card>
     </div>
   );

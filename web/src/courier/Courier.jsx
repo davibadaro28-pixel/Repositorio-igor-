@@ -3,6 +3,7 @@ import { MapPin, Phone, Navigation, CheckCircle2, LogOut, RefreshCw, Bike, Bankn
 import { api, getToken, setToken, useApi, useLiveEvents } from '../lib/api.js';
 import { brl, phone, addressLine, timeBR } from '../lib/format.js';
 import { Button, Card, Field, Input, Spinner, ErrorBox, useToast, cx } from '../components/ui.jsx';
+import { useStoreBrand } from '../components/Brand.jsx';
 
 /** App do entregador: lista de entregas atribuídas, rota no Maps e confirmação */
 export default function Courier() {
@@ -18,6 +19,7 @@ export default function Courier() {
 }
 
 function Login({ onLogin }) {
+  const brand = useStoreBrand();
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
   const [err, setErr] = useState('');
@@ -34,7 +36,7 @@ function Login({ onLogin }) {
   return (
     <div className="grid min-h-dvh place-items-center bg-brand-700 p-4">
       <form onSubmit={submit} className="w-full max-w-sm space-y-3 rounded-3xl bg-white p-6">
-        <div className="text-center"><Bike className="mx-auto size-10 text-brand-600" /><h1 className="mt-2 text-lg font-semibold">Entregas · Laços de Mãe</h1></div>
+        <div className="text-center"><Bike className="mx-auto size-10 text-brand-600" /><h1 className="mt-2 text-lg font-semibold">Entregas{brand?.name ? ` · ${brand.name}` : ''}</h1></div>
         <Field label="Login"><Input value={login} onChange={(e) => setLogin(e.target.value)} autoCapitalize="none" /></Field>
         <Field label="Senha"><Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} /></Field>
         <ErrorBox>{err}</ErrorBox>

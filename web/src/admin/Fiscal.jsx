@@ -276,7 +276,7 @@ function Config({ data, onSaved }) {
 
         <Card className="space-y-3 p-5">
           <h3 className="font-semibold">Texto no rodapé da nota</h3>
-          <Textarea value={f.info_adicional || ''} onChange={(e) => set('info_adicional', e.target.value)} placeholder="Ex.: Obrigada pela preferência! Siga @lacos_de_mae" />
+          <Textarea value={f.info_adicional || ''} onChange={(e) => set('info_adicional', e.target.value)} placeholder="Ex.: Obrigada pela preferência! Siga nosso Instagram" />
           <Button icon={Save} loading={busy === 'save'} onClick={() => save(false)}>Salvar</Button>
         </Card>
       </div>

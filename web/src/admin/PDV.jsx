@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { newTab } from '../lib/env.js';
-import { Search, Minus, Plus, Trash2, User, X, Printer, CheckCircle2, AlertTriangle, Gift } from 'lucide-react';
+import { Search, Minus, Plus, Trash2, User, X, Printer, CheckCircle2, AlertTriangle, Gift, Cake } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { brl, maskPhone, phone } from '../lib/format.js';
 import { Button, Card, Field, Input, Modal, MoneyInput, Select, Spinner, Textarea, cx, useToast, ErrorBox } from '../components/ui.jsx';
@@ -227,7 +227,7 @@ export default function PDV() {
         <div className="grid flex-1 auto-rows-min grid-cols-2 gap-2 overflow-y-auto p-3 pb-24 sm:grid-cols-3 lg:pb-3 xl:grid-cols-4 2xl:grid-cols-5">
           {list.map((p) => (
             <button key={p.id} onClick={() => tap(p)} className={cx('flex flex-col overflow-hidden rounded-xl bg-white text-left shadow-sm ring-1 ring-stone-200 transition hover:ring-brand-300 active:scale-[0.98] cursor-pointer', !p.available && 'opacity-50')}>
-              <div className="aspect-[4/3] w-full bg-brand-50">{p.image && <img src={p.image} alt="" loading="lazy" className="size-full object-cover" />}</div>
+              <div className="aspect-[4/3] w-full bg-brand-50">{p.image ? <img src={p.image} alt="" loading="lazy" className="size-full object-cover" /> : <span className="grid size-full place-items-center text-brand-200"><Cake className="size-1/3" strokeWidth={1.25} /></span>}</div>
               <div className="p-2">
                 <p className="line-clamp-2 text-sm font-medium leading-tight">{p.name}</p>
                 <p className="mt-1 text-sm font-semibold text-brand-700">{p.variants.length > 1 ? `${brl(p.variants[0].price_cents)}+` : brl(p.variants[0].price_cents)}</p>

@@ -17,8 +17,8 @@ const SEGMENTS = [
 ];
 
 const CAMPAIGN = {
-  inativos: (n) => `Oi ${n}! Tá com saudade de um docinho? 🎀 Essa semana tem novidade na Laços de Mãe. Peça pelo nosso cardápio: `,
-  aniversariantes: (n) => `Feliz aniversário, ${n}! 🎂 A Laços de Mãe tem um presente pra você no seu mês. Peça pelo cardápio: `,
+  inativos: (n, loja) => `Oi ${n}! Tá com saudade de um docinho? 🎀 Essa semana tem novidade na ${loja}. Peça pelo nosso cardápio: `,
+  aniversariantes: (n, loja) => `Feliz aniversário, ${n}! 🎂 A ${loja} tem um presente pra você no seu mês. Peça pelo cardápio: `,
   novos: (n) => `Oi ${n}! Obrigada por comprar com a gente 💖 Que tal provar nossos bolos premium? `,
   '': (n) => `Oi ${n}! 🎀 `,
 };
@@ -74,7 +74,7 @@ export default function Customers() {
                   <td>{c.last_order_at ? dateBR(c.last_order_at) : '—'}</td>
                   {settings?.loyalty?.enabled && <td className="text-right">{c.points}</td>}
                   <td onClick={(e) => e.stopPropagation()}>
-                    {c.phone && <a href={waLink(c.phone, CAMPAIGN[segment] ? CAMPAIGN[segment](c.name.split(' ')[0]) + menuUrl : `Oi ${c.name.split(' ')[0]}! 🎀 `)} target="_blank" rel="noreferrer" className="inline-flex rounded-lg p-1.5 text-emerald-600 hover:bg-emerald-50" title="WhatsApp"><MessageCircle className="size-4" /></a>}
+                    {c.phone && <a href={waLink(c.phone, CAMPAIGN[segment] ? CAMPAIGN[segment](c.name.split(' ')[0], settings?.store?.name || 'nossa loja') + menuUrl : `Oi ${c.name.split(' ')[0]}! 🎀 `)} target="_blank" rel="noreferrer" className="inline-flex rounded-lg p-1.5 text-emerald-600 hover:bg-emerald-50" title="WhatsApp"><MessageCircle className="size-4" /></a>}
                   </td>
                 </tr>
               ))}

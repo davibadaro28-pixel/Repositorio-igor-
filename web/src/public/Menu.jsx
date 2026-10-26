@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, ShoppingBag, Minus, Plus, MapPin, Clock, Instagram, MessageCircle, Star, X, Trash2, CalendarClock, Bike, Store, ChevronRight, Info } from 'lucide-react';
+import { Search, ShoppingBag, Minus, Plus, MapPin, Clock, Instagram, MessageCircle, Star, X, Trash2, CalendarClock, Bike, Store, ChevronRight, Info, Cake } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
-import { asset } from '../lib/env.js';
+import { BrandLogo } from '../components/Brand.jsx';
 import { brl, maskPhone, phone, todayISO, addDaysISO, weekdayOf, parseSP } from '../lib/format.js';
 import { Button, Field, Input, Modal, Select, Spinner, Textarea, cx, ErrorBox } from '../components/ui.jsx';
 import { cleanDesc, displayName, norm, shortName, splitTitle } from '../lib/menuText.js';
@@ -29,9 +29,7 @@ const DAY_NAMES = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 
 
 const minPrice = (p) => Math.min(...p.variants.map((v) => v.price_cents));
 
-function Logo({ className }) {
-  return <img src={asset('/img/logo.jpg')} alt="Laços de Mãe" className={cx('rounded-full bg-white object-cover', className)} />;
-}
+const Logo = ({ store, className }) => <BrandLogo store={store} className={className} />;
 
 // borda rendada no fim do topo (lembra o papel rendado das confeitarias)
 const LACE = {
@@ -57,6 +55,9 @@ export default function Menu() {
   const tabRefs = useRef({});
 
   useEffect(() => save(CART_KEY, cart), [cart]);
+  useEffect(() => {
+    if (store.data?.name) document.title = `${store.data.name}${store.data.tagline ? ` – ${store.data.tagline}` : ''}`;
+  }, [store.data?.name, store.data?.tagline]);
 
   // categorias agrupadas em seções (Bolos, Docinhos…), na ordem definida no painel
   const sections = useMemo(() => {
@@ -110,15 +111,15 @@ export default function Menu() {
       {/* Topo compacto: marca, status e acesso às informações */}
       <header className="relative bg-brand-700 text-white">
         <div className="mx-auto flex max-w-5xl items-center gap-4 px-4 pb-4 pt-5 sm:pt-7">
-          <Logo className="size-16 shrink-0 ring-2 ring-white/80 sm:size-20" />
+          <Logo store={s} className="size-16 shrink-0 text-2xl ring-2 ring-white/80 sm:size-20 sm:text-3xl" />
           <div className="min-w-0 flex-1">
             <h1 className="font-script text-[2.15rem] leading-none sm:text-5xl">{s.name}</h1>
             <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.25em] text-brand-200">{s.tagline}</p>
             <p className="mt-1 hidden text-sm text-white/85 sm:block">{s.slogan}</p>
           </div>
           <div className="flex shrink-0 gap-2">
-            <a href={`https://instagram.com/${s.instagram}`} target="_blank" rel="noreferrer" aria-label="Instagram" className="grid size-10 place-items-center rounded-full bg-white/12 hover:bg-white/20"><Instagram className="size-5" /></a>
-            <a href={`https://wa.me/${s.whatsapp}`} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="grid size-10 place-items-center rounded-full bg-white/12 hover:bg-white/20"><MessageCircle className="size-5" /></a>
+            {s.instagram && <a href={`https://instagram.com/${s.instagram}`} target="_blank" rel="noreferrer" aria-label="Instagram" className="grid size-10 place-items-center rounded-full bg-white/12 hover:bg-white/20"><Instagram className="size-5" /></a>}
+            {s.whatsapp && <a href={`https://wa.me/${s.whatsapp}`} target="_blank" rel="noreferrer" aria-label="WhatsApp" className="grid size-10 place-items-center rounded-full bg-white/12 hover:bg-white/20"><MessageCircle className="size-5" /></a>}
           </div>
         </div>
         <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 px-4 pb-7 text-xs">
@@ -228,7 +229,7 @@ export default function Menu() {
         )}
 
         <footer className="mt-14 flex flex-col items-center gap-2 border-t border-brand-100 py-8 text-center text-sm text-stone-500">
-          <Logo className="size-12 ring-1 ring-brand-100" />
+          <Logo store={s} className="size-12 text-lg ring-1 ring-brand-100" />
           <p className="font-script text-2xl text-brand-700">{s.name}</p>
           <p>{s.slogan}</p>
           <p className="text-xs">{s.address}</p>
@@ -271,7 +272,9 @@ function ProductTile({ p, title, onOpen }) {
   return (
     <button onClick={onOpen} disabled={!p.available} className="group flex w-full flex-col text-left cursor-pointer disabled:cursor-default">
       <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-brand-50 ring-1 ring-brand-900/5">
-        {p.image && <img src={p.image} alt="" loading="lazy" className={cx('size-full object-cover transition duration-300 group-hover:scale-[1.03]', !p.available && 'grayscale')} />}
+        {p.image
+          ? <img src={p.image} alt="" loading="lazy" className={cx('size-full object-cover transition duration-300 group-hover:scale-[1.03]', !p.available && 'grayscale')} />
+          : <span className="grid size-full place-items-center text-brand-200"><Cake className="size-1/3" strokeWidth={1.25} /></span>}
         {p.lead_time_hours > 0 && <span className="absolute left-2 top-2 rounded-full bg-white/95 px-2 py-0.5 text-[11px] font-medium text-brand-800 shadow-sm">Encomenda {p.lead_time_hours}h</span>}
         {p.available ? (
           <span className="absolute bottom-2 right-2 grid size-9 place-items-center rounded-full bg-white text-brand-700 shadow-md transition group-hover:bg-brand-700 group-hover:text-white"><Plus className="size-5" /></span>
@@ -336,11 +339,13 @@ function StoreInfo({ open, onClose, store: s }) {
           <h3 className="mb-2 flex items-center gap-2 font-semibold text-stone-900"><Store className="size-4 text-brand-600" /> Pagamento</h3>
           <p className="text-stone-700">{s.payment_methods.map((m) => m.label).join(' · ')}</p>
         </section>
-        <section>
-          <h3 className="mb-2 flex items-center gap-2 font-semibold text-stone-900"><MessageCircle className="size-4 text-brand-600" /> Contato</h3>
-          <p className="text-stone-700">WhatsApp <span className="select-all font-medium">{s.phone || phone(s.whatsapp.slice(2))}</span></p>
-          <a href={`https://instagram.com/${s.instagram}`} target="_blank" rel="noreferrer" className="font-medium text-brand-700 hover:underline">@{s.instagram}</a>
-        </section>
+        {(s.whatsapp || s.instagram) && (
+          <section>
+            <h3 className="mb-2 flex items-center gap-2 font-semibold text-stone-900"><MessageCircle className="size-4 text-brand-600" /> Contato</h3>
+            {s.whatsapp && <p className="text-stone-700">WhatsApp <span className="select-all font-medium">{s.phone || phone(s.whatsapp.slice(2))}</span></p>}
+            {s.instagram && <a href={`https://instagram.com/${s.instagram}`} target="_blank" rel="noreferrer" className="font-medium text-brand-700 hover:underline">@{s.instagram}</a>}
+          </section>
+        )}
       </div>
     </Modal>
   );

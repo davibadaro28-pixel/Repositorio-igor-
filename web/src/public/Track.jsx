@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { CheckCircle2, ChefHat, PackageCheck, Bike, Home, ClipboardCheck, MessageCircle, ArrowLeft, XCircle } from 'lucide-react';
 import { useApi } from '../lib/api.js';
-import { asset } from '../lib/env.js';
+import { BrandLogo } from '../components/Brand.jsx';
 import { brl, dateTimeBR, timeBR, addressLine, itemLine, waLink, TYPE } from '../lib/format.js';
 import { Button, Card, Spinner, cx } from '../components/ui.jsx';
 
@@ -62,9 +62,9 @@ export default function Track() {
       <header className="bg-gradient-to-b from-brand-700 to-brand-500 px-4 pb-16 pt-6 text-white">
         <div className="mx-auto flex max-w-xl items-center gap-3">
           <Link to="/" className="rounded-full bg-white/15 p-2 hover:bg-white/25" aria-label="Voltar"><ArrowLeft className="size-5" /></Link>
-          <img src={asset('/img/logo.jpg')} alt="" className="size-10 rounded-full ring-2 ring-white" />
+          <BrandLogo store={s} className="size-10 text-sm ring-2 ring-white" />
           <div>
-            <p className="font-script text-2xl leading-none">Laços de Mãe</p>
+            <p className="font-script text-2xl leading-none">{s?.name}</p>
             <p className="text-xs text-white/80">Pedido #{o.id}</p>
           </div>
         </div>
@@ -74,8 +74,8 @@ export default function Track() {
         {params.get('novo') && !cancelled && (
           <Card className="border-l-4 border-emerald-500 p-4">
             <p className="font-semibold text-emerald-800">Pedido enviado com sucesso! 🎉</p>
-            <p className="mt-1 text-sm text-stone-600">A loja já recebeu seu pedido. Se quiser, envie também uma mensagem no WhatsApp.</p>
-            {s && (
+            <p className="mt-1 text-sm text-stone-600">A loja já recebeu seu pedido.{s?.whatsapp ? ' Se quiser, envie também uma mensagem no WhatsApp.' : ''}</p>
+            {s?.whatsapp && (
               <a href={waLink(s.whatsapp, message)} target="_blank" rel="noreferrer">
                 <Button variant="success" className="mt-3 w-full" icon={MessageCircle}>Enviar resumo no WhatsApp</Button>
               </a>
@@ -148,7 +148,7 @@ export default function Track() {
           </div>
         </Card>
 
-        {s && (
+        {s?.whatsapp && (
           <a href={waLink(s.whatsapp, `Olá! Tenho uma dúvida sobre o pedido #${o.id}`)} target="_blank" rel="noreferrer" className="flex items-center justify-center gap-2 text-sm font-medium text-brand-700">
             <MessageCircle className="size-4" /> Falar com a loja
           </a>

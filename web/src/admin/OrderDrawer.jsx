@@ -23,7 +23,7 @@ export function nextAction(o) {
   }
 }
 
-export function customerMessage(o, storeName = 'Laços de Mãe') {
+export function customerMessage(o, storeName = 'nossa loja') {
   const first = (o.customer_name || '').split(' ')[0] || '';
   const link = `${window.location.origin}/pedido/${o.code}`;
   const msgs = {

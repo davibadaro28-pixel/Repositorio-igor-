@@ -103,6 +103,21 @@ sobre um SQLite em memória ([sql.js](https://sql.js.org)), com os dados de demo
 entre cardápio, painel da loja e app do entregador. Serve para mostrar o sistema sem hospedar nada; os dados
 ficam só no navegador de quem abre. Os adaptadores estão em `preview/`.
 
+### Demonstração para vender a outras docerias (marca genérica)
+
+```bash
+node preview/build.mjs demo-vendas --marca=generica --contato=5511912345678
+DEMO_MARCA=generica npm run demo     # mesmo efeito no servidor de demonstração
+```
+
+Troca a loja de exemplo por **“Sua Doceria Aqui”**: sem nome, logo, WhatsApp, Instagram, endereço nem fotos com a
+marca da loja original (nem no código da página publicada). Abre com uma tela de boas-vindas e, com `--contato`,
+mostra o botão “Quero para minha doceria”, que abre o seu WhatsApp. Quem testa pode trocar nome, logo e cores
+em Configurações e ver o próprio nome no sistema na hora.
+
+**Para cada doceria nova:** em Configurações → Loja, troque nome, slogan, WhatsApp, Instagram, endereço e envie o
+logo (sem logo, o sistema mostra as iniciais do nome).
+
 ### Desenvolvimento
 
 ```bash

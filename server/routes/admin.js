@@ -73,6 +73,8 @@ r.put('/settings/:key', requireModule('configuracoes'), (req, res) => {
       prep_time_min: Math.max(0, int(value.prep_time_min ?? cur.prep_time_min, 30)),
       delivery_time_min: Math.max(0, int(value.delivery_time_min ?? cur.delivery_time_min, 60)),
       accepting_orders: !!(value.accepting_orders ?? cur.accepting_orders),
+      // logo enviado pelo painel (ou foto embutida na prévia); vazio = iniciais do nome
+      logo: value.logo === '' ? '' : /^(\/uploads\/|\/img\/|img\/|data:image\/)/.test(String(value.logo ?? '')) ? String(value.logo) : cur.logo,
     };
   }
   if (key === 'payment_methods') {
@@ -138,9 +140,10 @@ r.put('/users/:id', requireModule('usuarios'), (req, res) => {
 // ---------- Backup do banco (cópia consistente, só administrador) ----------
 
 r.get('/backup', requireModule('usuarios'), (_req, res) => {
-  const file = join(tmpdir(), `lacos-backup-${randomBytes(6).toString('hex')}.db`);
+  const file = join(tmpdir(), `backup-${randomBytes(6).toString('hex')}.db`);
   db.exec(`VACUUM INTO '${file}'`);
-  res.download(file, `lacos-de-mae-backup-${now().slice(0, 10)}.db`, () => rmSync(file, { force: true }));
+  const slug = String(getSetting('store', {}).name || 'loja').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'loja';
+  res.download(file, `${slug}-backup-${now().slice(0, 10)}.db`, () => rmSync(file, { force: true }));
 });
 
 // ---------- Upload de imagens (fotos de produtos) ----------

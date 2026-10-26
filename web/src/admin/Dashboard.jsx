@@ -4,7 +4,7 @@ import { useApi } from '../lib/api.js';
 import { brl, dateBR, timeBR, waLink, CHANNEL, TYPE, qty } from '../lib/format.js';
 import { Card, PageHeader, Spinner, Stat, cx } from '../components/ui.jsx';
 import { ColumnChart, BarList } from '../components/charts.jsx';
-import { useAuth, useLive, canAccess } from './AdminApp.jsx';
+import { useAuth, useLive, useSettings, canAccess } from './AdminApp.jsx';
 
 function Delta({ now, before }) {
   if (!before) return null;
@@ -30,6 +30,7 @@ function Panel({ title, icon: Icon, to, children, empty }) {
 }
 
 export default function Dashboard() {
+  const { settings } = useSettings();
   const { tick } = useLive();
   const { user } = useAuth();
   const { data } = useApi('/reports/dashboard', [tick]);
@@ -102,7 +103,7 @@ export default function Dashboard() {
             {data.birthdays.map((c) => (
               <li key={c.id} className="flex items-center justify-between gap-2">
                 <span>{c.birthday.slice(-5).split('-').reverse().join('/')} · {c.name}</span>
-                {c.phone && <a className="text-xs font-medium text-emerald-700 hover:underline" target="_blank" rel="noreferrer" href={waLink(c.phone, `Feliz aniversário, ${c.name.split(' ')[0]}! 🎂🎀 A Laços de Mãe preparou um mimo especial pra você!`)}>parabenizar</a>}
+                {c.phone && <a className="text-xs font-medium text-emerald-700 hover:underline" target="_blank" rel="noreferrer" href={waLink(c.phone, `Feliz aniversário, ${c.name.split(' ')[0]}! 🎂🎀 A ${settings?.store?.name || 'loja'} preparou um mimo especial pra você!`)}>parabenizar</a>}
               </li>
             ))}
           </ul>

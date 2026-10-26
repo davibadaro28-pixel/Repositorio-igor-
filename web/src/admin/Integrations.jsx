@@ -40,7 +40,7 @@ const PLATFORMS = {
     steps: [
       'Cadastre-se na plataforma aberta da 99Food (developer-food.99app.com) e peça acesso. A 99Food libera um ambiente de testes antes do uso real.',
       'Crie o aplicativo e informe o endereço de webhook mostrado abaixo. Copie o App ID e o App Secret.',
-      'Gere o link de autorização, peça para a loja autorizar e vincule-a com um código da loja (ex.: lacos-de-mae). Use o mesmo código aqui.',
+      'Gere o link de autorização, peça para a loja autorizar e vincule-a com um código da loja (ex.: minha-doceria). Use o mesmo código aqui.',
       'Cole os dados aqui, ligue a integração e clique em “Testar conexão”.',
       'Use como código externo dos itens o código do produto (ex.: V12), ou vincule os itens abaixo quando chegarem os primeiros pedidos.',
     ],
