@@ -2,11 +2,12 @@ import { createContext, useCallback, useContext, useEffect, useRef, useState } f
 import { NavLink, Route, Routes, Navigate, useNavigate, Link } from 'react-router-dom';
 import {
   LayoutDashboard, ClipboardList, ShoppingCart, ChefHat, CalendarDays, Wallet, Landmark, Package, Cake, Users, Bike,
-  TicketPercent, BarChart3, Settings, UserCog, LogOut, Menu as MenuIcon, X, ExternalLink, Bell, Plug, Receipt,
+  TicketPercent, BarChart3, Settings, UserCog, LogOut, Menu as MenuIcon, X, ExternalLink, Bell, Plug, Receipt, UtensilsCrossed,
 } from 'lucide-react';
 import { api, getToken, setToken, useLiveEvents } from '../lib/api.js';
 import { newTab } from '../lib/env.js';
 import { BrandLogo, useStoreBrand } from '../components/Brand.jsx';
+import { applyTheme } from '../lib/theme.js';
 import { Button, Field, Input, Modal, Spinner, Toggle, cx, useToast, ErrorBox } from '../components/ui.jsx';
 import Dashboard from './Dashboard.jsx';
 import Orders from './Orders.jsx';
@@ -111,7 +112,7 @@ function Login({ onLogin }) {
       <form onSubmit={submit} className="w-full max-w-sm rounded-3xl bg-white p-7 shadow-2xl">
         <div className="mb-6 text-center">
           <BrandLogo store={brand} className="mx-auto size-20 text-2xl ring-4 ring-brand-100" />
-          <h1 className="mt-3 font-script text-4xl text-brand-700">{brand?.name || '\u00a0'}</h1>
+          <h1 className="mt-3 font-script text-brand-700" style={{ fontSize: 'calc(2.25rem * var(--font-script-scale, 1))' }}>{brand?.name || '\u00a0'}</h1>
           <p className="text-sm text-stone-500">Sistema de gestão</p>
         </div>
         <div className="space-y-3">
@@ -150,7 +151,10 @@ function Layout({ children }) {
   const { pending } = useLive();
   const [open, setOpen] = useState(false);
   const [pwOpen, setPwOpen] = useState(false);
-  const items = NAV.filter((n) => n.group || canAccess(user, n.module));
+  // lojas sem encomendas agendadas (ex.: hamburguerias) não precisam da agenda de encomendas
+  const noOrdersAhead = settings?.store?.scheduling_enabled === false;
+  const items = NAV.filter((n) => n.group || (canAccess(user, n.module) && !(noOrdersAhead && n.module === 'encomendas')))
+    .map((n) => (n.module === 'produtos' && settings?.store?.segment && settings.store.segment !== 'doceria' ? { ...n, icon: UtensilsCrossed } : n));
   const groups = items.filter((n, i) => !n.group || (items[i + 1] && !items[i + 1].group));
 
   const nav = (
@@ -179,7 +183,7 @@ function Layout({ children }) {
     <Link to="/admin" className="flex items-center gap-3 px-5 py-5">
       <BrandLogo store={settings?.store} className="size-10 text-sm ring-2 ring-white/70" />
       <div>
-        <p className="font-script text-2xl leading-none text-white">{settings?.store?.name}</p>
+        <p className="font-script leading-none text-white" style={{ fontSize: 'calc(1.5rem * var(--font-script-scale, 1))' }}>{settings?.store?.name}</p>
         <p className="text-[11px] uppercase tracking-widest text-brand-200">Gestão</p>
       </div>
     </Link>
@@ -267,7 +271,7 @@ export default function AdminApp() {
   const userRef = useRef(user);
   userRef.current = user;
 
-  const loadSettings = useCallback(() => api.get('/settings').then(setSettings).catch(() => {}), []);
+  const loadSettings = useCallback(() => api.get('/settings').then((s) => { setSettings(s); applyTheme(s.store); }).catch(() => {}), []);
   const loadPending = useCallback(() => api.get('/orders?status=novo&limit=100').then((l) => setPending(l.length)).catch(() => {}), []);
 
   useEffect(() => {

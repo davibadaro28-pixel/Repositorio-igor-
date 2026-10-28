@@ -71,7 +71,7 @@ export default function Dashboard() {
       </div>
 
       <div className="mt-4 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-        <Panel title="Encomendas (próximos 3 dias)" icon={CalendarClock} to="/admin/encomendas" empty={!data.upcoming.length && 'Nenhuma encomenda agendada.'}>
+        {settings?.store?.scheduling_enabled !== false && <Panel title="Encomendas (próximos 3 dias)" icon={CalendarClock} to="/admin/encomendas" empty={!data.upcoming.length && 'Nenhuma encomenda agendada.'}>
           <ul className="space-y-2 text-sm">
             {data.upcoming.map((o) => (
               <li key={o.id} className="flex justify-between gap-2">
@@ -80,7 +80,7 @@ export default function Dashboard() {
               </li>
             ))}
           </ul>
-        </Panel>
+        </Panel>}
         <Panel title="Vendas de hoje por canal" icon={ShoppingBag} empty={!data.channels.length && 'Nenhuma venda hoje.'}>
           <BarList data={data.channels.map((c) => ({ label: `${CHANNEL[c.channel]} · ${TYPE[c.type]}`, value: c.revenue_cents, sub: `${c.orders} ped.` }))} />
         </Panel>

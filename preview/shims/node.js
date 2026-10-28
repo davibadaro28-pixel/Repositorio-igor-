@@ -1,6 +1,8 @@
 // Versões mínimas dos módulos do Node usados pelo servidor, suficientes para a prévia no navegador.
 import schemaSql from '../../server/schema.sql?raw';
-import catalog from '../../server/seed/catalog.json';
+// loja escolhida no build (alias @loja → lojas/<loja>)
+import lojaJson from '@loja/loja.json';
+import catalog from '@loja/catalogo.json';
 
 // ---------- Bytes (substitui Buffer) ----------
 export class Bytes extends Uint8Array {
@@ -55,7 +57,8 @@ export function timingSafeEqual(a, b) {
 // ---------- node:fs ----------
 export function readFileSync(path) {
   if (String(path).endsWith('schema.sql')) return schemaSql;
-  if (String(path).endsWith('catalog.json')) return JSON.stringify(catalog);
+  if (String(path).endsWith('catalogo.json')) return JSON.stringify(catalog);
+  if (String(path).endsWith('loja.json')) return JSON.stringify(lojaJson);
   throw new Error(`Arquivo indisponível na prévia: ${path}`);
 }
 export const writeFileSync = () => {};

@@ -77,6 +77,8 @@ function parseGroups(groups) {
       name: str(g.name, 80),
       min: Math.max(0, int(g.min, 0)),
       max: Math.max(0, int(g.max, 1)),
+      // a mesma opção pode ser escolhida mais de uma vez (ex.: 2x bacon, 4 lanches no combo família)
+      ...(g.repeat ? { repeat: true } : {}),
       options: (Array.isArray(g.options) ? g.options : [])
         .map((o) => ({ name: str(o.name, 80), price_cents: Math.max(0, int(o.price_cents, 0)) }))
         .filter((o) => o.name),

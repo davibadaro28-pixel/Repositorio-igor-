@@ -1,10 +1,14 @@
-# Laços de Mãe – Sistema de gestão 🎀
+# Sistema de gestão para lojas de comida 🎀🍔
 
-Sistema completo de **PDV, delivery, cardápio digital e gestão** feito sob medida para a
-**Laços de Mãe – Bolos e Doces** (Av. Boturussu, 1785 – Parque Boturussu, São Paulo), no estilo do Saipos.
+Sistema completo de **PDV, delivery, cardápio digital e gestão**, no estilo do Saipos. O mesmo código atende
+várias lojas: cada cliente tem uma pasta em [`lojas/`](lojas/) com o cardápio, as fotos, o logo, as cores e os dados da loja.
 
-O cardápio já vem com os **77 produtos reais** (16 categorias, preços, tamanhos e fotos) importados do
-cardápio atual da loja, com as cores e o logo da marca.
+| Loja | Pasta | Cardápio |
+|---|---|---|
+| **Laços de Mãe – Bolos e Doces** (Parque Boturussu, São Paulo) | `lojas/lacos-de-mae` (padrão) | 77 produtos em 16 categorias |
+| **VS Burger e Gelato** – hamburgueria gamer (Centro, Carapicuíba) | `lojas/vs-burger` | 75 produtos em 13 categorias, com ponto da carne, adicionais e combos família |
+
+Os cardápios vieram dos cardápios online atuais de cada loja (produtos, preços, adicionais e fotos).
 
 ## O que o sistema faz
 
@@ -70,7 +74,8 @@ Precisa do [Node.js 22.13 ou mais novo](https://nodejs.org).
 ```bash
 npm install
 npm run build        # gera o site
-npm start            # http://localhost:3000
+npm start            # http://localhost:3000 (Laços de Mãe)
+LOJA=vs-burger npm start   # outra loja: a pasta lojas/vs-burger (banco separado: server/data/vs-burger.db)
 ```
 
 Na primeira vez o terminal mostra o login `admin` e uma senha gerada (também salva em
@@ -118,6 +123,28 @@ em Configurações e ver o próprio nome no sistema na hora.
 **Para cada doceria nova:** em Configurações → Loja, troque nome, slogan, WhatsApp, Instagram, endereço e envie o
 logo (sem logo, o sistema mostra as iniciais do nome).
 
+### Várias lojas no mesmo sistema
+
+Cada instalação atende **uma** loja, escolhida pela variável `LOJA` (nome da pasta em `lojas/`; sem ela, `lacos-de-mae`).
+O banco de dados, as fotos enviadas e as configurações ficam separados por instalação.
+
+```bash
+LOJA=vs-burger npm run demo                          # demonstração da hamburgueria (server/data/demo-vs-burger.db)
+node preview/build.mjs preview-vs --loja=vs-burger   # prévia no navegador da hamburgueria
+```
+
+**Cliente novo:** copie uma pasta de `lojas/` e troque:
+
+- `loja.json` – nome, contatos, endereço, horários, `segment` (`doceria`, `hamburgueria` ou `outro`: muda exemplos e
+  textos do sistema), `theme` (cor principal, fonte do nome e borda do topo do cardápio), bairros e taxas de entrega,
+  insumos e fichas técnicas, sugestões de NCM e dados de exemplo da demonstração.
+- `catalogo.json` – categorias (com a seção do cardápio), produtos, preços, tamanhos e grupos de adicionais.
+  Um grupo com `"repeat": true` aceita a mesma opção mais de uma vez (2x bacon, 4 lanches no combo família).
+- `public/img/` – `logo`, `favicon.png`, `icon-192.png`, `icon-512.png` e as fotos em `produtos/`.
+
+Esses arquivos só valem na **primeira** vez que a loja sobe (banco vazio). Depois, a loja muda tudo pelo painel,
+inclusive a aparência em **Configurações → Aparência** (a tela mostra como fica antes de salvar).
+
 ### Desenvolvimento
 
 ```bash
@@ -163,20 +190,22 @@ O sistema é um único servidor Node com banco SQLite em arquivo — barato de h
 **Com Docker** (Railway, Render, Fly.io, VPS):
 
 ```bash
-docker build -t lacos-de-mae .
-docker run -d -p 3000:3000 -v lacos_dados:/data -e ADMIN_PASSWORD=troque-esta-senha lacos-de-mae
+docker build -t sistema-lojas .
+docker run -d -p 3000:3000 -v lacos_dados:/data -e ADMIN_PASSWORD=troque-esta-senha sistema-lojas
+docker run -d -p 3001:3000 -v vsburger_dados:/data -e LOJA=vs-burger -e ADMIN_PASSWORD=outra-senha sistema-lojas
 ```
 
-No Railway/Render: crie o serviço a partir deste repositório (detecta o `Dockerfile`), adicione um
-**volume/disco montado em `/data`** e a variável `ADMIN_PASSWORD`. Depois aponte um domínio
+No Railway/Render: crie **um serviço por loja** a partir deste repositório (detecta o `Dockerfile`), adicione um
+**volume/disco montado em `/data`** e as variáveis `LOJA` e `ADMIN_PASSWORD`. Depois aponte o domínio da loja
 (ex.: `pedidos.lacosdemae.com.br`) e troque o link da bio do Instagram.
 
 Variáveis de ambiente:
 
 | Variável | Padrão | Para quê |
 |---|---|---|
+| `LOJA` | `lacos-de-mae` | Pasta da loja em `lojas/` (cardápio inicial, fotos, logo e tema) |
 | `PORT` | `3000` | Porta HTTP |
-| `DB_PATH` | `server/data/lacos.db` | Arquivo do banco |
+| `DB_PATH` | `server/data/lacos.db` (outras lojas: `server/data/<loja>.db`) | Arquivo do banco |
 | `UPLOAD_DIR` | `server/data/uploads` | Fotos enviadas pelo painel |
 | `ADMIN_PASSWORD` | gerada | Senha do primeiro `admin` |
 | `FOCUS_API_URL` | Focus NFe (homologação/produção) | Só para testes da emissão de NFC-e |

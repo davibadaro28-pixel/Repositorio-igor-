@@ -2,8 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { brl } from '../lib/format.js';
 
 // Gráficos de uma série só (uma cor), seguindo a marca: colunas finas, topo arredondado, grade discreta.
-const BAR = '#c24d6d';
-const BAR_HOVER = '#973358';
+// cores do tema da loja
+const BAR = 'var(--color-brand-500)';
+const BAR_HOVER = 'var(--color-brand-700)';
 const GRID = '#ece7e4';
 const MUTED = '#8a7f83';
 
@@ -73,7 +74,7 @@ export function ColumnChart({ data, height = 220, format = brl, axisFormat = com
           return (
             <g key={i} onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)}>
               <rect x={pad.l + i * band} y={pad.t} width={band} height={innerH} fill="transparent" />
-              {path && <path d={path} fill={hover === i ? BAR_HOVER : BAR} />}
+              {path && <path d={path} style={{ fill: hover === i ? BAR_HOVER : BAR }} />}
               {i === peak && d.value > 0 && hover == null && (
                 <text x={x + bw / 2} y={y - 6} textAnchor="middle" fontSize="11" fontWeight="600" fill="#44383c">{axisFormat(d.value)}</text>
               )}

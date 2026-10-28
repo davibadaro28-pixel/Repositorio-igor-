@@ -4,6 +4,8 @@ import { api, useApi } from '../lib/api.js';
 import { brl, pct } from '../lib/format.js';
 import { Button, Card, Field, Input, Modal, MoneyInput, PageHeader, Select, Spinner, Textarea, Toggle, cx, useToast, ErrorBox, Badge } from '../components/ui.jsx';
 import { RecipeModal } from './Stock.jsx';
+import { useSettings } from './AdminApp.jsx';
+import { segmentCopy } from '../lib/segment.js';
 
 /** Reduz a foto no navegador antes de enviar (máx. 900px, JPEG) */
 export async function uploadImage(file) {
@@ -139,6 +141,7 @@ export default function Products() {
 }
 
 function CategoryModal({ cat, sections, onClose, onSaved }) {
+  const { settings } = useSettings();
   const [name, setName] = useState(cat.name);
   const [section, setSection] = useState(cat.section || '');
   const [active, setActive] = useState(cat.active ?? 1);
@@ -169,7 +172,7 @@ function CategoryModal({ cat, sections, onClose, onSaved }) {
     }>
       <div className="space-y-3">
         <Field label="Nome"><Input value={name} onChange={(e) => setName(e.target.value)} autoFocus /></Field>
-        <Field label="Seção no cardápio" hint="Agrupa categorias no cardápio digital. Ex.: Bolos, Docinhos, Bebidas e extras">
+        <Field label="Seção no cardápio" hint={segmentCopy(settings?.store).sectionHint}>
           <Input value={section} onChange={(e) => setSection(e.target.value)} list="menu-sections" />
           <datalist id="menu-sections">{sections.map((x) => <option key={x} value={x} />)}</datalist>
         </Field>
@@ -181,6 +184,7 @@ function CategoryModal({ cat, sections, onClose, onSaved }) {
 }
 
 function ProductModal({ product, categories, onClose, onSaved }) {
+  const { settings } = useSettings();
   const [p, setP] = useState(() => ({ ...product, variants: product.variants.map((v) => ({ ...v })), option_groups: JSON.parse(JSON.stringify(product.option_groups || [])) }));
   const [err, setErr] = useState('');
   const [saving, setSaving] = useState(false);
@@ -271,13 +275,14 @@ function ProductModal({ product, categories, onClose, onSaved }) {
 
           <div>
             <p className="mb-1 text-sm font-medium text-stone-700">Adicionais e escolhas</p>
-            <p className="mb-2 text-xs text-stone-500">Ex.: “Sabor do bolo gelado” (obrigatório, escolher 1) ou “Cobertura extra” (opcional, com preço).</p>
+            <p className="mb-2 text-xs text-stone-500">{segmentCopy(settings?.store).groupsHint}</p>
             {p.option_groups.map((g, i) => (
               <div key={i} className="mb-3 rounded-xl p-3 ring-1 ring-stone-200">
                 <div className="flex flex-wrap gap-2">
                   <Input className="min-w-40 flex-1" placeholder="Nome do grupo" value={g.name} onChange={(e) => setGroup(i, { name: e.target.value })} />
                   <label className="flex items-center gap-1 text-xs text-stone-600">mín <Input type="number" min="0" className="w-16" value={g.min} onChange={(e) => setGroup(i, { min: Number(e.target.value) })} /></label>
                   <label className="flex items-center gap-1 text-xs text-stone-600">máx <Input type="number" min="1" className="w-16" value={g.max} onChange={(e) => setGroup(i, { max: Number(e.target.value) })} /></label>
+                  <label className="flex items-center gap-1.5 text-xs text-stone-600" title="O cliente pode escolher a mesma opção mais de uma vez (2x bacon, 4 lanches no combo)"><input type="checkbox" className="accent-brand-600" checked={!!g.repeat} onChange={(e) => setGroup(i, { repeat: e.target.checked })} /> pode repetir</label>
                   <button className="text-stone-400 hover:text-red-600" onClick={() => set({ option_groups: p.option_groups.filter((_, k) => k !== i) })} aria-label="Remover grupo"><Trash2 className="size-4" /></button>
                 </div>
                 <div className="mt-2 space-y-1.5">
@@ -295,7 +300,7 @@ function ProductModal({ product, categories, onClose, onSaved }) {
             <Button variant="secondary" size="sm" icon={Plus} onClick={() => set({ option_groups: [...p.option_groups, { name: '', min: 0, max: 1, options: [{ name: '', price_cents: 0 }] }] })}>Grupo de adicionais</Button>
           </div>
 
-          <Field label="Só por encomenda com antecedência de (horas)" hint="0 = pode pedir para agora. Ex.: 24 para bolos que precisam ser feitos no dia anterior.">
+          <Field label="Só por encomenda com antecedência de (horas)" hint={segmentCopy(settings?.store).leadHint}>
             <Input type="number" min="0" className="w-32" value={p.lead_time_hours} onChange={(e) => set({ lead_time_hours: Number(e.target.value) })} />
           </Field>
           <ErrorBox>{err}</ErrorBox>

@@ -1,6 +1,9 @@
 import express from 'express';
-import { existsSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { getSetting } from './db.js';
+import { LOJA, LOJA_PUBLIC } from './loja.js';
+import { fontHref, themeColor, themeCss } from '../shared/theme.js';
 import { authenticate, HttpError } from './auth.js';
 import { seedIfEmpty } from './seed.js';
 import publicRoutes from './routes/public.js';
@@ -40,11 +43,45 @@ app.use('/api', (_req, _res, next) => next(new HttpError(404, 'Rota não encontr
 
 app.use('/uploads', express.static(UPLOAD_DIR, { maxAge: '30d', immutable: true }));
 
+// Logo, ícones e fotos do cardápio da loja (lojas/<loja>/public)
+app.use(express.static(LOJA_PUBLIC, { maxAge: '1d', index: false }));
+app.get('/manifest.webmanifest', (_req, res) => {
+  const s = getSetting('store', {});
+  res.type('application/manifest+json').json({
+    name: [s.name, s.tagline].filter(Boolean).join(' – '),
+    short_name: s.name,
+    start_url: '/',
+    display: 'standalone',
+    background_color: '#ffffff',
+    theme_color: themeColor(s.theme),
+    icons: [
+      { src: '/img/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { src: '/img/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+  });
+});
+
+const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
+/** index.html com nome, cores e fonte da loja (o cardápio já abre com a cara da loja) */
+export function renderIndex(html) {
+  const s = getSetting('store', {});
+  const title = [s.name, s.tagline].filter(Boolean).join(' – ') || 'Cardápio digital';
+  const font = fontHref(s.theme);
+  const head = [
+    `<meta name="description" content="${esc(`Peça online: cardápio digital da ${s.name || 'loja'}, com delivery e retirada.`)}" />`,
+    `<meta name="theme-color" content="${esc(themeColor(s.theme))}" />`,
+    font ? `<link href="${esc(font)}" rel="stylesheet" />` : '',
+    `<style id="loja-theme">${themeCss(s.theme)}</style>`,
+  ].join('\n    ');
+  return html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`).replace('<!--loja-->', head);
+}
+
 // Front-end (build do Vite)
 const dist = join(import.meta.dirname, '..', 'dist');
 if (existsSync(dist)) {
+  const indexHtml = readFileSync(join(dist, 'index.html'), 'utf8');
   app.use(express.static(dist, { maxAge: '1h', index: false }));
-  app.get(/^\/(?!api\/|uploads\/).*/, (_req, res) => res.sendFile(join(dist, 'index.html')));
+  app.get(/^\/(?!api\/|uploads\/).*/, (_req, res) => res.type('html').set('Cache-Control', 'no-cache').send(renderIndex(indexHtml)));
 }
 
 // Erros: mensagens claras para o usuário, sem vazar detalhes internos
@@ -58,7 +95,7 @@ app.use((err, _req, res, _next) => {
 export function start(port = Number(process.env.PORT) || 3000) {
   startIntegrations();
   return app.listen(port, () => {
-    console.log(`Laços de Mãe rodando em http://localhost:${port}`);
+    console.log(`${getSetting('store', {}).name || 'Sistema'} (loja: ${LOJA}) rodando em http://localhost:${port}`);
     console.log(`  Cardápio digital: http://localhost:${port}/`);
     console.log(`  Painel de gestão: http://localhost:${port}/admin`);
     console.log(`  App do entregador: http://localhost:${port}/entregador`);

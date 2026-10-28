@@ -3,6 +3,8 @@ import { Plus, Pencil, PackagePlus, PackageMinus, ClipboardCheck, Trash2, FlaskC
 import { api, useApi } from '../lib/api.js';
 import { brl, qty, pct, dateTimeBR } from '../lib/format.js';
 import { Button, Card, Field, Input, Modal, MoneyInput, PageHeader, Select, Spinner, Table, Tabs, Toggle, cx, useToast, ErrorBox, Badge, Empty } from '../components/ui.jsx';
+import { segmentCopy } from '../lib/segment.js';
+import { useSettings } from './AdminApp.jsx';
 
 const UNITS = { g: 'grama (g)', ml: 'mililitro (ml)', un: 'unidade (un)', kg: 'quilo (kg)', l: 'litro (l)' };
 const costLabel = (i) => `${brl(i.unit_cost)}/${i.unit}`; // unit_cost é em centavos por unidade
@@ -162,6 +164,7 @@ function MoveModal({ ing, type: initialType, onClose, onSaved }) {
 }
 
 function CMV() {
+  const { settings } = useSettings();
   const { data, reload } = useApi('/stock/cmv');
   const [recipe, setRecipe] = useState(null);
   const [only, setOnly] = useState('all');
@@ -172,7 +175,7 @@ function CMV() {
     <>
       <div className="mb-3 flex flex-wrap items-center gap-3">
         <Tabs value={only} onChange={setOnly} tabs={[{ value: 'all', label: 'Todos' }, { value: 'done', label: 'Com ficha', count: withRecipe }, { value: 'missing', label: 'Sem ficha', count: data.length - withRecipe }]} />
-        <p className="text-sm text-stone-500">CMV ideal em confeitaria: até ~35% do preço.</p>
+        <p className="text-sm text-stone-500">{segmentCopy(settings?.store).cmv}</p>
       </div>
       <Card>
         <Table>

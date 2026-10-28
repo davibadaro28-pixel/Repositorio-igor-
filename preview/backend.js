@@ -1,4 +1,4 @@
-// O servidor da Laços de Mãe rodando dentro do navegador (prévia sem servidor).
+// O servidor da loja rodando dentro do navegador (prévia sem servidor).
 // Usa as mesmas rotas e regras de server/, sobre um SQLite em memória (sql.js).
 import { authenticate } from '../server/auth.js';
 import { get, run } from '../server/db.js';

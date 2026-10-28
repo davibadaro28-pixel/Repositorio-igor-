@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IS_PREVIEW } from '../lib/env.js';
 import { useApi } from '../lib/api.js';
-import { brl, dateTimeBR, phone, addressLine, methodLabel, TYPE, CHANNEL } from '../lib/format.js';
+import { brl, dateTimeBR, phone, addressLine, methodLabel, TYPE, CHANNEL, optionsList } from '../lib/format.js';
 import { useSettings } from './AdminApp.jsx';
 
 /** Comanda / cupom não fiscal para impressora térmica 80 mm */
@@ -52,7 +52,7 @@ export default function PrintOrder() {
               <span><b>{i.qty}x</b> {i.name}{i.variant_name ? ` (${i.variant_name})` : ''}</span>
               <span className="shrink-0">{brl(i.total_cents)}</span>
             </div>
-            {i.options?.map((x) => <p key={x.name} className="pl-3">+ {x.name}</p>)}
+            {optionsList(i.options).map((x) => <p key={x} className="pl-3">+ {x}</p>)}
             {i.notes && <p className="pl-3 font-bold">OBS: {i.notes}</p>}
           </div>
         ))}

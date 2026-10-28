@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { newTab } from '../lib/env.js';
 import { Search, Minus, Plus, Trash2, User, X, Printer, CheckCircle2, AlertTriangle, Gift, Cake } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
-import { brl, maskPhone, phone } from '../lib/format.js';
+import { brl, maskPhone, phone, optionsText } from '../lib/format.js';
+import { segmentCopy } from '../lib/segment.js';
+import OptionGroups, { missingGroup } from '../components/OptionGroups.jsx';
 import { Button, Card, Field, Input, Modal, MoneyInput, Select, Spinner, Textarea, cx, useToast, ErrorBox } from '../components/ui.jsx';
 import FiscalBox, { maskDoc } from './FiscalBox.jsx';
 import { useSettings } from './AdminApp.jsx';
@@ -140,7 +142,7 @@ export default function PDV() {
             <option value="99food">99Food (lançado à mão)</option>
             <option value="outro">Outro canal</option>
           </Select>
-          <label className="flex shrink-0 items-center gap-1.5"><input type="checkbox" className="accent-brand-600" checked={sale.scheduled} onChange={(e) => setSale((s) => ({ ...s, scheduled: e.target.checked }))} /> Encomenda</label>
+          {settings?.store?.scheduling_enabled !== false && <label className="flex shrink-0 items-center gap-1.5"><input type="checkbox" className="accent-brand-600" checked={sale.scheduled} onChange={(e) => setSale((s) => ({ ...s, scheduled: e.target.checked }))} /> Encomenda</label>}
         </div>
         {sale.scheduled && (
           <div className="grid grid-cols-2 gap-2">
@@ -170,7 +172,7 @@ export default function PDV() {
               <li key={i.key} className="flex items-center gap-2 rounded-xl px-2 py-1.5 hover:bg-stone-50">
                 <div className="min-w-0 flex-1 text-sm">
                   <p className="truncate font-medium">{i.name}</p>
-                  <p className="truncate text-xs text-stone-500">{[i.variant_name, ...i.options.map((o) => o.name), i.notes && `“${i.notes}”`].filter(Boolean).join(' · ')}</p>
+                  <p className="truncate text-xs text-stone-500">{[i.variant_name, optionsText(i.options), i.notes && `“${i.notes}”`].filter(Boolean).join(' · ')}</p>
                 </div>
                 <div className="flex items-center rounded-lg ring-1 ring-stone-200">
                   <button onClick={() => qtyChange(i.key, -1)} className="p-1.5 text-brand-600 cursor-pointer" aria-label="Menos">{i.qty === 1 ? <Trash2 className="size-3.5" /> : <Minus className="size-3.5" />}</button>
@@ -249,7 +251,7 @@ export default function PDV() {
         </div>
       )}
 
-      <PickModal product={picking} onClose={() => setPicking(null)} onAdd={(v, o, n) => { add(picking, v, o, n); setPicking(null); }} />
+      <PickModal product={picking} notePlaceholder={segmentCopy(settings?.store).pdvNote} onClose={() => setPicking(null)} onAdd={(v, o, n) => { add(picking, v, o, n); setPicking(null); }} />
       {payOpen && <PayModal total={total} type={sale.type} scheduled={sale.scheduled} fiscal={settings?.fiscal?.enabled} methods={(settings?.payment_methods || []).filter((m) => m.active)} onClose={() => setPayOpen(false)} onFinish={finish} />}
       <Modal open={!!done} onClose={() => setDone(null)} size="sm" title="Venda registrada" footer={
         <>
@@ -271,7 +273,7 @@ export default function PDV() {
   );
 }
 
-function PickModal({ product: p, onClose, onAdd }) {
+function PickModal({ product: p, onClose, onAdd, notePlaceholder }) {
   const [vid, setVid] = useState(null);
   const [opts, setOpts] = useState([]);
   const [notes, setNotes] = useState('');
@@ -279,16 +281,9 @@ function PickModal({ product: p, onClose, onAdd }) {
   useEffect(() => { if (p) { setVid(p.variants[0].id); setOpts([]); setNotes(''); setErr(''); } }, [p]);
   if (!p) return null;
   const v = p.variants.find((x) => x.id === vid) || p.variants[0];
-  const toggle = (g, o) => setOpts((cur) => {
-    const has = cur.some((x) => x.group === g.name && x.name === o.name);
-    if (has) return cur.filter((x) => !(x.group === g.name && x.name === o.name));
-    const pick = { group: g.name, name: o.name, price_cents: o.price_cents };
-    if (g.max === 1) return [...cur.filter((x) => x.group !== g.name), pick];
-    if (g.max && cur.filter((x) => x.group === g.name).length >= g.max) return cur;
-    return [...cur, pick];
-  });
   const confirm = () => {
-    for (const g of p.option_groups) if (opts.filter((o) => o.group === g.name).length < g.min) return setErr(`Escolha: ${g.name}`);
+    const missing = missingGroup(p.option_groups, opts);
+    if (missing) return setErr(`Escolha: ${missing.name}${missing.min > 1 ? ` (${missing.min})` : ''}`);
     onAdd(v, opts, notes);
   };
   return (
@@ -304,18 +299,8 @@ function PickModal({ product: p, onClose, onAdd }) {
             ))}
           </div>
         )}
-        {p.option_groups.map((g) => (
-          <div key={g.name}>
-            <p className="mb-2 text-sm font-semibold">{g.name} {g.min > 0 && <span className="text-xs font-normal text-red-600">(obrigatório)</span>}</p>
-            <div className="grid grid-cols-2 gap-2">
-              {g.options.map((o) => {
-                const on = opts.some((x) => x.group === g.name && x.name === o.name);
-                return <button key={o.name} onClick={() => toggle(g, o)} className={cx('rounded-xl p-2.5 text-left text-sm ring-1 cursor-pointer', on ? 'bg-brand-50 ring-brand-400' : 'ring-stone-200')}>{o.name}{o.price_cents > 0 && ` (+${brl(o.price_cents)})`}</button>;
-              })}
-            </div>
-          </div>
-        ))}
-        <Field label="Observação do item"><Textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Ex.: escrever “Feliz aniversário”" /></Field>
+        {p.option_groups.length > 0 && <div><OptionGroups compact groups={p.option_groups} value={opts} onChange={(x) => { setOpts(x); setErr(''); }} /></div>}
+        <Field label="Observação do item"><Textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder={notePlaceholder} /></Field>
         <ErrorBox>{err}</ErrorBox>
       </div>
     </Modal>

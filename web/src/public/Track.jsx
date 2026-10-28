@@ -3,6 +3,7 @@ import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { CheckCircle2, ChefHat, PackageCheck, Bike, Home, ClipboardCheck, MessageCircle, ArrowLeft, XCircle } from 'lucide-react';
 import { useApi } from '../lib/api.js';
 import { BrandLogo } from '../components/Brand.jsx';
+import { applyTheme } from '../lib/theme.js';
 import { brl, dateTimeBR, timeBR, addressLine, itemLine, waLink, TYPE } from '../lib/format.js';
 import { Button, Card, Spinner, cx } from '../components/ui.jsx';
 
@@ -25,6 +26,7 @@ export default function Track() {
   const [params] = useSearchParams();
   const order = useApi(`/public/orders/${code}`);
   const store = useApi('/public/store');
+  useEffect(() => applyTheme(store.data), [store.data]);
 
   useEffect(() => {
     const t = setInterval(() => order.reload(), 10000);
@@ -64,7 +66,7 @@ export default function Track() {
           <Link to="/" className="rounded-full bg-white/15 p-2 hover:bg-white/25" aria-label="Voltar"><ArrowLeft className="size-5" /></Link>
           <BrandLogo store={s} className="size-10 text-sm ring-2 ring-white" />
           <div>
-            <p className="font-script text-2xl leading-none">{s?.name}</p>
+            <p className="font-script leading-none" style={{ fontSize: 'calc(1.5rem * var(--font-script-scale, 1))' }}>{s?.name}</p>
             <p className="text-xs text-white/80">Pedido #{o.id}</p>
           </div>
         </div>

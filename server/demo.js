@@ -1,9 +1,10 @@
-// Sobe o sistema com um banco SEPARADO (server/data/demo.db) cheio de dados de exemplo:
+// Sobe o sistema com um banco SEPARADO (server/data/demo.db, ou demo-<loja>.db) cheio de dados de exemplo:
 // 30 dias de vendas, clientes, entregas, estoque e contas. Serve para testar e apresentar
 // o sistema sem misturar com os dados reais da loja.
 import { join } from 'node:path';
 
-process.env.DB_PATH ||= join(import.meta.dirname, 'data', 'demo.db');
+const loja = process.env.LOJA && process.env.LOJA !== 'lacos-de-mae' ? `-${process.env.LOJA.replace(/[^a-z0-9-]/gi, '')}` : '';
+process.env.DB_PATH ||= join(import.meta.dirname, 'data', `demo${loja}.db`);
 process.env.ADMIN_PASSWORD ||= 'demo1234';
 
 const { start } = await import('./index.js');

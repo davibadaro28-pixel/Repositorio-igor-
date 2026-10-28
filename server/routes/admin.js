@@ -48,6 +48,19 @@ r.get('/stream', requireAuth, subscribe);
 // ---------- Configurações ----------
 
 const SETTING_KEYS = ['store', 'payment_methods', 'loyalty'];
+const SEGMENTS = ['doceria', 'hamburgueria', 'outro'];
+const FONTS = ['script', 'pixel', 'impacto', 'moderna', 'retro'];
+const HEX = /^#[0-9a-f]{6}$/i;
+/** Aparência do cardápio e do painel: cor principal, fonte do nome e borda do topo */
+function cleanTheme(theme, cur = {}) {
+  const t = theme && typeof theme === 'object' ? theme : {};
+  return {
+    color: HEX.test(t.color) ? t.color.toLowerCase() : cur.color || '#973358',
+    font: FONTS.includes(t.font) ? t.font : cur.font || 'script',
+    style: ['renda', 'reto', 'onda'].includes(t.style) ? t.style : cur.style || 'renda',
+    ...(HEX.test(t.bg ?? cur.bg) ? { bg: (t.bg ?? cur.bg).toLowerCase() } : {}),
+  };
+}
 
 r.get('/settings', requireAuth, (_req, res) => {
   const out = {};
@@ -75,6 +88,8 @@ r.put('/settings/:key', requireModule('configuracoes'), (req, res) => {
       accepting_orders: !!(value.accepting_orders ?? cur.accepting_orders),
       // logo enviado pelo painel (ou foto embutida na prévia); vazio = iniciais do nome
       logo: value.logo === '' ? '' : /^(\/uploads\/|\/img\/|img\/|data:image\/)/.test(String(value.logo ?? '')) ? String(value.logo) : cur.logo,
+      segment: SEGMENTS.includes(value.segment) ? value.segment : cur.segment || 'doceria',
+      theme: cleanTheme(value.theme, cur.theme),
     };
   }
   if (key === 'payment_methods') {

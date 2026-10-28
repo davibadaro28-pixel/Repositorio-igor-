@@ -43,10 +43,12 @@ export function Field({ label, hint, error, children, className }) {
 
 const inputCls = 'w-full rounded-xl border border-stone-200 bg-white px-3 h-10 text-sm outline-none transition focus:border-brand-400 focus:ring-2 focus:ring-brand-100 disabled:bg-stone-50';
 
-export const Input = ({ className, ...props }) => <input className={cx(inputCls, className)} {...props} />;
-export const Textarea = ({ className, ...props }) => <textarea className={cx(inputCls, 'h-auto py-2 min-h-20', className)} {...props} />;
+// largura passada em className (ex.: w-28) vale no lugar da largura total
+const fieldCls = (className) => (/(^|\s)w-/.test(className || '') ? inputCls.replace('w-full ', '') : inputCls);
+export const Input = ({ className, ...props }) => <input className={cx(fieldCls(className), className)} {...props} />;
+export const Textarea = ({ className, ...props }) => <textarea className={cx(fieldCls(className), 'h-auto py-2 min-h-20', className)} {...props} />;
 export function Select({ className, children, ...props }) {
-  return <select className={cx(inputCls, 'pr-8', className)} {...props}>{children}</select>;
+  return <select className={cx(fieldCls(className), 'pr-8', className)} {...props}>{children}</select>;
 }
 
 /** Campo de dinheiro: o valor é sempre em centavos */
@@ -165,7 +167,7 @@ export function Modal({ open, onClose, title, children, footer, size = 'md' }) {
   const widths = { sm: 'sm:max-w-sm', md: 'sm:max-w-lg', lg: 'sm:max-w-2xl', xl: 'sm:max-w-4xl' };
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center bg-stone-900/40 backdrop-blur-[2px] sm:items-center sm:p-4" onMouseDown={(e) => e.target === e.currentTarget && onClose?.()}>
-      <div className={cx('flex max-h-[92dvh] w-full flex-col rounded-t-3xl bg-white shadow-xl sm:rounded-3xl', widths[size])}>
+      <div role="dialog" aria-modal="true" aria-label={typeof title === 'string' ? title : undefined} className={cx('flex max-h-[92dvh] w-full flex-col rounded-t-3xl bg-white shadow-xl sm:rounded-3xl', widths[size])}>
         <div className="flex items-center justify-between gap-3 border-b border-stone-100 px-5 py-4">
           <h2 className="text-lg font-semibold text-stone-900">{title}</h2>
           <button onClick={onClose} className="rounded-full p-1.5 text-stone-400 hover:bg-stone-100 hover:text-stone-700" aria-label="Fechar"><X className="size-5" /></button>

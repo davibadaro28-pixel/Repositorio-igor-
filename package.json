@@ -2,7 +2,7 @@
   "name": "lacos-de-mae-sistema",
   "version": "1.0.0",
   "private": true,
-  "description": "Sistema de gestão (PDV, delivery, cardápio digital, estoque, financeiro) da Laços de Mãe – Bolos e Doces",
+  "description": "Sistema de gestão (PDV, delivery, cardápio digital, estoque, financeiro) para lojas de comida; uma pasta por loja em lojas/",
   "type": "module",
   "engines": {
     "node": ">=22.13"

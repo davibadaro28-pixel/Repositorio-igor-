@@ -8,6 +8,7 @@ import { Badge, Button, Card, Empty, ErrorBox, Field, Input, Modal, PageHeader, 
 import { useLive, useSettings } from './AdminApp.jsx';
 import OrderDrawer from './OrderDrawer.jsx';
 import { CancelNoteModal, DanfeButton, FISCAL_STATUS, canCancelNow, formatDoc, maskDoc } from './FiscalBox.jsx';
+import { segmentCopy } from '../lib/segment.js';
 
 const PAY_CODES = [
   ['01', 'Dinheiro'], ['03', 'Cartão de crédito'], ['04', 'Cartão de débito'], ['17', 'PIX dinâmico (maquininha / QR gerado na hora)'],
@@ -301,6 +302,7 @@ function Config({ data, onSaved }) {
 // ---------- Tributação ----------
 
 function Taxes({ data, onSaved }) {
+  const { settings } = useSettings();
   const toast = useToast();
   const list = useApi('/fiscal/products');
   const [rows, setRows] = useState(null);
@@ -361,7 +363,7 @@ function Taxes({ data, onSaved }) {
     <div className="space-y-4">
       <p className="flex items-start gap-2 rounded-2xl bg-amber-50 px-4 py-3 text-sm text-amber-900 ring-1 ring-amber-200">
         <AlertTriangle className="mt-0.5 size-4 shrink-0" />
-        Os NCM e perfis abaixo foram sugeridos para confeitaria no Simples Nacional (bolos e doces: produção própria, CFOP 5101; bebidas: revenda com substituição tributária, CFOP 5405). Peça ao contador para conferir antes de emitir em produção. Bebidas com substituição tributária costumam exigir também o CEST.
+        {segmentCopy(settings?.store).fiscal} Peça ao contador para conferir antes de emitir em produção. Bebidas com substituição tributária costumam exigir também o CEST.
       </p>
 
       <Card className="p-5">

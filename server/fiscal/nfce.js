@@ -160,7 +160,9 @@ export function buildNfce(order, cfg, { methods = [], integrations = {}, at = ne
     if (p && ncm.length !== 8) problems.push(`"${p.name}" está sem NCM. Complete em Notas fiscais → Tributação.`);
     const profile = profiles.get(p?.tax_profile_id) || profiles.get(cfg.default_profile_id);
     if (p && !profile) problems.push(`"${p.name}" está sem perfil tributário. Complete em Notas fiscais → Tributação.`);
-    const options = (i.options || []).map((o) => o.name).join(', ');
+    const counts = new Map();
+    for (const o of i.options || []) counts.set(o.name, (counts.get(o.name) || 0) + 1);
+    const options = [...counts].map(([name, n]) => (n > 1 ? `${n}x ${name}` : name)).join(', ');
     const net = i.total_cents - discounts[k] + others[k];
     const unit = i.unit_price_cents / 100;
     return {

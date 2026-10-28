@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Save, Plus, Trash2, Receipt, Plug, QrCode, Copy, DatabaseBackup, ImagePlus } from 'lucide-react';
 import { api, getToken } from '../lib/api.js';
@@ -7,6 +7,8 @@ import { Button, Card, Field, Input, MoneyInput, PageHeader, Select, Spinner, Ta
 import { useSettings } from './AdminApp.jsx';
 import { uploadImage } from './Products.jsx';
 import { BrandLogo } from '../components/Brand.jsx';
+import { applyTheme, FONTS, STYLES } from '../lib/theme.js';
+import { SEGMENTS, segmentCopy } from '../lib/segment.js';
 
 const DAYS = [['monday', 'Segunda'], ['tuesday', 'Terça'], ['wednesday', 'Quarta'], ['thursday', 'Quinta'], ['friday', 'Sexta'], ['saturday', 'Sábado'], ['sunday', 'Domingo']];
 
@@ -56,6 +58,7 @@ function Store({ value, onSaved }) {
   const setDay = (d, patch) => setS({ ...s, hours: { ...s.hours, [d]: { ...s.hours[d], ...patch } } });
   return (
     <div className="grid gap-4 xl:grid-cols-2">
+      <div className="space-y-4">
       <Card className="space-y-3 p-5">
         <h3 className="font-semibold">Dados da loja</h3>
         <div className="flex items-center gap-4">
@@ -79,11 +82,13 @@ function Store({ value, onSaved }) {
           <Field label="Telefone exibido"><Input value={s.phone} onChange={set('phone')} /></Field>
           <Field label="Instagram (sem @)"><Input value={s.instagram} onChange={set('instagram')} /></Field>
           <Field label="Endereço" className="sm:col-span-2"><Input value={s.address} onChange={set('address')} /></Field>
-          <Field label="Aviso no topo do cardápio" className="sm:col-span-2" hint="Ex.: “Encomendas de Natal abertas!” Deixe vazio para esconder."><Input value={s.notice} onChange={set('notice')} /></Field>
+          <Field label="Aviso no topo do cardápio" className="sm:col-span-2" hint="Ex.: “Promoção de terça: 2º burger pela metade!” Deixe vazio para esconder."><Input value={s.notice} onChange={set('notice')} /></Field>
           <Field label="Chave Pix"><Input value={s.pix_key} onChange={set('pix_key')} /></Field>
           <Field label="Nome do recebedor Pix"><Input value={s.pix_name} onChange={set('pix_name')} /></Field>
         </div>
       </Card>
+      <Appearance s={s} setS={setS} saved={value} />
+      </div>
       <div className="space-y-4">
         <Card className="space-y-3 p-5">
           <h3 className="font-semibold">Pedidos online</h3>
@@ -118,6 +123,67 @@ function Store({ value, onSaved }) {
         <Button size="lg" icon={Save} loading={saving} onClick={() => save(s)} className="w-full">Salvar</Button>
       </div>
     </div>
+  );
+}
+
+const SWATCHES = ['#973358', '#c8203f', '#d9480f', '#e8a317', '#2f9e44', '#0b7285', '#1c64f2', '#6741d9', '#3d3d3d'];
+
+/** Cor, fonte do nome e borda do topo do cardápio (a tela muda na hora; vale para todos depois de salvar) */
+function Appearance({ s, setS, saved }) {
+  const theme = { color: '#973358', font: 'script', style: 'renda', ...s.theme };
+  const setTheme = (patch) => setS({ ...s, theme: { ...theme, ...patch } });
+  useEffect(() => applyTheme({ theme }), [theme.color, theme.font, theme.style]); // eslint-disable-line react-hooks/exhaustive-deps
+  // ao sair sem salvar, volta a aparência salva
+  const savedRef = useRef(saved);
+  savedRef.current = saved;
+  useEffect(() => () => applyTheme(savedRef.current), []);
+  const edge = {
+    renda: { backgroundImage: 'radial-gradient(circle at 10px 12px, white 8.5px, transparent 9px)', backgroundSize: '20px 12px', backgroundRepeat: 'repeat-x' },
+    onda: { backgroundImage: 'radial-gradient(ellipse 22px 9px at 22px 12px, white 98%, transparent 100%)', backgroundSize: '44px 12px', backgroundRepeat: 'repeat-x' },
+  }[theme.style];
+  return (
+    <Card className="space-y-3 p-5">
+      <h3 className="font-semibold">Aparência</h3>
+      <div className="relative overflow-hidden rounded-2xl bg-brand-700 px-4 pb-6 pt-4 text-white">
+        <div className="flex items-center gap-3">
+          <BrandLogo store={s} className="size-12 shrink-0 text-base ring-2 ring-white/80" />
+          <div className="min-w-0">
+            <p className="font-script leading-none" style={{ fontSize: 'calc(1.9rem * var(--font-script-scale, 1))' }}>{s.name || 'Minha loja'}</p>
+            <p className="mt-1 text-[11px] uppercase tracking-[0.25em] text-brand-200">{s.tagline}</p>
+          </div>
+        </div>
+        <span className="mt-3 inline-flex rounded-full bg-white px-3 py-1 text-xs font-medium text-brand-700">Horários e entrega</span>
+        {edge && <div aria-hidden="true" className="absolute inset-x-0 -bottom-px h-3" style={edge} />}
+      </div>
+      <div className="grid gap-3 sm:grid-cols-2">
+        <Field label="Tipo de loja" hint="Muda exemplos e textos do sistema (busca, observações, mensagens).">
+          <Select value={s.segment || 'doceria'} onChange={(e) => setS({ ...s, segment: e.target.value })}>
+            {Object.entries(SEGMENTS).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
+          </Select>
+        </Field>
+        <Field label="Fonte do nome">
+          <Select value={theme.font} onChange={(e) => setTheme({ font: e.target.value })}>
+            {Object.entries(FONTS).map(([k, f]) => <option key={k} value={k}>{f.label}</option>)}
+          </Select>
+        </Field>
+        <Field label="Cor principal" className="sm:col-span-2">
+          <div className="flex flex-wrap items-center gap-2">
+            {SWATCHES.map((c) => (
+              <button key={c} type="button" onClick={() => setTheme({ color: c })} aria-label={`Cor ${c}`} className={`size-8 rounded-full ring-offset-2 cursor-pointer ${theme.color === c ? 'ring-2 ring-stone-800' : 'ring-1 ring-black/10'}`} style={{ background: c }} />
+            ))}
+            <label className="ml-1 flex items-center gap-2 text-sm text-stone-600">
+              <input type="color" value={theme.color} onChange={(e) => setTheme({ color: e.target.value })} className="size-8 cursor-pointer rounded-lg border-0 bg-transparent p-0" /> outra
+            </label>
+          </div>
+        </Field>
+        <Field label="Borda do topo do cardápio">
+          <Select value={theme.style} onChange={(e) => setTheme({ style: e.target.value })}>
+            {Object.entries(STYLES).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
+          </Select>
+        </Field>
+      </div>
+      <p className="text-xs text-stone-500">A tela já mostra como fica. Clique em <b>Salvar</b> para valer no cardápio dos clientes.</p>
+    </Card>
   );
 }
 
@@ -238,7 +304,7 @@ function Share() {
             <a href={qr} target="_blank" rel="noreferrer"><Button variant="secondary">Abrir para imprimir</Button></a>
           </>
         )}
-        <Textarea readOnly className="text-xs" value={`🎀 Peça seus bolos e doces da ${settings?.store?.name || 'nossa loja'} pelo nosso cardápio digital: ${url}`} />
+        <Textarea readOnly className="text-xs" value={`${segmentCopy(settings?.store).share(settings?.store?.name || 'nossa loja')} ${url}`} />
       </Card>
     </div>
   );

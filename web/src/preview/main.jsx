@@ -8,12 +8,13 @@ import { api, setToken } from '../lib/api.js';
 import { todayISO } from '../lib/format.js';
 import App from '../App.jsx';
 
-/* global __MARCA__, __CONTATO__ */
+/* global __MARCA__, __CONTATO__, __LOJA__ */
 // Prévia: o sistema inteiro roda no navegador, com dados de demonstração guardados neste aparelho.
 // --marca=generica gera a demonstração de vendas ("Sua Doceria Aqui"); --contato liga o botão de interesse.
 const GENERICA = typeof __MARCA__ !== 'undefined' && __MARCA__ === 'generica';
 const CONTATO = typeof __CONTATO__ !== 'undefined' ? __CONTATO__ : '';
-const SAVE_KEY = GENERICA ? 'sda_demo_db_v1' : 'lacos_preview_db_v4';
+const LOJA = typeof __LOJA__ !== 'undefined' ? __LOJA__ : 'lacos-de-mae';
+const SAVE_KEY = GENERICA ? 'sda_demo_db_v1' : LOJA === 'lacos-de-mae' ? 'lacos_preview_db_v4' : `${LOJA}_preview_db_v1`;
 const WELCOME_KEY = 'sda_demo_boas_vindas';
 const contactLink = () => `https://wa.me/${CONTATO}?text=${encodeURIComponent('Olá! Vi a demonstração do sistema para docerias e quero saber mais.')}`;
 

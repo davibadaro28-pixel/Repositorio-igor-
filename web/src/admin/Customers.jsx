@@ -6,6 +6,7 @@ import { brl, dateBR, dateTimeBR, phone, maskPhone, waLink, TYPE } from '../lib/
 import { Button, Card, Field, Input, Modal, PageHeader, Spinner, StatusBadge, Table, Tabs, Textarea, useToast, ErrorBox, Empty } from '../components/ui.jsx';
 import { useSettings } from './AdminApp.jsx';
 import OrderDrawer from './OrderDrawer.jsx';
+import { segmentCopy } from '../lib/segment.js';
 
 const SEGMENTS = [
   { value: '', label: 'Todos' },
@@ -17,10 +18,10 @@ const SEGMENTS = [
 ];
 
 const CAMPAIGN = {
-  inativos: (n, loja) => `Oi ${n}! Tá com saudade de um docinho? 🎀 Essa semana tem novidade na ${loja}. Peça pelo nosso cardápio: `,
+  inativos: (n, loja, t) => `Oi ${n}! ${t.missYou} ${t.emoji} Essa semana tem novidade na ${loja}. Peça pelo nosso cardápio: `,
   aniversariantes: (n, loja) => `Feliz aniversário, ${n}! 🎂 A ${loja} tem um presente pra você no seu mês. Peça pelo cardápio: `,
-  novos: (n) => `Oi ${n}! Obrigada por comprar com a gente 💖 Que tal provar nossos bolos premium? `,
-  '': (n) => `Oi ${n}! 🎀 `,
+  novos: (n, _loja, t) => `Oi ${n}! Obrigado por comprar com a gente ${t.emoji} ${t.welcomeBack} `,
+  '': (n, _loja, t) => `Oi ${n}! ${t.emoji} `,
 };
 
 export default function Customers() {
@@ -74,7 +75,7 @@ export default function Customers() {
                   <td>{c.last_order_at ? dateBR(c.last_order_at) : '—'}</td>
                   {settings?.loyalty?.enabled && <td className="text-right">{c.points}</td>}
                   <td onClick={(e) => e.stopPropagation()}>
-                    {c.phone && <a href={waLink(c.phone, CAMPAIGN[segment] ? CAMPAIGN[segment](c.name.split(' ')[0], settings?.store?.name || 'nossa loja') + menuUrl : `Oi ${c.name.split(' ')[0]}! 🎀 `)} target="_blank" rel="noreferrer" className="inline-flex rounded-lg p-1.5 text-emerald-600 hover:bg-emerald-50" title="WhatsApp"><MessageCircle className="size-4" /></a>}
+                    {c.phone && <a href={waLink(c.phone, CAMPAIGN[segment] ? CAMPAIGN[segment](c.name.split(' ')[0], settings?.store?.name || 'nossa loja', segmentCopy(settings?.store)) + menuUrl : CAMPAIGN[''](c.name.split(' ')[0], '', segmentCopy(settings?.store)))} target="_blank" rel="noreferrer" className="inline-flex rounded-lg p-1.5 text-emerald-600 hover:bg-emerald-50" title="WhatsApp"><MessageCircle className="size-4" /></a>}
                   </td>
                 </tr>
               ))}

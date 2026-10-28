@@ -1,0 +1,76 @@
+{
+  "_fonte": "Cardápio e fotos importados do cardápio da loja (Laços de Mãe – Bolos e Doces). Custos dos insumos são estimativas.",
+  "segment": "doceria",
+  "store": {
+    "name": "Laços de Mãe",
+    "tagline": "Bolos e Doces",
+    "slogan": "Há 10 anos espalhando o sabor que traz lembranças",
+    "whatsapp": "5511963406419",
+    "phone": "(11) 96340-6419",
+    "instagram": "lacos_de_mae",
+    "logo": "/img/logo.jpg",
+    "address": "Av. Boturussu, 1785 – Parque Boturussu, São Paulo – SP, 03801-000",
+    "hours": {
+      "sunday": { "active": false, "open": "10:00", "close": "14:00" },
+      "monday": { "active": true, "open": "11:00", "close": "21:00" },
+      "tuesday": { "active": true, "open": "11:00", "close": "21:00" },
+      "wednesday": { "active": true, "open": "11:00", "close": "21:00" },
+      "thursday": { "active": true, "open": "11:00", "close": "21:00" },
+      "friday": { "active": true, "open": "11:00", "close": "21:00" },
+      "saturday": { "active": true, "open": "11:00", "close": "21:00" }
+    },
+    "scheduling_enabled": true,
+    "theme": { "color": "#973358", "font": "script", "style": "renda" }
+  },
+  "zones": [
+    ["Parque Boturussu", 1200], ["Ermelino Matarazzo", 1200], ["Ponte Rasa", 1200], ["Vila Paranaguá", 1200],
+    ["Jardim Belém", 1200], ["Cangaíba", 1200], ["Vila Cisper", 1200],
+    ["Penha", 2000], ["São Miguel Paulista", 2000], ["Vila Jacuí", 2000], ["Jardim Helena", 2000],
+    ["Artur Alvim", 2000], ["Vila Matilde", 2000], ["Itaquera", 2000]
+  ],
+  "fin_categories": [
+    ["Vendas", "receita"], ["Encomendas e eventos", "receita"], ["Outras receitas", "receita"],
+    ["Insumos e matéria-prima", "despesa"], ["Embalagens", "despesa"], ["Aluguel", "despesa"], ["Energia elétrica", "despesa"],
+    ["Água", "despesa"], ["Gás", "despesa"], ["Internet e telefone", "despesa"], ["Salários e encargos", "despesa"],
+    ["Pró-labore", "despesa"], ["Impostos (DAS)", "despesa"], ["Taxas de cartão e apps", "despesa"], ["Marketing", "despesa"],
+    ["Manutenção e equipamentos", "despesa"], ["Entregadores", "despesa"], ["Outras despesas", "despesa"]
+  ],
+  "ingredients": [
+    ["Leite condensado", "g", 1.9], ["Creme de leite", "g", 1.9], ["Leite em pó Ninho", "g", 5.8],
+    ["Chocolate em pó 50%", "g", 4.5], ["Chocolate ao leite (cobertura)", "g", 5.5], ["Chocolate branco (cobertura)", "g", 5.5],
+    ["Granulado / chocoball", "g", 3.5], ["Nutella", "g", 6.9], ["Morango", "g", 2.0], ["Abacaxi", "g", 0.8],
+    ["Polpa de maracujá", "g", 1.5], ["Uva verde", "g", 1.6], ["Coco ralado", "g", 4.0], ["Doce de leite", "g", 2.4],
+    ["Farinha de trigo", "g", 0.5], ["Açúcar", "g", 0.45], ["Ovos", "un", 80], ["Manteiga", "g", 4.5], ["Leite", "ml", 0.55],
+    ["Óleo", "ml", 0.9], ["Fermento", "g", 4.0], ["Cenoura", "g", 0.6], ["Fubá", "g", 0.6], ["Chantilly", "ml", 2.2],
+    ["Bolacha (farofinha)", "g", 2.0], ["Frango desfiado", "g", 3.2], ["Requeijão", "g", 3.5], ["Calabresa", "g", 3.8],
+    ["Pote 200 ml", "un", 90], ["Embalagem bolo", "un", 350], ["Forminha / embalagem doce", "un", 45], ["Travessa 1 L", "un", 280],
+    ["Refrigerante lata 350 ml", "un", 300], ["Água 500 ml", "un", 120]
+  ],
+  "recipes": {
+    "Bombom de morango - Leite ninho": [["Leite condensado", 30], ["Leite em pó Ninho", 8], ["Creme de leite", 6], ["Morango", 30], ["Chocolate ao leite (cobertura)", 18], ["Forminha / embalagem doce", 1]],
+    "Bombom de morango - Chocolate": [["Leite condensado", 30], ["Chocolate em pó 50%", 5], ["Creme de leite", 6], ["Morango", 30], ["Chocolate ao leite (cobertura)", 18], ["Forminha / embalagem doce", 1]],
+    "Docinho - brigadeiro Gourmet": [["Leite condensado", 18], ["Chocolate em pó 50%", 3], ["Creme de leite", 3], ["Manteiga", 1], ["Granulado / chocoball", 3], ["Forminha / embalagem doce", 1]],
+    "Bolo no pote - Dois Amores": [["Farinha de trigo", 25], ["Açúcar", 20], ["Ovos", 0.4], ["Chocolate em pó 50%", 10], ["Leite condensado", 60], ["Creme de leite", 20], ["Leite em pó Ninho", 8], ["Pote 200 ml", 1]],
+    "Coca-Cola": [["Refrigerante lata 350 ml", 1]],
+    "Coca-Cola ZERO": [["Refrigerante lata 350 ml", 1]],
+    "Guaraná": [["Refrigerante lata 350 ml", 1]],
+    "Guaraná ZERO": [["Refrigerante lata 350 ml", 1]],
+    "Água": [["Água 500 ml", 1]]
+  },
+  "low_stock": ["Morango", "Pote 200 ml", "Leite em pó Ninho"],
+  "ncm": {
+    "byName": [["água", "22011000", "revenda_st"], ["coca|guaraná|refri", "22021000", "revenda_st"], ["^cookie", "19053100"], ["pudim", "21069090"]],
+    "byCategory": {
+      "Bolo Premium": "19059090", "Bolos Caseiros": "19059090", "Torta na Travessa": "19059090", "Bolo em Fatia": "19059090",
+      "Bolo no Pote (200ml)": "19059090", "Bolo Gelado": "19059090", "Tortinhas da Laços": "19059090", "Pudim (Novidade)": "21069090",
+      "Delícias de Morango": "18069000", "Delícias da Laços": "18069000", "Doces Gourmet (unidade)": "18069000", "Brownie": "19059090",
+      "Cookies": "19053100", "Salgados (Lançamento)": "19059090", "Bebidas": "22021000", "Cobertura Extra": "21069090"
+    }
+  },
+  "demo": {
+    "razao_social": "Laços de Mãe Bolos e Doces",
+    "streets": ["Rua Ipê Roxo", "Rua das Hortênsias", "Av. Boturussu", "Rua Pedro Ivo", "Rua Ernesto Pujol", "Rua Santa Catarina", "Rua Mirassol", "Rua Dom João Neri", "Av. Paranaguá", "Rua Jacaraípe"],
+    "encomendas": "Premium|Torta na travessa|Bolo de banana",
+    "nota_encomenda": "Escrever \"Parabéns!\" no bolo"
+  }
+}

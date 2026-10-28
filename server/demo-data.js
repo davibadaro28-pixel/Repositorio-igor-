@@ -6,6 +6,7 @@ import { buildNfce } from './fiscal/nfce.js';
 import { SIM_MESSAGE } from './fiscal/simulado.js';
 import { importExternalOrder, SYSTEM_USER } from './integrations/importer.js';
 import { addDays } from './util.js';
+import { lojaConfig } from './loja.js';
 
 let seed = 42;
 const rand = () => ((seed = (seed * 1664525 + 1013904223) % 4294967296) / 4294967296);
@@ -19,11 +20,23 @@ const weighted = (pairs) => {
 
 const FIRST = ['Ana', 'Beatriz', 'Camila', 'Daniela', 'Eduarda', 'Fernanda', 'Gabriela', 'Helena', 'Isabela', 'Juliana', 'Larissa', 'Mariana', 'Natália', 'Patrícia', 'Renata', 'Sabrina', 'Tatiane', 'Vanessa', 'Carlos', 'Diego', 'Felipe', 'Gustavo', 'João', 'Lucas', 'Marcos', 'Paulo', 'Rafael', 'Thiago', 'Vinícius', 'Bruno'];
 const LAST = ['Silva', 'Santos', 'Oliveira', 'Souza', 'Lima', 'Pereira', 'Costa', 'Ferreira', 'Almeida', 'Rodrigues', 'Gomes', 'Martins', 'Barbosa', 'Rocha'];
-const STREETS = ['Rua Ipê Roxo', 'Rua das Hortênsias', 'Av. Boturussu', 'Rua Pedro Ivo', 'Rua Ernesto Pujol', 'Rua Santa Catarina', 'Rua Mirassol', 'Rua Dom João Neri', 'Av. Paranaguá', 'Rua Jacaraípe'];
+const DAY_KEYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
 
 /** Gera 30 dias de vendas, clientes, encomendas, estoque e contas de exemplo. */
 export function generateDemoData() {
   seed = 42;
+  const demo = lojaConfig().demo || {};
+  const STREETS = demo.streets?.length ? demo.streets : ['Rua das Flores', 'Av. Brasil', 'Rua São José', 'Rua XV de Novembro'];
+  const store = getSetting('store', {});
+  const dayHours = (iso) => store.hours?.[DAY_KEYS[new Date(iso + 'T12:00:00Z').getUTCDay()]];
+  const isOpen = (iso) => dayHours(iso)?.active !== false;
+  // horário de um pedido dentro do expediente daquele dia
+  const hourOn = (iso) => {
+    const h = dayHours(iso);
+    const open = Number((h?.open || '11:00').slice(0, 2));
+    const close = Math.max(open + 1, Number((h?.close || '21:00').slice(0, 2)));
+    return open + Math.floor(rand() * (close - open));
+  };
   const integrations = getSetting('integrations', {});
   setSetting('integrations', {
     ...integrations,
@@ -44,7 +57,6 @@ export function generateDemoData() {
       const base = i.unit === 'un' ? 60 + Math.floor(rand() * 200) : 3000 + Math.floor(rand() * 15000);
       run('UPDATE ingredients SET stock_qty = ?, min_qty = ? WHERE id = ?', base, Math.round(base * (0.15 + rand() * 0.3)), i.id);
     }
-    run(`UPDATE ingredients SET stock_qty = min_qty * 0.6 WHERE name IN ('Morango', 'Pote 200 ml', 'Leite em pó Ninho')`);
     run(`INSERT OR IGNORE INTO coupons (code, type, value, min_order_cents, first_order_only, uses, created_at) VALUES ('PRIMEIRACOMPRA', 'percent', 10, 0, 1, 7, ?)`, t);
     run(`INSERT OR IGNORE INTO coupons (code, type, value, min_order_cents, uses, created_at) VALUES ('FRETEGRATIS', 'frete', 0, 8000, 12, ?)`, t);
   });
@@ -66,8 +78,8 @@ export function generateDemoData() {
   const products = all(
     `SELECT p.id, p.name, p.featured, p.option_groups, p.lead_time_hours, c.name AS cat FROM products p JOIN categories c ON c.id = p.category_id WHERE p.active = 1`,
   ).map((p) => ({ ...p, groups: JSON.parse(p.option_groups), variants: all('SELECT id, price_cents FROM product_variants WHERE product_id = ? AND active = 1', p.id) }));
-  const pool = products.filter((p) => !p.lead_time_hours).flatMap((p) => Array(p.featured ? 4 : p.cat === 'Bebidas' ? 2 : 1).fill(p));
-  const cakes = products.filter((p) => /Premium|Torta na travessa|Bolo de banana/.test(p.name));
+  const pool = products.filter((p) => !p.lead_time_hours).flatMap((p) => Array(p.featured ? 4 : /bebida|refrigerante|suco|água/i.test(p.cat) ? 2 : 1).fill(p));
+  const cakes = demo.encomendas ? products.filter((p) => new RegExp(demo.encomendas).test(p.name)) : products.filter((p) => p.featured);
   const admin = get(`SELECT * FROM users WHERE login = 'admin'`);
   const couriers = all(`SELECT * FROM users WHERE role = 'entregador'`);
 
@@ -76,7 +88,15 @@ export function generateDemoData() {
     return {
       variant_id: pick(p.variants).id,
       qty: rand() < 0.75 ? 1 : 2,
-      options: p.groups.filter((g) => g.min > 0).map((g) => ({ group: g.name, name: pick(g.options).name })),
+      options: p.groups.filter((g) => g.min > 0).flatMap((g) => {
+        // escolhas obrigatórias: "4 lanches" no combo família podem repetir; nos outros grupos, opções diferentes
+        const left = [...g.options];
+        return Array.from({ length: Math.min(g.min, g.repeat ? g.min : left.length) }, () => {
+          const o = g.repeat ? pick(g.options) : left.splice(Math.floor(rand() * left.length), 1)[0];
+          return { group: g.name, name: o.name };
+        });
+      }),
+      notes: demo.notas?.length && rand() < 0.12 ? pick(demo.notas) : undefined,
     };
   });
 
@@ -127,7 +147,7 @@ export function generateDemoData() {
     if (channel === 'ifood' || channel === '99food') {
       const order = fromApp(channel, weighted([[1, 40], [2, 40], [3, 20]]), status);
       if (dayOffset !== 0) {
-        const h = hour ?? 11 + Math.floor(rand() * 10);
+        const h = hour ?? hourOn(addDays(today(), -dayOffset));
         backdate(order.id, `${addDays(today(), -dayOffset)} ${String(h).padStart(2, '0')}:${String(Math.floor(rand() * 60)).padStart(2, '0')}:00`);
       }
       return order;
@@ -163,7 +183,7 @@ export function generateDemoData() {
     }
     if (status === 'cancelado') setStatus(order.id, 'cancelado', admin, { reason: 'Cliente desistiu' });
     if (dayOffset !== 0) {
-      const h = hour ?? 11 + Math.floor(rand() * 10);
+      const h = hour ?? hourOn(addDays(today(), -dayOffset));
       const ts = `${addDays(today(), -dayOffset)} ${String(h).padStart(2, '0')}:${String(Math.floor(rand() * 60)).padStart(2, '0')}:00`;
       backdate(order.id, ts);
     }
@@ -172,7 +192,7 @@ export function generateDemoData() {
 
   for (let d = 29; d >= 1; d--) {
     const wd = new Date(addDays(today(), -d) + 'T12:00:00Z').getUTCDay();
-    if (wd === 0) continue; // domingo fechado
+    if (!isOpen(addDays(today(), -d))) continue; // dia em que a loja não abre
     const n = 6 + Math.floor(rand() * 8) + (wd >= 5 ? 6 : 0);
     for (let i = 0; i < n; i++) make(d, { status: rand() < 0.04 ? 'cancelado' : 'concluido' });
   }
@@ -184,9 +204,9 @@ export function generateDemoData() {
   make(0, { status: 'novo', channel: 'ifood' });
   make(0, { status: 'preparo', channel: '99food' });
 
-  // encomendas dos próximos dias
-  for (let d = 1; d <= 5; d++) {
-    if (new Date(addDays(today(), d) + 'T12:00:00Z').getUTCDay() === 0) continue; // domingo fechado
+  // encomendas dos próximos dias (lojas que trabalham com encomenda)
+  for (let d = 1; d <= 5 && store.scheduling_enabled !== false && cakes.length; d++) {
+    if (!isOpen(addDays(today(), d))) continue;
     for (let k = 0; k < 1 + Math.floor(rand() * 3); k++) {
       const c = pick(customers);
       const o = createOrder({
@@ -195,7 +215,7 @@ export function generateDemoData() {
         scheduled_for: `${addDays(today(), d)} ${pick(['14:00', '15:30', '17:00', '18:30'])}`,
         payment_method: 'pix', payments: [{ method: 'pix', amount_cents: 5000 }],
         items: [...items(1, cakes), ...items(Math.floor(rand() * 2))],
-        notes: rand() < 0.5 ? 'Escrever "Parabéns!" no bolo' : null,
+        notes: demo.nota_encomenda && rand() < 0.5 ? demo.nota_encomenda : null,
       }, { user: admin });
       run(`UPDATE orders SET channel = 'cardapio' WHERE id = ? AND ?`, o.id, rand() < 0.5 ? 1 : 0);
     }
@@ -224,14 +244,21 @@ export function generateDemoData() {
     run(`INSERT INTO fin_entries (type, category_id, description, amount_cents, due_date, paid_at, status, supplier, user_id, created_at) VALUES ('despesa', ?, ?, ?, ?, ?, 'pago', ?, ?, ?)`,
       cat('Embalagens'), 'Embalagens e potes', 15000 + Math.floor(rand() * 15000), addDays(today(), -d), addDays(today(), -d), 'Embalagens Leste', admin.id, t);
   }
-  run(`INSERT INTO fin_entries (type, category_id, description, amount_cents, due_date, status, supplier, user_id, created_at) VALUES ('receita', ?, 'Encomenda festa infantil (saldo)', 42000, ?, 'pendente', 'Cliente', ?, ?)`,
-    cat('Encomendas e eventos'), addDays(today(), 4), admin.id, t);
+  run(`INSERT INTO fin_entries (type, category_id, description, amount_cents, due_date, status, supplier, user_id, created_at) VALUES ('receita', ?, 'Festa de aniversário (saldo)', 42000, ?, 'pendente', 'Cliente', ?, ?)`,
+    cat('Encomendas e eventos') || cat('Eventos e aniversários') || cat('Outras receitas'), addDays(today(), 4), admin.id, t);
+  // estoque coerente depois das vendas de exemplo: nada negativo e só alguns insumos abaixo do mínimo
+  const low = new Set(lojaConfig().low_stock || []);
+  for (const i of all('SELECT id, name, stock_qty, min_qty FROM ingredients')) {
+    if (low.has(i.name)) run('UPDATE ingredients SET stock_qty = ? WHERE id = ?', Math.round(i.min_qty * 6) / 10, i.id);
+    else if (i.stock_qty < i.min_qty) run('UPDATE ingredients SET stock_qty = ? WHERE id = ?', Math.round(i.min_qty * (14 + rand() * 10)) / 10, i.id);
+  }
   demoFiscal();
 }
 
 /** Nota fiscal no modo treinamento, com as notas dos últimos dias já emitidas */
 function demoFiscal() {
-  const cfg = { ...getSetting('fiscal', {}), enabled: true, provider: 'simulado', auto_emit: true, razao_social: 'Laços de Mãe Bolos e Doces' };
+  const cur = getSetting('fiscal', {});
+  const cfg = { ...cur, enabled: true, provider: 'simulado', auto_emit: true, razao_social: cur.razao_social || lojaConfig().demo?.razao_social || getSetting('store', {}).name };
   setSetting('fiscal', cfg);
   const orders = all(
     `SELECT id, completed_at, dispatched_at FROM orders WHERE status != 'cancelado' AND completed_at >= ? ORDER BY COALESCE(dispatched_at, completed_at)`,

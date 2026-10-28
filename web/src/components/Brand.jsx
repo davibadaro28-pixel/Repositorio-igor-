@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { api } from '../lib/api.js';
 import { asset } from '../lib/env.js';
+import { applyTheme } from '../lib/theme.js';
 import { cx } from './ui.jsx';
 
-// Nome e logo da loja vêm das configurações; assim o mesmo sistema serve para qualquer doceria.
+// Nome, logo e cores da loja vêm das configurações; assim o mesmo sistema serve para qualquer loja.
 let cache = null;
 let pending = null;
 
@@ -13,7 +14,7 @@ export function useStoreBrand() {
   useEffect(() => {
     if (cache) return undefined;
     let alive = true;
-    pending ||= api.get('/public/store').then((s) => (cache = s)).catch(() => (pending = null));
+    pending ||= api.get('/public/store').then((s) => { applyTheme(s); return (cache = s); }).catch(() => (pending = null));
     pending.then((s) => alive && s && setStore(s));
     return () => { alive = false; };
   }, []);

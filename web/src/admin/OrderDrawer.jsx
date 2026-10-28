@@ -5,9 +5,10 @@ import PlatformBadge from './PlatformBadge.jsx';
 import FiscalBox from './FiscalBox.jsx';
 import { Printer, MessageCircle, XCircle, Phone, MapPin, CreditCard, Bike, CalendarClock, AlertTriangle } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
-import { brl, dateTimeBR, phone, addressLine, itemLine, waLink, methodLabel, TYPE, CHANNEL, STATUS } from '../lib/format.js';
+import { brl, dateTimeBR, phone, addressLine, itemLine, waLink, methodLabel, TYPE, CHANNEL, STATUS, optionsText } from '../lib/format.js';
 import { Button, Field, Modal, Select, StatusBadge, Textarea, MoneyInput, useToast, ErrorBox } from '../components/ui.jsx';
 import { useAuth, useSettings, canAccess } from './AdminApp.jsx';
+import { segmentCopy } from '../lib/segment.js';
 
 /** Próxima ação principal de acordo com o status */
 export function nextAction(o) {
@@ -23,14 +24,14 @@ export function nextAction(o) {
   }
 }
 
-export function customerMessage(o, storeName = 'nossa loja') {
+export function customerMessage(o, storeName = 'nossa loja', t = segmentCopy()) {
   const first = (o.customer_name || '').split(' ')[0] || '';
   const link = `${window.location.origin}/pedido/${o.code}`;
   const msgs = {
-    novo: `Olá ${first}! Recebemos seu pedido #${o.id} 🎀`,
-    confirmado: `Olá ${first}! Sua encomenda #${o.id} está confirmada para ${dateTimeBR(o.scheduled_for)} 🎂`,
-    preparo: `Olá ${first}! Seu pedido #${o.id} foi aceito e já está sendo preparado com muito carinho 🎀`,
-    pronto: o.type === 'entrega' ? `Olá ${first}! Seu pedido #${o.id} está pronto e logo sai para entrega 🛵` : `Olá ${first}! Seu pedido #${o.id} está pronto para retirada 🎀`,
+    novo: `Olá ${first}! Recebemos seu pedido #${o.id} ${t.emoji}`,
+    confirmado: `Olá ${first}! Sua encomenda #${o.id} está confirmada para ${dateTimeBR(o.scheduled_for)} ${t.confirmEmoji}`,
+    preparo: `Olá ${first}! Seu pedido #${o.id} foi aceito e já está sendo preparado com muito carinho ${t.emoji}`,
+    pronto: o.type === 'entrega' ? `Olá ${first}! Seu pedido #${o.id} está pronto e logo sai para entrega 🛵` : `Olá ${first}! Seu pedido #${o.id} está pronto para retirada ${t.emoji}`,
     entrega: `Olá ${first}! Seu pedido #${o.id} saiu para entrega 🛵`,
     concluido: `Obrigada pela preferência, ${first}! Esperamos que goste 💖 — ${storeName}`,
     cancelado: `Olá ${first}, infelizmente seu pedido #${o.id} foi cancelado.${o.cancel_reason ? ` Motivo: ${o.cancel_reason}` : ''}`,
@@ -101,7 +102,7 @@ export default function OrderDrawer({ id, onClose, onChange }) {
         <>
           <Link to={`/admin/imprimir/${o.id}`} {...newTab}><Button variant="secondary" icon={Printer}>Imprimir</Button></Link>
           {o.customer_phone && (
-            <a href={waLink(o.customer_phone, customerMessage(o, settings?.store?.name))} target="_blank" rel="noreferrer">
+            <a href={waLink(o.customer_phone, customerMessage(o, settings?.store?.name, segmentCopy(settings?.store)))} target="_blank" rel="noreferrer">
               <Button variant="secondary" icon={MessageCircle}>WhatsApp</Button>
             </a>
           )}
@@ -150,7 +151,7 @@ export default function OrderDrawer({ id, onClose, onChange }) {
                 <li key={i.id} className="flex justify-between gap-3 px-3 py-2">
                   <span>
                     <b>{i.qty}x</b> {i.name}{i.variant_name && <span className="text-stone-500"> · {i.variant_name}</span>}
-                    {i.options?.length > 0 && <span className="block text-xs text-stone-500">{i.options.map((x) => x.name).join(', ')}</span>}
+                    {i.options?.length > 0 && <span className="block text-xs text-stone-500">{optionsText(i.options)}</span>}
                     {i.notes && <span className="block text-xs font-medium text-brand-700">Obs.: {i.notes}</span>}
                   </span>
                   <span className="shrink-0">{brl(i.total_cents)}</span>

@@ -1,0 +1,871 @@
+{
+  "_fonte": "Cardápio, fotos, endereço, horários e formas de pagamento copiados de https://vsburgeregelato.pedizap.com.br/cardapio em 28/10/2026. Taxas de entrega e custos dos insumos são exemplos: confirmar com a loja.",
+  "segment": "hamburgueria",
+  "store": {
+    "name": "VS Burger e Gelato",
+    "tagline": "Hamburgueria gamer",
+    "slogan": "Prepare-se para uma jornada épica de sabores!",
+    "whatsapp": "5511994710429",
+    "phone": "(11) 99471-0429",
+    "instagram": "vsburgeregelato",
+    "logo": "/img/logo.webp",
+    "address": "Av. Tâmara, 76 – Centro, Carapicuíba – SP, 06320-020",
+    "hours": {
+      "sunday": {
+        "active": true,
+        "open": "14:00",
+        "close": "23:30"
+      },
+      "monday": {
+        "active": false,
+        "open": "16:00",
+        "close": "21:30"
+      },
+      "tuesday": {
+        "active": true,
+        "open": "16:00",
+        "close": "21:30"
+      },
+      "wednesday": {
+        "active": true,
+        "open": "16:00",
+        "close": "21:30"
+      },
+      "thursday": {
+        "active": true,
+        "open": "16:00",
+        "close": "21:30"
+      },
+      "friday": {
+        "active": true,
+        "open": "14:00",
+        "close": "23:30"
+      },
+      "saturday": {
+        "active": true,
+        "open": "14:00",
+        "close": "23:30"
+      }
+    },
+    "scheduling_enabled": false,
+    "prep_time_min": 25,
+    "delivery_time_min": 50,
+    "theme": {
+      "color": "#c8203f",
+      "font": "pixel",
+      "style": "reto",
+      "bg": "#f7f4f2"
+    }
+  },
+  "payment_methods_off": [
+    "va"
+  ],
+  "fiscal": {
+    "razao_social": "Hamburgueria Vs Burger",
+    "cnpj": "39332249000130"
+  },
+  "zones": [
+    [
+      "Centro",
+      500
+    ],
+    [
+      "Vila Dirce",
+      500
+    ],
+    [
+      "Vila Silviânia",
+      600
+    ],
+    [
+      "Vila Cretti",
+      600
+    ],
+    [
+      "Jardim Planalto",
+      700
+    ],
+    [
+      "Parque Jandaia",
+      800
+    ],
+    [
+      "Cohab II",
+      800
+    ],
+    [
+      "Ariston",
+      900
+    ],
+    [
+      "Aldeia de Carapicuíba",
+      1000
+    ],
+    [
+      "Osasco – Centro",
+      1200
+    ],
+    [
+      "Barueri – Centro",
+      1200
+    ]
+  ],
+  "fin_categories": [
+    [
+      "Vendas",
+      "receita"
+    ],
+    [
+      "Eventos e aniversários",
+      "receita"
+    ],
+    [
+      "Outras receitas",
+      "receita"
+    ],
+    [
+      "Insumos e matéria-prima",
+      "despesa"
+    ],
+    [
+      "Embalagens",
+      "despesa"
+    ],
+    [
+      "Aluguel",
+      "despesa"
+    ],
+    [
+      "Energia elétrica",
+      "despesa"
+    ],
+    [
+      "Água",
+      "despesa"
+    ],
+    [
+      "Gás",
+      "despesa"
+    ],
+    [
+      "Internet e telefone",
+      "despesa"
+    ],
+    [
+      "Salários e encargos",
+      "despesa"
+    ],
+    [
+      "Pró-labore",
+      "despesa"
+    ],
+    [
+      "Impostos (DAS)",
+      "despesa"
+    ],
+    [
+      "Taxas de cartão e apps",
+      "despesa"
+    ],
+    [
+      "Marketing",
+      "despesa"
+    ],
+    [
+      "Manutenção e equipamentos",
+      "despesa"
+    ],
+    [
+      "Entregadores",
+      "despesa"
+    ],
+    [
+      "Outras despesas",
+      "despesa"
+    ]
+  ],
+  "ingredients": [
+    [
+      "Pão brioche",
+      "un",
+      150
+    ],
+    [
+      "Pão de gergelim",
+      "un",
+      120
+    ],
+    [
+      "Blend bovino 130 g",
+      "un",
+      650
+    ],
+    [
+      "Blend bovino 60 g",
+      "un",
+      300
+    ],
+    [
+      "Smash bovino 60 g",
+      "un",
+      280
+    ],
+    [
+      "Hambúrguer de frango 60 g",
+      "un",
+      220
+    ],
+    [
+      "Linguiça toscana 60 g",
+      "un",
+      250
+    ],
+    [
+      "Burger vegetariano 115 g",
+      "un",
+      550
+    ],
+    [
+      "Queijo cheddar fatia",
+      "un",
+      70
+    ],
+    [
+      "Bacon",
+      "g",
+      6.5
+    ],
+    [
+      "Alface americana",
+      "g",
+      1.2
+    ],
+    [
+      "Tomate",
+      "g",
+      0.9
+    ],
+    [
+      "Cebola roxa",
+      "g",
+      0.7
+    ],
+    [
+      "Cebola crispy",
+      "g",
+      4.0
+    ],
+    [
+      "Picles",
+      "g",
+      2.5
+    ],
+    [
+      "Doritos",
+      "g",
+      6.0
+    ],
+    [
+      "Molho especial Versus",
+      "g",
+      2.0
+    ],
+    [
+      "Maionese Versus",
+      "g",
+      1.8
+    ],
+    [
+      "Barbecue",
+      "g",
+      1.6
+    ],
+    [
+      "Molho chipotle",
+      "g",
+      2.4
+    ],
+    [
+      "Molho cheddar",
+      "g",
+      3.0
+    ],
+    [
+      "Manteiga",
+      "g",
+      4.5
+    ],
+    [
+      "Batata congelada",
+      "g",
+      1.4
+    ],
+    [
+      "Óleo",
+      "ml",
+      0.9
+    ],
+    [
+      "Anel de cebola congelado",
+      "g",
+      3.5
+    ],
+    [
+      "Frango empanado",
+      "g",
+      3.2
+    ],
+    [
+      "Base de sorvete / gelato",
+      "g",
+      2.2
+    ],
+    [
+      "Leite",
+      "ml",
+      0.55
+    ],
+    [
+      "Embalagem de lanche",
+      "un",
+      90
+    ],
+    [
+      "Embalagem de batata",
+      "un",
+      45
+    ],
+    [
+      "Copo milk shake",
+      "un",
+      80
+    ],
+    [
+      "Saco delivery",
+      "un",
+      60
+    ],
+    [
+      "Refrigerante lata 350 ml",
+      "un",
+      300
+    ],
+    [
+      "Água 510 ml",
+      "un",
+      120
+    ],
+    [
+      "Suco Del Valle 290 ml",
+      "un",
+      330
+    ],
+    [
+      "Heineken 350 ml",
+      "un",
+      450
+    ]
+  ],
+  "recipes": {
+    "Vs Smash": [
+      [
+        "Pão brioche",
+        1
+      ],
+      [
+        "Smash bovino 60 g",
+        1
+      ],
+      [
+        "Queijo cheddar fatia",
+        1
+      ],
+      [
+        "Barbecue",
+        15
+      ],
+      [
+        "Maionese Versus",
+        15
+      ],
+      [
+        "Manteiga",
+        5
+      ],
+      [
+        "Embalagem de lanche",
+        1
+      ]
+    ],
+    "Vs Smash Duplo": [
+      [
+        "Pão brioche",
+        1
+      ],
+      [
+        "Smash bovino 60 g",
+        2
+      ],
+      [
+        "Queijo cheddar fatia",
+        2
+      ],
+      [
+        "Bacon",
+        30
+      ],
+      [
+        "Cebola crispy",
+        15
+      ],
+      [
+        "Maionese Versus",
+        15
+      ],
+      [
+        "Manteiga",
+        5
+      ],
+      [
+        "Embalagem de lanche",
+        1
+      ]
+    ],
+    "Vs Smash Triplo": [
+      [
+        "Pão brioche",
+        1
+      ],
+      [
+        "Smash bovino 60 g",
+        3
+      ],
+      [
+        "Queijo cheddar fatia",
+        3
+      ],
+      [
+        "Bacon",
+        40
+      ],
+      [
+        "Cebola crispy",
+        15
+      ],
+      [
+        "Maionese Versus",
+        15
+      ],
+      [
+        "Manteiga",
+        5
+      ],
+      [
+        "Embalagem de lanche",
+        1
+      ]
+    ],
+    "Vs Smash Bacon": [
+      [
+        "Pão brioche",
+        1
+      ],
+      [
+        "Smash bovino 60 g",
+        1
+      ],
+      [
+        "Queijo cheddar fatia",
+        1
+      ],
+      [
+        "Bacon",
+        25
+      ],
+      [
+        "Barbecue",
+        15
+      ],
+      [
+        "Manteiga",
+        5
+      ],
+      [
+        "Embalagem de lanche",
+        1
+      ]
+    ],
+    "Vs Metal": [
+      [
+        "Pão brioche",
+        1
+      ],
+      [
+        "Blend bovino 130 g",
+        1
+      ],
+      [
+        "Queijo cheddar fatia",
+        1
+      ],
+      [
+        "Bacon",
+        30
+      ],
+      [
+        "Barbecue",
+        15
+      ],
+      [
+        "Maionese Versus",
+        15
+      ],
+      [
+        "Manteiga",
+        5
+      ],
+      [
+        "Embalagem de lanche",
+        1
+      ]
+    ],
+    "Vs Billie Jean": [
+      [
+        "Pão brioche",
+        1
+      ],
+      [
+        "Blend bovino 130 g",
+        1
+      ],
+      [
+        "Queijo cheddar fatia",
+        1
+      ],
+      [
+        "Cebola crispy",
+        25
+      ],
+      [
+        "Maionese Versus",
+        20
+      ],
+      [
+        "Manteiga",
+        5
+      ],
+      [
+        "Embalagem de lanche",
+        1
+      ]
+    ],
+    "Vs Abigail": [
+      [
+        "Pão brioche",
+        1
+      ],
+      [
+        "Blend bovino 130 g",
+        1
+      ],
+      [
+        "Queijo cheddar fatia",
+        1
+      ],
+      [
+        "Molho chipotle",
+        20
+      ],
+      [
+        "Doritos",
+        15
+      ],
+      [
+        "Manteiga",
+        5
+      ],
+      [
+        "Embalagem de lanche",
+        1
+      ]
+    ],
+    "Vs Bari Bari": [
+      [
+        "Pão de gergelim",
+        1
+      ],
+      [
+        "Blend bovino 60 g",
+        2
+      ],
+      [
+        "Queijo cheddar fatia",
+        2
+      ],
+      [
+        "Molho especial Versus",
+        20
+      ],
+      [
+        "Cebola roxa",
+        10
+      ],
+      [
+        "Picles",
+        10
+      ],
+      [
+        "Alface americana",
+        10
+      ],
+      [
+        "Manteiga",
+        5
+      ],
+      [
+        "Embalagem de lanche",
+        1
+      ]
+    ],
+    "Vs Hadouken Salad": [
+      [
+        "Pão de gergelim",
+        1
+      ],
+      [
+        "Blend bovino 130 g",
+        1
+      ],
+      [
+        "Queijo cheddar fatia",
+        1
+      ],
+      [
+        "Alface americana",
+        15
+      ],
+      [
+        "Tomate",
+        25
+      ],
+      [
+        "Cebola roxa",
+        10
+      ],
+      [
+        "Molho especial Versus",
+        20
+      ],
+      [
+        "Manteiga",
+        5
+      ],
+      [
+        "Embalagem de lanche",
+        1
+      ]
+    ],
+    "Vs Fritas Hits Grande": [
+      [
+        "Batata congelada",
+        300
+      ],
+      [
+        "Óleo",
+        30
+      ],
+      [
+        "Embalagem de batata",
+        1
+      ]
+    ],
+    "Vs Fritas Hits Pequena": [
+      [
+        "Batata congelada",
+        120
+      ],
+      [
+        "Óleo",
+        15
+      ],
+      [
+        "Embalagem de batata",
+        1
+      ]
+    ],
+    "Anel de Cebola": [
+      [
+        "Anel de cebola congelado",
+        250
+      ],
+      [
+        "Óleo",
+        30
+      ],
+      [
+        "Embalagem de batata",
+        1
+      ]
+    ],
+    "Vs Chicken Premium": [
+      [
+        "Frango empanado",
+        220
+      ],
+      [
+        "Óleo",
+        30
+      ],
+      [
+        "Embalagem de batata",
+        1
+      ]
+    ],
+    "Coca Cola 350ml": [
+      [
+        "Refrigerante lata 350 ml",
+        1
+      ]
+    ],
+    "Fanta Uva 350ml": [
+      [
+        "Refrigerante lata 350 ml",
+        1
+      ]
+    ],
+    "Guaraná Antarctica 350ml": [
+      [
+        "Refrigerante lata 350 ml",
+        1
+      ]
+    ],
+    "Itubaína Tutti Frutti Retrô 350ml": [
+      [
+        "Refrigerante lata 350 ml",
+        1
+      ]
+    ],
+    "Soda Limonada Antarctica 350ml": [
+      [
+        "Refrigerante lata 350 ml",
+        1
+      ]
+    ],
+    "Água Mineral Sem Gás 510ml": [
+      [
+        "Água 510 ml",
+        1
+      ]
+    ],
+    "Água Mineral com Gás 510ml": [
+      [
+        "Água 510 ml",
+        1
+      ]
+    ],
+    "Heineken 350ml": [
+      [
+        "Heineken 350 ml",
+        1
+      ]
+    ],
+    "Vs Diamond Edge Milk Shake 400ml": [
+      [
+        "Base de sorvete / gelato",
+        250
+      ],
+      [
+        "Leite",
+        100
+      ],
+      [
+        "Copo milk shake",
+        1
+      ]
+    ]
+  },
+  "low_stock": [
+    "Pão brioche",
+    "Bacon",
+    "Batata congelada"
+  ],
+  "ncm": {
+    "byName": [
+      [
+        "água",
+        "22011000",
+        "revenda_st"
+      ],
+      [
+        "coca|fanta|guaraná|itubaína|soda",
+        "22021000",
+        "revenda_st"
+      ],
+      [
+        "del valle",
+        "22029900",
+        "revenda_st"
+      ],
+      [
+        "heineken",
+        "22030000",
+        "revenda_st"
+      ],
+      [
+        "chopp de vinho",
+        "22060090",
+        "revenda_st"
+      ],
+      [
+        "milk shake",
+        "21069090"
+      ],
+      [
+        "petit gâteau",
+        "19059090"
+      ],
+      [
+        "taça",
+        "21050010"
+      ],
+      [
+        "molho",
+        "21039099"
+      ]
+    ],
+    "byCategory": {
+      "Vs Burgers Combos": "21069090",
+      "Vs Burgers": "21069090",
+      "Vs Combos Promocionais": "21069090",
+      "Entradas": "21069090",
+      "Porções": "20041000",
+      "Vs Molhos Especiais": "21039099",
+      "Sucos": "22029900",
+      "Drinks sem Álcool": "22029900",
+      "Vs Soft (Milk Shakes)": "21069090",
+      "Vs Sobremesas": "21050010"
+    }
+  },
+  "demo": {
+    "razao_social": "Hamburgueria Vs Burger",
+    "streets": [
+      "Av. Tâmara",
+      "Rua Joaquim das Neves",
+      "Av. Rui Barbosa",
+      "Rua Ivo Mário Isaac Pires",
+      "Estrada Ernestina Vieira",
+      "Rua Pedro Rodrigues",
+      "Av. Inocêncio Seráfico",
+      "Rua São Pedro",
+      "Av. Marginal",
+      "Rua Ademar de Barros"
+    ],
+    "notas": [
+      "Sem cebola, por favor",
+      "Capricha no molho",
+      "Ponto da carne bem passado",
+      "Sem picles",
+      "Mandar sachê de ketchup"
+    ]
+  }
+}

@@ -1,0 +1,3969 @@
+[
+ {
+  "name": "Vs Burgers Combos",
+  "section": "Burgers",
+  "products": [
+   {
+    "name": "Combo Vs 1-Up Kids",
+    "description": "Delicioso pão brioche tostado na manteiga, hambúrguer suculento de 60g com queijo derretido. Acompanha batata frita crocante e bebida à sua escolha.",
+    "image": "/img/produtos/combo-vs-1-up-kids.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 29.8
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Hadouken Salad",
+    "description": "Pão de gergelim tostado na manteiga, hambúrguer suculento de 130g, queijo derretido, alface americano crocante, tomate fresco, cebola roxa e o magnífico molho especial da Versus. Acompanha batata frita e bebida à sua escolha.",
+    "image": "/img/produtos/combo-vs-hadouken-salad.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 53.5
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Bari Bari",
+    "description": "Pão de gergelim tostado na manteiga, 2 hambúrgueres artesanais de 60g, 2X queijo derretido, o magnífico molho especial da Versus, cebola roxa, picles e alface americano. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-bari-bari.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 55.8
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Metal",
+    "description": "Pão brioche tostado na manteiga, hambúrguer artesanal de 130g, queijo derretido, bacon fatiado crocante, barbecue e a deliciosa maionese da Versus. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-metal.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 55.8
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Billie Jean",
+    "description": "Pão brioche tostado na manteiga, hambúrguer artesanal de 130g, queijo derretido, nossa famosa cebola crispy crocante e a deliciosa maionese Versus. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-billie-jean.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 53.5
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Abigail",
+    "description": "Pão brioche tostado na manteiga, hambúrguer artesanal de 130 g, queijo derretido, molho chipotle levemente picante e Doritos crocante. Uma combinação intensa, cremosa, defumada e cheia de personalidade, criada para quem gosta de um lanche com atitude. Acompanha batata e bebida.",
+    "image": "/img/produtos/combo-vs-abigail.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 53.5
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Bob Omb",
+    "description": "Pão de gergelim tostado na manteiga, 2X hambúrgueres artesanal prensados de frango de 60g cada, queijo derretido, alface americano, cebola roxa, tomate e o magnífico molho especial da Versus. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-bob-omb.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 53.1
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Esmeralda Caos",
+    "description": "Pão de gergelim tostado na manteiga, burger vegetariano de 115g, queijo derretido, alface americano, cebola roxa, tomate e o molho especial da Versus. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-esmeralda-caos.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 59.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Smash",
+    "description": "Pão brioche tostado na manteiga, hambúrguer smash bovino de 60g, queijo derretido, barbecue e maionese Versus. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-smash.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 39.7
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Smash Duplo",
+    "description": "Pão brioche tostado na manteiga, 2X hambúrgueres smash bovinos de 60g, 2X queijo derretido, bacon crocante, cebola crispy e maionese Versus. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-smash-duplo.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 55.8
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Smash Triplo",
+    "description": "Pão brioche tostado na manteiga, 3X hambúrgueres smash bovinos de 60g, 3X queijo derretido, bacon crocante, cebola crispy e maionese Versus. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-smash-triplo.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 61.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Smash de Frango Salad",
+    "description": "Pão brioche tostado na manteiga, hambúrguer smash de frango de 60g, queijo derretido, alface, tomate e cebola roxa. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-smash-de-frango-salad.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 37.5
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Vs Smash Hadouken Salad",
+    "description": "Pão brioche tostado na manteiga, hambúrguer bovino de 60g, queijo derretido, cebola, alface, tomate e picles. Acompanha batata frita e bebida.",
+    "image": "/img/produtos/combo-vs-smash-hadouken-salad.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 39.7
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Vs Burgers",
+  "section": "Burgers",
+  "products": [
+   {
+    "name": "Vs 1-Up Kids",
+    "description": "Delicioso pão brioche tostado na manteiga, hambúrguer suculento de 60g com queijo derretido.",
+    "image": "/img/produtos/vs-1-up-kids.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 20.6
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Hadouken Salad",
+    "description": "Pão de gergelim tostado na manteiga, hambúrguer suculento de 130g, queijo derretido, alface americano crocante, tomate fresco, cebola roxa e o magnífico molho especial da Versus.",
+    "image": "/img/produtos/vs-hadouken-salad.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 37.0
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Bari Bari",
+    "description": "Pão de gergelim tostado na manteiga, 2 hambúrgueres artesanais de 60g, 2X queijo derretido, o magnífico molho especial da Versus, cebola roxa, picles e alface americano.",
+    "image": "/img/produtos/vs-bari-bari.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 37.0
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Metal",
+    "description": "Pão brioche tostado na manteiga, hambúrguer artesanal de 130g, queijo derretido, bacon fatiado crocante, barbecue e a deliciosa maionese da Versus.",
+    "image": "/img/produtos/vs-metal.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 37.0
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Billie Jean",
+    "description": "Pão brioche tostado na manteiga, hambúrguer artesanal de 130g, queijo derretido, nossa famosa cebola crispy crocante e a deliciosa maionese Versus.",
+    "image": "/img/produtos/vs-billie-jean.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 34.4
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Abigail",
+    "description": "Pão brioche tostado na manteiga, hambúrguer artesanal de 130 g, queijo derretido, molho chipotle levemente picante e Doritos crocante. Uma combinação intensa, cremosa, defumada e cheia de personalidade, criada para quem gosta de um lanche com atitude.",
+    "image": "/img/produtos/vs-abigail.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 34.4
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Bob Omb",
+    "description": "Pão de gergelim tostado na manteiga, 2X hambúrgueres artesanal prensados de frango de 60g cada, queijo derretido, alface americano, cebola roxa, tomate e o magnífico molho especial da Versus.",
+    "image": "/img/produtos/vs-bob-omb.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 34.4
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Esmeralda Caos",
+    "description": "Pão de gergelim tostado na manteiga, burger vegetariano de 115g, queijo derretido, alface americano, cebola roxa, tomate e o molho especial da Versus.",
+    "image": "/img/produtos/vs-esmeralda-caos.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 40.8
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Smash",
+    "description": "Pão brioche tostado na manteiga, hambúrguer smash bovino de 60g, queijo derretido, barbecue e maionese Versus.",
+    "image": "/img/produtos/vs-smash.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21.0
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Smash Duplo",
+    "description": "Pão brioche tostado na manteiga, 2X hambúrgueres smash bovinos de 60g, 2X queijo derretido, bacon crocante, cebola crispy e maionese Versus.",
+    "image": "/img/produtos/vs-smash-duplo.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 37.0
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Smash Triplo",
+    "description": "Pão brioche tostado na manteiga, 3X hambúrgueres smash bovinos de 60g, 3X queijo derretido, bacon crocante, cebola crispy e maionese Versus.",
+    "image": "/img/produtos/vs-smash-triplo.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 43.1
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Smash Bros",
+    "description": "Pão brioche tostado na manteiga, smash burger bovino de 60g, queijo derretido, ketchup, mostarda, picles e cebola picadinha. Simples, suculento e equilibrado.",
+    "image": "/img/produtos/vs-smash-bros.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21.0
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Smash Bacon",
+    "description": "Pão brioche tostado na manteiga, smash burger bovino de 60g, queijo derretido, bacon crocante e barbecue.",
+    "image": "/img/produtos/vs-smash-bacon.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21.0
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Smash Frango Salad",
+    "description": "Pão brioche tostado na manteiga, hambúrguer smash de frango de 60g, queijo derretido, alface, tomate e cebola roxa.",
+    "image": "/img/produtos/vs-smash-frango-salad.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21.0
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Smash Hadouken Salad",
+    "description": "Pão de brioche tostado na manteiga, smash burger bovino de 60g, queijo, cebola picada, alface, tomate e picles.",
+    "image": "/img/produtos/vs-smash-hadouken-salad.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21.0
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da Carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao Ponto",
+        "price": 0.0
+       },
+       {
+        "name": "Bem Passado",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Vs Combos Promocionais",
+  "section": "Burgers",
+  "products": [
+   {
+    "name": "Vs Ultra Combo Premium 4 Pessoas",
+    "description": "Escolha 4 burgers premium entre Vs Smash Duplo, Vs Metal, Vs Bari Bari ou Vs Shoryuken. Todos acompanham batata frita crocante e bebida.",
+    "image": "/img/produtos/vs-ultra-combo-premium-4-pessoas.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 192.1
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Escolha seu lanche",
+      "min": 4,
+      "max": 4,
+      "options": [
+       {
+        "name": "Vs Bari Bari",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Metal",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Smash Duplo",
+        "price": 0.0
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 4,
+      "max": 4,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Combo Hits 4 Pessoas",
+    "description": "Escolha 4 burgers entre Vs Abigail, Vs Billie Jean, Vs Bob Omb ou Vs Hadouken Salad. Todos acompanham batata frita crocante e bebida.",
+    "image": "/img/produtos/vs-combo-hits-4-pessoas.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 182.6
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Escolha seu lanche",
+      "min": 4,
+      "max": 4,
+      "options": [
+       {
+        "name": "Vs Abigail",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Billie Jean",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Bob Omb",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Hadouken Salad",
+        "price": 0.0
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 4,
+      "max": 4,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Zero Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Combo Breaker 3 Pessoas",
+    "description": "Escolha 2 burgers entre Vs Abigail, Vs Billie Jean, Vs Bob Omb ou Vs Hadouken Salad. Escolha 1 burger entre Vs Smash e Vs 1-Up Kids Todos acompanham batata frita crocante e bebida.",
+    "image": "/img/produtos/vs-combo-breaker-3-pessoas.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 123.7
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Escolha seu lanche Adulto",
+      "min": 2,
+      "max": 2,
+      "options": [
+       {
+        "name": "Vs Abigail",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Billie Jean",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Bob Omb",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Hadouken Salad",
+        "price": 0.0
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha seu lanche Infantil",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Vs 1-Up Kids",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Smash",
+        "price": 0.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 3,
+      "max": 3,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Zero Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "VS Short Combo 2 pessoas",
+    "description": "Escolha 2 burgers entre Vs Abigail, Vs Billie Jean, Vs Bob Omb ou Vs Hadouken Salad. Todos acompanham batata frita crocante e bebida.",
+    "image": "/img/produtos/vs-short-combo-2-pessoas.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 95.3
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Escolha seu lanche",
+      "min": 2,
+      "max": 2,
+      "options": [
+       {
+        "name": "Vs Abigail",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Billie Jean",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Bob Omb",
+        "price": 0.0
+       },
+       {
+        "name": "Vs Hadouken Salad",
+        "price": 0.0
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Adicional de Carne 130g",
+        "price": 9.0
+       },
+       {
+        "name": "Adicional de Carne 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Linguiça 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Adicional Carne de Frango 60g",
+        "price": 6.0
+       },
+       {
+        "name": "Alface Americano",
+        "price": 2.0
+       },
+       {
+        "name": "Barbecue",
+        "price": 4.0
+       },
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       },
+       {
+        "name": "Bacon",
+        "price": 5.0
+       },
+       {
+        "name": "Maionese Vs",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       }
+      ],
+      "repeat": true
+     },
+     {
+      "name": "Escolha sua bebida",
+      "min": 2,
+      "max": 2,
+      "options": [
+       {
+        "name": "Del Valle Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Manga",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Uva",
+        "price": 0.0
+       },
+       {
+        "name": "Del Valle Pêssego",
+        "price": 0.0
+       },
+       {
+        "name": "Coca-cola Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Soda Limonada Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Itubaína Tutti Frutti Retrô Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Guaraná Antarctica Lata 350ml",
+        "price": 0.0
+       },
+       {
+        "name": "Fanta Uva Lata 350ml",
+        "price": 0.0
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Entradas",
+  "section": "Para acompanhar",
+  "products": [
+   {
+    "name": "Roda Gigante VS Chicken Supremo",
+    "description": "",
+    "image": "/img/produtos/roda-gigante-vs-chicken-supremo.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 84.5
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Roda Gigante VS Orion Rings",
+    "description": "Anéis de cebola crocantes servidos na roda gigante.",
+    "image": "/img/produtos/roda-gigante-vs-orion-rings.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 69.4
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Roda Gigante VS Fritas Hits",
+    "description": "Porção gigante de fritas crocantes servidas na roda gigante.",
+    "image": "/img/produtos/roda-gigante-vs-fritas-hits.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 50.5
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Porções",
+  "section": "Para acompanhar",
+  "products": [
+   {
+    "name": "Anel de Cebola",
+    "description": "16 Unidades.",
+    "image": "/img/produtos/anel-de-cebola.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 33.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Vs Fritas Hits Grande",
+    "description": "VS Fritas Hits clássica, crocante e cheia de sabor. A batata frita que virou hit na Versus Burger.",
+    "image": "/img/produtos/vs-fritas-hits-grande.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 22.3
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Escolha seus adicionais (Batata Frita)",
+      "min": 0,
+      "max": 2,
+      "options": [
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Fritas Hits Pequena",
+    "description": "VS Fritas Hits clássica, crocante e cheia de sabor. A batata frita que virou hit na Versus Burger.",
+    "image": "/img/produtos/vs-fritas-hits-pequena.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.0
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Escolha seus adicionais (Batata Frita)",
+      "min": 0,
+      "max": 2,
+      "options": [
+       {
+        "name": "Cheddar",
+        "price": 5.0
+       }
+      ],
+      "repeat": true
+     }
+    ]
+   },
+   {
+    "name": "Vs Chicken Premium",
+    "description": "9 Chickens frango empanado, feito com peito de frango, conhecido por sua crocância por fora e carne macia e suculenta por dentro. Acompanha molho grill.",
+    "image": "/img/produtos/vs-chicken-premium.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 20.7
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Vs Molhos Especiais",
+  "section": "Para acompanhar",
+  "products": [
+   {
+    "name": "Molho Barbecue",
+    "description": "Molho clássico agridoce e defumado.",
+    "image": "/img/produtos/molho-barbecue.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 4.6
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Molho Cheddar",
+    "description": "Molho de queijo cheddar.",
+    "image": "/img/produtos/molho-cheddar.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 4.6
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Molho Chipotle",
+    "description": "Molho levemente picante com sabor defumado.",
+    "image": "/img/produtos/molho-chipotle.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 4.6
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Molho Maionese Vs",
+    "description": "A maionese da casa, a mais pedida!",
+    "image": "/img/produtos/molho-maionese-vs.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 4.0
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Refrigerantes",
+  "section": "Bebidas",
+  "products": [
+   {
+    "name": "Coca Cola 350ml",
+    "description": "Lata de Coca-Cola (350ml).",
+    "image": "/img/produtos/coca-cola-350ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Fanta Uva 350ml",
+    "description": "Lata de Fanta Uva (350ml).",
+    "image": "/img/produtos/fanta-uva-350ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Guaraná Antarctica 350ml",
+    "description": "Lata de Guaraná Antártica (350ml).",
+    "image": "/img/produtos/guarana-antarctica-350ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Itubaína Tutti Frutti Retrô 350ml",
+    "description": "Itubaína Original é um refrigerante com um sabor único, delicioso e doce na medida certa. Itubaína vai bem em qualquer ocasião e está disponível na lata de 350ml para você aproveitar em qualquer lugar.",
+    "image": "/img/produtos/itubaina-tutti-frutti-retro-350ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Soda Limonada Antarctica 350ml",
+    "description": "Desfrute de um refresco inigualável com o Refrigerante Soda Limonada Antarctica em sua prática lata de 350ml. Este é o parceiro perfeito para momentos de descontração e celebração. Com um sabor equilibrado que combina a acidez cítrica do limão com o doce refrescante, essa bebida é um verdadeiro clássico que agrada a todos os paladares.",
+    "image": "/img/produtos/soda-limonada-antarctica-350ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.9
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Água",
+  "section": "Bebidas",
+  "products": [
+   {
+    "name": "Água Mineral com Gás 510ml",
+    "description": "Água mineral engarrafada com gás, 510ml.",
+    "image": "/img/produtos/agua-mineral-com-gas-510ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 4.5
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Água Mineral Sem Gás 510ml",
+    "description": "Água mineral engarrafada sem gás, 510ml.",
+    "image": "/img/produtos/agua-mineral-sem-gas-510ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 4.0
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Sucos",
+  "section": "Bebidas",
+  "products": [
+   {
+    "name": "Del Valle Manga 290ml",
+    "description": "",
+    "image": "/img/produtos/del-valle-manga-290ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Del Valle Maracujá 290ml",
+    "description": "",
+    "image": "/img/produtos/del-valle-maracuja-290ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Del Valle Pêssego 290ml",
+    "description": "",
+    "image": "/img/produtos/del-valle-pessego-290ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Del Valle Uva 290ml",
+    "description": "",
+    "image": "/img/produtos/del-valle-uva-290ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 9.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Copo 400ml de Abacaxi C/hortelã",
+    "description": "",
+    "image": "/img/produtos/copo-400ml-de-abacaxi-c-hortela.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 13.6
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Copo 400ml de Morango C/leite",
+    "description": "",
+    "image": "/img/produtos/copo-400ml-de-morango-c-leite.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 13.2
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Copo 400ml de Limonada Suíça",
+    "description": "",
+    "image": "/img/produtos/copo-400ml-de-limonada-suica.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 15.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Jarra 700ml de Polpa de Abacaxi com Hortelã",
+    "description": "",
+    "image": "/img/produtos/jarra-700ml-de-polpa-de-abacaxi-com-hortela.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 18.2
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Jarra 700ml de Polpa de Morango com Leite",
+    "description": "",
+    "image": "/img/produtos/jarra-700ml-de-polpa-de-morango-com-leite.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 18.2
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Jarra 700ml de Limonada Suíça",
+    "description": "",
+    "image": "/img/produtos/jarra-700ml-de-limonada-suica.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 31.6
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Drinks sem Álcool",
+  "section": "Bebidas",
+  "products": [
+   {
+    "name": "Vs Lemon Blue Curaçao Laranja",
+    "description": "Classica Soda Italiana! Água gaseficada com xarope de laranja!",
+    "image": "/img/produtos/vs-lemon-blue-curacao-laranja.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17.2
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Vs Lemon Cranberry",
+    "description": "Classica Soda Italiana! Água gaseficada com xarope de Cranberry!!",
+    "image": "/img/produtos/vs-lemon-cranberry.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17.2
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Vs Lemon Maçã Verde",
+    "description": "Classica Soda Italiana! Água gaseficada com xarope de Maçã verde!",
+    "image": "/img/produtos/vs-lemon-maca-verde.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17.2
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Vs Lemon Tangerina",
+    "description": "Classica Soda Italiana! Água gaseficada com xarope de tangerina!",
+    "image": "/img/produtos/vs-lemon-tangerina.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 17.2
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Bebidas Alcoólicas",
+  "section": "Bebidas",
+  "products": [
+   {
+    "name": "Chopp de Vinho Draft Red Line 600ml",
+    "description": "",
+    "image": "/img/produtos/chopp-de-vinho-draft-red-line-600ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 18.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Heineken 350ml",
+    "description": "Cerveja Heineken, lata 350ml.",
+    "image": "/img/produtos/heineken-350ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 12.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Heineken Zero Álcool 350ml",
+    "description": "Cerveja Heineken Zero Álcool, lata 350ml.",
+    "image": "/img/produtos/heineken-zero-alcool-350ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 12.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Baldinho Heineken (3)",
+    "description": "",
+    "image": "/img/produtos/baldinho-heineken-3.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 32.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Baldinho Heineken (5)",
+    "description": "",
+    "image": "/img/produtos/baldinho-heineken-5.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 54.9
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Vs Soft (Milk Shakes)",
+  "section": "Sobremesas e gelatos",
+  "products": [
+   {
+    "name": "Vs Diamond Edge Milk Shake 300ml",
+    "description": "",
+    "image": "/img/produtos/vs-diamond-edge-milk-shake-300ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 14.2
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Escolha seu sabor (Milk Shake)",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Céu Azul",
+        "price": 0.0
+       },
+       {
+        "name": "Paçoca",
+        "price": 0.0
+       },
+       {
+        "name": "Morango",
+        "price": 0.0
+       },
+       {
+        "name": "Ovomaltine",
+        "price": 0.0
+       },
+       {
+        "name": "Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Chocolate",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Vs Diamond Edge Milk Shake 400ml",
+    "description": "",
+    "image": "/img/produtos/vs-diamond-edge-milk-shake-400ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 16.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Escolha seu sabor (Milk Shake)",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Céu Azul",
+        "price": 0.0
+       },
+       {
+        "name": "Paçoca",
+        "price": 0.0
+       },
+       {
+        "name": "Morango",
+        "price": 0.0
+       },
+       {
+        "name": "Ovomaltine",
+        "price": 0.0
+       },
+       {
+        "name": "Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Chocolate",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Vs Diamond Edge Milk Shake 500ml",
+    "description": "",
+    "image": "/img/produtos/vs-diamond-edge-milk-shake-500ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 19.5
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Escolha seu sabor (Milk Shake)",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Céu Azul",
+        "price": 0.0
+       },
+       {
+        "name": "Paçoca",
+        "price": 0.0
+       },
+       {
+        "name": "Morango",
+        "price": 0.0
+       },
+       {
+        "name": "Ovomaltine",
+        "price": 0.0
+       },
+       {
+        "name": "Maracujá",
+        "price": 0.0
+       },
+       {
+        "name": "Chocolate",
+        "price": 0.0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Vs Sobremesas",
+  "section": "Sobremesas e gelatos",
+  "products": [
+   {
+    "name": "Petit gâteau",
+    "description": "é uma sobremesa clássica consistente por fora e cremosa por dentro, servida quente, que libera uma calda ao ser cortada",
+    "image": "/img/produtos/petit-gateau.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 19.9
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Taça de Unicórnio",
+    "description": "Sorvete misto ceu azul e morango, em volta creme de ninho coberto com granulado colorido. Acompanha marshmallow e fini.",
+    "image": "/img/produtos/taca-de-unicornio.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 36.3
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Taça de Ferrero Rocher",
+    "description": "Sorvete misto baunilha e chocolate, em volta creme de chocolate coberto com amendoim granulado e ferrero rocher.",
+    "image": "/img/produtos/taca-de-ferrero-rocher.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 58.2
+     }
+    ],
+    "featured": false
+   }
+  ]
+ }
+]

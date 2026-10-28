@@ -3,7 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { Search, ShoppingBag, Minus, Plus, MapPin, Clock, Instagram, MessageCircle, Star, X, Trash2, CalendarClock, Bike, Store, ChevronRight, Info, Cake } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { BrandLogo } from '../components/Brand.jsx';
-import { brl, maskPhone, phone, todayISO, addDaysISO, weekdayOf, parseSP } from '../lib/format.js';
+import OptionGroups, { missingGroup } from '../components/OptionGroups.jsx';
+import { brl, maskPhone, phone, todayISO, addDaysISO, weekdayOf, parseSP, optionsText } from '../lib/format.js';
+import { applyTheme } from '../lib/theme.js';
+import { segmentCopy } from '../lib/segment.js';
 import { Button, Field, Input, Modal, Select, Spinner, Textarea, cx, ErrorBox } from '../components/ui.jsx';
 import { cleanDesc, displayName, norm, shortName, splitTitle } from '../lib/menuText.js';
 
@@ -31,12 +34,14 @@ const minPrice = (p) => Math.min(...p.variants.map((v) => v.price_cents));
 
 const Logo = ({ store, className }) => <BrandLogo store={store} className={className} />;
 
-// borda rendada no fim do topo (lembra o papel rendado das confeitarias)
-const LACE = {
-  backgroundImage: 'radial-gradient(circle at 10px 12px, var(--color-cream) 8.5px, transparent 9px)',
-  backgroundSize: '20px 12px',
-  backgroundRepeat: 'repeat-x',
+// borda no fim do topo: renda (lembra o papel rendado das confeitarias), onda ou reta
+const EDGES = {
+  renda: { backgroundImage: 'radial-gradient(circle at 10px 12px, var(--color-cream) 8.5px, transparent 9px)', backgroundSize: '20px 12px', backgroundRepeat: 'repeat-x' },
+  onda: { backgroundImage: 'radial-gradient(ellipse 22px 9px at 22px 12px, var(--color-cream) 98%, transparent 100%)', backgroundSize: '44px 12px', backgroundRepeat: 'repeat-x' },
+  reto: null,
 };
+// nome da loja na fonte escolhida, com o tamanho ajustado para cada fonte
+const nameSize = (rem) => ({ fontSize: `calc(${rem}rem * var(--font-script-scale, 1))` });
 
 const maskCpf = (v) => String(v || '').replace(/\D/g, '').slice(0, 11)
   .replace(/^(\d{3})(\d)/, '$1.$2').replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3').replace(/\.(\d{3})(\d{1,2})$/, '.$1-$2');
@@ -55,11 +60,14 @@ export default function Menu() {
   const tabRefs = useRef({});
 
   useEffect(() => save(CART_KEY, cart), [cart]);
+  useEffect(() => applyTheme(store.data), [store.data]);
   useEffect(() => {
     if (store.data?.name) document.title = `${store.data.name}${store.data.tagline ? ` – ${store.data.tagline}` : ''}`;
   }, [store.data?.name, store.data?.tagline]);
 
-  // categorias agrupadas em seções (Bolos, Docinhos…), na ordem definida no painel
+  // categorias agrupadas em seções (Bolos, Docinhos…), na ordem definida no painel.
+  // Na doceria o nome encurta dentro da categoria ("Bolo Premium - Ninho" → "Ninho"); nas outras lojas fica o nome da casa.
+  const shorten = (store.data?.segment || 'doceria') === 'doceria';
   const sections = useMemo(() => {
     const list = [];
     for (const c of menu.data?.categories || []) {
@@ -67,10 +75,10 @@ export default function Menu() {
       let sec = list.find((x) => x.key === key);
       if (!sec) list.push((sec = { key, id: `sec-${norm(key).replace(/ /g, '-')}`, categories: [] }));
       const t = splitTitle(c.name);
-      sec.categories.push({ ...c, ...t, products: c.products.map((p) => ({ ...p, short: shortName(p.name, t.title) })) });
+      sec.categories.push({ ...c, ...t, products: c.products.map((p) => ({ ...p, short: shorten ? shortName(p.name, t.title) : p.name })) });
     }
     return list;
-  }, [menu.data]);
+  }, [menu.data, shorten]);
   const featured = useMemo(() => sections.flatMap((s) => s.categories.flatMap((c) => c.products)).filter((p) => p.featured), [sections]);
   const results = useMemo(() => {
     const q = norm(query);
@@ -113,7 +121,7 @@ export default function Menu() {
         <div className="mx-auto flex max-w-5xl items-center gap-4 px-4 pb-4 pt-5 sm:pt-7">
           <Logo store={s} className="size-16 shrink-0 text-2xl ring-2 ring-white/80 sm:size-20 sm:text-3xl" />
           <div className="min-w-0 flex-1">
-            <h1 className="font-script text-[2.15rem] leading-none sm:text-5xl">{s.name}</h1>
+            <h1 className="font-script text-[length:calc(2.15rem*var(--font-script-scale,1))] leading-none sm:text-[length:calc(3rem*var(--font-script-scale,1))]">{s.name}</h1>
             <p className="mt-1.5 text-[11px] font-medium uppercase tracking-[0.25em] text-brand-200">{s.tagline}</p>
             <p className="mt-1 hidden text-sm text-white/85 sm:block">{s.slogan}</p>
           </div>
@@ -132,7 +140,7 @@ export default function Menu() {
             <Info className="size-3.5" /> Horários e entrega
           </button>
         </div>
-        <div aria-hidden="true" className="absolute inset-x-0 -bottom-px h-3" style={LACE} />
+        {EDGES[s.theme?.style || 'renda'] && <div aria-hidden="true" className="absolute inset-x-0 -bottom-px h-3" style={EDGES[s.theme?.style || 'renda']} />}
       </header>
 
       {s.notice && <div className="mx-auto mt-3 max-w-5xl px-4"><p className="rounded-2xl bg-gold/15 px-4 py-2.5 text-center text-sm font-medium text-brand-900">{s.notice}</p></div>}
@@ -150,7 +158,7 @@ export default function Menu() {
           {searching ? (
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-stone-400" />
-              <Input autoFocus value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar bolo, brownie, pudim…" className="rounded-full pl-9 pr-9" />
+              <Input autoFocus value={query} onChange={(e) => setQuery(e.target.value)} placeholder={segmentCopy(s).search} className="rounded-full pl-9 pr-9" />
               <button onClick={() => { setSearching(false); setQuery(''); }} className="absolute right-2 top-1/2 grid size-7 -translate-y-1/2 place-items-center rounded-full text-stone-500 hover:bg-stone-100" aria-label="Fechar busca"><X className="size-4" /></button>
             </div>
           ) : (
@@ -230,7 +238,7 @@ export default function Menu() {
 
         <footer className="mt-14 flex flex-col items-center gap-2 border-t border-brand-100 py-8 text-center text-sm text-stone-500">
           <Logo store={s} className="size-12 text-lg ring-1 ring-brand-100" />
-          <p className="font-script text-2xl text-brand-700">{s.name}</p>
+          <p className="font-script text-brand-700" style={nameSize(1.5)}>{s.name}</p>
           <p>{s.slogan}</p>
           <p className="text-xs">{s.address}</p>
           <button onClick={() => setInfoOpen(true)} className="mt-1 text-sm font-medium text-brand-700 underline-offset-4 hover:underline cursor-pointer">Horários, bairros atendidos e pagamento</button>
@@ -251,6 +259,7 @@ export default function Menu() {
 
       <ProductModal
         product={product}
+        notePlaceholder={segmentCopy(s).itemNote}
         onClose={() => setProduct(null)}
         onAdd={(line) => {
           setCart((c) => [...c, { ...line, key: Math.random().toString(36).slice(2) }]);
@@ -363,7 +372,7 @@ function Stepper({ value, onChange, min = 1 }) {
   );
 }
 
-function ProductModal({ product: p, onClose, onAdd }) {
+function ProductModal({ product: p, onClose, onAdd, notePlaceholder }) {
   const [variantId, setVariantId] = useState(null);
   const [opts, setOpts] = useState([]);
   const [qty, setQty] = useState(1);
@@ -384,21 +393,9 @@ function ProductModal({ product: p, onClose, onAdd }) {
   const extra = opts.reduce((s, o) => s + (o.price_cents || 0), 0);
   const unit = variant.price_cents + extra;
 
-  const toggleOpt = (g, o) => {
-    setOpts((cur) => {
-      const has = cur.some((x) => x.group === g.name && x.name === o.name);
-      if (has) return cur.filter((x) => !(x.group === g.name && x.name === o.name));
-      const pick = { group: g.name, name: o.name, price_cents: o.price_cents };
-      if (g.max === 1) return [...cur.filter((x) => x.group !== g.name), pick];
-      if (g.max && cur.filter((x) => x.group === g.name).length >= g.max) return cur;
-      return [...cur, pick];
-    });
-  };
-
   const add = () => {
-    for (const g of p.option_groups) {
-      if (opts.filter((o) => o.group === g.name).length < g.min) return setErr(`Escolha: ${g.name}`);
-    }
+    const missing = missingGroup(p.option_groups, opts);
+    if (missing) return setErr(`Escolha: ${missing.name}${missing.min > 1 ? ` (${missing.min})` : ''}`);
     onAdd({
       product_id: p.id, variant_id: variant.id, name: p.name, variant_name: variant.name, image: p.image,
       options: opts, qty, notes, unit_price_cents: unit, lead_time_hours: p.lead_time_hours,
@@ -430,28 +427,10 @@ function ProductModal({ product: p, onClose, onAdd }) {
         </div>
       )}
 
-      {p.option_groups.map((g) => (
-        <div key={g.name} className="mt-4">
-          <p className="mb-2 flex items-center gap-2 text-sm font-semibold text-stone-800">
-            {g.name}
-            <span className="rounded-full bg-stone-100 px-2 py-0.5 text-xs font-normal text-stone-500">{g.min > 0 ? 'Obrigatório' : 'Opcional'}{g.max > 1 ? ` · até ${g.max}` : ''}</span>
-          </p>
-          <div className="grid gap-2">
-            {g.options.map((o) => {
-              const on = opts.some((x) => x.group === g.name && x.name === o.name);
-              return (
-                <label key={o.name} className={cx('flex cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 ring-1 transition', on ? 'bg-brand-50 ring-brand-400' : 'ring-stone-200')}>
-                  <span className="flex items-center gap-2 text-sm"><input type={g.max === 1 ? 'radio' : 'checkbox'} className="accent-brand-600" checked={on} onChange={() => toggleOpt(g, o)} /> {o.name}</span>
-                  {o.price_cents > 0 && <span className="text-sm text-stone-600">+ {brl(o.price_cents)}</span>}
-                </label>
-              );
-            })}
-          </div>
-        </div>
-      ))}
+      {p.option_groups.length > 0 && <div className="mt-4"><OptionGroups groups={p.option_groups} value={opts} onChange={(v) => { setOpts(v); setErr(''); }} /></div>}
 
       <Field label="Alguma observação?" className="mt-4">
-        <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder="Ex.: escrever “Parabéns Ana” no bolo" maxLength={300} />
+        <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} placeholder={notePlaceholder} maxLength={300} />
       </Field>
       <ErrorBox>{err}</ErrorBox>
     </Modal>
@@ -584,7 +563,7 @@ function Checkout({ open, onClose, cart, setCart, store }) {
                 {i.image && <img src={i.image} alt="" className="size-12 rounded-lg object-cover" />}
                 <div className="min-w-0 flex-1">
                   <p className="text-sm font-medium leading-tight">{i.name}{i.variant_name && <span className="text-stone-500"> · {i.variant_name}</span>}</p>
-                  {i.options?.length > 0 && <p className="text-xs text-stone-500">{i.options.map((o) => o.name).join(', ')}</p>}
+                  {i.options?.length > 0 && <p className="text-xs text-stone-500">{optionsText(i.options)}</p>}
                   {i.notes && <p className="text-xs italic text-stone-500">“{i.notes}”</p>}
                   <p className="text-sm font-semibold text-brand-700">{brl(i.unit_price_cents * i.qty)}</p>
                 </div>

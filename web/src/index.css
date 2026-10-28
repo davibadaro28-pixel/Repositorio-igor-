@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-script: "Dancing Script", cursive;
+  --font-script: "Dancing Script", cursive; /* trocada pelo tema da loja (shared/theme.js) */
 
   --color-brand-50: #fdf2f5;
   --color-brand-100: #fbe4ea;
@@ -17,6 +17,11 @@
 
   --color-cream: #fff9f6;
   --color-gold: #c9a45c;
+}
+
+/* nome da loja (a fonte vem do tema da loja) */
+.font-script {
+  font-weight: 700;
 }
 
 html,
@@ -34,8 +39,8 @@ body {
 }
 
 @keyframes pulse-ring {
-  0% { box-shadow: 0 0 0 0 rgb(151 51 88 / 0.45); }
-  100% { box-shadow: 0 0 0 14px rgb(151 51 88 / 0); }
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--color-brand-600) 45%, transparent); }
+  100% { box-shadow: 0 0 0 14px color-mix(in srgb, var(--color-brand-600) 0%, transparent); }
 }
 .animate-ring {
   animation: pulse-ring 1.4s ease-out infinite;

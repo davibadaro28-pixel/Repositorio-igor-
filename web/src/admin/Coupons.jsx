@@ -3,6 +3,8 @@ import { Plus, Pencil, Trash2, TicketPercent, Copy } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { brl, dateBR } from '../lib/format.js';
 import { Button, Card, Field, Input, Modal, MoneyInput, PageHeader, Select, Spinner, Table, Toggle, useToast, ErrorBox, Empty, Badge } from '../components/ui.jsx';
+import { segmentCopy } from '../lib/segment.js';
+import { useSettings } from './AdminApp.jsx';
 
 const describe = (c) => (c.type === 'percent' ? `${c.value}% de desconto` : c.type === 'fixed' ? `${brl(c.value)} de desconto` : 'Entrega grátis');
 
@@ -45,6 +47,7 @@ export default function Coupons() {
 }
 
 function CouponModal({ coupon, onClose, onSaved }) {
+  const { settings } = useSettings();
   const [f, setF] = useState({ ...coupon, starts_at: coupon.starts_at || '', ends_at: coupon.ends_at || '', max_uses: coupon.max_uses || '' });
   const [err, setErr] = useState('');
   const save = async () => {
@@ -68,7 +71,7 @@ function CouponModal({ coupon, onClose, onSaved }) {
       </>
     }>
       <div className="grid gap-3 sm:grid-cols-2">
-        <Field label="Código"><Input value={f.code} onChange={(e) => setF({ ...f, code: e.target.value.toUpperCase().replace(/\s/g, '') })} placeholder="EX: DOCE10" /></Field>
+        <Field label="Código"><Input value={f.code} onChange={(e) => setF({ ...f, code: e.target.value.toUpperCase().replace(/\s/g, '') })} placeholder={segmentCopy(settings?.store).couponEx} /></Field>
         <Field label="Tipo">
           <Select value={f.type} onChange={(e) => setF({ ...f, type: e.target.value, value: e.target.value === 'percent' ? 10 : 0 })}>
             <option value="percent">Porcentagem</option>

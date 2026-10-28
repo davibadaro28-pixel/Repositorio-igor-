@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Maximize2, Minimize2, CalendarClock } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
-import { minutesSince, timeBR, dateBR, todayISO } from '../lib/format.js';
+import { minutesSince, timeBR, dateBR, todayISO, optionsText } from '../lib/format.js';
 import { Button, PageHeader, Spinner, cx, useToast } from '../components/ui.jsx';
 import { useLive } from './AdminApp.jsx';
 import { TypeIcon } from './Orders.jsx';
@@ -23,7 +23,7 @@ function Ticket({ o, onMove }) {
             <li key={i.id} className="text-base leading-snug">
               <b className="text-brand-700">{i.qty}x</b> {i.name}
               {i.variant_name && <span className="text-stone-500"> · {i.variant_name}</span>}
-              {i.options?.length > 0 && <span className="block text-sm text-stone-600">↳ {i.options.map((x) => x.name).join(', ')}</span>}
+              {i.options?.length > 0 && <span className="block text-sm text-stone-600">↳ {optionsText(i.options)}</span>}
               {i.notes && <span className="mt-0.5 block rounded bg-amber-100 px-1.5 py-0.5 text-sm font-medium text-amber-900">⚠ {i.notes}</span>}
             </li>
           ))}

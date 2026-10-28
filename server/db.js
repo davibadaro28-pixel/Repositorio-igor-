@@ -4,7 +4,9 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const dbPath = process.env.DB_PATH || join(here, 'data', 'lacos.db');
+// cada loja tem o seu banco (a Laços mantém o nome original do arquivo)
+const loja = String(process.env.LOJA || 'lacos-de-mae').toLowerCase().replace(/[^a-z0-9-]/g, '') || 'lacos-de-mae';
+const dbPath = process.env.DB_PATH || join(here, 'data', loja === 'lacos-de-mae' ? 'lacos.db' : `${loja}.db`);
 if (dbPath !== ':memory:') mkdirSync(dirname(dbPath), { recursive: true });
 
 export const db = new DatabaseSync(dbPath);

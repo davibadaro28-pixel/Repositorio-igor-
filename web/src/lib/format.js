@@ -87,5 +87,13 @@ export function addressLine(a) {
   ].filter(Boolean).join(' – ');
 }
 
+/** Escolhas de um item, juntando as repetidas: ["2x Bacon", "Ao Ponto"] */
+export function optionsList(options) {
+  const counts = new Map();
+  for (const o of options || []) counts.set(o.name, (counts.get(o.name) || 0) + 1);
+  return [...counts].map(([name, n]) => (n > 1 ? `${n}x ${name}` : name));
+}
+export const optionsText = (options) => optionsList(options).join(', ');
+
 export const itemLine = (i) =>
-  `${i.qty}x ${i.name}${i.variant_name ? ` (${i.variant_name})` : ''}${i.options?.length ? ` + ${i.options.map((o) => o.name).join(', ')}` : ''}`;
+  `${i.qty}x ${i.name}${i.variant_name ? ` (${i.variant_name})` : ''}${i.options?.length ? ` + ${optionsText(i.options)}` : ''}`;
