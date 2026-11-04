@@ -18,6 +18,8 @@ const marca = opt('marca') === 'generica' ? 'generica' : 'lacos';
 // a demonstração genérica é feita a partir da Laços de Mãe
 const loja = marca === 'generica' ? 'lacos-de-mae' : (opt('loja') || 'lacos-de-mae').replace(/[^a-z0-9-]/g, '');
 const lojaDir = join(root, 'lojas', loja);
+// na demonstração genérica o nome da pasta da loja de origem não vai para o código da página
+const lojaId = marca === 'generica' ? 'doceria' : loja;
 const lojaCfg = JSON.parse(readFileSync(join(lojaDir, 'loja.json'), 'utf8'));
 const contato = opt('contato').replace(/\D/g, '');
 const out = resolve(args.find((a) => !a.startsWith('--')) || join(root, 'preview-dist'));
@@ -72,7 +74,7 @@ await build({
     },
   },
   define: {
-    'process.env.LOJA': JSON.stringify(loja),
+    'process.env.LOJA': JSON.stringify(lojaId),
     'process.env.DB_PATH': JSON.stringify(':memory:'),
     'process.env.ADMIN_PASSWORD': JSON.stringify('demo1234'),
     'process.env.UPLOAD_DIR': JSON.stringify('/uploads'),
@@ -94,7 +96,7 @@ await build({
   logLevel: 'warn',
   root: join(root, 'web'),
   plugins: [react(), tailwindcss(), genericData],
-  define: { __PREVIEW__: 'true', __MARCA__: JSON.stringify(marca), __CONTATO__: JSON.stringify(contato), __LOJA__: JSON.stringify(loja), 'process.env.NODE_ENV': JSON.stringify('production') },
+  define: { __PREVIEW__: 'true', __MARCA__: JSON.stringify(marca), __CONTATO__: JSON.stringify(contato), __LOJA__: JSON.stringify(lojaId), 'process.env.NODE_ENV': JSON.stringify('production') },
   build: {
     outDir: join(tmp, 'app'),
     emptyOutDir: true,
