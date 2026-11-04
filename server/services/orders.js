@@ -55,13 +55,16 @@ export function priceCart(items, { publicMenu = false } = {}) {
     if (!(qty >= 1 && qty <= 999)) fail(400, 'Quantidade inválida');
     const v = get(
       `SELECT v.id AS variant_id, v.name AS variant_name, v.price_cents, v.active AS v_active,
-              p.id AS product_id, p.name, p.active, p.available, p.online, p.option_groups, p.lead_time_hours
+              p.id AS product_id, p.name, p.active, p.available, p.online, p.option_groups, p.lead_time_hours, p.price_on_request
        FROM product_variants v JOIN products p ON p.id = v.product_id WHERE v.id = ?`,
       Number(it.variant_id),
     );
     if (!v || !v.active || !v.v_active) fail(400, 'Produto não encontrado ou inativo');
     if (!v.available) fail(400, `"${v.name}" está esgotado no momento`);
     if (publicMenu && !v.online) fail(400, `"${v.name}" não está disponível no cardápio online`);
+    if (v.price_on_request) {
+      fail(400, publicMenu ? `"${v.name}" tem preço a consultar: fale com a loja pelo WhatsApp` : `"${v.name}" está com preço a consultar: defina o preço em Cardápio e produtos para vender`);
+    }
 
     // adicionais / escolhas
     const groups = JSON.parse(v.option_groups || '[]');

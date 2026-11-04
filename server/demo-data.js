@@ -76,7 +76,7 @@ export function generateDemoData() {
   });
 
   const products = all(
-    `SELECT p.id, p.name, p.featured, p.option_groups, p.lead_time_hours, c.name AS cat FROM products p JOIN categories c ON c.id = p.category_id WHERE p.active = 1`,
+    `SELECT p.id, p.name, p.featured, p.option_groups, p.lead_time_hours, c.name AS cat FROM products p JOIN categories c ON c.id = p.category_id WHERE p.active = 1 AND p.price_on_request = 0`,
   ).map((p) => ({ ...p, groups: JSON.parse(p.option_groups), variants: all('SELECT id, price_cents FROM product_variants WHERE product_id = ? AND active = 1', p.id) }));
   const pool = products.filter((p) => !p.lead_time_hours).flatMap((p) => Array(p.featured ? 4 : /bebida|refrigerante|suco|água/i.test(p.cat) ? 2 : 1).fill(p));
   const cakes = demo.encomendas ? products.filter((p) => new RegExp(demo.encomendas).test(p.name)) : products.filter((p) => p.featured);

@@ -259,6 +259,7 @@ export default function Menu() {
 
       <ProductModal
         product={product}
+        whatsapp={s.whatsapp}
         notePlaceholder={segmentCopy(s).itemNote}
         onClose={() => setProduct(null)}
         onAdd={(line) => {
@@ -286,15 +287,17 @@ function ProductTile({ p, title, onOpen }) {
           : <span className="grid size-full place-items-center text-brand-200"><Cake className="size-1/3" strokeWidth={1.25} /></span>}
         {p.lead_time_hours > 0 && <span className="absolute left-2 top-2 rounded-full bg-white/95 px-2 py-0.5 text-[11px] font-medium text-brand-800 shadow-sm">Encomenda {p.lead_time_hours}h</span>}
         {p.available ? (
-          <span className="absolute bottom-2 right-2 grid size-9 place-items-center rounded-full bg-white text-brand-700 shadow-md transition group-hover:bg-brand-700 group-hover:text-white"><Plus className="size-5" /></span>
+          <span className="absolute bottom-2 right-2 grid size-9 place-items-center rounded-full bg-white text-brand-700 shadow-md transition group-hover:bg-brand-700 group-hover:text-white">{p.price_on_request ? <MessageCircle className="size-[18px]" /> : <Plus className="size-5" />}</span>
         ) : (
           <span className="absolute inset-x-2 bottom-2 rounded-full bg-stone-900/75 py-1 text-center text-xs font-medium text-white">Esgotado hoje</span>
         )}
       </div>
       <p className="mt-2 line-clamp-2 text-[15px] font-medium leading-snug text-stone-900">{displayName(title)}</p>
       <p className="mt-0.5 text-sm">
-        {multi && <span className="text-xs text-stone-500">a partir de </span>}
-        <span className="font-semibold text-brand-700">{brl(minPrice(p))}</span>
+        {p.price_on_request ? <span className="font-medium text-brand-700">Preço a consultar</span> : <>
+          {multi && <span className="text-xs text-stone-500">a partir de </span>}
+          <span className="font-semibold text-brand-700">{brl(minPrice(p))}</span>
+        </>}
       </p>
     </button>
   );
@@ -372,7 +375,23 @@ function Stepper({ value, onChange, min = 1 }) {
   );
 }
 
-function ProductModal({ product: p, onClose, onAdd, notePlaceholder }) {
+// Preço a consultar: em vez de ir para a sacola, o cliente pergunta o valor no WhatsApp da loja
+function ConsultModal({ product: p, whatsapp, onClose }) {
+  const link = whatsapp && `https://wa.me/${whatsapp}?text=${encodeURIComponent(`Olá! Vi no cardápio e quero saber o preço de: ${displayName(p.name)}`)}`;
+  return (
+    <Modal open onClose={onClose} title={displayName(p.name)} footer={link
+      ? <a href={link} target="_blank" rel="noreferrer" className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-brand-600 px-5 text-base font-medium text-white shadow-sm transition hover:bg-brand-700"><MessageCircle className="size-5" /> Consultar preço no WhatsApp</a>
+      : <Button className="w-full" size="lg" variant="secondary" onClick={onClose}>Fechar</Button>}>
+      {p.image && <img src={p.image} alt="" className="-mt-1 mb-4 aspect-[4/3] w-full rounded-2xl object-cover" />}
+      {cleanDesc(p.description, p.name) && <p className="text-sm leading-relaxed text-stone-600">{cleanDesc(p.description, p.name)}</p>}
+      <p className="mt-3 rounded-xl bg-brand-50 px-3 py-2 text-sm text-brand-800">
+        <Info className="mr-1 inline size-4" /> Preço a consultar. {link ? 'Chame a loja no WhatsApp para saber o valor e se tem hoje.' : 'Pergunte o valor para a loja.'}
+      </p>
+    </Modal>
+  );
+}
+
+function ProductModal({ product: p, onClose, onAdd, notePlaceholder, whatsapp }) {
   const [variantId, setVariantId] = useState(null);
   const [opts, setOpts] = useState([]);
   const [qty, setQty] = useState(1);
@@ -389,6 +408,7 @@ function ProductModal({ product: p, onClose, onAdd, notePlaceholder }) {
     }
   }, [p]);
   if (!p) return null;
+  if (p.price_on_request) return <ConsultModal product={p} whatsapp={whatsapp} onClose={onClose} />;
   const variant = p.variants.find((v) => v.id === variantId) || p.variants[0];
   const extra = opts.reduce((s, o) => s + (o.price_cents || 0), 0);
   const unit = variant.price_cents + extra;

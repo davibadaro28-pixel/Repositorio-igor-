@@ -50,6 +50,32 @@
      }
     ],
     "featured": false
+   },
+   {
+    "name": "Fatia - Chocolate com amendoim",
+    "description": "Massa de chocolate com recheio cremoso e cobertura de amendoim.",
+    "image": "/img/produtos/fatia-chocolate-com-amendoim.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 0
+     }
+    ],
+    "featured": false,
+    "price_on_request": true
+   },
+   {
+    "name": "Fatia - Prestígio",
+    "description": "Massa de chocolate com recheio de coco e cobertura de chocolate.",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 0
+     }
+    ],
+    "featured": false,
+    "price_on_request": true
    }
   ]
  },
@@ -92,6 +118,45 @@
      }
     ],
     "featured": true
+   },
+   {
+    "name": "Bombom de morango com brigadeiro",
+    "description": "Morango inteiro envolto em brigadeiro, servido no potinho.",
+    "image": "/img/produtos/bombom-de-morango-com-brigadeiro.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 0
+     }
+    ],
+    "featured": false,
+    "price_on_request": true
+   },
+   {
+    "name": "Tortinha de limão",
+    "description": "Base crocante, creme de limão e cobertura de merengue.",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 0
+     }
+    ],
+    "featured": false,
+    "price_on_request": true
+   },
+   {
+    "name": "Mini bolo Nutella com chocolate branco",
+    "description": "Bolo individual de chocolate com recheio de Nutella e cobertura de chocolate branco.",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 0
+     }
+    ],
+    "featured": false,
+    "price_on_request": true
    }
   ]
  },
@@ -206,6 +271,32 @@
      }
     ],
     "featured": false
+   },
+   {
+    "name": "Pastel frito",
+    "description": "Pastel de massa sem glúten, frito na hora. Pergunte os sabores do dia.",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 0
+     }
+    ],
+    "featured": false,
+    "price_on_request": true
+   },
+   {
+    "name": "Empanada de carne",
+    "description": "Massa assada recheada com carne temperada.",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 0
+     }
+    ],
+    "featured": false,
+    "price_on_request": true
    }
   ]
  },

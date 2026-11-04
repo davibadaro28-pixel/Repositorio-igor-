@@ -59,6 +59,7 @@ CREATE TABLE IF NOT EXISTS products (
   featured        INTEGER NOT NULL DEFAULT 0,  -- "mais vendidos" no cardápio
   online          INTEGER NOT NULL DEFAULT 1,  -- aparece no cardápio digital
   lead_time_hours INTEGER NOT NULL DEFAULT 0,  -- só por encomenda com X horas
+  price_on_request INTEGER NOT NULL DEFAULT 0, -- preço a consultar: o cliente pergunta pelo WhatsApp
   option_groups   TEXT NOT NULL DEFAULT '[]',  -- JSON: [{name,min,max,options:[{name,price_cents}]}]
   stock_control   INTEGER NOT NULL DEFAULT 0,  -- controla estoque de produto pronto
   stock_qty       REAL NOT NULL DEFAULT 0,

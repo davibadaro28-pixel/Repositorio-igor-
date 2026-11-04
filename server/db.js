@@ -81,6 +81,7 @@ if (!ordersSql.includes("'99food'")) {
   db.exec(schemaSql); // recria os índices
 }
 if (!hasColumn('orders', 'customer_doc')) db.exec('ALTER TABLE orders ADD COLUMN customer_doc TEXT');
+if (!hasColumn('products', 'price_on_request')) db.exec('ALTER TABLE products ADD COLUMN price_on_request INTEGER NOT NULL DEFAULT 0');
 db.exec('CREATE UNIQUE INDEX IF NOT EXISTS idx_orders_external ON orders(external_platform, external_id) WHERE external_id IS NOT NULL');
 
 export function getSetting(key, fallback = null) {

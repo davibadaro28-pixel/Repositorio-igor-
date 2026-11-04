@@ -27,7 +27,7 @@ export async function uploadImage(file) {
 
 const blank = (categoryId) => ({
   name: '', description: '', category_id: categoryId, image: '', active: 1, available: 1, featured: 0, online: 1,
-  lead_time_hours: 0, option_groups: [], stock_control: 0, variants: [{ name: '', price_cents: 0 }],
+  lead_time_hours: 0, price_on_request: 0, option_groups: [], stock_control: 0, variants: [{ name: '', price_cents: 0 }],
 });
 
 export default function Products() {
@@ -106,11 +106,12 @@ export default function Products() {
                     {p.featured ? <Star className="size-3.5 fill-gold text-gold" /> : null}
                     {!p.online && <Badge className="bg-stone-100 text-stone-600 ring-stone-200">só no balcão</Badge>}
                     {p.lead_time_hours > 0 && <Badge className="bg-brand-50 text-brand-700 ring-brand-100">encomenda {p.lead_time_hours}h</Badge>}
+                    {p.price_on_request ? <Badge className="bg-amber-50 text-amber-800 ring-amber-200">preço a consultar</Badge> : null}
                     {!p.active && <Badge className="bg-stone-100 text-stone-600 ring-stone-200">arquivado</Badge>}
                   </p>
                   <p className="text-xs text-stone-500">{p.category_name}</p>
                   <p className="mt-0.5 text-sm">
-                    {p.variants.map((v) => (
+                    {p.price_on_request ? <span className="mr-3 text-stone-500">Preço a consultar</span> : p.variants.map((v) => (
                       <span key={v.id} className="mr-3 whitespace-nowrap">
                         {v.name && <span className="text-stone-500">{v.name}: </span>}<b>{brl(v.price_cents)}</b>
                         <span className="ml-1 font-mono text-[11px] text-stone-400" title="Código para o iFood e a 99Food (Código PDV)">V{v.id}</span>
@@ -245,6 +246,7 @@ function ProductModal({ product, categories, onClose, onSaved }) {
             <Toggle checked={!!p.available} onChange={(v) => set({ available: v ? 1 : 0 })} label="Disponível hoje" />
             <Toggle checked={!!p.online} onChange={(v) => set({ online: v ? 1 : 0 })} label="No cardápio online" />
             <Toggle checked={!!p.featured} onChange={(v) => set({ featured: v ? 1 : 0 })} label="Destaque" />
+            <Toggle checked={!!p.price_on_request} onChange={(v) => set({ price_on_request: v ? 1 : 0 })} label="Preço a consultar" />
             <Toggle checked={!!p.active} onChange={(v) => set({ active: v ? 1 : 0 })} label="Ativo" />
           </div>
         </div>
@@ -261,6 +263,7 @@ function ProductModal({ product, categories, onClose, onSaved }) {
 
           <div>
             <p className="mb-2 text-sm font-medium text-stone-700">Tamanhos e preços</p>
+            {p.price_on_request ? <p className="mb-2 rounded-xl bg-amber-50 px-3 py-2 text-xs text-amber-800">Preço a consultar: no cardápio aparece um botão para o cliente perguntar o valor no WhatsApp, e o produto não entra na sacola nem no PDV. Coloque o preço e desligue a opção para vender.</p> : null}
             <div className="space-y-2">
               {p.variants.map((v, i) => (
                 <div key={i} className="flex gap-2">

@@ -98,3 +98,26 @@ test('aparência: cor e fonte são validadas ao salvar', async () => {
   assert.equal(saved.data.theme.color, '#c8203f');
   assert.equal(saved.data.theme.style, 'onda');
 });
+
+test('preço a consultar: aparece no cardápio, mas não entra em pedido até ter preço', async () => {
+  const cats = (await api('/api/categories', { token: admin })).data;
+  const created = await api('/api/products', {
+    method: 'POST', token: admin,
+    body: { name: 'Bolo da casa', category_id: cats[0].id, price_on_request: 1, variants: [{ name: null, price_cents: 0 }] },
+  });
+  assert.equal(created.status, 201, JSON.stringify(created.data));
+  assert.equal(created.data.price_on_request, 1);
+  const p = await product('Bolo da casa');
+  assert.equal(p.price_on_request, 1);
+  const item = { variant_id: p.variants[0].id, qty: 1 };
+  const site = await api('/api/public/orders', { method: 'POST', body: { type: 'retirada', customer: { name: 'Ana Souza', phone: '41999990000' }, payment_method: 'pix', items: [item] } });
+  assert.equal(site.status, 400);
+  assert.match(site.data.error, /preço a consultar/);
+  const pdv = await api('/api/orders', { method: 'POST', token: admin, body: { type: 'balcao', channel: 'pdv', payment_method: 'pix', items: [item] } });
+  assert.equal(pdv.status, 400);
+  // a loja define o preço e desliga a opção: aí vende normalmente
+  const saved = await api(`/api/products/${p.id}`, { method: 'PUT', token: admin, body: { ...created.data, price_on_request: 0, variants: [{ ...created.data.variants[0], price_cents: 4500 }] } });
+  assert.equal(saved.status, 200, JSON.stringify(saved.data));
+  const ok = await api('/api/orders', { method: 'POST', token: admin, body: { type: 'balcao', channel: 'pdv', payment_method: 'pix', items: [{ variant_id: saved.data.variants[0].id, qty: 1 }] } });
+  assert.equal(ok.status, 201, JSON.stringify(ok.data));
+});

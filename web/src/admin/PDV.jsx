@@ -62,6 +62,7 @@ export default function PDV() {
 
   const tap = (p) => {
     if (!p.available) return toast(`${p.name} está marcado como esgotado`, 'error');
+    if (p.price_on_request) return toast(`${p.name} está com preço a consultar. Defina o preço em Cardápio e produtos para vender no balcão`, 'error');
     if (p.variants.length === 1 && !p.option_groups.length) add(p, p.variants[0]);
     else setPicking(p);
   };
@@ -232,7 +233,7 @@ export default function PDV() {
               <div className="aspect-[4/3] w-full bg-brand-50">{p.image ? <img src={p.image} alt="" loading="lazy" className="size-full object-cover" /> : <span className="grid size-full place-items-center text-brand-200"><Cake className="size-1/3" strokeWidth={1.25} /></span>}</div>
               <div className="p-2">
                 <p className="line-clamp-2 text-sm font-medium leading-tight">{p.name}</p>
-                <p className="mt-1 text-sm font-semibold text-brand-700">{p.variants.length > 1 ? `${brl(p.variants[0].price_cents)}+` : brl(p.variants[0].price_cents)}</p>
+                <p className="mt-1 text-sm font-semibold text-brand-700">{p.price_on_request ? 'A consultar' : p.variants.length > 1 ? `${brl(p.variants[0].price_cents)}+` : brl(p.variants[0].price_cents)}</p>
               </div>
             </button>
           ))}

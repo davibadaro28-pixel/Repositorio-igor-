@@ -113,7 +113,7 @@ function productFields(b) {
   return [
     categoryId, required(b.name, 'o nome do produto', 120), str(b.description, 1000) || '', str(b.image, 300),
     bool(b.active ?? 1), bool(b.available ?? 1), bool(b.featured), bool(b.online ?? 1), Math.max(0, int(b.lead_time_hours, 0)),
-    parseGroups(b.option_groups), bool(b.stock_control),
+    parseGroups(b.option_groups), bool(b.stock_control), bool(b.price_on_request),
   ];
 }
 
@@ -123,7 +123,7 @@ r.post('/products', write, (req, res) => {
     const pos = get('SELECT COALESCE(MAX(position), -1) + 1 AS p FROM products WHERE category_id = ?', f[0]).p;
     const x = run(
       `INSERT INTO products (category_id, name, description, image, active, available, featured, online, lead_time_hours,
-         option_groups, stock_control, position, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+         option_groups, stock_control, price_on_request, position, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
       ...f, pos, now(),
     );
     saveVariants(Number(x.lastInsertRowid), req.body.variants);
@@ -138,7 +138,7 @@ r.put('/products/:id', write, (req, res) => {
   tx(() => {
     run(
       `UPDATE products SET category_id = ?, name = ?, description = ?, image = ?, active = ?, available = ?, featured = ?,
-         online = ?, lead_time_hours = ?, option_groups = ?, stock_control = ? WHERE id = ?`,
+         online = ?, lead_time_hours = ?, option_groups = ?, stock_control = ?, price_on_request = ? WHERE id = ?`,
       ...productFields(req.body), id,
     );
     saveVariants(id, req.body.variants);

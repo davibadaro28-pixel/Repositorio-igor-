@@ -185,9 +185,9 @@ export function seedIfEmpty() {
             options: g.options.map((o) => ({ name: o.name, price_cents: Math.round((o.price || 0) * 100) })),
           }));
           const r = run(
-            `INSERT INTO products (category_id, name, description, image, featured, lead_time_hours, option_groups, position, created_at)
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            c.lastInsertRowid, p.name, p.description, p.image, p.featured ? 1 : 0, p.lead_time_hours || 0, JSON.stringify(groups), pi, t,
+            `INSERT INTO products (category_id, name, description, image, featured, lead_time_hours, price_on_request, option_groups, position, created_at)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            c.lastInsertRowid, p.name, p.description, p.image, p.featured ? 1 : 0, p.lead_time_hours || 0, p.price_on_request ? 1 : 0, JSON.stringify(groups), pi, t,
           );
           p.variants.forEach((v, vi) => {
             run('INSERT INTO product_variants (product_id, name, price_cents, position) VALUES (?, ?, ?, ?)',
