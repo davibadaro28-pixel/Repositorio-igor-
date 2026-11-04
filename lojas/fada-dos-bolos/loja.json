@@ -1,0 +1,82 @@
+{
+  "_fonte": "Cardápio, preços, fotos, logo, endereço, horários e WhatsApp copiados do cardápio online da loja (https://afadadosbolosedoces.ola.click/products) em 04/11/2026. Bairros e taxas de entrega, insumos e custos são exemplos para a demonstração: confirmar com a loja.",
+  "segment": "doceria",
+  "store": {
+    "name": "A Fada dos Bolos",
+    "tagline": "Sem glúten e lactose",
+    "slogan": "Bolos, doces, salgados e café sem glúten, no Bom Retiro",
+    "whatsapp": "5541999094553",
+    "phone": "(41) 99909-4553",
+    "instagram": "",
+    "logo": "/img/logo.webp",
+    "address": "R. Albino Silva, 501 – Bom Retiro, Curitiba – PR, 80520-210",
+    "hours": {
+      "sunday": { "active": false, "open": "13:00", "close": "18:00" },
+      "monday": { "active": true, "open": "11:00", "close": "19:00" },
+      "tuesday": { "active": true, "open": "11:00", "close": "19:00" },
+      "wednesday": { "active": true, "open": "11:00", "close": "19:00" },
+      "thursday": { "active": true, "open": "11:00", "close": "19:00" },
+      "friday": { "active": true, "open": "11:00", "close": "19:00" },
+      "saturday": { "active": true, "open": "11:00", "close": "19:00" }
+    },
+    "scheduling_enabled": true,
+    "prep_time_min": 20,
+    "delivery_time_min": 65,
+    "theme": { "color": "#0f8a9d", "font": "script", "style": "renda", "bg": "#fff7f8" }
+  },
+  "payment_methods_off": ["vr", "va"],
+  "fiscal": { "razao_social": "A Fada dos Bolos e Doces" },
+  "zones": [
+    ["Bom Retiro", 500], ["São Francisco", 700], ["Centro Cívico", 700], ["Mercês", 700], ["Ahú", 800], ["Juvevê", 800],
+    ["Centro", 900], ["Cabral", 900], ["Pilarzinho", 900], ["Bigorrilho", 1000], ["Batel", 1100], ["Água Verde", 1200]
+  ],
+  "fin_categories": [
+    ["Vendas", "receita"], ["Encomendas e eventos", "receita"], ["Outras receitas", "receita"],
+    ["Insumos e matéria-prima", "despesa"], ["Embalagens", "despesa"], ["Aluguel", "despesa"], ["Energia elétrica", "despesa"],
+    ["Água", "despesa"], ["Gás", "despesa"], ["Internet e telefone", "despesa"], ["Salários e encargos", "despesa"],
+    ["Pró-labore", "despesa"], ["Impostos (DAS)", "despesa"], ["Taxas de cartão e apps", "despesa"], ["Marketing", "despesa"],
+    ["Manutenção e equipamentos", "despesa"], ["Entregadores", "despesa"], ["Outras despesas", "despesa"]
+  ],
+  "ingredients": [
+    ["Mix de farinhas sem glúten", "g", 2.2], ["Farinha de arroz", "g", 1.2], ["Fécula de batata", "g", 1.4], ["Polvilho", "g", 1.1],
+    ["Açúcar", "g", 0.45], ["Ovos", "un", 80], ["Manteiga sem lactose", "g", 6.5], ["Óleo", "ml", 0.9], ["Fermento", "g", 4.0],
+    ["Leite zero lactose", "ml", 0.65], ["Creme de leite zero lactose", "g", 2.6], ["Leite condensado zero lactose", "g", 2.8],
+    ["Leite em pó Ninho", "g", 5.8], ["Nutella", "g", 6.9], ["Doce de leite", "g", 2.4], ["Nozes", "g", 9.0], ["Damasco", "g", 8.0],
+    ["Morango", "g", 2.0], ["Banana", "g", 0.6], ["Chocolate em pó 50%", "g", 4.5], ["Biscoito Schär", "g", 12.0], ["Chantilly", "ml", 2.2],
+    ["Frango desfiado", "g", 3.2], ["Requeijão cremoso", "g", 3.5], ["Queijo zero lactose", "g", 6.0], ["Palmito", "g", 4.5],
+    ["Café em grãos", "g", 9.0], ["Chá (sachê)", "un", 60],
+    ["Embalagem fatia", "un", 120], ["Embalagem salgado", "un", 40], ["Copo descartável", "un", 30],
+    ["Refrigerante lata 350 ml", "un", 300], ["Refrigerante lata 220 ml", "un", 220], ["Água 500 ml", "un", 120]
+  ],
+  "recipes": {
+    "Fatia - Marta Rocha": [["Mix de farinhas sem glúten", 30], ["Açúcar", 25], ["Ovos", 0.5], ["Leite zero lactose", 20], ["Doce de leite", 40], ["Nozes", 8], ["Damasco", 8], ["Embalagem fatia", 1]],
+    "Fatia - Nutella com leite Ninho": [["Mix de farinhas sem glúten", 30], ["Açúcar", 25], ["Ovos", 0.5], ["Leite em pó Ninho", 12], ["Nutella", 20], ["Creme de leite zero lactose", 20], ["Embalagem fatia", 1]],
+    "Fatia - Ninho com morango": [["Mix de farinhas sem glúten", 30], ["Açúcar", 25], ["Ovos", 0.5], ["Leite em pó Ninho", 12], ["Leite condensado zero lactose", 30], ["Morango", 30], ["Embalagem fatia", 1]],
+    "Fatia - Doce de leite com leite Ninho": [["Mix de farinhas sem glúten", 30], ["Açúcar", 25], ["Ovos", 0.5], ["Leite em pó Ninho", 10], ["Doce de leite", 35], ["Embalagem fatia", 1]],
+    "Fatia - Banoffee": [["Biscoito Schär", 25], ["Manteiga sem lactose", 10], ["Banana", 50], ["Doce de leite", 35], ["Chantilly", 30], ["Embalagem fatia", 1]],
+    "Coxinha de frango": [["Mix de farinhas sem glúten", 35], ["Frango desfiado", 45], ["Óleo", 15], ["Embalagem salgado", 1]],
+    "Coxinha de frango com Catupiry": [["Mix de farinhas sem glúten", 35], ["Frango desfiado", 40], ["Requeijão cremoso", 15], ["Óleo", 15], ["Embalagem salgado", 1]],
+    "Pão de queijo tradicional": [["Polvilho", 25], ["Queijo zero lactose", 10], ["Ovos", 0.15], ["Leite zero lactose", 10]],
+    "Café passado": [["Café em grãos", 10], ["Copo descartável", 1]],
+    "Cappuccino tradicional": [["Café em grãos", 9], ["Leite zero lactose", 150], ["Chocolate em pó 50%", 5], ["Copo descartável", 1]],
+    "Coca-Cola lata 350ml": [["Refrigerante lata 350 ml", 1]],
+    "Coca-Cola Zero lata 350ml": [["Refrigerante lata 350 ml", 1]],
+    "Fanta Laranja lata 220ml": [["Refrigerante lata 220 ml", 1]],
+    "Água mineral 500ml": [["Água 500 ml", 1]]
+  },
+  "low_stock": ["Mix de farinhas sem glúten", "Biscoito Schär", "Leite em pó Ninho"],
+  "ncm": {
+    "byName": [
+      ["água", "22011000", "revenda_st"], ["coca|fanta", "22021000", "revenda_st"], ["brigadeiro", "18069000"],
+      ["expresso|café|cappuccino|macchiato", "21011200"], ["chocolate quente", "18069000"], ["chá", "09024000"]
+    ],
+    "byCategory": { "Fatias de bolo": "19059090", "Sobremesas": "19059090", "Salgados": "19059090" }
+  },
+  "demo": {
+    "razao_social": "A Fada dos Bolos e Doces",
+    "streets": ["Rua Nilo Peçanha", "Rua Mateus Leme", "Av. Manoel Ribas", "Rua Holanda", "Rua Paulo Gorski", "Rua Albino Silva", "Rua Bom Jesus", "Rua Jaime Reis"],
+    "encomendas": "^Fatia",
+    "nota_encomenda": "Para festa de aniversário: embalar separado e sem glúten",
+    "notas": ["Sem açúcar no café, por favor", "Embalar para presente", "Mandar talheres", "Cliente celíaca: cuidado com contaminação"]
+  }
+}

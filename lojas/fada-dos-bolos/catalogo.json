@@ -1,0 +1,476 @@
+[
+ {
+  "name": "Fatias de bolo",
+  "section": "Bolos e doces",
+  "products": [
+   {
+    "name": "Fatia - Marta Rocha",
+    "description": "Massa branca e massa de chocolate, recheio de doce de leite com nozes e damasco. (Sem glúten, zero lactose)",
+    "image": "/img/produtos/fatia-marta-rocha.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 18.0
+     }
+    ],
+    "featured": true
+   },
+   {
+    "name": "Fatia - Nutella com leite Ninho",
+    "description": "Massa branca, recheio de mousse de leite Ninho e Nutella. (Sem glúten, contém lactose)",
+    "image": "/img/produtos/fatia-nutella-com-leite-ninho.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 18.0
+     }
+    ],
+    "featured": true
+   },
+   {
+    "name": "Fatia - Ninho com morango",
+    "description": "Massa branca, recheio de leite Ninho com morango. (Sem glúten, zero lactose)",
+    "image": "/img/produtos/fatia-ninho-com-morango.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 18.0
+     }
+    ],
+    "featured": true
+   },
+   {
+    "name": "Fatia - Doce de leite com leite Ninho",
+    "description": "Massa branca, recheio de mousse de leite Ninho e doce de leite. (Sem glúten, zero lactose)",
+    "image": "/img/produtos/fatia-doce-de-leite-com-leite-ninho.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 18.0
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Sobremesas",
+  "section": "Bolos e doces",
+  "products": [
+   {
+    "name": "Fatia - Banoffee",
+    "description": "Massa de bolacha, recheio banana e doce de leite com chantilly e canela. (Sem glúten e Zero Lactose)",
+    "image": "/img/produtos/fatia-banoffee.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 15.0
+     }
+    ],
+    "featured": true
+   },
+   {
+    "name": "Brigadeiro de Oreo",
+    "description": "Brigadeiro com biscoito Schär de chocolate recheado. (Sem glúten, contém lactose)",
+    "image": "/img/produtos/brigadeiro-de-oreo.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 8.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Torta de Oreo (bolacha Schär)",
+    "description": "",
+    "image": "/img/produtos/torta-de-oreo-bolacha-schar.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 16.0
+     }
+    ],
+    "featured": true
+   }
+  ]
+ },
+ {
+  "name": "Salgados",
+  "section": "Salgados",
+  "products": [
+   {
+    "name": "Coxinha de frango com Catupiry",
+    "description": "",
+    "image": "/img/produtos/coxinha-de-frango-com-catupiry.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 13.5
+     }
+    ],
+    "featured": true
+   },
+   {
+    "name": "Coxinha de frango",
+    "description": "Sem leite",
+    "image": "/img/produtos/coxinha-de-frango.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 13.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Croquete de queijo e tomate",
+    "description": "Recheado de queijo zero lactose com tomate.",
+    "image": "/img/produtos/croquete-de-queijo-e-tomate.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 13.5
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Enroladinho de salsicha (vina)",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 13.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Risoles de Carne",
+    "description": "",
+    "image": "/img/produtos/risoles-de-carne.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 13.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Coxinha de palmito vegana",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 13.5
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Pão de queijo recheado com requeijão",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 8.5
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Pão de queijo tradicional",
+    "description": "Zero lactose",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 3.5
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Pão de queijo calabresa",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 3.5
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Bebidas frias",
+  "section": "Bebidas",
+  "products": [
+   {
+    "name": "Coca-Cola lata 350ml",
+    "description": "Lata 350ml.",
+    "image": "/img/produtos/coca-cola-lata-350ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 6.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Coca-Cola Zero lata 350ml",
+    "description": "Lata 350ml.",
+    "image": "/img/produtos/coca-cola-zero-lata-350ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 6.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Fanta Laranja lata 220ml",
+    "description": "",
+    "image": "/img/produtos/fanta-laranja-lata-220ml.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 4.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Água mineral 500ml",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 4.0
+     }
+    ],
+    "featured": false
+   }
+  ]
+ },
+ {
+  "name": "Cafés e bebidas quentes",
+  "section": "Bebidas",
+  "products": [
+   {
+    "name": "Expresso curto",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 6.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Expresso médio",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 7.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Expresso carioca",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 7.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Expresso com creme",
+    "description": "Creme sem a proteína do leite",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 12.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Expresso duplo",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 10.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Café passado",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 8.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Café com leite passado",
+    "description": "Zero lactose",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 12.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Expresso com leite",
+    "description": "Zero lactose",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 10.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Macchiato",
+    "description": "Zero lactose",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 10.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Cappuccino tradicional",
+    "description": "Zero lactose",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 12.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Cappuccino com creme",
+    "description": "Zero lactose",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 14.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Cappuccino taça Nutella",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 18.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Cappuccino taça Doce de leite",
+    "description": "Zero lactose",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 16.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Chocolate quente",
+    "description": "Zero lactose",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 10.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Chocolate quente Nutella",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 18.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Chocolate quente Doce de leite",
+    "description": "Zero lactose",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 16.0
+     }
+    ],
+    "featured": false
+   },
+   {
+    "name": "Xícara de chá quente",
+    "description": "",
+    "image": null,
+    "variants": [
+     {
+      "name": null,
+      "price": 5.0
+     }
+    ],
+    "featured": false
+   }
+  ]
+ }
+]

@@ -7,6 +7,7 @@ várias lojas: cada cliente tem uma pasta em [`lojas/`](lojas/) com o cardápio,
 |---|---|---|
 | **Laços de Mãe – Bolos e Doces** (Parque Boturussu, São Paulo) | `lojas/lacos-de-mae` (padrão) | 77 produtos em 16 categorias |
 | **VS Burger e Gelato** – hamburgueria gamer (Centro, Carapicuíba) | `lojas/vs-burger` | 75 produtos em 13 categorias, com ponto da carne, adicionais e combos família |
+| **A Fada dos Bolos** – confeitaria e café sem glúten e lactose (Bom Retiro, Curitiba) – demonstração | `lojas/fada-dos-bolos` | 37 produtos em 5 categorias (fatias, sobremesas, salgados e cafés) |
 
 Os cardápios vieram dos cardápios online atuais de cada loja (produtos, preços, adicionais e fotos).
 
