@@ -1098,9 +1098,9 @@ a {
 }
 
 .capitulo-foto-vazia svg {
-  width: 40%;
+  width: 46%;
   height: auto;
-  max-height: 55%;
+  max-height: 62%;
 }
 
 .capitulo-texto {
@@ -2099,7 +2099,7 @@ button.botao {
   .capitulo:nth-child(even) .capitulo-foto {
     order: 0;
     justify-self: start;
-    max-width: 18rem;
+    max-width: 15rem;
   }
 
   .capitulo:nth-child(even) .capitulo-texto {
