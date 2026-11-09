@@ -3,7 +3,7 @@
 // As telas do celular são capturas do cardápio real (scripts/capturar.cjs).
 (() => {
   const M = window.META;
-  const D = 39;
+  const D = 40;
   const FPS = 30;
   const CUES = [];
   const cue = (t, type, extra = {}) => CUES.push({ t: Math.round(t * 1000) / 1000, type, ...extra });
@@ -442,7 +442,7 @@
     const b = $('div', 'bokeh', layers, { left: px(bok() * 1080 - s / 2), top: px(500 + bok() * 1400), width: px(s), height: px(s),
       background: i % 3 ? 'rgba(243,188,203,.35)' : 'rgba(255,226,196,.32)', opacity: 0 });
     tl.to(b, { opacity: 0.5 + bok() * 0.4, duration: 1.2 }, 31.2 + bok());
-    tl.to(b, { y: -200 - bok() * 250, x: (bok() - 0.5) * 120, duration: 7.5, ease: 'none' }, 31.2);
+    tl.to(b, { y: -200 - bok() * 250, x: (bok() - 0.5) * 120, duration: 8.8, ease: 'none' }, 31.2);
   }
   const h5a = headline([['Seu cardápio merece ser', 'sans'], ['tão especial quanto', 'serif'], ['seus produtos.', 'serif']], 220);
   showHL(h5a, 31.3, 0.075);
@@ -464,7 +464,7 @@
   const h5c = headline([['e transforme sua doceria.', 'serif']], 762);
   h5c.box.querySelector('.ln').style.fontSize = '74px';
   showHL(h5c, 36.0, 0.06);
-  pose(A.el, 35.4, 3.6, { y: 740, rotationY: -6, rotationX: 8 }, 'sine.inOut');
+  pose(A.el, 35.4, 4.6, { y: 740, rotationY: -6, rotationX: 8 }, 'sine.inOut');
   tl.to(glowWine, { scale: 1.2, duration: 2.5, ease: 'sine.inOut', yoyo: true, repeat: 1 }, 34.9);
   cue(37.0, 'end');
   tl.set({}, {}, D);

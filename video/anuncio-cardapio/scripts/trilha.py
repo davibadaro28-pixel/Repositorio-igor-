@@ -1,5 +1,6 @@
 """Trilha original (sintetizada aqui, sem direitos de terceiros) e efeitos sonoros nas marcações da composição.
 120 BPM, compasso de 2 s começando em 1,0 s, para as trocas de cena caírem no tempo forte (5, 13, 23, 31, 35, 37 s).
+Com narração: os instrumentos abaixam sozinhos quando a voz entra (ver mixar.sh).
 Uso: python3 trilha.py <cues.json> <saida.wav>
 """
 import json
@@ -348,7 +349,7 @@ out = mix * duck + wet * 0.22
 
 # fim: o acorde soa e some no último segundo
 fade = np.ones(N)
-fs = int(38.2 * SR)
+fs = int((D - 0.9) * SR)
 fade[fs:] = np.linspace(1, 0, N - fs) ** 2
 out *= fade
 out = np.vstack([filt(out[c], lo=28) for c in range(2)])
