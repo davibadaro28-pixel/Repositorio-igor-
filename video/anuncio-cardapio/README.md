@@ -34,20 +34,19 @@ node scripts/render.cjs marcas /tmp/anuncio/cues.json
 python3 scripts/trilha.py /tmp/anuncio/cues.json /tmp/anuncio/trilha.wav
 node scripts/render.cjs video /tmp/anuncio/video-sem-som.mp4
 
-# 4. narração por IA (ambiente Python 3.11 à parte, CPU)
-uv venv -p python3.11 /tmp/tts && VIRTUAL_ENV=/tmp/tts uv pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
-VIRTUAL_ENV=/tmp/tts uv pip install chatterbox-tts==0.1.7 kokoro "misaki[en]" faster-whisper "setuptools<81" \
-  --extra-index-url https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match
-/tmp/tts/bin/python scripts/narracao.py /tmp/anuncio/voz /tmp/anuncio/narracao.wav --voz pf_dora   # ou pm_alex (voz masculina)
+# 4. narração: voz brasileira nativa do ElevenLabs (plano Starter ou acima: libera as vozes da biblioteca e o uso comercial)
+ELEVENLABS_API_KEY=... python3 scripts/narracao_elevenlabs.py /tmp/anuncio/voz /tmp/anuncio/narracao.wav \
+  --voz iScHbNW8K33gNo3lGgbo --dono 7e00f51a98997e64678b137e43561da19244070bf4e947a44274e0948ff7673c   # Marianne
+#    outras: Roberta ohZOfA9iwlZ5nOsoY7LB (dono 4a19cd68…), Diego rpNe0HOx7heUulPiOEaG (dono e2491119…)
+#    alternativa gratuita (soa artificial): scripts/narracao.py com Chatterbox + Kokoro
 
 # 5. mixagem: a trilha abaixa quando a voz fala; volume final -14 LUFS
 bash scripts/mixar.sh /tmp/anuncio/video-sem-som.mp4 /tmp/anuncio/trilha.wav /tmp/anuncio/narracao.wav anuncio.mp4
 ```
 
-**Narração.** Roteiro em `scripts/narracao.py`, uma frase por cena. A voz é do Chatterbox Multilingual (Resemble AI,
-licença MIT, que coloca uma marca d'água inaudível de áudio gerado por IA), com o timbre e o sotaque de uma voz
-brasileira de referência do Kokoro (Apache 2.0). As duas licenças permitem uso comercial. Cada frase é gerada até 3
-vezes e fica a que o Whisper transcreve igual ao roteiro e que cabe no tempo da cena; nenhuma frase encosta na outra.
+**Narração.** Roteiro em `scripts/narracao_elevenlabs.py`, uma frase curta por cena, na voz da Marianne (locutora
+brasileira da biblioteca do ElevenLabs, modelo multilingual v2). A voz fala no ritmo natural (no máximo 6% mais rápido);
+se uma frase não cabe na cena, entra a versão mais curta que está ao lado dela. A chave nunca vai para o repositório.
 
 - `comp/index.html` + `comp/anuncio.js`: a composição (HTML, CSS 3D e GSAP). `window.renderAt(t)` desenha o
   quadro do tempo `t`, sempre igual, então o render é quadro a quadro, sem perda.

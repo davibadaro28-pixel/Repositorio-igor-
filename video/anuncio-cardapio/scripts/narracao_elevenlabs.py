@@ -29,19 +29,21 @@ if os.environ.get('ELEVENLABS_API_KEY'):
 else:
     KEY = open(os.environ['ELEVEN_HDR']).read().split(':', 1)[1].strip()
 
-# mesmo roteiro e mesmos tempos da versão anterior (início, até quando pode ir, texto)
+# roteiro por cena: (início, até quando pode ir, [texto preferido, versões mais curtas de reserva])
+# a voz fala no ritmo natural (no máximo 6% mais rápido); se não couber, usa a versão mais curta
 ROTEIRO = [
-    (0.30, 4.7, 'Sua doceria ainda vende pelo cardápio tradicional?'),
-    (5.20, 12.6, 'Transforme a experiência de compra dos seus clientes com um cardápio digital totalmente personalizado.'),
-    (13.10, 17.4, 'Seu cliente navega pelas categorias, vê as fotos e escolhe o tamanho.'),
-    (18.50, 21.2, 'Escolhe o dia da encomenda e paga como quiser.'),
-    (21.30, 23.3, 'E o pedido chega direto no seu painel.'),
-    (23.40, 26.2, 'Sua marca em cada detalhe.'),
-    (26.40, 28.5, 'Seus produtos valorizados.'),
-    (28.70, 31.2, 'E pedidos direto para você, sem comissão.'),
-    (31.20, 34.75, 'Seu cardápio merece ser tão especial quanto os seus produtos.'),
-    (34.75, 37.5, 'Crie seu cardápio digital personalizado.'),
-    (37.55, 39.85, 'Entre em contato e transforme sua doceria.'),
+    (0.30, 4.7, ['Sua doceria ainda vende pelo cardápio tradicional?']),
+    (5.20, 12.6, ['Transforme a experiência de compra com um cardápio digital totalmente personalizado.',
+                  'Transforme a experiência de compra com um cardápio digital personalizado.']),
+    (13.10, 17.5, ['Seu cliente vê as fotos e escolhe o tamanho.', 'Seu cliente escolhe pelas fotos.']),
+    (18.40, 21.35, ['Escolhe o dia e paga como quiser.']),
+    (21.40, 23.62, ['E o pedido chega direto no seu painel.', 'Direto no seu painel.']),
+    (23.70, 26.30, ['Sua marca em cada detalhe.']),
+    (26.40, 28.6, ['Seus produtos valorizados.']),
+    (28.70, 31.0, ['Sem comissão por pedido.']),
+    (31.00, 35.0, ['Seu cardápio merece ser tão especial quanto seus produtos.', 'Um cardápio tão especial quanto seus produtos.']),
+    (35.05, 37.35, ['Peça o seu agora mesmo.']),
+    (37.42, 39.92, ['Entre em contato e transforme sua doceria.', 'Entre em contato.']),
 ]
 
 
@@ -87,26 +89,44 @@ if '--amostra' in sys.argv:
     sys.exit()
 
 track = np.zeros(int((DUR + 1) * SR))
-report, prev_end = [], 0.0
-for k, (t0, t1, text) in enumerate(ROTEIRO):
-    prev = ROTEIRO[k - 1][2] if k else ''
-    nxt = ROTEIRO[k + 1][2] if k + 1 < len(ROTEIRO) else ''
-    t0 = max(t0, prev_end + 0.08)
+report, prev_end, chosen = [], 0.0, []
+
+
+def take(k, text, speed, prev, nxt):
+    f = os.path.join(WORK, f'frase{k:02d}-{abs(hash(text)) % 10**6:06d}-v{speed:.2f}.mp3')
+    if os.path.exists(f) and os.path.exists(f + '.json'):
+        mp3, al = open(f, 'rb').read(), json.load(open(f + '.json'))
+    else:
+        mp3, al = tts(text, prev, nxt, speed)
+        open(f, 'wb').write(mp3)
+        json.dump(al, open(f + '.json', 'w'))
+    x = trim(decode(mp3), al)
+    return x, len(x) / SR, f
+
+
+for k, (t0, t1, options) in enumerate(ROTEIRO):
+    prev = chosen[-1] if chosen else ''
+    nxt = ROTEIRO[k + 1][2][0] if k + 1 < len(ROTEIRO) else ''
+    t0 = max(t0, prev_end + 0.12)
     room = t1 - t0
-    speed = 1.0
-    for attempt in range(3):
-        f = os.path.join(WORK, f'frase{k:02d}-v{speed:.2f}.mp3')
-        if os.path.exists(f) and os.path.exists(f + '.json'):
-            mp3, al = open(f, 'rb').read(), json.load(open(f + '.json'))
+    pick = None
+    for j, text in enumerate(options):
+        x, length, f = take(k, text, 1.0, prev, nxt)
+        if length > room:
+            speed = round(min(1.06, length / room + 0.01), 2)
+            x, length, f = take(k, text, speed, prev, nxt)
         else:
-            mp3, al = tts(text, prev, nxt, speed)
-            open(f, 'wb').write(mp3)
-            json.dump(al, open(f + '.json', 'w'))
-        x = trim(decode(mp3), al)
-        length = len(x) / SR
-        if length <= room or speed >= 1.15:
+            speed = 1.0
+        if length <= room or j == len(options) - 1:
+            pick = (text, x, length, f, speed)
             break
-        speed = round(min(1.15, speed * length / room + 0.01), 2)  # fala um pouco mais rápido para caber
+    text, x, length, f, speed = pick
+    if length > room:
+        print(f'   ATENÇÃO: frase {k} cortada ({length:.2f}s em {room:.2f}s)', flush=True)
+        x = x[:int(room * SR)]  # último recurso: nunca invade a frase seguinte
+        x[-int(0.08 * SR):] *= np.linspace(1, 0, int(0.08 * SR))
+        length = room
+    chosen.append(text)
     i = int(t0 * SR)
     track[i:i + len(x)] += x
     prev_end = t0 + length
