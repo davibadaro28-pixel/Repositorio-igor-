@@ -158,7 +158,7 @@
 
   // ---------- S5 · "Três da tarde: alerta de estoque baixo." ----------
   cut(T(6) - 0.05);
-  clock('15<b>:</b>00', T(6) - 0.05, T(8));
+  clock('15<b>:</b>00', T(6) - 0.05, T(7));
   fillTo(15, T(6));
   const s5 = L.scene(T(6) - 0.05, T(7) - 0.02, world);
   const LK = 2.6;
