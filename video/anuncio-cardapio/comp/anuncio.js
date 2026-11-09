@@ -415,7 +415,7 @@
   cue(28.45, 'whoosh', { v: 0.55 });
   tl.to(monitor, { x: 900, autoAlpha: 0, duration: 0.45, ease: 'power3.in' }, 30.7);
   pose(A.el, 30.7, 0.4, { y: 1500, rotationX: 30 }, 'power3.in');
-  cue(30.7, 'whoosh', { v: 0.6 });
+  cue(30.7, 'whoosh', { v: 0.25 });  // a voz termina "sem comissão" aqui
 
   // =====================================================================
   // CENA 5 · chamada final (31–39 s)
@@ -451,7 +451,7 @@
   pose(A.el, 34.5, 0.9, { y: 760, rotationX: 10, rotationY: 0, scale: 1.22 }, 'power3.inOut');
   const h5b = headline([['Crie seu cardápio', 'sans'], ['digital personalizado.', 'serif']], 250);
   showHL(h5b, 34.95, 0.08);
-  cue(34.95, 'impact', { v: 0.7 });
+  cue(34.95, 'impact', { v: 0.3 });  // a voz diz "Crie seu cardápio" aqui
   const ctaWrap = $('div', 'cta', layers, { top: '600px' });
   const cta = $('div', null, ctaWrap);
   cta.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span>Entre em contato</span><div class="shine"></div>';

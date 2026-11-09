@@ -27,14 +27,14 @@ ROTEIRO = [
     (0.30, 4.7, 'Sua doceria ainda vende pelo cardápio tradicional?'),
     (5.20, 12.6, 'Transforme a experiência de compra dos seus clientes com um cardápio digital totalmente personalizado.'),
     (13.10, 17.4, 'Seu cliente navega pelas categorias, vê as fotos e escolhe o tamanho.'),
-    (18.60, 21.1, 'Agenda a encomenda e paga como preferir.'),
+    (18.50, 21.2, 'Escolhe o dia da encomenda e paga como quiser.'),
     (21.30, 23.3, 'E o pedido chega direto no seu painel.'),
     (23.40, 26.2, 'Sua marca em cada detalhe.'),
     (26.40, 28.5, 'Seus produtos valorizados.'),
     (28.70, 31.2, 'E pedidos direto para você, sem comissão.'),
-    (31.40, 34.95, 'Seu cardápio merece ser tão especial quanto os seus produtos.'),
-    (35.10, 37.3, 'Crie seu cardápio digital personalizado.'),
-    (37.40, 39.75, 'Entre em contato e transforme sua doceria.'),
+    (31.20, 34.75, 'Seu cardápio merece ser tão especial quanto os seus produtos.'),
+    (34.75, 37.5, 'Crie seu cardápio digital personalizado.'),
+    (37.55, 39.85, 'Entre em contato e transforme sua doceria.'),
 ]
 
 
@@ -79,6 +79,7 @@ tts = ChatterboxMultilingualTTS.from_pretrained(device='cpu')
 asr = WhisperModel('small', device='cpu', compute_type='int8')
 track = np.zeros(int(DUR * SR) + SR)
 report = []
+prev_end = 0.0
 for k, (t0, t1, text) in enumerate(ROTEIRO):
     best = None
     for seed in (11, 23, 37):
@@ -100,6 +101,7 @@ for k, (t0, t1, text) in enumerate(ROTEIRO):
             break
     _, f, heard, e, length = best
     x, _ = sf.read(f)
+    t0 = max(t0, prev_end + 0.08)  # nunca encosta na frase anterior
     room = t1 - t0
     rate = 1.0
     if length > room:  # acelera de leve (no máximo 12%) para caber
@@ -108,6 +110,7 @@ for k, (t0, t1, text) in enumerate(ROTEIRO):
         x = librosa.effects.time_stretch(x.astype(np.float32), rate=rate)  # mantém o tom da voz
     i = int(t0 * SR)
     track[i:i + len(x)] += x[: len(track) - i]
+    prev_end = t0 + len(x) / SR
     report.append({'t': t0, 'texto': text, 'ouvido': heard, 'erro': round(e, 3), 'dur': round(length / rate, 2), 'cabe': round(room, 2), 'acelerado': round(rate, 3), 'arquivo': os.path.basename(f)})
     print(f'{t0:5.2f}s  erro {e:.2f}  {length:.2f}s/{room:.2f}s  {heard}', flush=True)
 

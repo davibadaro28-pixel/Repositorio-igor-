@@ -1,6 +1,6 @@
 # Anúncio: cardápio digital personalizado (Reels, TikTok e anúncios)
 
-Vídeo vertical 1080 x 1920, 39 s, 30 fps, com trilha e efeitos sonoros. As telas do celular são o cardápio
+Vídeo vertical 1080 x 1920, 40 s, 30 fps, com narração por IA em português, trilha e efeitos sonoros. As telas do celular são o cardápio
 **real** deste repositório (marca genérica "Sua Doceria Aqui"), capturadas do sistema rodando, e não imitações.
 
 ## Roteiro
@@ -11,7 +11,7 @@ Vídeo vertical 1080 x 1920, 39 s, 30 fps, com trilha e efeitos sonoros. As tela
 | 5–13 s | Solução | O cardápio real no celular em 3D, com camadas da interface saltando da tela. "Transforme a experiência de compra" e "Com um cardápio digital totalmente personalizado." |
 | 13–23 s | Demonstração | Toques reais: categoria Bolos, foto e tamanhos do bolo, sacola, encomenda com data e hora, Pix, pedido enviado e a encomenda chegando na agenda do painel. |
 | 23–31 s | Benefícios | A mesma plataforma com 4 identidades (logo, cores, fonte, acabamento). Parede com os produtos do cardápio. Painel de encomendas: "Pedidos direto para você, sem comissão por pedido." |
-| 31–39 s | Chamada | "Seu cardápio merece ser tão especial quanto seus produtos." "Crie seu cardápio digital personalizado." Botão "Entre em contato" e "e transforme sua doceria." |
+| 31–40 s | Chamada | "Seu cardápio merece ser tão especial quanto seus produtos." "Crie seu cardápio digital personalizado." Botão "Entre em contato" e "e transforme sua doceria." |
 
 Tudo o que o vídeo mostra existe no sistema: temas por loja (`shared/theme.js`), categorias e busca no cardápio
 (`web/src/public/Menu.jsx`), tamanhos e adicionais, sacola, entrega/retirada, encomenda com data e hora,
@@ -33,9 +33,21 @@ node scripts/render.cjs quadros /tmp/anuncio/quadros 2,8,16,24,36 --escala 0.5
 node scripts/render.cjs marcas /tmp/anuncio/cues.json
 python3 scripts/trilha.py /tmp/anuncio/cues.json /tmp/anuncio/trilha.wav
 node scripts/render.cjs video /tmp/anuncio/video-sem-som.mp4
-ffmpeg -i /tmp/anuncio/video-sem-som.mp4 -i /tmp/anuncio/trilha.wav -map 0:v -map 1:a -c:v copy \
-  -af loudnorm=I=-14:TP=-1:LRA=11 -c:a aac -b:a 192k -shortest -movflags +faststart anuncio.mp4
+
+# 4. narração por IA (ambiente Python 3.11 à parte, CPU)
+uv venv -p python3.11 /tmp/tts && VIRTUAL_ENV=/tmp/tts uv pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+VIRTUAL_ENV=/tmp/tts uv pip install chatterbox-tts==0.1.7 kokoro "misaki[en]" faster-whisper "setuptools<81" \
+  --extra-index-url https://download.pytorch.org/whl/cpu --index-strategy unsafe-best-match
+/tmp/tts/bin/python scripts/narracao.py /tmp/anuncio/voz /tmp/anuncio/narracao.wav --voz pf_dora   # ou pm_alex (voz masculina)
+
+# 5. mixagem: a trilha abaixa quando a voz fala; volume final -14 LUFS
+bash scripts/mixar.sh /tmp/anuncio/video-sem-som.mp4 /tmp/anuncio/trilha.wav /tmp/anuncio/narracao.wav anuncio.mp4
 ```
+
+**Narração.** Roteiro em `scripts/narracao.py`, uma frase por cena. A voz é do Chatterbox Multilingual (Resemble AI,
+licença MIT, que coloca uma marca d'água inaudível de áudio gerado por IA), com o timbre e o sotaque de uma voz
+brasileira de referência do Kokoro (Apache 2.0). As duas licenças permitem uso comercial. Cada frase é gerada até 3
+vezes e fica a que o Whisper transcreve igual ao roteiro e que cabe no tempo da cena; nenhuma frase encosta na outra.
 
 - `comp/index.html` + `comp/anuncio.js`: a composição (HTML, CSS 3D e GSAP). `window.renderAt(t)` desenha o
   quadro do tempo `t`, sempre igual, então o render é quadro a quadro, sem perda.
