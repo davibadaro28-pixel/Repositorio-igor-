@@ -1,0 +1,78 @@
+{
+ "voz": "rpNe0HOx7heUulPiOEaG",
+ "dono": "e2491119d7fa73a9999a9963d71caa8ccabf9225c15dc1f6d16c50c94b7124c7",
+ "nome": "Diego",
+ "ajustes": {
+  "stability": 0.38,
+  "similarity_boost": 0.8,
+  "style": 0.45
+ },
+ "duracao": 38.0,
+ "falas": [
+  {
+   "inicio": 0.25,
+   "ate": 2.45,
+   "textos": [
+    "Você trabalha, produz, vende…"
+   ]
+  },
+  {
+   "inicio": 2.5,
+   "ate": 6.0,
+   "textos": [
+    "e ainda entrega uma parte do seu dinheiro para os aplicativos?"
+   ]
+  },
+  {
+   "inicio": 6.1,
+   "ate": 9.0,
+   "textos": [
+    "Os apps trazem clientes novos. Isso tem valor."
+   ]
+  },
+  {
+   "inicio": 9.1,
+   "ate": 13.5,
+   "textos": [
+    "Mas e o cliente que já ama a sua doceria? Ele pode pedir direto com você.",
+    "E o cliente que já ama a sua doceria? Pode pedir direto com você."
+   ]
+  },
+  {
+   "inicio": 13.6,
+   "ate": 19.0,
+   "textos": [
+    "Com um cardápio com a sua marca, o pedido cai na hora no seu painel."
+   ]
+  },
+  {
+   "inicio": 19.1,
+   "ate": 25.0,
+   "textos": [
+    "Sem comissão por pedido do sistema. E o cliente fica na sua base, com histórico e WhatsApp.",
+    "Sem comissão por pedido. E o cliente fica na sua base, com histórico e WhatsApp."
+   ]
+  },
+  {
+   "inicio": 25.1,
+   "ate": 28.9,
+   "textos": [
+    "Crie cupons para trazer o cliente para o seu canal…"
+   ]
+  },
+  {
+   "inicio": 29.0,
+   "ate": 33.0,
+   "textos": [
+    "e veja nos relatórios quanto vende cada canal."
+   ]
+  },
+  {
+   "inicio": 33.3,
+   "ate": 37.6,
+   "textos": [
+    "Tenha o seu canal próprio. Fale com a gente."
+   ]
+  }
+ ]
+}

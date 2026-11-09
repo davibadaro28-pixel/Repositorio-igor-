@@ -1,0 +1,69 @@
+{
+ "voz": "Qrdut83w0Cr152Yb4Xn3",
+ "dono": "cafe304c4de57306f4e3fdbca4b97afb21be387b77b5d6f8bfc9760db3289934",
+ "nome": "Paulo",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.8,
+  "style": 0.2
+ },
+ "duracao": 37.0,
+ "falas": [
+  {
+   "inicio": 0.25,
+   "ate": 4.0,
+   "textos": [
+    "Você sabe quanto dinheiro está parado no estoque da sua doceria?"
+   ]
+  },
+  {
+   "inicio": 4.1,
+   "ate": 8.4,
+   "textos": [
+    "Leite condensado, chocolate, morango, embalagem… tudo isso é dinheiro."
+   ]
+  },
+  {
+   "inicio": 8.5,
+   "ate": 11.4,
+   "textos": [
+    "Aqui você vê o valor do seu estoque na hora."
+   ]
+  },
+  {
+   "inicio": 11.5,
+   "ate": 15.4,
+   "textos": [
+    "E o sistema avisa quando um insumo fica abaixo do mínimo."
+   ]
+  },
+  {
+   "inicio": 15.5,
+   "ate": 21.4,
+   "textos": [
+    "Com a ficha técnica, cada venda dá baixa sozinha nos ingredientes."
+   ]
+  },
+  {
+   "inicio": 21.5,
+   "ate": 25.4,
+   "textos": [
+    "Registre compras, perdas e inventário…"
+   ]
+  },
+  {
+   "inicio": 25.5,
+   "ate": 29.9,
+   "textos": [
+    "e saiba o custo real de cada produto."
+   ]
+  },
+  {
+   "inicio": 30.1,
+   "ate": 36.6,
+   "textos": [
+    "Estoque organizado é menos surpresa e mais controle. Fale com a gente."
+   ]
+  }
+ ]
+}

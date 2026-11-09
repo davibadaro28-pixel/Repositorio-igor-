@@ -1,0 +1,109 @@
+{
+ "voz": "ohZOfA9iwlZ5nOsoY7LB",
+ "dono": "4a19cd68f5f2e5172b5eddbfaafdb226726e0b4035e27e952df6bbac94b8aada",
+ "nome": "Roberta",
+ "ajustes": {
+  "stability": 0.35,
+  "similarity_boost": 0.8,
+  "style": 0.5
+ },
+ "duracao": 40.0,
+ "falas": [
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Você abriu uma doceria para empreender…"
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "ou para apagar incêndio o dia inteiro?"
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Oito da manhã: abre o caixa."
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Dez: as encomendas do dia."
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Meio-dia: todos os pedidos num quadro só."
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "A cozinha vê tudo na tela."
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Três da tarde: alerta de estoque baixo."
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Clientes com histórico e fidelidade."
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Seis da tarde: o resultado do dia."
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "No fim do mês, o DRE mostra se sobrou dinheiro."
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Tudo numa plataforma, no computador e no celular."
+   ],
+   "pausa": 0.22
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Gestão de verdade para docerias. Fale com a gente."
+   ],
+   "pausa": 0.22
+  }
+ ]
+}

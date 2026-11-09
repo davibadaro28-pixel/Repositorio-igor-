@@ -1,0 +1,69 @@
+{
+ "voz": "iScHbNW8K33gNo3lGgbo",
+ "dono": "7e00f51a98997e64678b137e43561da19244070bf4e947a44274e0948ff7673c",
+ "nome": "Marianne",
+ "ajustes": {
+  "stability": 0.45,
+  "similarity_boost": 0.8,
+  "style": 0.35
+ },
+ "duracao": 35.0,
+ "falas": [
+  {
+   "inicio": 0.25,
+   "ate": 2.45,
+   "textos": [
+    "Seus doces podem ser incríveis…"
+   ]
+  },
+  {
+   "inicio": 2.5,
+   "ate": 6.4,
+   "textos": [
+    "mas o seu cardápio está valorizando os seus produtos?"
+   ]
+  },
+  {
+   "inicio": 6.5,
+   "ate": 9.9,
+   "textos": [
+    "Foto borrada, lista de preços, pedido perdido na conversa…"
+   ]
+  },
+  {
+   "inicio": 10.0,
+   "ate": 12.4,
+   "textos": [
+    "Agora imagine a sua vitrine assim:"
+   ]
+  },
+  {
+   "inicio": 12.5,
+   "ate": 16.4,
+   "textos": [
+    "Com a sua marca, as suas cores e as suas fotos."
+   ]
+  },
+  {
+   "inicio": 16.5,
+   "ate": 21.9,
+   "textos": [
+    "Categorias organizadas, tamanhos, encomenda com data e hora…"
+   ]
+  },
+  {
+   "inicio": 22.0,
+   "ate": 26.9,
+   "textos": [
+    "e o pedido chega certinho, sem perder nenhuma mensagem."
+   ]
+  },
+  {
+   "inicio": 27.1,
+   "ate": 34.6,
+   "textos": [
+    "Quem vê, tem vontade. Crie o seu cardápio personalizado."
+   ]
+  }
+ ]
+}

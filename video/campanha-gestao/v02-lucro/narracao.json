@@ -1,0 +1,69 @@
+{
+ "voz": "cyD08lEy76q03ER1jZ7y",
+ "dono": "1202a8d7d6d6dbee4425ff3daf90a728ea70ebc1597bf799cc724cae835a00e0",
+ "nome": "Scheila",
+ "ajustes": {
+  "stability": 0.55,
+  "similarity_boost": 0.8,
+  "style": 0.2
+ },
+ "duracao": 39.0,
+ "falas": [
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Faturar dez mil não é colocar dez mil no bolso."
+   ]
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Sai ingrediente, embalagem, taxa, conta do mês…"
+   ]
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "E no fim, quanto sobra?"
+   ]
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "No início, você vê as vendas, os pedidos e o ticket médio do dia."
+   ]
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Cada produto mostra o custo e o lucro bruto. Margem apertada salta aos olhos."
+   ]
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Cada pedido mostra o seu custo estimado."
+   ]
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "E o DRE junta tudo: vendas, custos, despesas e o resultado."
+   ]
+  },
+  {
+   "inicio": 0,
+   "ate": 0,
+   "textos": [
+    "Pare de adivinhar. Peça uma demonstração."
+   ]
+  }
+ ]
+}
