@@ -203,7 +203,8 @@
     const k0 = o.from ?? 0;
     L.onFrame((t) => {
       const u = t - k0;
-      const push = o.push ? 1 + o.push[2] * L.ease.inOut(L.clamp((t - o.push[0]) / (o.push[1] - o.push[0]))) : 1;
+      const segs = (o.pushes || []).concat(o.push ? [o.push] : []);
+      const push = segs.reduce((p, [a, b, k]) => p * (1 + k * L.ease.inOut(L.clamp((t - a) / (b - a)))), 1);
       el.style.transform = `translate(${Math.sin(u * 0.55) * amp}px, ${Math.cos(u * 0.41) * amp * 0.8}px) scale(${(1 + Math.sin(u * 0.29) * sc) * push})`;
     });
   };

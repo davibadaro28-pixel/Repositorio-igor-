@@ -113,3 +113,17 @@ destaque. Trilha: pop/house acelerado, risers a cada "hora do dia".
 | 28–31,5 s | "No fim do mês, o DRE mostra se sobrou dinheiro." | DRE real | impacto |
 | 31,5–35 s | "Tudo numa plataforma só, no computador e no celular." | Painel real no notebook e no celular, lado a lado | riser |
 | 35–40 s | "Gestão de verdade para docerias. Fale com a gente e veja funcionando." | Chamada final | batida final |
+
+## 3. Notas de produção
+
+- **Base de demonstração das capturas:** os pedidos de exemplo que simulavam iFood e 99Food foram convertidos em
+  pedidos de WhatsApp e telefone, e as notas fiscais de exemplo foram removidas. Assim nenhuma tela mostra selo de
+  app de delivery nem NFC-e, que não entram na campanha. O relatório "Faturamento por canal" mostra cardápio digital,
+  balcão (PDV), WhatsApp e telefone, sem a coluna de comissão.
+- **Cenas ilustrativas** (conversa bagunçada no V04, bilhetes de "incêndio" no V05, cascata de custos no V02,
+  prateleira técnica no V03) levam a etiqueta "Ilustração" ou "Simulação ilustrativa" e não trazem valores.
+- **Telas reais** levam a etiqueta "Tela real · dados de demonstração".
+- **Como gerar de novo:** `shared/capturar-painel.cjs` (telas) → `shared/preparar.py` (arquivos) →
+  `shared/narrar.py` (voz) → `shared/render.cjs <vídeo> video` (imagem) → `shared/trilha.py` (trilha) →
+  `shared/efeitos.py` (biblioteca de efeitos) → `shared/render.cjs <vídeo> marcas` (marcas de efeito) →
+  `shared/mixar.py` (mixagem) → ffmpeg junta imagem e som. Detalhes da mixagem em `MIXAGEM.md`.

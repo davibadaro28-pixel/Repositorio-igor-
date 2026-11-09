@@ -46,7 +46,7 @@
   const k1 = line('Você abriu', 520, 104, '#fff', 0);
   const k2 = line('uma doceria', 650, 104, '#fff', W(0, 'uma') - 0.03);
   const k3 = line('para', 820, 80, 'rgba(255,255,255,.6)', W(0, 'para') - 0.03);
-  const k4 = line('empreender…', 930, 100, MG, W(0, 'empreender') - 0.03);
+  const k4 = line('empreender…', 930, 88, MG, W(0, 'empreender') - 0.03);
   tl.to([k1, k2, k3, k4], { scale: 0.7, autoAlpha: 0.15, y: -260, duration: 0.4, ease: 'power3.in' }, T(1) - 0.15);
   const notes = ['Pedido atrasado!', 'Acabou o leite condensado', 'Cadê a encomenda das 15h?', 'Quanto vendi hoje?', 'O caixa não bate', 'Cliente sem resposta', 'Faltou embalagem'];
   const rnd = L.rng(7);
@@ -273,6 +273,11 @@
   tl.to(btn, { scale: 0.95, duration: 0.08, yoyo: true, repeat: 1 }, W(11, 'gente') + 0.45);
   tl.to(btn, { scale: 1.05, duration: 0.24, yoyo: true, repeat: 5, ease: 'sine.inOut' }, W(11, 'gente') + 0.8);
 
+  // aproximações de câmera nos trechos em que a cena já se montou e a fala continua
+  L.drift(s0, { amp: 0, scale: 0, pushes: [[W(0, 'empreender'), T(1) + 0.2, 0.07]] });
+  L.drift(s6, { amp: 0, scale: 0, pushes: [[W(7, 'fidelidade'), T(8), 0.04]] });
+  L.drift(s8, { amp: 0, scale: 0, pushes: [[W(9, 'sobrou'), T(10), 0.1]] });
+  L.drift(s10, { amp: 0, scale: 0, pushes: [[T(11) + 0.1, W(11, 'docerias'), 0.08], [W(11, 'gente'), D, 0.06]] });
   const capLayer = $('div', 'full', ui);
   L.captions(capLayer, { maxWords: 3, top: 1490, cls: 'v5', upper: true, hideIn: [[0, T(2) - 0.15], [T(11) - 0.1, D + 1]] });
   L.cue(D - 2.4, 'tail');

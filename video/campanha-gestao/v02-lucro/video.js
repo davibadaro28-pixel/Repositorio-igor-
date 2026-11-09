@@ -250,6 +250,11 @@
   tl.to(btn, { scale: 0.95, duration: 0.08, yoyo: true, repeat: 1 }, W(7, 'demonstracao') + 0.5);
 
   L.drift(s7, { amp: 6, scale: 0.01, push: [T(7), D, 0.06] });
+  // aproximações de câmera nos trechos em que a cena já se montou e a fala continua
+  L.drift(s1, { amp: 0, scale: 0, pushes: [[W(0, 'colocar'), T(1) + 0.4, 0.06]] });
+  L.drift(s2, { amp: 0, scale: 0, pushes: [[W(1, 'conta') + 0.2, W(2, 'quanto'), 0.1]] });
+  L.drift(s3, { amp: 0, scale: 0, pushes: [[W(3, 'ticket') + 0.3, T(4), 0.1]] });
+  L.drift(s5, { amp: 0, scale: 0, pushes: [[W(5, 'estimado') - 0.2, T(6), 0.1]] });
   tl.to(btn, { boxShadow: '0 30px 80px -10px rgba(52,211,153,.75)', scale: 1.04, duration: 0.5, yoyo: true, repeat: 3, ease: 'sine.inOut' }, W(7, 'demonstracao') + 0.8);
   const capLayer = $('div', 'full', ui);
   L.captions(capLayer, { maxWords: 4, top: 1500, cls: 'v2', hideIn: [[T(7) - 0.3, D + 1]] });
