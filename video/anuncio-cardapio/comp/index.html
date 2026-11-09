@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Anúncio: cardápio digital personalizado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=Courier+Prime:wght@400;700&display=block">
+<style>
+  html, body { margin: 0; background: #000; }
+  * { box-sizing: border-box; }
+  #frame { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: #0c0807; font-family: 'Inter Tight', sans-serif; color: #f7efe7; }
+  .abs { position: absolute; }
+  .full { position: absolute; inset: 0; }
+  .p3d { transform-style: preserve-3d; }
+
+  /* luz e textura */
+  .glow { position: absolute; border-radius: 50%; pointer-events: none; }
+  #grain { position: absolute; inset: -64px; opacity: .07; mix-blend-mode: overlay; pointer-events: none; }
+  #vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(120% 85% at 50% 48%, rgba(0,0,0,0) 55%, rgba(0,0,0,.55) 100%); }
+  #flash { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; mix-blend-mode: soft-light; }
+
+  /* mundo 3D */
+  .world { position: absolute; inset: 0; perspective: 2400px; perspective-origin: 50% 46%; }
+
+  /* celular */
+  .phone { position: absolute; left: 331px; top: 524px; width: 418px; height: 872px; transform-style: preserve-3d; }
+  .ph-edge { position: absolute; inset: 0; border-radius: 66px; background: linear-gradient(160deg, #57504c, #1d1a19 40%, #3a3431 70%, #141211); }
+  .ph-body { position: absolute; inset: 0; border-radius: 66px; background: #0a0909;
+    box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.22), inset 0 0 0 4px #24201f, inset 0 0 0 6px #0a0909, 0 80px 140px -30px rgba(0,0,0,.75), 0 30px 60px -20px rgba(0,0,0,.5); }
+  .ph-btn { position: absolute; width: 5px; border-radius: 3px; background: linear-gradient(90deg, #4a4340, #1e1b1a); }
+  .ph-screen { position: absolute; left: 14px; top: 14px; width: 390px; height: 844px; border-radius: 52px; overflow: hidden; background: #000; transform: translateZ(.6px); }
+  .sb { position: absolute; left: 0; top: 0; width: 390px; height: 47px; }
+  .sb-time { position: absolute; left: 44px; top: 15px; font: 600 17px/1 'Inter Tight'; color: #fff; letter-spacing: -.01em; }
+  .sb-icons { position: absolute; right: 28px; top: 16px; height: 14px; }
+  .view { position: absolute; left: 0; top: 47px; width: 390px; height: 797px; overflow: hidden; background: #fffaf6; }
+  .view > * { position: absolute; left: 0; top: 0; }
+  .island { position: absolute; left: 134px; top: 11px; width: 122px; height: 36px; border-radius: 18px; background: #000; }
+  .home { position: absolute; left: 128px; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: rgba(20,14,12,.38); }
+  .glare { position: absolute; left: 14px; top: 14px; width: 390px; height: 844px; border-radius: 52px; overflow: hidden; pointer-events: none; transform: translateZ(1px);
+    background: linear-gradient(118deg, rgba(255,255,255,.13) 0%, rgba(255,255,255,.04) 30%, rgba(255,255,255,0) 46%); }
+  .sweep { position: absolute; top: -200px; left: -300px; width: 150px; height: 1300px; transform: rotate(24deg);
+    background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.34), rgba(255,255,255,0)); mix-blend-mode: soft-light; }
+  .crop { position: absolute; background-repeat: no-repeat; }
+  .pop { position: absolute; border-radius: 14px; background-repeat: no-repeat; box-shadow: 0 30px 50px -10px rgba(40,10,20,.45), 0 10px 20px rgba(0,0,0,.18); }
+  .tap-dot { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: rgba(255,255,255,.55); box-shadow: 0 0 0 2px rgba(255,255,255,.95), 0 6px 18px rgba(0,0,0,.25); opacity: 0; }
+  .tap-ring { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; border: 3px solid rgba(255,255,255,.9); opacity: 0; }
+
+  /* abertura */
+  .foto { position: absolute; border-radius: 34px; overflow: hidden; box-shadow: 0 50px 90px -20px rgba(0,0,0,.7); }
+  .foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .paper { position: absolute; left: 331px; top: 524px; width: 418px; height: 872px; border-radius: 10px; overflow: hidden; backface-visibility: hidden;
+    background: radial-gradient(60% 40% at 30% 20%, rgba(255,255,255,.35), rgba(255,255,255,0) 70%), linear-gradient(170deg, #f2ead9, #e6dac3);
+    box-shadow: 0 60px 120px -20px rgba(0,0,0,.75); color: #3b2f27; font-family: 'Courier Prime', monospace; padding: 46px 34px; }
+  .paper h4 { margin: 0; text-align: center; font: 700 32px/1 'Courier Prime'; letter-spacing: .32em; }
+  .paper .rule { height: 6px; border-top: 1.5px solid #5a4a3e; border-bottom: 1.5px solid #5a4a3e; margin: 18px 0 22px; }
+  .paper .it { display: flex; align-items: baseline; font-size: 19px; line-height: 1; margin: 0 0 19px; }
+  .paper .it span:nth-child(2) { flex: 1; border-bottom: 2px dotted #8b7a6b; margin: 0 8px; transform: translateY(-4px); }
+  .paper .sec { font-weight: 700; font-size: 17px; letter-spacing: .2em; margin: 30px 0 18px; }
+  .paper .stain { position: absolute; border-radius: 50%; }
+  .paper .lam { position: absolute; inset: 0; background: linear-gradient(125deg, rgba(255,255,255,0) 30%, rgba(255,255,255,.35) 42%, rgba(255,255,255,0) 50%); }
+
+  /* textos */
+  .hl { position: absolute; left: 0; width: 1080px; text-align: center; }
+  .ln { display: block; overflow: hidden; padding: .02em 0 .14em; margin-bottom: -.12em; }
+  .w { display: inline-block; white-space: pre; }
+  .sans { font: 600 82px/1.04 'Inter Tight'; letter-spacing: -.035em; color: #f7efe7; text-shadow: 0 4px 40px rgba(0,0,0,.35); }
+  .serif { font: italic 400 116px/.98 'Instrument Serif'; letter-spacing: -.01em; color: #f3bccb; text-shadow: 0 4px 40px rgba(0,0,0,.35); }
+  .sub { font: 500 34px/1.2 'Inter Tight'; letter-spacing: .02em; color: rgba(247,239,231,.78); }
+  .cap { position: absolute; top: 300px; left: 0; width: 1080px; display: flex; justify-content: center; }
+  .cap > div { display: inline-flex; align-items: center; gap: 16px; padding: 20px 34px 20px 28px; border-radius: 999px; font: 500 38px/1 'Inter Tight'; letter-spacing: -.01em;
+    color: #f7efe7; background: rgba(36,20,24,.62); border: 1.5px solid rgba(255,255,255,.14); backdrop-filter: blur(18px); box-shadow: 0 20px 50px rgba(0,0,0,.35); }
+  .cap i { width: 14px; height: 14px; border-radius: 50%; background: #f3bccb; box-shadow: 0 0 18px #f3bccb; }
+  .scrim { position: absolute; left: 0; width: 1080px; pointer-events: none; }
+
+  /* chamada final */
+  .cta { position: absolute; left: 0; width: 1080px; display: flex; justify-content: center; }
+  .cta > div { display: inline-flex; align-items: center; gap: 18px; padding: 34px 60px 34px 46px; border-radius: 999px; background: #f7efe7; color: #6e2340;
+    font: 650 54px/1 'Inter Tight'; letter-spacing: -.02em; box-shadow: 0 30px 70px rgba(151,51,88,.45), 0 0 0 10px rgba(247,239,231,.08); overflow: hidden; position: relative; }
+  .cta svg { width: 58px; height: 58px; }
+  .cta .shine { position: absolute; top: -40px; left: -200px; width: 120px; height: 200px; transform: rotate(20deg); background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.85), rgba(255,255,255,0)); }
+
+  /* painel */
+  .card { position: absolute; border-radius: 26px; overflow: hidden; background-repeat: no-repeat; box-shadow: 0 50px 100px -20px rgba(0,0,0,.65), 0 0 0 1px rgba(255,255,255,.08); }
+  .ring { position: absolute; border-radius: 12px; border: 4px solid #e4789a; box-shadow: 0 0 0 6px rgba(228,120,154,.25), 0 0 40px rgba(228,120,154,.55); opacity: 0; }
+  .monitor { position: absolute; border-radius: 30px; background: #111; padding: 18px; box-shadow: 0 60px 120px -20px rgba(0,0,0,.8), inset 0 0 0 1.5px rgba(255,255,255,.12); }
+  .monitor > div { width: 100%; height: 100%; border-radius: 14px; background-size: cover; }
+
+  /* parede de produtos */
+  .tile { position: absolute; border-radius: 26px; background-color: #fffaf6; background-repeat: no-repeat; box-shadow: 0 30px 60px -10px rgba(0,0,0,.45); }
+  .bokeh { position: absolute; border-radius: 50%; filter: blur(14px); }
+</style>
+</head>
+<body>
+<div id="frame">
+  <div id="bg" class="full"></div>
+  <div id="layers" class="full"></div>
+  <div id="vignette"></div>
+  <canvas id="grain" width="512" height="512"></canvas>
+  <div id="flash"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="assets/meta.js"></script>
+<script src="anuncio.js"></script>
+</body>
+</html>
