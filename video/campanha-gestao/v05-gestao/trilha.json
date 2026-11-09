@@ -1,0 +1,10 @@
+{
+  "global": ["instrumental energetic pop house commercial underscore for a voiceover ad", "124 BPM", "four on the floor", "bright synth stabs", "punchy and modern", "G minor"],
+  "evitar": ["vocals", "vocal chops", "lyrics", "lo-fi", "slow tempo"],
+  "secoes": [
+    {"nome": "Chaos", "ate": 5.9, "estilo": ["chaotic accelerating drums", "tense risers", "glitchy stabs", "building pressure"]},
+    {"nome": "Day groove", "ate": 31.2, "estilo": ["driving pop house groove", "four on the floor kick", "offbeat bass", "bright chords", "upbeat and in control"]},
+    {"nome": "Build", "ate": 35.2, "estilo": ["snare roll build", "white noise riser", "anticipation"]},
+    {"nome": "Drop", "ate": 0, "estilo": ["big confident drop", "final hit and short tail"]}
+  ]
+}

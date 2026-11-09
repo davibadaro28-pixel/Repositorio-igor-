@@ -97,6 +97,7 @@ const rowOf = (page, text) => page.evaluate((t) => {
   await shot('d-fin-fluxo.png');
   await p.getByRole('button', { name: 'DRE' }).click(); await settle(p, 1500);
   await shot('d-fin-dre.png');
+  await shot('d-fin-dre-full.png', { fullPage: true });
   meta.dre = {};
   for (const t of ['Vendas de produtos', 'Receita líquida', '(−) CMV', '(−) Comissões iFood e 99Food', '(−) Taxas de cartão', 'Lucro bruto', 'Despesas operacionais', 'Resultado do período']) meta.dre[t] = await rowOf(p, t);
   meta.dreTable = await cardOf(p, 'Demonstrativo de resultado');

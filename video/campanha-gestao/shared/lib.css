@@ -1,0 +1,54 @@
+html, body { margin: 0; background: #000; }
+* { box-sizing: border-box; }
+#frame { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+.abs { position: absolute; }
+.full { position: absolute; inset: 0; }
+.p3d { transform-style: preserve-3d; }
+.world { position: absolute; inset: 0; perspective: 2400px; perspective-origin: 50% 46%; }
+.glow { position: absolute; border-radius: 50%; pointer-events: none; }
+
+/* celular */
+.phone { position: absolute; left: 331px; top: 524px; width: 418px; height: 872px; transform-style: preserve-3d; }
+.ph-edge { position: absolute; inset: 0; border-radius: 66px; background: linear-gradient(160deg, #57504c, #1d1a19 40%, #3a3431 70%, #141211); }
+.ph-body { position: absolute; inset: 0; border-radius: 66px; background: #0a0909;
+  box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.22), inset 0 0 0 4px #24201f, inset 0 0 0 6px #0a0909, 0 80px 140px -30px rgba(0,0,0,.75), 0 30px 60px -20px rgba(0,0,0,.5); }
+.ph-btn { position: absolute; width: 5px; border-radius: 3px; background: linear-gradient(90deg, #4a4340, #1e1b1a); }
+.ph-screen { position: absolute; left: 14px; top: 14px; width: 390px; height: 844px; border-radius: 52px; overflow: hidden; background: #000; transform: translateZ(.6px); }
+.sb { position: absolute; left: 0; top: 0; width: 390px; height: 47px; }
+.sb-time { position: absolute; left: 44px; top: 15px; font: 600 17px/1 'Inter Tight', sans-serif; color: #fff; }
+.sb-icons { position: absolute; right: 28px; top: 16px; height: 14px; }
+.view { position: absolute; left: 0; top: 47px; width: 390px; height: 797px; overflow: hidden; background: #fffaf6; }
+.view > * { position: absolute; left: 0; top: 0; }
+.island { position: absolute; left: 134px; top: 11px; width: 122px; height: 36px; border-radius: 18px; background: #000; }
+.home { position: absolute; left: 128px; bottom: 8px; width: 134px; height: 5px; border-radius: 3px; background: rgba(20,14,12,.38); }
+.glare { position: absolute; left: 14px; top: 14px; width: 390px; height: 844px; border-radius: 52px; overflow: hidden; pointer-events: none; transform: translateZ(1px);
+  background: linear-gradient(118deg, rgba(255,255,255,.13) 0%, rgba(255,255,255,.04) 30%, rgba(255,255,255,0) 46%); }
+.sweep { position: absolute; top: -200px; left: -300px; width: 150px; height: 1300px; transform: rotate(24deg); background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,.34), rgba(255,255,255,0)); mix-blend-mode: soft-light; }
+
+/* tela de computador (painel) */
+.monitor { position: absolute; transform-style: preserve-3d; }
+.mon-body { position: absolute; inset: 0; border-radius: 22px; background: #0d0d0f; box-shadow: inset 0 0 0 1.5px rgba(255,255,255,.14), 0 70px 130px -30px rgba(0,0,0,.75); }
+.mon-screen { position: absolute; left: 14px; top: 14px; right: 14px; bottom: 14px; border-radius: 10px; overflow: hidden; background: #fff; }
+.mon-screen > * { position: absolute; left: 0; top: 0; }
+.mon-glare { position: absolute; inset: 14px; border-radius: 10px; pointer-events: none; background: linear-gradient(120deg, rgba(255,255,255,.10), rgba(255,255,255,0) 40%); }
+
+.crop { position: absolute; background-repeat: no-repeat; }
+.panel { position: absolute; background-repeat: no-repeat; border-radius: 22px; box-shadow: 0 40px 80px -20px rgba(0,0,0,.55), 0 0 0 1px rgba(0,0,0,.06); }
+.tap-dot { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; background: rgba(255,255,255,.55); box-shadow: 0 0 0 2px rgba(255,255,255,.95), 0 6px 18px rgba(0,0,0,.25); opacity: 0; }
+.tap-ring { position: absolute; width: 46px; height: 46px; margin: -23px 0 0 -23px; border-radius: 50%; border: 3px solid rgba(255,255,255,.9); opacity: 0; }
+.cursor { position: absolute; width: 34px; height: 34px; margin: -6px 0 0 -6px; opacity: 0; filter: drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
+
+/* títulos */
+.hl { position: absolute; left: 60px; width: 960px; }
+.hl.center { text-align: center; }
+.ln { display: block; overflow: hidden; padding: .04em 0 .12em; margin-bottom: -.1em; }
+.w { display: inline-block; white-space: pre; }
+
+/* legendas */
+.caps { position: absolute; left: 60px; width: 960px; display: flex; justify-content: center; pointer-events: none; }
+.caps .chunk { display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 0 .28em; transform-origin: 50% 60%; }
+.caps .cw { display: inline-block; }
+
+/* etiquetas de honestidade */
+.tag { position: absolute; display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px; border-radius: 999px; font: 600 22px/1 'Inter Tight', sans-serif; letter-spacing: .04em; text-transform: uppercase; white-space: nowrap; }
+.tag i { width: 9px; height: 9px; border-radius: 50%; }

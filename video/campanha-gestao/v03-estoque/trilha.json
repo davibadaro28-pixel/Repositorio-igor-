@@ -1,0 +1,9 @@
+{
+  "global": ["instrumental tech commercial underscore for a voiceover ad", "mechanical percussion", "metallic plucks", "precise and rhythmic", "110 BPM", "E minor"],
+  "evitar": ["vocals", "lyrics", "orchestral epic", "long reverb wash"],
+  "secoes": [
+    {"nome": "Scanner", "ate": 10.0, "estilo": ["ticking mechanical rhythm", "metallic plucked synth", "curious and slightly tense", "clock ticks"]},
+    {"nome": "Machine groove", "ate": 27.9, "estilo": ["driving mechanical groove", "tight kick and snare", "clockwork arpeggio", "industrial but clean", "organized and efficient"]},
+    {"nome": "Control", "ate": 0, "estilo": ["confident resolve", "fuller synth pad", "steady ending hit", "short tail"]}
+  ]
+}

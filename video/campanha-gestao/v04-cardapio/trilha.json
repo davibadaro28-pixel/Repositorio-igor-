@@ -1,0 +1,10 @@
+{
+  "global": ["instrumental elegant lifestyle commercial underscore for a voiceover ad", "harp", "glockenspiel and soft bells", "pizzicato strings", "warm and delicate", "84 BPM", "F major"],
+  "evitar": ["vocals", "lyrics", "aggressive drums", "distortion", "dark mood"],
+  "secoes": [
+    {"nome": "Delicate", "ate": 7.6, "estilo": ["delicate harp arpeggios", "soft bells", "dreamy and sweet", "patisserie mood"]},
+    {"nome": "Doubt", "ate": 13.0, "estilo": ["sparse, slightly uncertain", "single piano notes", "gentle tension", "music thins out"]},
+    {"nome": "Showcase", "ate": 30.7, "estilo": ["elegant lush groove", "light brushed beat", "pizzicato and strings", "sparkling glockenspiel", "charming and premium"]},
+    {"nome": "Finale", "ate": 0, "estilo": ["warm satisfying final chord", "harp glissando", "short tail"]}
+  ]
+}

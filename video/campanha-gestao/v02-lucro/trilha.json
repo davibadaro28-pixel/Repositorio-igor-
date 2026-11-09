@@ -1,0 +1,10 @@
+{
+  "global": ["instrumental corporate fintech underscore for a voiceover ad", "minimal modern piano", "soft electronic pulse", "clean and premium", "96 BPM", "A minor to C major"],
+  "evitar": ["vocals", "lyrics", "heavy drums", "distorted guitar"],
+  "secoes": [
+    {"nome": "Question", "ate": 11.7, "estilo": ["minimal sparse piano notes", "low sub pulse", "thoughtful, questioning", "lots of space"]},
+    {"nome": "Insight groove", "ate": 27.3, "estilo": ["light clean beat enters", "plucked synth ostinato", "piano chords", "confident, analytical", "fintech product video"]},
+    {"nome": "Swell", "ate": 33.2, "estilo": ["warm strings swell", "building optimism", "fuller arrangement"]},
+    {"nome": "Resolution", "ate": 0, "estilo": ["resolved major chord", "uplifting clean ending", "short tail"]}
+  ]
+}
