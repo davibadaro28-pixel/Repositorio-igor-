@@ -27,7 +27,7 @@
   const flash = $('div', 'full', ui, { background: '#fff', opacity: 0 });
   const flashes = [];
   const cut = (t) => { flashes.push(t); L.cue(t, 'impact'); };
-  L.onFrame((t) => { const f = flashes.find((a) => t >= a && t < a + 0.1); flash.style.opacity = f != null ? String(0.85 * (1 - (t - f) / 0.1)) : '0'; });
+  L.onFrame((t) => { const f = flashes.find((a) => t >= a && t < a + 0.18); flash.style.opacity = f != null ? String(0.55 * (1 - (t - f) / 0.18)) : '0'; });
   const shakes = [];
   L.onFrame((t) => {
     const s = shakes.find(([a, d]) => t >= a && t < a + d);

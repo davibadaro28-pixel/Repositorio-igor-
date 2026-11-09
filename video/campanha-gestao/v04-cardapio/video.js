@@ -268,6 +268,11 @@
   hid(sub);
   tl.to(sub, { autoAlpha: 1, duration: 0.5 }, W(7, 'personalizado'));
 
+  // câmera que flutua devagar em todas as cenas (estilo editorial, nunca parado)
+  L.drift(s2, { amp: 10, scale: 0.015, push: [W(2, 'foto') - 0.6, T(3), 0.06] });
+  L.drift(s4, { amp: 9, scale: 0.012 });
+  L.drift(s6, { amp: 10, scale: 0.015, push: [W(5, 'data'), T(7), 0.07] });
+  L.drift(s8, { amp: 6, scale: 0.01, push: [T(7), D, 0.07] });
   const capLayer = $('div', 'full', ui);
   L.captions(capLayer, { maxWords: 4, top: 1500, cls: 'v4', hideIn: [[0, T(1) - 0.05], [T(5) - 0.3, T(6) - 0.1], [T(7) - 0.3, D + 1]] });
   L.cue(D - 2.4, 'tail');

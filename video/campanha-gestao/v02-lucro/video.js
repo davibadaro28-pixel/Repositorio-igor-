@@ -249,6 +249,8 @@
   L.tap(s7, 560, 1085, W(7, 'demonstracao') + 0.5);
   tl.to(btn, { scale: 0.95, duration: 0.08, yoyo: true, repeat: 1 }, W(7, 'demonstracao') + 0.5);
 
+  L.drift(s7, { amp: 6, scale: 0.01, push: [T(7), D, 0.06] });
+  tl.to(btn, { boxShadow: '0 30px 80px -10px rgba(52,211,153,.75)', scale: 1.04, duration: 0.5, yoyo: true, repeat: 3, ease: 'sine.inOut' }, W(7, 'demonstracao') + 0.8);
   const capLayer = $('div', 'full', ui);
   L.captions(capLayer, { maxWords: 4, top: 1500, cls: 'v2', hideIn: [[T(7) - 0.3, D + 1]] });
   L.finish();

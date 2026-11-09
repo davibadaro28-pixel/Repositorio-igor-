@@ -196,6 +196,18 @@
   L.show = (el, t, d = 0.4, v = {}) => L.tl.fromTo(el, { autoAlpha: 0, y: 14, ...(v.from || {}) }, { autoAlpha: 1, y: 0, duration: d, immediateRender: false, ...(v.to || {}) }, t);
   L.hide = (el, t, d = 0.3) => L.tl.to(el, { autoAlpha: 0, duration: d }, t);
 
+  // câmera viva: deriva lenta (sem parar) e aproximação contínua entre a e b
+  L.drift = (el, o = {}) => {
+    const amp = o.amp ?? 8;
+    const sc = o.scale ?? 0.012;
+    const k0 = o.from ?? 0;
+    L.onFrame((t) => {
+      const u = t - k0;
+      const push = o.push ? 1 + o.push[2] * L.ease.inOut(L.clamp((t - o.push[0]) / (o.push[1] - o.push[0]))) : 1;
+      el.style.transform = `translate(${Math.sin(u * 0.55) * amp}px, ${Math.cos(u * 0.41) * amp * 0.8}px) scale(${(1 + Math.sin(u * 0.29) * sc) * push})`;
+    });
+  };
+
   // títulos que passam da largura diminuem para caber
   function fit() {
     for (const h of L.heads) {

@@ -270,6 +270,9 @@
   hid(sub);
   tl.to(sub, { autoAlpha: 1, duration: 0.4 }, W(7, 'gente'));
 
+  L.drift(s5, { amp: 4, scale: 0.006, push: [W(4, 'baixa') + 0.8, T(5), 0.025] });
+  L.drift(s7, { amp: 6, scale: 0.01, push: [T(6), T(7), 0.05] });
+  L.drift(s8, { amp: 5, scale: 0.008, push: [T(7), D, 0.06] });
   const capLayer = $('div', 'full', ui);
   L.captions(capLayer, { maxWords: 3, top: 1500, cls: 'v3', hideIn: [[T(7) - 0.1, D + 1]] });
   L.cue(D - 2.4, 'tail');
