@@ -23,6 +23,16 @@ Cada frase foi gravada 2 vezes (3 quando nenhuma bateu com o texto) e entrou a m
 no reconhecimento, voz monótona, pausa longa no meio da frase e ritmo fora do alvo. O relatório de cada escolha fica
 em `escolha.json` na pasta de trabalho.
 
+## Imagem, trilha e som
+
+- Cada variação tem trilha própria (ElevenLabs Music) em 4 seções alinhadas à fala: gancho/problema, solução,
+  prova e final; o estilo segue o do tema.
+- A mixagem usa o perfil do tema (`mix.json`) e a mesma cadeia de `MIXAGEM.md`: todas em −14 LUFS, pico
+  abaixo de −1 dBTP, voz de 11 a 14 dB acima da trilha durante a fala.
+- Todas passaram na verificação de ritmo (nenhum trecho parado acima de 1 s) e na checagem de inteligibilidade
+  com reconhecimento de fala.
+- Os vídeos finais ficam em `out/variacoes/<id>.mp4` (fora do Git por tamanho).
+
 ## As 16 variações
 
 ### v01a-curiosidade · Fernando Borges · 36.1 s
