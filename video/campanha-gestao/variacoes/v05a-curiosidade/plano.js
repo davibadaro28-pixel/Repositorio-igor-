@@ -5,7 +5,7 @@
   TEMA.gancho(0, T(2) - 0.12, {
     linhas: [[0, 'Você abriu', 520, 104], [W(0, 'uma') - 0.03, 'uma doceria', 650, 104], [W(0, 'para') - 0.03, 'para', 820, 80, 'rgba(255,255,255,.6)'], [W(0, 'empreender') - 0.03, 'empreender…', 930, 88, MG]],
     recua: T(1) - 0.15, notas: ['Pedido atrasado!', 'Acabou o leite condensado', 'Cadê a encomenda das 15h?', 'Quanto vendi hoje?', 'O caixa não bate', 'Cliente sem resposta', 'Faltou embalagem'].map((n, i) => [W(1, 'ou') + 0.1 + i * 0.22, n]),
-    fogo: [W(1, 'apagar') - 0.03, 'apagar incêndio'], tremer: W(1, 'dia') - 0.05, empurra: W(1, 'ou'),
+    fogo: [W(1, 'apagar') - 0.03, 'apagar incêndio'], tremer: W(1, 'dia') - 0.05, empurra: W(0, 'empreender'),
   });
   TEMA.relogio(T(2) - 0.12, T(8) - 0.1);
   TEMA.hora('08<b>:</b>00', T(2) - 0.1, T(3), 8.05);

@@ -88,7 +88,8 @@ window.TEMA = (() => {
     }
     if (o.tremer) { M.tremer(o.tremer, 0.5); L.cue(o.tremer, 'boom'); }
     tl.to(hk, { autoAlpha: 0, scale: 1.3, filter: 'blur(14px)', duration: 0.35, ease: 'power2.in' }, b - 0.4);
-    push(s, o.empurra ?? a + 0.6, b - 0.4, 0.06);
+    const e = o.empurra ?? a + 0.6;
+    L.drift(s, { amp: 0, scale: 0, pushes: [[e, e + 1.4, 0.08], [e + 1.4, b - 0.4, 0.05]] });
     return s;
   };
 
