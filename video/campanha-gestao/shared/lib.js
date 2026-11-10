@@ -239,7 +239,10 @@
     if (o.imediato) {
       // usado como gancho: tudo já aparece no primeiro quadro, com um leve assentamento
       num.textContent = '+30%';
-      L.tl.fromTo([kick, num, lbl, note], { scale: 1.06 }, { scale: 1, duration: 0.8, ease: 'expo.out', immediateRender: false }, a);
+      L.tl.fromTo([kick, lbl, note], { scale: 1.06 }, { scale: 1, duration: 0.8, ease: 'expo.out', immediateRender: false }, a);
+      L.tl.fromTo(num, { scale: 1.18 }, { scale: 1, duration: 1.8, ease: 'power2.out', immediateRender: false }, a);
+      const bar = L.$('div', null, box, { position: 'absolute', left: '240px', width: '600px', height: '14px', borderRadius: '7px', top: L.px(lblTop - 18), background: o.numColor, transformOrigin: '0 50%' });
+      L.tl.fromTo(bar, { scaleX: 0 }, { scaleX: 1, duration: 1.3, ease: 'power3.inOut', immediateRender: false }, a + 0.2);
       L.cue(a, 'impact');
       return { box, kick, num, lbl, note };
     }

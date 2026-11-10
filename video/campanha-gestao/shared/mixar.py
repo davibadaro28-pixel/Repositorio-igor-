@@ -380,7 +380,7 @@ fade_out = int(tcfg.get('fade_out', 1.2) * SR)
 m[-fade_out:] *= np.linspace(1, 0, fade_out)[:, None] ** 1.5
 m = eq(m, tcfg['eq'])
 # "fader rider": ganho lento que nivela as seções da trilha (até +9/-6 dB), sem mexer no final
-rider = tcfg.get('rider', 0.75)
+rider = tcfg.get('rider', 0.85)
 if rider:
     mono = m.mean(axis=1)
     hop, w = SR // 10, int(0.4 * SR)
@@ -389,7 +389,7 @@ if rider:
     lvl = uniform_filter1d(lvl, 15)
     ok = lvl > -55
     target = float(np.percentile(lvl[ok], 70)) if ok.any() else -20.0
-    gr = np.where(ok, np.clip(target - lvl, -6, 9) * rider, 0.0)
+    gr = np.where(ok, np.clip(target - lvl, -6, tcfg.get('rider_max', 14)) * rider, 0.0)
     gr[int((D - 2.6) * 10):] = np.minimum(gr[int((D - 2.6) * 10):], 0)
     gr = uniform_filter1d(gr, 9)
     m *= db(np.interp(np.arange(N), np.arange(len(gr)) * hop, gr))[:, None]
