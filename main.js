@@ -1,12 +1,18 @@
 (function () {
-  // WhatsApp da Bea só com dígitos, com DDI e DDD (o mesmo do Linktree dela).
-  // Se ficar vazio, os botões de contato abrem o direct do Instagram.
+  // Edite aqui. WhatsApp só com dígitos, com DDI e DDD (o mesmo do Linktree da Bea).
+  // Se o WhatsApp ficar vazio, os botões de contato abrem o direct do Instagram.
   const CONFIG = {
     whatsapp: "5511945364807",
     instagram: "beapaes_",
+
+    // Depoimentos reais e autorizados por escrito. Enquanto a lista estiver vazia, a seção fica escondida.
+    // Formato de cada item:
+    // { texto: "O que ela disse", nome: "Primeiro nome", fase: "Acompanhada na gestação", foto: "img/arquivo.jpg" }
+    // A foto é opcional. Pela Resolução CFN 856/2026, não use fotos de corpo, antes e depois ou resultados de exames.
+    depoimentos: [],
   };
 
-  const MENSAGEM_PADRAO = "Oi, Bea! Quero saber mais sobre o programa para gestação e pós-parto.";
+  const MENSAGEM_PADRAO = "Oi, Bea! Vim pelo site e quero saber mais sobre o acompanhamento na gestação e no pós-parto.";
   const whatsapp = CONFIG.whatsapp.replace(/\D/g, "");
   const reduzirMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -44,10 +50,14 @@
 
     function alternar(abrir) {
       botao.setAttribute("aria-expanded", String(abrir));
+      botao.querySelector(".visualmente-oculto").textContent = abrir ? "Fechar menu" : "Menu";
       menu.classList.toggle("aberto", abrir);
     }
 
     botao.addEventListener("click", () => alternar(botao.getAttribute("aria-expanded") !== "true"));
+    menu.addEventListener("click", (e) => {
+      if (e.target.closest("a")) alternar(false);
+    });
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && menu.classList.contains("aberto")) {
         alternar(false);
@@ -56,9 +66,204 @@
     });
   }
 
+  /* Entrada suave das seções */
+
+  function iniciarRevelar() {
+    const itens = document.querySelectorAll("[data-revelar]");
+    if (!itens.length || reduzirMovimento || !("IntersectionObserver" in window)) return;
+
+    const observador = new IntersectionObserver(
+      (entradas) => {
+        entradas.forEach((entrada) => {
+          if (!entrada.isIntersecting) return;
+          entrada.target.classList.add("visivel");
+          observador.unobserve(entrada.target);
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+
+    // O que já está na tela aparece sem animação; o resto entra ao rolar.
+    itens.forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add("visivel");
+      else observador.observe(el);
+    });
+    document.documentElement.classList.add("js");
+  }
+
+  /* Depoimentos (só com relatos reais em CONFIG.depoimentos) */
+
+  function iniciarDepoimentos() {
+    const secao = document.getElementById("depoimentos");
+    const lista = document.getElementById("depoimentos-lista");
+    const relatos = CONFIG.depoimentos.filter((d) => d && d.texto && d.nome);
+    if (!secao || !lista || !relatos.length) return;
+
+    relatos.forEach((d) => {
+      const fig = document.createElement("figure");
+      fig.className = "depoimento";
+      const citacao = document.createElement("blockquote");
+      citacao.textContent = `“${d.texto}”`;
+      const legenda = document.createElement("figcaption");
+      if (d.foto) {
+        const img = document.createElement("img");
+        img.className = "depoimento-foto";
+        img.src = d.foto;
+        img.alt = "";
+        img.width = 96;
+        img.height = 96;
+        img.loading = "lazy";
+        legenda.appendChild(img);
+      }
+      const quem = document.createElement("span");
+      const nome = document.createElement("span");
+      nome.className = "depoimento-nome";
+      nome.textContent = d.nome;
+      quem.appendChild(nome);
+      if (d.fase) {
+        const fase = document.createElement("span");
+        fase.className = "depoimento-fase";
+        fase.textContent = d.fase;
+        quem.appendChild(fase);
+      }
+      legenda.appendChild(quem);
+      fig.append(citacao, legenda);
+      lista.appendChild(fig);
+    });
+    secao.hidden = false;
+  }
+
+  /* Formulário curto: monta a mensagem e abre o WhatsApp */
+
+  function iniciarFormulario() {
+    const form = document.getElementById("form-entrar");
+    if (!form) return null;
+    const el = form.elements;
+    const erro = document.getElementById("form-erro");
+    const pronto = document.getElementById("form-pronto");
+    const enviar = pronto ? pronto.querySelector(".js-enviar") : null;
+
+    const valorMarcado = (nome) => {
+      const marcado = form.querySelector(`[name="${nome}"]:checked`);
+      return marcado ? marcado.value : "";
+    };
+    const marcar = (nome, valor) => {
+      const opcao = form.querySelector(`[name="${nome}"][value="${valor}"]`);
+      if (opcao) opcao.checked = true;
+    };
+
+    function mostrarCondicionais() {
+      const fase = valorMarcado("fase");
+      form.querySelectorAll("[data-se]").forEach((c) => {
+        c.hidden = c.dataset.se !== fase;
+      });
+    }
+
+    // Formata o número enquanto a pessoa digita: (11) 91234-5678.
+    function mascaraTelefone(valor) {
+      let d = valor.replace(/\D/g, "");
+      if (d.length > 11 && d.startsWith("55")) d = d.slice(2);
+      d = d.slice(0, 11);
+      if (d.length <= 2) return d.length ? `(${d}` : "";
+      if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+      if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+      return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+    }
+
+    const telefone = el.namedItem("whatsapp");
+    telefone.addEventListener("input", () => {
+      const antes = telefone.value;
+      const depois = mascaraTelefone(antes);
+      if (antes !== depois) telefone.value = depois;
+    });
+
+    // Pré-preenche a fase pelo endereço (ex.: quero-entrar.html#semana-20) ou pelo disco da página inicial.
+    function preencher(ancora) {
+      const semanaAncora = /^semana-(\d{1,2})$/.exec(ancora || "");
+      if (semanaAncora) {
+        marcar("fase", "gestacao");
+        el.namedItem("semana").value = semanaAncora[1];
+      } else if (ancora === "puerperio") {
+        marcar("fase", "pos");
+        el.namedItem("tempo").value = "Menos de 6 semanas";
+      } else if (ancora === "retorno") {
+        marcar("fase", "pos");
+        el.namedItem("tempo").value = "Entre 6 semanas e 3 meses";
+        if (!el.namedItem("interesse").value) el.namedItem("interesse").value = "Recuperação no pós-parto";
+      } else if (ancora === "hipertrofia") {
+        marcar("fase", "pos");
+        el.namedItem("tempo").value = "Mais de 6 meses";
+        el.namedItem("interesse").value = "Ganho de massa muscular depois do parto";
+      } else {
+        return;
+      }
+      mostrarCondicionais();
+    }
+
+    preencher(location.hash.slice(1));
+    window.addEventListener("hashchange", () => preencher(location.hash.slice(1)));
+    form.addEventListener("change", mostrarCondicionais);
+    mostrarCondicionais();
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const nome = el.namedItem("nome").value.trim();
+      const digitos = telefone.value.replace(/\D/g, "").replace(/^55(?=\d{10,11}$)/, "");
+      const fase = valorMarcado("fase");
+      const semanaTexto = el.namedItem("semana").value.trim();
+      const semana = /^\d{1,2}$/.test(semanaTexto) ? Number(semanaTexto) : NaN;
+      const tempo = el.namedItem("tempo").value;
+      const interesse = el.namedItem("interesse").value;
+
+      const faltando = [];
+      if (!nome) faltando.push(["nome", "o seu nome"]);
+      if (digitos.length < 10 || digitos.length > 11) faltando.push(["whatsapp", "um WhatsApp com DDD"]);
+      if (!fase) faltando.push(["fase", "a sua fase"]);
+      if (fase === "gestacao" && !(semana >= 1 && semana <= 42)) faltando.push(["semana", "a semana gestacional, de 1 a 42"]);
+      if (fase === "pos" && !tempo) faltando.push(["tempo", "há quanto tempo foi o parto"]);
+      if (!interesse) faltando.push(["interesse", "o seu principal interesse"]);
+
+      form.querySelectorAll("[aria-invalid]").forEach((c) => c.removeAttribute("aria-invalid"));
+      if (faltando.length) {
+        faltando.forEach(([campo]) => {
+          const alvo = form.querySelector(`[name="${campo}"]`);
+          if (alvo && alvo.type !== "radio") alvo.setAttribute("aria-invalid", "true");
+        });
+        erro.textContent = `Falta informar ${listar(faltando.map((f) => f[1]))}.`;
+        erro.hidden = false;
+        form.querySelector(`[name="${faltando[0][0]}"]`).focus();
+        return;
+      }
+      erro.hidden = true;
+
+      const linhas = [
+        "Oi, Bea! Vim pelo site e quero conversar sobre o acompanhamento.",
+        "",
+        `Nome: ${nome}`,
+        `WhatsApp: ${mascaraTelefone(digitos)}`,
+        fase === "gestacao" ? `Fase: gestação, semana ${semana}` : `Fase: pós-parto, ${tempo.toLowerCase()}`,
+        `Principal interesse: ${interesse}`,
+      ];
+      const link = linkContato(linhas.join("\n"));
+
+      if (enviar) {
+        enviar.href = link;
+        enviar.textContent = whatsapp ? "toque aqui para abrir a conversa" : "toque aqui para abrir o direct do Instagram";
+      }
+      window.open(link, "_blank", "noopener");
+      if (pronto) {
+        pronto.hidden = false;
+        pronto.focus({ preventScroll: true });
+        pronto.scrollIntoView({ behavior: reduzirMovimento ? "auto" : "smooth", block: "nearest" });
+      }
+    });
+
+    return preencher;
+  }
+
   /* Disco gestacional da página inicial */
 
-  function iniciarDisco() {
+  function iniciarDisco(preencherFormulario) {
     const svg = document.querySelector(".disco-svg");
     if (!svg) return;
 
@@ -73,42 +278,42 @@
         inicio: 0,
         fim: 13 * GRAUS_POR_SEMANA,
         nome: "1º trimestre",
-        texto: "Enjoo, aversões e cansaço. A Bea monta estratégias para você comer bem nos dias difíceis, com ácido fólico e os nutrientes que o bebê mais precisa agora.",
+        texto: "Enjoo, aversões e cansaço. O foco é comer bem mesmo nos dias difíceis, com o ácido fólico e os nutrientes que o bebê mais precisa agora.",
       },
       {
         inicio: 13 * GRAUS_POR_SEMANA,
         fim: 27 * GRAUS_POR_SEMANA,
         nome: "2º trimestre",
-        texto: "A fome aumenta e o bebê cresce rápido. O seu ganho de peso é acompanhado mês a mês na curva da Caderneta da Gestante, com ferro, cálcio e proteína no prato.",
+        texto: "A fome aumenta e o bebê cresce rápido. O ganho de peso é acompanhado na curva da Caderneta da Gestante, com ferro, cálcio e proteína no prato.",
       },
       {
         inicio: 27 * GRAUS_POR_SEMANA,
         fim: 270,
         nome: "3º trimestre",
-        texto: "Reta final: azia, intestino preso e estômago apertado. Refeições menores e mais frequentes, e a alimentação do pós-parto já planejada, enquanto a doula prepara você para o parto.",
+        texto: "Reta final: azia, intestino preso e estômago apertado. Refeições menores e mais frequentes, e a alimentação do pós-parto já pensada, enquanto a doula prepara você para o parto.",
       },
       {
         inicio: 270,
         fim: 300,
         nome: "primeiras 6 semanas",
         texto: "Primeiras semanas com o bebê. Comida prática e nutritiva para recuperar a energia e sustentar a amamentação, sem dieta restritiva.",
-        mensagem: "Oi, Bea! Tive meu bebê há poucas semanas e quero saber mais sobre o programa.",
+        mensagem: "Oi, Bea! Tive meu bebê há poucas semanas e quero saber mais sobre o acompanhamento.",
         ancora: "puerperio",
       },
       {
         inicio: 300,
         fim: 330,
         nome: "recuperação",
-        texto: "Perda de peso gradual e segura, no ritmo do sono e da amamentação, para recuperar o seu corpo sem perder energia.",
-        mensagem: "Oi, Bea! Tive meu bebê e quero recuperar o meu corpo com acompanhamento.",
+        texto: "Perda de peso gradual, no ritmo do sono e da amamentação, com energia para o dia a dia e sem dieta restritiva.",
+        mensagem: "Oi, Bea! Tive meu bebê e quero cuidar da alimentação na recuperação do pós-parto.",
         ancora: "retorno",
       },
       {
         inicio: 330,
         fim: 360,
-        nome: "hipertrofia",
-        texto: "Corpo recuperado, hora de construir músculo. Proteína e energia ajustadas ao seu treino para ganhar massa muscular.",
-        mensagem: "Oi, Bea! Quero saber mais sobre a nutrição para hipertrofia.",
+        nome: "ganho de massa muscular",
+        texto: "Com o treino liberado pelo seu médico, proteína e energia ajustadas para apoiar o ganho de massa muscular.",
+        mensagem: "Oi, Bea! Quero saber mais sobre a nutrição para ganho de massa muscular depois do parto.",
         ancora: "hipertrofia",
       },
     ];
@@ -169,7 +374,7 @@
         path.style.setProperty("--i", i);
         fase.path = path;
       });
-      svg.classList.add("desenhar");
+      if (!reduzirMovimento) svg.classList.add("desenhar");
     }
 
     function lerValor(v) {
@@ -180,7 +385,7 @@
           graus: (v - 0.5) * GRAUS_POR_SEMANA,
           linha1: `Semana ${v}`,
           linha2: FASES[indice].nome,
-          mensagem: `Oi, Bea! Estou na semana ${v} da gestação e quero saber mais sobre o programa.`,
+          mensagem: `Oi, Bea! Estou na semana ${v} da gestação e quero saber mais sobre o acompanhamento.`,
           ancora: `semana-${v}`,
         };
       }
@@ -197,7 +402,7 @@
 
     // A figura no centro do disco: a barriga sai de baixo do peito e afunila até a pelve,
     // crescendo com a semana; no pós-parto ela segura o bebê, depois um kettlebell e,
-    // na hipertrofia, um halter.
+    // no ganho de massa muscular, um halter.
     function bezier(a, b, c, d, t) {
       const u = 1 - t;
       return [0, 1].map((i) => u * u * u * a[i] + 3 * u * u * t * b[i] + 3 * u * t * t * c[i] + t * t * t * d[i]);
@@ -270,6 +475,7 @@
         entrar.forEach((a) => {
           a.href = `quero-entrar.html#${estado.ancora}`;
         });
+        if (preencherFormulario) preencherFormulario(estado.ancora);
       }
     }
 
@@ -371,136 +577,11 @@
     calcular();
   }
 
-  /* Formulário "Quero entrar" */
-
-  function iniciarFormulario() {
-    const form = document.getElementById("form-entrar");
-    if (!form) return;
-    const el = form.elements;
-    const erro = document.getElementById("form-erro");
-    const pronta = document.getElementById("mensagem-pronta");
-    const titulo = pronta.querySelector("h2");
-    const instrucao = pronta.querySelector(".mensagem-instrucao");
-    const texto = document.getElementById("mensagem-texto");
-    const enviar = pronta.querySelector(".js-enviar");
-    const copiar = pronta.querySelector(".js-copiar");
-    const copiado = pronta.querySelector(".copiado");
-
-    const valorMarcado = (nome) => {
-      const marcado = form.querySelector(`[name="${nome}"]:checked`);
-      return marcado ? marcado.value : "";
-    };
-    const marcar = (nome, valor) => {
-      const opcao = form.querySelector(`[name="${nome}"][value="${valor}"]`);
-      if (opcao) opcao.checked = true;
-    };
-
-    function mostrarCondicionais() {
-      const fase = valorMarcado("fase");
-      form.querySelectorAll("[data-se]").forEach((c) => {
-        c.hidden = c.dataset.se !== fase;
-      });
-    }
-
-    // Pré-preenche a fase escolhida no disco da página inicial (ex.: #semana-20, #retorno).
-    function aplicarAncora() {
-      const ancora = location.hash.slice(1);
-      const semanaAncora = /^semana-(\d{1,2})$/.exec(ancora);
-      if (semanaAncora) {
-        marcar("fase", "gravida");
-        el.namedItem("semana").value = semanaAncora[1];
-      } else if (ancora === "puerperio") {
-        marcar("fase", "pos");
-        el.namedItem("tempo").value = "Menos de 6 semanas";
-      } else if (ancora === "retorno") {
-        marcar("fase", "pos");
-        el.namedItem("tempo").value = "Entre 6 semanas e 3 meses";
-      } else if (ancora === "hipertrofia") {
-        marcar("fase", "pos");
-        el.namedItem("tempo").value = "Mais de 6 meses";
-        marcar("preocupacoes", "Ganhar massa muscular");
-      }
-      mostrarCondicionais();
-    }
-    aplicarAncora();
-    window.addEventListener("hashchange", aplicarAncora);
-    form.addEventListener("change", mostrarCondicionais);
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const nome = el.namedItem("nome").value.trim();
-      const fase = valorMarcado("fase");
-      const semana = parseInt(el.namedItem("semana").value, 10);
-      const tempo = el.namedItem("tempo").value;
-      const parto = el.namedItem("parto").value;
-
-      const faltando = [];
-      if (!nome) faltando.push(["nome", "o seu nome"]);
-      if (!fase) faltando.push(["fase", "a sua fase"]);
-      if (fase === "gravida" && !(semana >= 1 && semana <= 42)) faltando.push(["semana", "a semana de gestação, de 1 a 42"]);
-      if (fase === "pos" && !tempo) faltando.push(["tempo", "há quanto tempo foi o parto"]);
-
-      if (faltando.length) {
-        erro.textContent = `Falta preencher ${listar(faltando.map((f) => f[1]))}.`;
-        erro.hidden = false;
-        form.querySelector(`[name="${faltando[0][0]}"]`).focus();
-        return;
-      }
-      erro.hidden = true;
-
-      const linhas = ["Oi, Bea! Quero entrar no programa.", "", `Nome: ${nome}`];
-      if (fase === "gravida") {
-        linhas.push(`Fase: grávida, semana ${semana}`);
-      } else {
-        linhas.push(`Fase: pós-parto, ${tempo.toLowerCase()}${parto ? `, parto ${parto.toLowerCase()}` : ""}`);
-      }
-      const marcados = (nome) => [...form.querySelectorAll(`[name="${nome}"]:checked`)].map((i) => i.value.toLowerCase());
-      const alimentacao = valorMarcado("alimentacao");
-      if (alimentacao) linhas.push(`Minha alimentação hoje: ${alimentacao.toLowerCase()}`);
-      const preocupacoes = marcados("preocupacoes");
-      if (preocupacoes.length) linhas.push(`O que mais me preocupa: ${listar(preocupacoes)}`);
-      const saude = marcados("saude");
-      if (saude.length) linhas.push(`Saúde: ${listar(saude)}`);
-      const cidade = el.namedItem("cidade").value.trim();
-      if (cidade) linhas.push(`Cidade: ${cidade}`);
-      const recado = el.namedItem("recado").value.trim();
-      if (recado) linhas.push("", recado);
-      const mensagem = linhas.join("\n");
-
-      texto.value = mensagem;
-      enviar.href = linkContato(mensagem);
-      if (whatsapp) {
-        enviar.textContent = "Enviar pelo WhatsApp";
-        instrucao.textContent = "Confira o texto e toque em enviar. O WhatsApp abre com a mensagem pronta.";
-      } else {
-        enviar.textContent = "Abrir o direct do Instagram";
-        instrucao.textContent = "Copie a mensagem e cole no direct da Bea no Instagram.";
-      }
-      copiado.textContent = "";
-      pronta.hidden = false;
-      titulo.focus({ preventScroll: true });
-      pronta.scrollIntoView({ behavior: reduzirMovimento ? "auto" : "smooth", block: "start" });
-    });
-
-    copiar.addEventListener("click", () => {
-      const selecionar = () => {
-        texto.focus();
-        texto.select();
-        copiado.textContent = "Texto selecionado. Use a opção copiar do seu aparelho.";
-      };
-      if (!navigator.clipboard) {
-        selecionar();
-        return;
-      }
-      navigator.clipboard.writeText(texto.value).then(() => {
-        copiado.textContent = "Mensagem copiada.";
-      }, selecionar);
-    });
-  }
-
   atualizarContatos(MENSAGEM_PADRAO);
   iniciarMenu();
-  iniciarDisco();
+  iniciarDepoimentos();
+  const preencherFormulario = iniciarFormulario();
+  iniciarDisco(preencherFormulario);
   iniciarCalculadora();
-  iniciarFormulario();
+  iniciarRevelar();
 })();

@@ -1,0 +1,165 @@
+    <header class="pagina-topo">
+      <div class="largura pagina-topo-inner">
+        <div class="pagina-topo-texto">
+          <h1>Alimentação e ganho de peso</h1>
+          <p class="lead">Quanto ganhar, o que não pode faltar e o que muda na amamentação. Com a calculadora da faixa de ganho de peso usada no pré-natal do Brasil.</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="largura artigo">
+      <nav class="sumario" aria-label="Nesta página">
+        <p class="sumario-titulo">Nesta página</p>
+        <ul>
+          <li><a href="#calculadora">Calculadora de ganho de peso</a></li>
+          <li><a href="#faixas">Quanto ganhar</a></li>
+          <li><a href="#por-dois">Não é comer por dois</a></li>
+          <li><a href="#suplementos">Suplementos do pré-natal</a></li>
+          <li><a href="#prato">No prato</a></li>
+          <li><a href="#desconfortos">Enjoo, azia e intestino preso</a></li>
+          <li><a href="#seguranca">Cuidados com os alimentos</a></li>
+          <li><a href="#amamentacao">Na amamentação</a></li>
+          <li><a href="#fontes">Fontes</a></li>
+        </ul>
+      </nav>
+
+      <article class="artigo-texto">
+        <section id="calculadora">
+          <h2>Calculadora de ganho de peso</h2>
+          <p>Use a sua altura e o seu peso de antes da gestação. A faixa vem da Caderneta da Gestante, do Ministério da Saúde<sup class="ref"><a href="#f1">1</a></sup>.</p>
+          <form class="calc" id="calc" novalidate>
+            <div class="campo">
+              <label for="calc-altura">Altura em cm</label>
+              <input id="calc-altura" name="altura" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 165">
+            </div>
+            <div class="campo">
+              <label for="calc-antes">Peso antes da gestação, em kg</label>
+              <input id="calc-antes" name="antes" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 62">
+            </div>
+            <div class="campo">
+              <label for="calc-hoje">Peso hoje, em kg <span>opcional</span></label>
+              <input id="calc-hoje" name="hoje" type="text" inputmode="decimal" autocomplete="off" placeholder="Ex.: 67,5">
+            </div>
+            <div class="campo">
+              <label for="calc-semana">Semana de gestação <span>opcional</span></label>
+              <input id="calc-semana" name="semana" type="text" inputmode="numeric" autocomplete="off" placeholder="Ex.: 24">
+            </div>
+          </form>
+          <div class="calc-resultado" id="calc-resultado" aria-live="polite">
+            <p class="calc-vazio">Preencha a altura e o peso de antes da gestação para ver a sua faixa.</p>
+          </div>
+          <p class="calc-aviso">A calculadora serve para gestação de um bebê e não substitui a avaliação no pré-natal. No acompanhamento, o seu ganho é conferido semana a semana na curva da Caderneta.</p>
+        </section>
+
+        <section id="faixas">
+          <h2>Quanto ganhar</h2>
+          <p>Desde agosto de 2022, o Ministério da Saúde usa curvas de ganho de peso feitas com dados de gestantes brasileiras<sup class="ref"><a href="#f2">2</a></sup>. A faixa depende do IMC de antes da gestação:</p>
+          <div class="tabela-wrap">
+            <table class="tabela">
+              <thead>
+                <tr><th scope="col">IMC antes da gestação</th><th scope="col">Classificação</th><th scope="col">Ganho total até o fim</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Menor que 18,5</td><td>Baixo peso</td><td>9,7 a 12,2 kg</td></tr>
+                <tr><td>18,5 a 24,9</td><td>Eutrofia</td><td>8,0 a 12,0 kg</td></tr>
+                <tr><td>25,0 a 29,9</td><td>Sobrepeso</td><td>7,0 a 9,0 kg</td></tr>
+                <tr><td>30,0 ou mais</td><td>Obesidade</td><td>5,0 a 7,2 kg</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Essas faixas são menores que as da tabela americana de 2009, que ainda aparece em muitos sites. Se você encontrar números diferentes, é provável que sejam da tabela antiga.</p>
+        </section>
+
+        <section id="por-dois">
+          <h2>Não é comer por dois</h2>
+          <p>A necessidade de energia quase não muda no 1º trimestre e aumenta aos poucos a partir do 2º. O que aumenta bastante é a necessidade de alguns nutrientes, como ácido fólico, ferro e cálcio. Por isso a qualidade da comida importa mais que a quantidade.</p>
+        </section>
+
+        <section id="suplementos">
+          <h2>Suplementos do pré-natal</h2>
+          <p>O Ministério da Saúde recomenda três suplementos para as gestantes:</p>
+          <dl class="suplementos">
+            <div>
+              <dt>Ácido fólico</dt>
+              <dd>400 microgramas por dia, começando pelo menos 30 dias antes de engravidar e seguindo até o fim da gestação. Ajuda a prevenir malformações do tubo neural do bebê<sup class="ref"><a href="#f3">3</a></sup>.</dd>
+            </div>
+            <div>
+              <dt>Ferro</dt>
+              <dd>40 mg de ferro elementar por dia, do início do pré-natal até o 3º mês depois do parto. Ajuda a prevenir a anemia<sup class="ref"><a href="#f3">3</a></sup>.</dd>
+            </div>
+            <div>
+              <dt>Cálcio</dt>
+              <dd>1.000 mg de cálcio elementar por dia, da 12ª semana até o parto, para prevenir a pré-eclâmpsia. Deve ser tomado com pelo menos 2 horas de intervalo do ferro e não em jejum<sup class="ref"><a href="#f4">4</a></sup>.</dd>
+            </div>
+          </dl>
+          <div class="nota">
+            <p>Use suplementos só com a prescrição do seu obstetra ou da sua nutricionista. A dose pode mudar de acordo com os seus exames e o seu histórico.</p>
+          </div>
+        </section>
+
+        <section id="prato">
+          <h2>No prato</h2>
+          <ul class="regras">
+            <li><strong>Proteína em todas as refeições.</strong> Carnes, ovos, feijão, lentilha, leite e iogurte.</li>
+            <li><strong>Ferro com vitamina C.</strong> Carne vermelha, feijão e folhas escuras, com uma fruta como laranja ou acerola para absorver melhor.</li>
+            <li><strong>Cálcio.</strong> Leite, iogurte e queijos pasteurizados.</li>
+            <li><strong>Fibras e água.</strong> Frutas, verduras, grãos integrais e bastante água ajudam contra a prisão de ventre, comum na gestação.</li>
+          </ul>
+        </section>
+
+        <section id="desconfortos">
+          <h2>Enjoo, azia e intestino preso</h2>
+          <dl class="suplementos">
+            <div>
+              <dt>Enjoo</dt>
+              <dd>Refeições pequenas a cada 2 ou 3 horas, sem ficar muito tempo de estômago vazio. Alimentos secos, como torrada ou biscoito de água e sal, ajudam ao acordar. Se o vômito for frequente a ponto de você não conseguir se hidratar, procure o obstetra.</dd>
+            </div>
+            <div>
+              <dt>Azia</dt>
+              <dd>Porções menores, comer devagar e esperar um pouco antes de deitar depois das refeições.</dd>
+            </div>
+            <div>
+              <dt>Intestino preso</dt>
+              <dd>Fibras de frutas, verduras e grãos integrais, bastante água e movimento ao longo do dia.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <section id="seguranca">
+          <h2>Cuidados com os alimentos</h2>
+          <ul class="regras">
+            <li><strong>Nada cru ou malpassado.</strong> Carnes, peixes e ovos bem cozidos, para evitar toxoplasmose e outras infecções.</li>
+            <li><strong>Só leite e queijos pasteurizados.</strong></li>
+            <li><strong>Frutas e verduras bem lavadas.</strong></li>
+            <li><strong>Cafeína com moderação.</strong> A recomendação é ficar abaixo de 200 mg por dia<sup class="ref"><a href="#f5">5</a></sup>.</li>
+            <li><strong>Nenhum álcool.</strong> Não há quantidade segura na gestação.</li>
+          </ul>
+        </section>
+
+        <section id="amamentacao">
+          <h2>Na amamentação</h2>
+          <p>Amamentar aumenta a fome e a sede. Beba água ao longo do dia e mantenha proteína em todas as refeições. O ferro continua até o 3º mês depois do parto<sup class="ref"><a href="#f3">3</a></sup>. Segundo os estudos disponíveis, exercício moderado não reduz a produção de leite<sup class="ref"><a href="#f6">6</a></sup>.</p>
+          <p><a class="link" href="pos-parto.html">Ler o guia do pós-parto</a></p>
+        </section>
+
+        <section id="fontes" class="fontes">
+          <h2>Fontes</h2>
+          <ol>
+            <li id="f1">Ministério da Saúde. Caderneta da Gestante, 2022: quadro de ganho de peso gestacional. <a href="https://bvsms.saude.gov.br/bvs/cartazes/ganho_peso_gestacional.pdf" rel="noopener">bvsms.saude.gov.br</a>.</li>
+            <li id="f2">Kac G et al. Gestational weight gain charts: results from the Brazilian Maternal and Child Nutrition Consortium. American Journal of Clinical Nutrition, 2021. <a href="https://lume.ufrgs.br/bitstream/10183/257100/1/001166248.pdf" rel="noopener">lume.ufrgs.br</a>.</li>
+            <li id="f3">Ministério da Saúde. Programa Nacional de Suplementação de Ferro: manual de condutas gerais, 2013. <a href="https://bvsms.saude.gov.br/bvs/publicacoes/manual_suplementacao_ferro_condutas_gerais.pdf" rel="noopener">bvsms.saude.gov.br</a>.</li>
+            <li id="f4">Ministério da Saúde. Nota Técnica Conjunta nº 251/2024: suplementação universal de cálcio para gestantes. <a href="https://portaldeboaspraticas.iff.fiocruz.br/wp-content/uploads/2025/02/nota-tecnica-conjunta-no-251-2024-coemm-cgesmu-dgci-saps-ms-e-cgan-deppros-saps-ms.pdf" rel="noopener">Portal de Boas Práticas, Fiocruz</a>.</li>
+            <li id="f5">American College of Obstetricians and Gynecologists. Moderate caffeine consumption during pregnancy. <a href="https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2010/08/moderate-caffeine-consumption-during-pregnancy" rel="noopener">acog.org</a>.</li>
+            <li id="f6">Daley AJ et al. Maternal exercise and growth in breastfed infants: a meta-analysis of randomized controlled trials. Pediatrics, 2012.</li>
+          </ol>
+        </section>
+      </article>
+    </div>
+
+    <section class="secao secao-casca final">
+      <div class="largura largura-texto">
+        <h2 class="titulo-secao">Alimentação montada para você</h2>
+        <p>No programa, a Bea acompanha o seu ganho de peso e monta com você a alimentação da gestação e da amamentação.</p>
+        <a class="botao" href="quero-entrar.html">Quero entrar</a>
+      </div>
+    </section>

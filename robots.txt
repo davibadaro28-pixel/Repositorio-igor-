@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://davibadaro28-pixel.github.io/Repositorio-igor-/sitemap.xml
