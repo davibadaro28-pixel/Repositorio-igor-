@@ -189,6 +189,20 @@ window.TEMA = (() => {
       rise(lb, t, 0.4);
       L.cue(t, 'tick');
     };
+    // marcação que percorre as linhas (produto a produto) nos tempos dados; a última fica vermelha
+    if (o.varre) {
+      const rows = [235.5, 292.5, 349.5];
+      const mk = $('div', null, tb, { position: 'absolute', left: '0', width: '100%', top: px((rows[0] - 198) * CK), height: px(57 * CK), background: 'rgba(14,159,110,.14)', borderLeft: `8px solid ${EM}` });
+      hid(mk);
+      o.varre.forEach((t, i) => {
+        const last = i === o.varre.length - 1;
+        if (i === 0) tl.fromTo(mk, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.15, immediateRender: false }, t);
+        else tl.to(mk, { top: (rows[Math.min(i, 2)] - 198) * CK, duration: 0.3, ease: 'power3.inOut' }, t);
+        if (last) tl.to(mk, { background: 'rgba(224,80,63,.16)', borderLeftColor: RED, duration: 0.2 }, t + 0.1);
+        L.cue(t, last ? 'alert' : 'tick');
+      });
+      if (o.custo) tl.to(mk, { autoAlpha: 0, duration: 0.2 }, o.custo - 0.2);
+    }
     if (o.custo) colHi(965, 1060, o.custo, 'custo');
     if (o.lucro) colHi(1145, 1270, o.lucro, 'lucro bruto', 330);
     if (o.margem) {
