@@ -136,7 +136,8 @@ window.TEMA = (() => {
       hid(c);
       rise(c, o.tFoto ?? a + 0.2, 0.7, { scale: 0.85 });
     }
-    push(s, a + 0.5, b, 0.07);
+    const last = Math.max(...lines.map((l) => l[0]));
+    L.drift(s, { amp: 0, scale: 0, pushes: [[a + 0.5, last, 0.04], [last + 0.3, b, 0.08]] });
     return s;
   };
 
@@ -285,7 +286,7 @@ window.TEMA = (() => {
     tl.fromTo(card, { autoAlpha: 0, y: 200, scale: 0.9 }, { autoAlpha: 1, y: 0, scale: 1, duration: 0.6, ease: 'back.out(1.4)', immediateRender: false }, a);
     L.cue(a, 'whoosh');
     L.prova(s, a + 0.1, { top: 470, numSize: 280, kickFont: "800 28px/1.3 'Plus Jakarta Sans'", kickColor: EM, numFont: "800 280px/1 'Plus Jakarta Sans'", numColor: INK, lblFont: "800 96px/1 'Plus Jakarta Sans'", lblSize: 96, lblColor: EM, noteFont: "600 28px/1.35 'Plus Jakarta Sans'", noteColor: 'rgba(23,32,28,.6)' });
-    push(s, a + 1, b, 0.06);
+    push(s, a + 1, b, 0.12);
     return s;
   };
 
