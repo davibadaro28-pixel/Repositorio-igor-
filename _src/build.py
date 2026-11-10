@@ -7,6 +7,7 @@ de _src/parciais/ e envolve tudo com o mesmo cabeçalho, sprite de ícones, roda
 WhatsApp. Escreve as páginas prontas na raiz do repositório, além de sitemap.xml e robots.txt.
 A pasta _src não é publicada pelo GitHub Pages (pastas com "_" são ignoradas).
 """
+import hashlib
 import json
 import pathlib
 import re
@@ -71,6 +72,13 @@ DADOS_ESTRUTURADOS = {
     },
 }
 
+# Versão dos arquivos no endereço (style.css?v=...), para o navegador baixar de novo quando mudarem.
+def versao(nome):
+    return hashlib.sha1((OUT / nome).read_bytes()).hexdigest()[:8]
+
+V_CSS = versao("style.css")
+V_JS = versao("main.js")
+
 sprite = (SRC / "_sprite.html").read_text(encoding="utf-8")
 parciais = {p.stem: p.read_text(encoding="utf-8").rstrip() for p in (SRC / "parciais").glob("*.html")}
 
@@ -127,7 +135,7 @@ def pagina(slug, titulo, descricao):
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400&display=swap">
-  <link rel="stylesheet" href="style.css">{ld}
+  <link rel="stylesheet" href="style.css?v={V_CSS}">{ld}
 </head>
 <body>
 
@@ -177,7 +185,7 @@ def pagina(slug, titulo, descricao):
     <svg class="whats-icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
   </a>
 
-  <script src="main.js" defer></script>
+  <script src="main.js?v={V_JS}" defer></script>
 </body>
 </html>
 """
