@@ -4,7 +4,7 @@
   const EM = '#0e9f6e';
   TEMA.contador(0, T(1) - 0.02, { kick: 'Vendas do mês', inicio: W(0, 'vendeu'), nao: W(0, 'nao'), bolso: W(0, 'fecha') - 0.1, bolsoTexto: 'a conta não fecha?' });
   TEMA.titulo(T(1), T(2) - 0.05, [[W(1, 'resposta') - 0.1, 'A resposta pode estar', { fontSize: '64px', color: EM }], [W(1, 'numero') - 0.1, 'num número que'], [W(1, 'nunca') - 0.05, 'você nunca calculou:'], [W(1, 'custo') - 0.05, `<span style="color:${EM}">o custo de cada produto.</span>`]], { size: '84px', top: 560 });
-  TEMA.cmv(T(2) - 0.02, T(4) - 0.02, { varre: [W(2, 'doce') - 0.1, W(2, 'vende') - 0.05, W(2, 'margem') - 0.2], custo: W(3, 'custo') - 0.05, lucro: W(3, 'lucro') - 0.05, margem: W(3, 'margem') - 0.1 });
+  TEMA.cmv(T(2) - 0.02, T(4) - 0.02, { varre: [W(2, 'doce') - 0.1, W(2, 'vende') - 0.05, W(2, 'pode') - 0.05, W(2, 'margem') - 0.2], custo: W(3, 'custo') - 0.05, lucro: W(3, 'lucro') - 0.05, margem: W(3, 'margem') - 0.1 });
   TEMA.pedido(T(4) - 0.02, T(5) - 0.02, { custo: W(4, 'custo') - 0.1 });
   TEMA.dre(T(5) - 0.02, T(6) - 0.02, { vendas: W(5, 'vendas'), custos: W(5, 'custos'), despesas: W(5, 'despesas'), resultado: W(5, 'resultado') });
   TEMA.prova(T(6) - 0.02, T(7) - 0.3);
