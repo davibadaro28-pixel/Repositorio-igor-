@@ -199,7 +199,10 @@ window.TEMA = (() => {
         const last = i === o.varre.length - 1;
         if (i === 0) tl.fromTo(mk, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.15, immediateRender: false }, t);
         else tl.to(mk, { top: (rows[Math.min(i, 2)] - 198) * CK, duration: 0.3, ease: 'power3.inOut' }, t);
-        if (last) tl.to(mk, { background: 'rgba(224,80,63,.16)', borderLeftColor: RED, duration: 0.2 }, t + 0.1);
+        if (last) {
+          tl.to(mk, { background: 'rgba(224,80,63,.16)', borderLeftColor: RED, duration: 0.2 }, t + 0.1);
+          tl.to(mk, { background: 'rgba(224,80,63,.42)', duration: 0.25, yoyo: true, repeat: 5, ease: 'sine.inOut' }, t + 0.35);
+        }
         L.cue(t, last ? 'alert' : 'tick');
       });
       if (o.custo) tl.to(mk, { autoAlpha: 0, duration: 0.2 }, o.custo - 0.2);
