@@ -1,0 +1,47 @@
+{
+ "global": [
+  "bright friendly acoustic pop instrumental",
+  "ukulele and marimba",
+  "hand claps",
+  "glockenspiel accents",
+  "104 BPM",
+  "G major",
+  "cheerful tutorial"
+ ],
+ "evitar": [
+  "heavy drums",
+  "electric guitar"
+ ],
+ "secoes": [
+  {
+   "nome": "Intro",
+   "ate": 5.25,
+   "estilo": [
+    "light and curious"
+   ]
+  },
+  {
+   "nome": "Steps",
+   "ate": 20.61,
+   "estilo": [
+    "bouncy groove",
+    "simple and clear"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 25.85,
+   "estilo": [
+    "fuller, celebratory"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "happy ending",
+    "short tail"
+   ]
+  }
+ ]
+}

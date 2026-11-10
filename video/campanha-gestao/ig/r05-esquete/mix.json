@@ -1,0 +1,207 @@
+{
+ "seed": 3,
+ "voz": {
+  "eq": [
+   [
+    "hp",
+    110,
+    0.7
+   ],
+   [
+    "peak",
+    320,
+    1.0,
+    -2
+   ],
+   [
+    "peak",
+    3800,
+    0.9,
+    2.5
+   ],
+   [
+    "hs",
+    10500,
+    0.7,
+    2
+   ]
+  ],
+  "deesser": [
+   6200,
+   10000,
+   -2,
+   3
+  ],
+  "comp": [
+   -7,
+   3,
+   5,
+   90
+  ],
+  "comp2": [
+   -1,
+   8,
+   0.5,
+   40
+  ]
+ },
+ "trilha": {
+  "eq": [
+   [
+    "hp",
+    32,
+    0.7
+   ],
+   [
+    "peak",
+    300,
+    0.8,
+    -1.5
+   ]
+  ],
+  "duck": -7,
+  "bolsao": -3.5,
+  "automacao": [],
+  "ataque_ms": 80,
+  "release_ms": 340,
+  "fade_out": 1.3,
+  "voz_sobre_trilha": 11
+ },
+ "efeitos": {
+  "tipos": {
+   "whoosh": {
+    "src": "syn:whoosh",
+    "dur": 0.4,
+    "f0": 600,
+    "f1": 6000,
+    "db": -16,
+    "pan": "varre"
+   },
+   "hit": {
+    "src": "syn:impact",
+    "db": -7
+   },
+   "impact": {
+    "src": "syn:impact",
+    "db": -8
+   },
+   "tick": {
+    "src": "syn:tick",
+    "f": 3000,
+    "db": -19
+   },
+   "type": {
+    "src": "lib:type",
+    "db": -16,
+    "max": 0.75
+   },
+   "scribble": {
+    "src": "lib:scribble",
+    "db": -14,
+    "max": 0.6
+   },
+   "bubble": {
+    "src": "lib:bubble",
+    "db": -15
+   },
+   "ding": {
+    "src": "lib:ding",
+    "db": -10
+   },
+   "zoom": {
+    "src": "syn:whoosh",
+    "dur": 0.3,
+    "f0": 3000,
+    "f1": 800,
+    "db": -19
+   },
+   "pop": {
+    "src": "lib:sticker",
+    "db": -11,
+    "max": 0.35
+   },
+   "alert": {
+    "src": "lib:alarm",
+    "db": -14,
+    "max": 0.6
+   },
+   "flip": {
+    "src": "lib:flip",
+    "db": -13,
+    "max": 0.45
+   },
+   "swell": {
+    "src": "syn:swell",
+    "dur": 0.8,
+    "db": -16
+   },
+   "tap": {
+    "src": "syn:tap",
+    "db": -16
+   },
+   "count": {
+    "src": "lib:count",
+    "db": -14,
+    "max": 1.05
+   },
+   "stamp": {
+    "src": "lib:stamp",
+    "db": -9
+   },
+   "riser": {
+    "src": "syn:riser",
+    "dur": 0.9,
+    "db": -15
+   },
+   "success": {
+    "src": "lib:success",
+    "db": -12
+   },
+   "plim": {
+    "src": "syn:chime",
+    "f": 1760,
+    "db": -15
+   },
+   "door": {
+    "src": "syn:thump",
+    "f": 70,
+    "db": -10
+   },
+   "boing": {
+    "src": "syn:drop",
+    "db": -12
+   },
+   "slam": {
+    "src": "lib:slam",
+    "db": -8
+   }
+  },
+  "eq": [
+   [
+    "hp",
+    120,
+    0.7
+   ],
+   [
+    "hs",
+    8000,
+    0.7,
+    1
+   ]
+  ],
+  "reverb": [
+   0.4,
+   7000,
+   -22
+  ],
+  "duck": -3
+ },
+ "master": {
+  "cola": [
+   -3,
+   1.8,
+   20,
+   220
+  ]
+ }
+}

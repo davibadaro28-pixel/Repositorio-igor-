@@ -1,0 +1,53 @@
+{
+ "global": [
+  "quirky comedic cartoon instrumental",
+  "pizzicato strings",
+  "bassoon and clarinet",
+  "playful woodblock percussion",
+  "112 BPM",
+  "C major"
+ ],
+ "evitar": [
+  "electronic",
+  "heavy drums"
+ ],
+ "secoes": [
+  {
+   "nome": "Chaos",
+   "ate": 10.86,
+   "estilo": [
+    "mischievous, sneaky, comedic tension"
+   ]
+  },
+  {
+   "nome": "Hero",
+   "ate": 23.08,
+   "estilo": [
+    "heroic comedic march",
+    "confident brass"
+   ]
+  },
+  {
+   "nome": "Sad",
+   "ate": 27.43,
+   "estilo": [
+    "sad trombone feel",
+    "deflated, slower"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 32.54,
+   "estilo": [
+    "triumphant, bright, happy"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "comic button ending"
+   ]
+  }
+ ]
+}

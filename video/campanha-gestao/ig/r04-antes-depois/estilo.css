@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@600;700&family=Inter+Tight:wght@500;600;700;800;900&display=block');
+/* R04 · tela dividida: papel pautado à esquerda, painel escuro e menta à direita */
+.caps.r04 .chunk { font: 800 56px/1.12 'Inter Tight', sans-serif; color: #fff; background: rgba(15,20,23,.88); padding: 14px 30px; border-radius: 22px; box-shadow: 0 16px 40px -14px rgba(0,0,0,.6); }
+.caps.r04 .cw { opacity: .6; }
+.caps.r04 .cw.said { opacity: 1; }
+.caps.r04 .cw.on { color: #2ee6a6; }
+.bolha { display: block; width: fit-content; margin: 0 0 18px; padding: 14px 22px; border-radius: 22px; background: #fff; box-shadow: 0 6px 16px rgba(0,0,0,.18); font: 700 40px/1.1 'Inter Tight', sans-serif; color: #222; text-align: left; }
+.bolha.d { margin-left: auto; background: #d9f5c9; }
+.rasura { text-decoration: line-through; text-decoration-color: #c0392b; text-decoration-thickness: 5px; }

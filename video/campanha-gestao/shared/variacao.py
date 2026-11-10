@@ -8,6 +8,11 @@ import sys
 VAR, WORK = sys.argv[1], sys.argv[2]
 cfg = json.load(open(os.path.join(VAR, 'roteiro.json')))
 tema = cfg['tema']
+if cfg.get('sem_narracao'):
+    # vídeo só com texto e música: narração vazia com a duração do roteiro
+    os.makedirs(WORK, exist_ok=True)
+    json.dump({'duracao': cfg['duracao'], 'falas': []}, open(os.path.join(WORK, 'narracao-relatorio.json'), 'w'))
+    json.dump([], open(os.path.join(WORK, 'legendas.json'), 'w'))
 os.makedirs(os.path.join(VAR, 'assets'), exist_ok=True)
 rel = json.load(open(os.path.join(WORK, 'narracao-relatorio.json')))
 words = json.load(open(os.path.join(WORK, 'legendas.json')))
@@ -18,7 +23,7 @@ open(os.path.join(VAR, 'index.html'), 'w').write(f"""<!doctype html>
 <meta charset="utf-8">
 <title>{os.path.basename(VAR.rstrip('/'))}</title>
 <link rel="stylesheet" href="../../shared/lib.css">
-<link rel="stylesheet" href="../../temas/{tema}.css">
+{'<link rel="stylesheet" href="estilo.css">' if tema == 'ig' else f'<link rel="stylesheet" href="../../temas/{tema}.css">'}
 <script>window.ASSETS = '../../assets/';</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="../../assets/meta.js"></script>

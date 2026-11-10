@@ -1,0 +1,55 @@
+{
+ "global": [
+  "documentary editorial instrumental",
+  "staccato strings",
+  "felt piano ostinato",
+  "subtle pulse",
+  "100 BPM",
+  "D minor to F major",
+  "smart and educational"
+ ],
+ "evitar": [
+  "heavy drums",
+  "electric guitar"
+ ],
+ "secoes": [
+  {
+   "nome": "Intro",
+   "ate": 6.08,
+   "estilo": [
+    "intriguing, minimal"
+   ]
+  },
+  {
+   "nome": "List",
+   "ate": 27.6,
+   "estilo": [
+    "steady pulse",
+    "building with each chapter"
+   ]
+  },
+  {
+   "nome": "Solution",
+   "ate": 30.8,
+   "estilo": [
+    "lift to a major key"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 35.77,
+   "estilo": [
+    "warm full strings",
+    "uplifting"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "resolved ending",
+    "short tail"
+   ]
+  }
+ ]
+}

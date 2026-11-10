@@ -1,0 +1,51 @@
+{
+ "global": [
+  "intimate acoustic singer-songwriter instrumental",
+  "fingerpicked nylon guitar",
+  "soft felt piano",
+  "warm, honest, heartfelt",
+  "78 BPM",
+  "D major"
+ ],
+ "evitar": [
+  "drums",
+  "electronic",
+  "synth"
+ ],
+ "secoes": [
+  {
+   "nome": "Intro",
+   "ate": 7.6,
+   "estilo": [
+    "solo fingerpicked guitar",
+    "sparse and reflective"
+   ]
+  },
+  {
+   "nome": "Build",
+   "ate": 17.6,
+   "estilo": [
+    "felt piano joins",
+    "light brushed percussion",
+    "hopeful"
+   ]
+  },
+  {
+   "nome": "Peak",
+   "ate": 21.5,
+   "estilo": [
+    "warm strings pad swell",
+    "fuller, proud"
+   ]
+  },
+  {
+   "nome": "Outro",
+   "ate": 0,
+   "estilo": [
+    "gentle resolve",
+    "guitar harmonics",
+    "short tail"
+   ]
+  }
+ ]
+}

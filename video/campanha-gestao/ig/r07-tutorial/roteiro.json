@@ -1,0 +1,47 @@
+{
+ "tema": "ig",
+ "voz": "ORgG8rwdAiMYRug8RJwR",
+ "nome": "anaalice",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.04,
+ "ritmo_alvo": 2.7,
+ "falas": [
+  {
+   "texto": "Sabe aquele \"oi, tem pra sábado?\"? Olha como fica.",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Primeiro, o cliente escolhe o bolo e o tamanho.",
+   "pausa": 0.35
+  },
+  {
+   "texto": "Depois, marca o dia e o horário da encomenda.",
+   "pausa": 0.35
+  },
+  {
+   "texto": "Aí é só enviar, e ele acompanha o pedido.",
+   "pausa": 0.35
+  },
+  {
+   "texto": "E pronto: o pedido já tá no seu painel.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Quer o seu, com a sua marca? Fala com a gente.",
+   "pausa": 0.3
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%",
+  "Sete da manhã": "7h da manhã",
+  "Três da tarde": "15h"
+ }
+}

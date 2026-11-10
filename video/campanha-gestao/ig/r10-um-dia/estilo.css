@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Caveat:wght@600;700&family=Inter+Tight:wght@500;600;700;800&display=block');
+/* R10 · vlog: tons quentes, grão de filme, fotos com fita e o relógio do dia no canto */
+.caps.r10 .chunk { font: 600 54px/1.2 'Inter Tight', sans-serif; color: #fff7ee; text-shadow: 0 3px 18px rgba(30,15,5,.85); }
+.caps.r10 .cw { opacity: .55; }
+.caps.r10 .cw.said { opacity: 1; }
+.caps.r10 .cw.on { color: #ffb36b; }
+.fita { position: absolute; width: 170px; height: 46px; background: rgba(255,240,200,.55); box-shadow: 0 2px 6px rgba(0,0,0,.15); }
+.mao { position: absolute; font: 700 64px/1 'Caveat', cursive; color: #ffe2c2; white-space: nowrap; }

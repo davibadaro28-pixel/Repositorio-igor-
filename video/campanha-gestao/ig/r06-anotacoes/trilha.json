@@ -1,0 +1,47 @@
+{
+ "global": [
+  "chill boom bap hip hop instrumental",
+  "dusty drums",
+  "warm Rhodes keys",
+  "upright bass",
+  "88 BPM",
+  "relaxed but focused"
+ ],
+ "evitar": [
+  "vocal chops"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 3.53,
+   "estilo": [
+    "short keys intro",
+    "drums kick in"
+   ]
+  },
+  {
+   "nome": "Explain",
+   "ate": 16.38,
+   "estilo": [
+    "steady head-nod groove",
+    "analytical"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 20.0,
+   "estilo": [
+    "lift",
+    "string sample feel"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "groove resolves",
+    "short tail"
+   ]
+  }
+ ]
+}

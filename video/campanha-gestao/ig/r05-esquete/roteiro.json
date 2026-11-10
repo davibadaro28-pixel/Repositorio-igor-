@@ -1,0 +1,138 @@
+{
+ "tema": "ig",
+ "voz": "ohZOfA9iwlZ5nOsoY7LB",
+ "nome": "esquete",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 3.0,
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "falas": [
+  {
+   "texto": "Oi! Eu sou a encomenda de sábado que ninguém anotou.",
+   "pausa": 0.25,
+   "voz": "5p9IbzcK4R8rN1fpGdMF",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.25
+   },
+   "personagem": "davi"
+  },
+  {
+   "texto": "E eu sou o leite condensado que acabou.",
+   "pausa": 0.3,
+   "voz": "GM2UA3fbsIaLHcswCDX9",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.25
+   },
+   "personagem": "nina"
+  },
+  {
+   "texto": "E eu sou o cliente que mandou \"oi, oi, oi?\".",
+   "pausa": 0.3,
+   "voz": "7u8qsX4HQsSHJ0f8xsQZ",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.25
+   },
+   "personagem": "joao"
+  },
+  {
+   "texto": "Ah, é? Então olha isso.",
+   "pausa": 0.6,
+   "voz": "ohZOfA9iwlZ5nOsoY7LB",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.08
+   },
+   "personagem": "robertac"
+  },
+  {
+   "texto": "Encomenda com data e hora, direto no painel.",
+   "pausa": 0.3,
+   "voz": "ohZOfA9iwlZ5nOsoY7LB",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.08
+   },
+   "personagem": "robertac"
+  },
+  {
+   "texto": "Alerta quando o estoque chega no mínimo.",
+   "pausa": 0.3,
+   "voz": "ohZOfA9iwlZ5nOsoY7LB",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.08
+   },
+   "personagem": "robertac"
+  },
+  {
+   "texto": "E o pedido chega completo, sem conversa.",
+   "pausa": 0.3,
+   "voz": "ohZOfA9iwlZ5nOsoY7LB",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.08
+   },
+   "personagem": "robertac"
+  },
+  {
+   "texto": "Então… a gente vai embora?",
+   "pausa": 0.5,
+   "voz": "5p9IbzcK4R8rN1fpGdMF",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.25
+   },
+   "personagem": "davi"
+  },
+  {
+   "texto": "Vão.",
+   "pausa": 0.25,
+   "voz": "ohZOfA9iwlZ5nOsoY7LB",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.08
+   },
+   "personagem": "robertac"
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento.",
+   "pausa": 0.6,
+   "voz": "ohZOfA9iwlZ5nOsoY7LB",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.08
+   },
+   "personagem": "robertac"
+  },
+  {
+   "texto": "Doceria sem caos. Fala com a gente.",
+   "pausa": 0.3,
+   "voz": "ohZOfA9iwlZ5nOsoY7LB",
+   "ajustes": {
+    "stability": 0.5,
+    "similarity_boost": 0.75,
+    "style": 0.08
+   },
+   "personagem": "robertac"
+  }
+ ]
+}

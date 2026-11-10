@@ -328,16 +328,22 @@ def load_sfx(spec, n_idx):
 
 # ---------------------------------------------------------------- voz
 vcfg = CFG['voz']
+if not os.path.exists(os.path.join(WORK, 'narracao.wav')):
+    sf.write(os.path.join(WORK, 'narracao.wav'), np.zeros(N), SR)
+SEM_VOZ = not WORDS
 v, sr = sf.read(os.path.join(WORK, 'narracao.wav'))
 v = v if v.ndim == 1 else v.mean(axis=1)
 v = np.pad(v, (0, max(0, N - len(v))))[:N]
-v = eq(v, vcfg['eq'])
-v, ess_gr = deesser(v, *vcfg['deesser'])
-v, comp_gr = compressor(v, *vcfg['comp'], mode='rms')
-if vcfg.get('comp2'):
-    v, _ = compressor(v, *vcfg['comp2'], mode='peak')
 VOICE_LUFS = -18.0
-v *= db(VOICE_LUFS - lufs(v))
+if SEM_VOZ:
+    ess_gr, comp_gr = 0.0, np.zeros(1)
+else:
+    v = eq(v, vcfg['eq'])
+    v, ess_gr = deesser(v, *vcfg['deesser'])
+    v, comp_gr = compressor(v, *vcfg['comp'], mode='rms')
+    if vcfg.get('comp2'):
+        v, _ = compressor(v, *vcfg['comp2'], mode='peak')
+    v *= db(VOICE_LUFS - lufs(v))
 
 # máscara de fala (pelas palavras): base do ducking e do "bolsão" na trilha
 mask_t = np.zeros(int(D * 1000) + 1)
@@ -416,8 +422,11 @@ for a, b, fc in tcfg.get('passa_baixas', []):
 m *= gain[:, None]
 # nível final da trilha pelo alvo de relação voz/trilha medido só durante a fala
 sp_mask = np.interp(np.arange(N) / SR * 1000, np.arange(len(mask_t)), mask_t) > 0.5
-v_sp = lufs(np.stack([v, v], axis=1)[sp_mask])
-m *= db(v_sp - tcfg['voz_sobre_trilha'] - lufs(m[sp_mask]))
+if SEM_VOZ:
+    m *= db(tcfg.get('nivel_sem_voz', -17.0) - lufs(m))
+else:
+    v_sp = lufs(np.stack([v, v], axis=1)[sp_mask])
+    m *= db(v_sp - tcfg['voz_sobre_trilha'] - lufs(m[sp_mask]))
 
 # ---------------------------------------------------------------- efeitos
 ecfg = CFG['efeitos']

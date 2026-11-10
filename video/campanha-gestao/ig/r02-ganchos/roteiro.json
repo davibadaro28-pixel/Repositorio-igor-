@@ -1,0 +1,63 @@
+{
+ "tema": "ig",
+ "voz": "7lu3ze7orhWaNeSPowWx",
+ "nome": "lucas",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 3.4,
+ "falas": [
+  {
+   "texto": "Para de pagar comissão no cliente que já é seu.",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Você sabe quanto custa o seu bolo mais vendido?",
+   "pausa": 0.15
+  },
+  {
+   "texto": "Seu cardápio em PDF tá cansando o cliente.",
+   "pausa": 0.15
+  },
+  {
+   "texto": "Acabou o leite condensado na sexta à noite?",
+   "pausa": 0.15
+  },
+  {
+   "texto": "Você abriu uma doceria ou um pronto-socorro?",
+   "pausa": 0.15
+  },
+  {
+   "texto": "Tudo isso tem a mesma causa: a doceria roda na cabeça da dona.",
+   "pausa": 0.4
+  },
+  {
+   "texto": "Com o sistema, o cardápio tem a sua marca, e o pedido cai na hora no painel.",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Você vê o custo de cada bolo, recebe alerta de estoque, organiza as encomendas…",
+   "pausa": 0.2
+  },
+  {
+   "texto": "e no fim do mês, o DRE te mostra o resultado.",
+   "pausa": 0.15
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Quer ver funcionando? Fala com a gente.",
+   "pausa": 0.3
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%",
+  "Sete da manhã": "7h da manhã",
+  "Três da tarde": "15h"
+ }
+}

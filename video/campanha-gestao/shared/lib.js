@@ -169,7 +169,7 @@
     });
     L.onFrame((t) => {
       chunks.forEach((c, i) => {
-        const on = t >= c.s - 0.06 && t < Math.min(c.e + 0.5, c.next - 0.02) && !(o.hideAfter && t > o.hideAfter) && !(o.hideIn || []).some(([a, b]) => t >= a && t < b);
+        const on = t >= c.s - 0.06 && t < Math.min(c.e + 0.5, c.next - 0.07) && !(o.hideAfter && t > o.hideAfter) && !(o.hideIn || []).some(([a, b]) => t >= a && t < b);
         const el = els[i];
         el.style.display = on ? 'inline-flex' : 'none';
         if (!on) return;

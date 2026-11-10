@@ -1,0 +1,51 @@
+{
+ "tema": "ig",
+ "voz": "GM2UA3fbsIaLHcswCDX9",
+ "nome": "nina",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 2.9,
+ "falas": [
+  {
+   "texto": "Um dia numa doceria que parou de anotar pedido no caderno.",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Sete da manhã: o caixa abre, e as encomendas do dia já tão em ordem.",
+   "pausa": 0.45
+  },
+  {
+   "texto": "Os pedidos do cardápio caem no quadro, e a cozinha vê tudo na tela.",
+   "pausa": 0.4
+  },
+  {
+   "texto": "Três da tarde: o sistema avisa que o morango tá abaixo do mínimo.",
+   "pausa": 0.45
+  },
+  {
+   "texto": "No fim do dia, vendas, pedidos e ticket médio na tela.",
+   "pausa": 0.4
+  },
+  {
+   "texto": "E no fim do mês, o DRE.",
+   "pausa": 0.35
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento.",
+   "pausa": 0.35
+  },
+  {
+   "texto": "Se você quer um dia assim, fala com a gente.",
+   "pausa": 0.3
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%",
+  "Sete da manhã": "7h da manhã",
+  "Três da tarde": "15h"
+ }
+}

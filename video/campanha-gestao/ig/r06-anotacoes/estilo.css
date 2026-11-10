@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter+Tight:wght@500;600;700;800;900&display=block');
+/* R06 · quadro escuro, telas reais riscadas com marcador amarelo e vermelho */
+.caps.r06 .chunk { font: 800 58px/1.15 'Inter Tight', sans-serif; color: #fff; text-shadow: 0 4px 20px rgba(0,0,0,.8); }
+.caps.r06 .cw { padding: 0 .08em; }
+.caps.r06 .cw.on { background: linear-gradient(180deg, transparent 52%, rgba(255,212,0,.9) 52%, rgba(255,212,0,.9) 92%, transparent 92%); }

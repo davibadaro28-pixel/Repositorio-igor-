@@ -1,0 +1,38 @@
+{
+ "global": [
+  "lo-fi chill pop instrumental for an Instagram reel",
+  "soft electric piano",
+  "vinyl crackle",
+  "92 BPM"
+ ],
+ "evitar": [
+  "heavy drums"
+ ],
+ "secoes": [
+  {
+   "nome": "Night",
+   "ate": 8.0,
+   "estilo": [
+    "sleepy late night lo-fi",
+    "tired and slightly anxious"
+   ]
+  },
+  {
+   "nome": "After",
+   "ate": 15.0,
+   "estilo": [
+    "upbeat bright pop beat",
+    "claps",
+    "fuller, relieved, happy"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "catchy hook",
+    "clean ending"
+   ]
+  }
+ ]
+}

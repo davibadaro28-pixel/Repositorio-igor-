@@ -1,0 +1,3 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter+Tight:wght@600;700;800;900&display=block');
+/* R01 · carta do fundador: papel pautado, tinta azul, margem vermelha, escrita linha a linha */
+.assina { position: absolute; font: 700 84px/1 'Caveat', cursive; color: #1f3a6b; white-space: nowrap; }

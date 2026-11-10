@@ -1,0 +1,47 @@
+{
+ "tema": "ig",
+ "voz": "GDzHdQOi6jjf8zaXhCYD",
+ "nome": "raquel",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 3.1,
+ "falas": [
+  {
+   "texto": "Olha a mesma doceria, antes e depois.",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Pedido: antes, perdido no WhatsApp. Agora, direto no painel.",
+   "pausa": 0.4
+  },
+  {
+   "texto": "Encomenda: antes, no caderno. Agora, na agenda, por horário.",
+   "pausa": 0.4
+  },
+  {
+   "texto": "Estoque: antes era no achismo. Agora tem alerta de mínimo.",
+   "pausa": 0.4
+  },
+  {
+   "texto": "E o lucro? Antes era palpite. Agora tem o DRE do mês.",
+   "pausa": 0.4
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento.",
+   "pausa": 0.35
+  },
+  {
+   "texto": "E aí, qual lado é o seu? Fala com a gente.",
+   "pausa": 0.3
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%",
+  "Sete da manhã": "7h da manhã",
+  "Três da tarde": "15h"
+ }
+}

@@ -61,13 +61,14 @@ def wer(ref, hyp):
     return d[len(hyp)] / max(1, len(ref))
 
 
-def call_tts(text, prev, nxt, seed):
-    key = hashlib.sha1(json.dumps([CFG['voz'], CFG['ajustes'], text, prev, nxt, SPEED, MODEL, seed]).encode()).hexdigest()[:16]
+def call_tts(text, prev, nxt, seed, voz=None, ajustes=None, speed=None):
+    voz, ajustes, speed = voz or CFG['voz'], ajustes or CFG['ajustes'], speed or SPEED
+    key = hashlib.sha1(json.dumps([voz, ajustes, text, prev, nxt, speed, MODEL, seed]).encode()).hexdigest()[:16]
     f = os.path.join(WORK, f'take-{key}.json')
     if not os.path.exists(f):
         body = {'text': text, 'model_id': MODEL, 'previous_text': prev, 'next_text': nxt, 'seed': seed,
-                'voice_settings': {**CFG['ajustes'], 'use_speaker_boost': True, 'speed': SPEED}}
-        req = urllib.request.Request(f"https://api.elevenlabs.io/v1/text-to-speech/{CFG['voz']}/with-timestamps?output_format=mp3_44100_128",
+                'voice_settings': {**ajustes, 'use_speaker_boost': True, 'speed': speed}}
+        req = urllib.request.Request(f"https://api.elevenlabs.io/v1/text-to-speech/{voz}/with-timestamps?output_format=mp3_44100_128",
                                      data=json.dumps(body).encode(), headers={'xi-api-key': KEY, 'content-type': 'application/json'})
         with urllib.request.urlopen(req, timeout=180) as r:
             d = json.loads(r.read())
@@ -117,13 +118,15 @@ falas = CFG['falas']
 chosen, takes, escolha, t = [], [], [], 0.0
 for k, f in enumerate(falas):
     text = f['texto']
-    prev = ' '.join(chosen[-2:])
-    nxt = falas[k + 1]['texto'] if k + 1 < len(falas) else ''
+    voz = f.get('voz', CFG['voz'])
+    same = [falas[j]['texto'] for j in range(k) if falas[j].get('voz', CFG['voz']) == voz]
+    prev = ' '.join(same[-2:])
+    nxt = falas[k + 1]['texto'] if k + 1 < len(falas) and falas[k + 1].get('voz', CFG['voz']) == voz else ''
     cands = []
     for seed in (101, 202, 303):
         if seed == 303 and min(c[2]['erro_palavras'] for c in cands) <= 0.08:
             break
-        x, words = call_tts(text, prev, nxt, seed)
+        x, words = call_tts(text, prev, nxt, seed, voz, f.get('ajustes'), f.get('velocidade'))
         ev = avaliar(text, x, words)
         cands.append((x, words, ev, seed))
     best = min(cands, key=lambda c: c[2]['nota'])

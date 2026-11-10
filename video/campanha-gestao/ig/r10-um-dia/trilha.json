@@ -1,0 +1,45 @@
+{
+ "global": [
+  "lo-fi jazzy hip hop instrumental",
+  "warm Rhodes piano",
+  "soft vinyl crackle",
+  "laid back drums",
+  "84 BPM",
+  "cozy morning coffee vibe"
+ ],
+ "evitar": [
+  "heavy drums"
+ ],
+ "secoes": [
+  {
+   "nome": "Morning",
+   "ate": 9.78,
+   "estilo": [
+    "gentle morning, soft"
+   ]
+  },
+  {
+   "nome": "Day",
+   "ate": 23.91,
+   "estilo": [
+    "groove picks up",
+    "busy but calm"
+   ]
+  },
+  {
+   "nome": "Evening",
+   "ate": 31.35,
+   "estilo": [
+    "warm, satisfied, golden hour"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "mellow ending",
+    "short tail"
+   ]
+  }
+ ]
+}

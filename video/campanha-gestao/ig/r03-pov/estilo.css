@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800;900&display=block');
+/* R03 · POV nativo do Reels: caixas brancas de texto, noite azul, notificações empilhando */
+.pov { display: inline; padding: 6px 22px; background: #fff; color: #111; border-radius: 14px; -webkit-box-decoration-break: clone; box-decoration-break: clone; font: 700 66px/1.42 'Inter Tight', sans-serif; }
+.pov.esc { background: #111; color: #fff; }
+.lock-h { position: absolute; left: 0; width: 390px; text-align: center; color: #fff; font: 600 96px/1 'Inter Tight', sans-serif; letter-spacing: -.02em; }
+.lock-d { position: absolute; left: 0; width: 390px; text-align: center; color: rgba(255,255,255,.85); font: 600 20px 'Inter Tight', sans-serif; }
+.nt3 { position: absolute; left: 12px; width: 366px; padding: 12px 14px; border-radius: 22px; background: rgba(245,245,250,.86); display: flex; gap: 10px; align-items: center; box-shadow: 0 6px 14px rgba(0,0,0,.25); }
+.nt3 i { width: 38px; height: 38px; border-radius: 10px; background: #25d366; flex: none; }
+.nt3 b { display: block; font: 700 15px/1.2 'Inter Tight', sans-serif; color: #111; }
+.nt3 span { display: block; font: 500 15px/1.25 'Inter Tight', sans-serif; color: #333; }

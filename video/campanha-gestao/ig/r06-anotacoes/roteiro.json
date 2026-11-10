@@ -1,0 +1,47 @@
+{
+ "tema": "ig",
+ "voz": "2CECaLAGTS5NRGxgbcxr",
+ "nome": "daviandrei",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 0.96,
+ "ritmo_alvo": 3.3,
+ "falas": [
+  {
+   "texto": "Deixa eu te mostrar uma coisa que nenhum app de delivery te mostra.",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Quanto vende cada canal: o cardápio próprio, o balcão, o WhatsApp e o telefone.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Quanto custa cada produto. O que tá com a margem apertada fica em vermelho.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Quanto custou cada pedido.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "E no fim do mês, o DRE te diz se sobrou dinheiro.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Quer ver isso com a sua doceria? Fala com a gente.",
+   "pausa": 0.3
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%",
+  "Sete da manhã": "7h da manhã",
+  "Três da tarde": "15h"
+ }
+}

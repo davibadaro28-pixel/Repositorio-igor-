@@ -1,0 +1,46 @@
+{
+ "global": [
+  "modern minimal house instrumental",
+  "clean four-on-the-floor kick",
+  "crisp claps",
+  "plucky synth chords",
+  "122 BPM",
+  "A minor"
+ ],
+ "evitar": [
+  "guitar"
+ ],
+ "secoes": [
+  {
+   "nome": "Intro",
+   "ate": 3.3,
+   "estilo": [
+    "filtered intro, building"
+   ]
+  },
+  {
+   "nome": "Rounds",
+   "ate": 22.19,
+   "estilo": [
+    "steady groove",
+    "confident, clean, rhythmic"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 27.19,
+   "estilo": [
+    "filter opens",
+    "uplifting chords"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "final chord",
+    "short tail"
+   ]
+  }
+ ]
+}

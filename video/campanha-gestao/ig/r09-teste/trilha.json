@@ -1,0 +1,52 @@
+{
+ "global": [
+  "game show quiz instrumental",
+  "playful synths",
+  "ticking percussion",
+  "120 BPM",
+  "E minor"
+ ],
+ "evitar": [
+  "guitar"
+ ],
+ "secoes": [
+  {
+   "nome": "Intro",
+   "ate": 4.49,
+   "estilo": [
+    "short game show fanfare opening"
+   ]
+  },
+  {
+   "nome": "Questions",
+   "ate": 18.17,
+   "estilo": [
+    "suspenseful ticking clock bed",
+    "minimal and tense"
+   ]
+  },
+  {
+   "nome": "Reveal",
+   "ate": 26.14,
+   "estilo": [
+    "bright reveal",
+    "playful, relieved"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 30.62,
+   "estilo": [
+    "winning fanfare feel"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "fun ending",
+    "short tail"
+   ]
+  }
+ ]
+}

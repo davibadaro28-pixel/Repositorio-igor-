@@ -1,0 +1,51 @@
+{
+ "tema": "ig",
+ "voz": "RGymW84CSmfVugnA5tvA",
+ "nome": "robertas",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 3.3,
+ "falas": [
+  {
+   "texto": "Teste rápido pra quem tem doceria. Responde de cabeça, tá?",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Quanto custa fazer o seu bolo mais vendido?",
+   "pausa": 0.5
+  },
+  {
+   "texto": "Quanto dinheiro tá parado no seu estoque agora?",
+   "pausa": 2.4
+  },
+  {
+   "texto": "Quanto sobrou no mês passado?",
+   "pausa": 2.4
+  },
+  {
+   "texto": "Não soube alguma? Normal. Isso não dá pra fazer de cabeça.",
+   "pausa": 2.4
+  },
+  {
+   "texto": "No sistema, as três respostas tão na tela.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Quer ver as suas? Fala com a gente.",
+   "pausa": 0.3
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%",
+  "Sete da manhã": "7h da manhã",
+  "Três da tarde": "15h"
+ }
+}

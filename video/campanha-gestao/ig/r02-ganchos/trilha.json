@@ -1,0 +1,58 @@
+{
+ "global": [
+  "aggressive modern trap instrumental for a fast-cut ad",
+  "hard 808 bass",
+  "crisp hi-hat rolls",
+  "dark synth stabs",
+  "140 BPM",
+  "F minor"
+ ],
+ "evitar": [
+  "guitar",
+  "piano ballad"
+ ],
+ "secoes": [
+  {
+   "nome": "Hooks",
+   "ate": 12.25,
+   "estilo": [
+    "punchy drums from the first beat",
+    "tense, urgent, stop-start energy"
+   ]
+  },
+  {
+   "nome": "Breakdown",
+   "ate": 15.77,
+   "estilo": [
+    "drums drop out",
+    "filtered riser",
+    "suspense"
+   ]
+  },
+  {
+   "nome": "Drop",
+   "ate": 26.79,
+   "estilo": [
+    "full beat drops",
+    "bright synth lead",
+    "energetic and confident"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 30.44,
+   "estilo": [
+    "huge 808 hit",
+    "epic pad"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "final hit and clean stop",
+    "short tail"
+   ]
+  }
+ ]
+}
