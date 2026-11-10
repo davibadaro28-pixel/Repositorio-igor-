@@ -4,7 +4,7 @@
   const MG = '#ff2e7e';
   TEMA.gancho(0, T(3) - 0.1, {
     linhas: [[0, 'Você não precisa', 500, 74], [W(0, 'mais') - 0.03, 'de mais um app.', 600, 74], [W(0, 'precisa', 1) - 0.03, `Precisa de <span style="color:${MG}">menos.</span>`, 740, 84]],
-    recua: T(1) - 0.1,
+    recua: T(1) - 0.1, faixa: 'CADERNO · PLANILHA · PAPEL · CALCULADORA · ',
     notas: [[W(1, 'caderno'), 'Caderno de encomendas'], [W(1, 'planilha'), 'Planilha de estoque'], [W(1, 'pedido'), 'Pedido anotado no papel'], [W(1, 'calculadora'), 'Calculadora no fim do mês'], [W(2, 'cada'), 'O caixa não bate'], [W(2, 'lugar'), 'Cadê a encomenda?'], [W(2, 'meio'), 'Acabou o leite condensado']],
     fogo: [W(2, 'voce') - 0.05, 'você no meio de tudo'], tremer: W(2, 'tudo') - 0.05, empurra: W(1, 'caderno'),
   });

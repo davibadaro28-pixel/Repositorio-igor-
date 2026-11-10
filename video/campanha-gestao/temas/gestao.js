@@ -62,6 +62,14 @@ window.TEMA = (() => {
   // gancho: linhas que batem nas palavras, bilhetes de "incêndio", texto em chamas e tremida
   M.gancho = (a, b, o) => {
     const s = L.scene(a, b);
+    // faixa de texto vazado que corre sem parar ao fundo (o caos não para)
+    if (o.faixa) {
+      const fx = $('div', 'xw', s, { position: 'absolute', left: '0', top: '1180px', whiteSpace: 'nowrap', fontSize: '180px', lineHeight: '1', color: 'transparent', WebkitTextStroke: `3px rgba(255,46,126,.55)` });
+      fx.textContent = o.faixa.repeat(6);
+      const fx2 = $('div', 'xw', s, { position: 'absolute', left: '0', top: '200px', whiteSpace: 'nowrap', fontSize: '120px', lineHeight: '1', color: 'transparent', WebkitTextStroke: '2px rgba(255,255,255,.22)' });
+      fx2.textContent = o.faixa.repeat(6);
+      L.onFrame((t) => { fx.style.transform = `translateX(${-((t * 420) % 2400)}px)`; fx2.style.transform = `translateX(${-2400 + ((t * 300) % 2400)}px)`; });
+    }
     const hk = $('div', 'full', s);
     const els = (o.linhas || []).map(([t, txt, top, size, color]) => {
       const e = $('div', 'xw', hk, { position: 'absolute', left: '0', width: '1080px', top: px(top), textAlign: 'center', fontSize: px(size), lineHeight: '1', color: color || '#fff' });
