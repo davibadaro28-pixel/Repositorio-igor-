@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500..900&display=block');
+:root { --mg: #ff2e7e; --bk: #0b0b0d; }
+  .xw { font-family: 'Archivo', sans-serif; font-weight: 900; font-stretch: 125%; color: #fff; text-transform: uppercase; letter-spacing: -.02em; }
+  .cw5 { font-family: 'Archivo', sans-serif; font-weight: 800; font-stretch: 75%; text-transform: uppercase; }
+  .clock { position: absolute; left: 0; width: 1080px; top: 196px; text-align: center; font: 900 190px/1 'Archivo', sans-serif; font-stretch: 112%; color: #fff; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+  .clock b { color: var(--mg); font-weight: 900; }
+  .caps.v5 .chunk { font: 800 64px/1.1 'Archivo', sans-serif; font-stretch: 75%; color: #fff; text-transform: uppercase; gap: 0 .22em; }
+  .caps.v5 .cw { padding: 0 10px; border-radius: 8px; }
+  .caps.v5 .cw.on { background: var(--mg); color: #fff; }
+  .stick { position: absolute; padding: 18px 24px; border-radius: 14px; font: 800 34px/1.1 'Archivo', sans-serif; font-stretch: 80%; text-transform: uppercase; color: #111; background: #fff; box-shadow: 0 20px 40px rgba(0,0,0,.5); white-space: nowrap; }
+  .pn5 { position: absolute; background-repeat: no-repeat; border-radius: 18px; background-color: #fff; box-shadow: 0 50px 100px -30px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.08); }

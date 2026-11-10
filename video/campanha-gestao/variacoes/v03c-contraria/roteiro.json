@@ -1,0 +1,40 @@
+{
+ "tema": "estoque",
+ "voz": "bJrNspxJVFovUxNBQ0wh",
+ "nome": "Marcelo Costa",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.8,
+  "style": 0.25
+ },
+ "falas": [
+  {
+   "texto": "Planilha de estoque não falha por preguiça."
+  },
+  {
+   "texto": "Falha porque ninguém dá baixa em cada venda."
+  },
+  {
+   "texto": "Você atualiza no domingo. Na quarta, já está errada."
+  },
+  {
+   "texto": "No sistema, cada venda dá baixa nos ingredientes pela ficha técnica."
+  },
+  {
+   "texto": "Compras, perdas e inventário ficam registrados."
+  },
+  {
+   "texto": "O valor do estoque aparece na hora, e o alerta avisa o que está abaixo do mínimo."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Fale com a gente e veja com os seus insumos."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.05
+}

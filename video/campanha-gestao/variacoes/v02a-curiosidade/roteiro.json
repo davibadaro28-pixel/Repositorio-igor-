@@ -1,0 +1,40 @@
+{
+ "tema": "lucro",
+ "voz": "MZxV5lN3cv7hi1376O0m",
+ "nome": "Ana Dias",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.8,
+  "style": 0.25
+ },
+ "falas": [
+  {
+   "texto": "Vendeu bem no mês, e a conta mesmo assim não fecha?"
+  },
+  {
+   "texto": "A resposta pode estar num número que você nunca calculou: o custo de cada produto."
+  },
+  {
+   "texto": "Sem ele, um doce que vende muito pode estar quase sem margem."
+  },
+  {
+   "texto": "No sistema, cada produto mostra o custo e o lucro bruto. Margem apertada aparece em vermelho."
+  },
+  {
+   "texto": "Cada pedido mostra o custo estimado."
+  },
+  {
+   "texto": "E o DRE junta vendas, custos e despesas, e mostra o resultado."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Quer ver com os seus produtos? Fale com a gente."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.03
+}

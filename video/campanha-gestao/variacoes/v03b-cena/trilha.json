@@ -1,0 +1,54 @@
+{
+ "global": [
+  "instrumental tech commercial underscore for a voiceover ad",
+  "mechanical percussion",
+  "metallic plucks",
+  "precise and rhythmic",
+  "110 BPM",
+  "E minor"
+ ],
+ "evitar": [
+  "vocals",
+  "lyrics",
+  "orchestral epic",
+  "long reverb wash"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 14.89,
+   "estilo": [
+    "ticking mechanical rhythm",
+    "metallic plucked synth",
+    "curious and slightly tense"
+   ]
+  },
+  {
+   "nome": "Solution",
+   "ate": 28.86,
+   "estilo": [
+    "driving mechanical groove",
+    "tight kick and snare",
+    "clockwork arpeggio",
+    "organized and efficient"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 33.47,
+   "estilo": [
+    "rising synth pad",
+    "building"
+   ]
+  },
+  {
+   "nome": "Finale",
+   "ate": 0,
+   "estilo": [
+    "confident resolve",
+    "steady ending hit",
+    "short tail"
+   ]
+  }
+ ]
+}

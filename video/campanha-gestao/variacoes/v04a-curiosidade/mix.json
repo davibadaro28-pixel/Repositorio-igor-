@@ -1,0 +1,189 @@
+{
+ "seed": 4,
+ "voz": {
+  "eq": [
+   [
+    "hp",
+    100,
+    0.7
+   ],
+   [
+    "peak",
+    300,
+    1.0,
+    -1.5
+   ],
+   [
+    "peak",
+    4500,
+    0.9,
+    1.5
+   ],
+   [
+    "hs",
+    12000,
+    0.7,
+    3
+   ]
+  ],
+  "deesser": [
+   6000,
+   10500,
+   -2,
+   3
+  ],
+  "comp": [
+   -7,
+   2.5,
+   8,
+   120
+  ],
+  "comp2": [
+   -1,
+   6,
+   0.5,
+   50
+  ],
+  "reverb": [
+   1.2,
+   6500,
+   -24
+  ]
+ },
+ "trilha": {
+  "eq": [
+   [
+    "hp",
+    40,
+    0.7
+   ]
+  ],
+  "duck": -7,
+  "bolsao": -3,
+  "automacao": [
+   [
+    7.6,
+    13.0,
+    -2
+   ],
+   [
+    34.9,
+    37.17,
+    2.5
+   ]
+  ],
+  "passa_baixas": [
+   [
+    7.6,
+    13.0,
+    1200
+   ]
+  ],
+  "release_ms": 450,
+  "fade_out": 1.6,
+  "voz_sobre_trilha": 14
+ },
+ "efeitos": {
+  "tipos": {
+   "bell": {
+    "src": "lib:bell",
+    "db": -15,
+    "eq": [
+     [
+      "lp",
+      8000,
+      0.7
+     ]
+    ]
+   },
+   "shimmer": {
+    "src": "syn:shimmer",
+    "db": -15
+   },
+   "bubble": {
+    "src": "lib:bubble",
+    "db": -14
+   },
+   "scribble": {
+    "src": "lib:scribble",
+    "db": -12
+   },
+   "silk": {
+    "src": "lib:silk",
+    "db": -11
+   },
+   "sparkle": {
+    "src": "lib:sparkle",
+    "db": -13
+   },
+   "fan": {
+    "src": "syn:fan",
+    "db": -15
+   },
+   "chimes": {
+    "src": "lib:chimes",
+    "db": -14
+   },
+   "whoosh": {
+    "src": "syn:whoosh",
+    "dur": 0.6,
+    "f0": 300,
+    "f1": 3000,
+    "db": -16,
+    "pan": "varre"
+   },
+   "tick": {
+    "src": "syn:tick",
+    "f": 3200,
+    "db": -20
+   },
+   "tap": {
+    "src": "syn:tap",
+    "db": -17
+   },
+   "chime": {
+    "src": "syn:chime",
+    "f": 1568,
+    "db": -15
+   },
+   "success": {
+    "src": "lib:success",
+    "db": -11
+   },
+   "poof": {
+    "src": "lib:poof",
+    "db": -13
+   },
+   "pop": {
+    "src": "syn:pop",
+    "db": -16
+   }
+  },
+  "eq": [
+   [
+    "hp",
+    120,
+    0.7
+   ],
+   [
+    "lp",
+    11000,
+    0.7
+   ]
+  ],
+  "reverb": [
+   1.6,
+   6000,
+   -12
+  ],
+  "duck": -4
+ },
+ "master": {
+  "cola": [
+   -3,
+   1.5,
+   35,
+   300
+  ]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "global": [
+  "instrumental elegant lifestyle commercial underscore for a voiceover ad",
+  "harp",
+  "glockenspiel and soft bells",
+  "pizzicato strings",
+  "warm and delicate",
+  "84 BPM",
+  "F major"
+ ],
+ "evitar": [
+  "vocals",
+  "lyrics",
+  "aggressive drums",
+  "distortion",
+  "dark mood"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 11.74,
+   "estilo": [
+    "delicate harp arpeggios",
+    "soft bells",
+    "sparse, slightly uncertain"
+   ]
+  },
+  {
+   "nome": "Solution",
+   "ate": 26.79,
+   "estilo": [
+    "elegant lush groove",
+    "light brushed beat",
+    "pizzicato and strings",
+    "sparkling glockenspiel"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 31.59,
+   "estilo": [
+    "gentle swell",
+    "harp glissando"
+   ]
+  },
+  {
+   "nome": "Finale",
+   "ate": 0,
+   "estilo": [
+    "warm satisfying final chord",
+    "short tail"
+   ]
+  }
+ ]
+}

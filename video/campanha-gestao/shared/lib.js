@@ -25,9 +25,10 @@
   L.ease = { out: (x) => 1 - Math.pow(1 - x, 3), inOut: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2) };
 
   // caminhos dos arquivos (pasta assets da campanha)
-  L.P = (n) => { const u = `../assets/painel/${n}.webp`; L.urls.add(u); return u; };
-  L.M = (n) => { const u = `../assets/menu/${n}.webp`; L.urls.add(u); return u; };
-  L.F = (n) => { const u = `../assets/fotos/${n}.webp`; L.urls.add(u); return u; };
+  const A = () => window.ASSETS || '../assets/';
+  L.P = (n) => { const u = `${A()}painel/${n}.webp`; L.urls.add(u); return u; };
+  L.M = (n) => { const u = `${A()}menu/${n}.webp`; L.urls.add(u); return u; };
+  L.F = (n) => { const u = `${A()}fotos/${n}.webp`; L.urls.add(u); return u; };
 
   L.init = (o) => {
     L.D = o.duration ?? window.NARR.duracao;
@@ -207,6 +208,51 @@
       const push = segs.reduce((p, [a, b, k]) => p * (1 + k * L.ease.inOut(L.clamp((t - a) / (b - a)))), 1);
       el.style.transform = `translate(${Math.sin(u * 0.55) * amp}px, ${Math.cos(u * 0.41) * amp * 0.8}px) scale(${(1 + Math.sin(u * 0.29) * sc) * push})`;
     });
+  };
+
+  // linhas de título cinéticas: cada linha entra no seu tempo (palavra da fala)
+  L.linhas = (parent, lines, o = {}) => {
+    const box = L.$('div', null, parent, { position: 'absolute', left: L.px(o.left ?? 60), top: L.px(o.top ?? 420), width: L.px(o.width ?? 960), textAlign: o.align ?? 'center', ...(o.style || {}) });
+    const els = lines.map(([t, html, st]) => {
+      const e = L.$('div', o.cls || null, box, { ...(o.line || {}), ...(st || {}) });
+      e.innerHTML = html;
+      L.tl.set(e, { autoAlpha: 0 }, 0);
+      L.tl.fromTo(e, { autoAlpha: 0, y: o.dy ?? 30, scale: o.scale ?? 1.15 }, { autoAlpha: 1, y: 0, scale: 1, duration: o.dur ?? 0.32, ease: o.ease ?? 'expo.out', immediateRender: false }, t);
+      if (o.cue !== false) L.cue(t, o.cue || 'hit');
+      return e;
+    });
+    return { box, els };
+  };
+
+  // prova: "+30% de lucro" com contador e a ressalva (resultado informado pelo criador do sistema)
+  L.prova = (parent, a, o = {}) => {
+    const box = L.$('div', 'full', parent);
+    const kick = L.$('div', null, box, { position: 'absolute', left: '60px', width: '960px', top: L.px(o.top ?? 430), textAlign: 'center', font: o.kickFont, color: o.kickColor, letterSpacing: '.14em', textTransform: 'uppercase' });
+    kick.textContent = o.kick ?? 'Na doceria de quem criou o sistema';
+    const num = L.$('div', null, box, { position: 'absolute', left: '0', width: '1080px', top: L.px((o.top ?? 430) + 70), textAlign: 'center', font: o.numFont, color: o.numColor, lineHeight: '1' });
+    const lblTop = (o.top ?? 430) + 70 + (o.numSize ?? 300) * 1.08;
+    const lbl = L.$('div', null, box, { position: 'absolute', left: '0', width: '1080px', top: L.px(lblTop), textAlign: 'center', font: o.lblFont, color: o.lblColor, lineHeight: '1' });
+    lbl.textContent = o.label ?? 'de lucro';
+    const note = L.$('div', null, box, { position: 'absolute', left: '120px', width: '840px', top: L.px(lblTop + (o.lblSize ?? 120) * 1.25), textAlign: 'center', font: o.noteFont, color: o.noteColor });
+    note.textContent = o.note ?? 'Resultado informado pelo criador do sistema. Cada negócio tem o seu.';
+    const c = { v: 0 };
+    if (o.imediato) {
+      // usado como gancho: tudo já aparece no primeiro quadro, com um leve assentamento
+      num.textContent = '+30%';
+      L.tl.fromTo([kick, num, lbl, note], { scale: 1.06 }, { scale: 1, duration: 0.8, ease: 'expo.out', immediateRender: false }, a);
+      L.cue(a, 'impact');
+      return { box, kick, num, lbl, note };
+    }
+    L.tl.set([kick, num, lbl, note], { autoAlpha: 0 }, 0);
+    L.tl.fromTo(kick, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, immediateRender: false }, a);
+    L.tl.fromTo(num, { autoAlpha: 0, scale: 0.6 }, { autoAlpha: 1, scale: 1, duration: 0.45, ease: 'back.out(1.8)', immediateRender: false }, a + 0.15);
+    L.tl.fromTo(c, { v: 0 }, { v: 30, duration: 0.9, ease: 'power2.out', immediateRender: false }, a + 0.15);
+    L.onFrame(() => { num.textContent = `+${Math.round(c.v)}%`; });
+    L.tl.fromTo(lbl, { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 0.35, immediateRender: false }, o.tLabel ?? a + 0.7);
+    L.tl.fromTo(note, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.4, immediateRender: false }, a + 1.0);
+    L.cue(a + 0.15, 'count', { d: 0.9 });
+    L.cue(a + 1.05, 'impact');
+    return { box, kick, num, lbl, note };
   };
 
   // títulos que passam da largura diminuem para caber

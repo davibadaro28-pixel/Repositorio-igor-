@@ -1,0 +1,54 @@
+{
+ "global": [
+  "instrumental energetic pop house commercial underscore for a voiceover ad",
+  "124 BPM",
+  "four on the floor",
+  "bright synth stabs",
+  "punchy and modern",
+  "G minor"
+ ],
+ "evitar": [
+  "vocals",
+  "vocal chops",
+  "lyrics",
+  "lo-fi",
+  "slow tempo"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 5.68,
+   "estilo": [
+    "chaotic accelerating drums",
+    "tense risers",
+    "glitchy stabs"
+   ]
+  },
+  {
+   "nome": "Solution",
+   "ate": 27.8,
+   "estilo": [
+    "driving pop house groove",
+    "four on the floor kick",
+    "offbeat bass",
+    "bright chords"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 32.68,
+   "estilo": [
+    "snare roll build",
+    "white noise riser"
+   ]
+  },
+  {
+   "nome": "Finale",
+   "ate": 0,
+   "estilo": [
+    "big confident drop",
+    "final hit and short tail"
+   ]
+  }
+ ]
+}

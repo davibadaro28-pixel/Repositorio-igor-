@@ -1,0 +1,40 @@
+{
+ "tema": "estoque",
+ "voz": "bJrNspxJVFovUxNBQ0wh",
+ "nome": "Marcelo Costa",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.8,
+  "style": 0.25
+ },
+ "falas": [
+  {
+   "texto": "Sexta à noite, encomenda grande para sábado…"
+  },
+  {
+   "texto": "e acabou o leite condensado."
+  },
+  {
+   "texto": "Se você já passou por isso, sabe o tamanho do susto."
+  },
+  {
+   "texto": "E não é falta de cuidado: é difícil dar baixa de cabeça em cada venda."
+  },
+  {
+   "texto": "No sistema, a ficha técnica faz isso por você: vendeu, os ingredientes saem do estoque sozinhos."
+  },
+  {
+   "texto": "E quando um insumo fica abaixo do mínimo, você recebe o alerta antes de faltar."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Chega de faltar insumo. Fale com a gente."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.05
+}

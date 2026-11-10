@@ -1,0 +1,178 @@
+{
+ "seed": 1,
+ "voz": {
+  "eq": [
+   [
+    "hp",
+    85,
+    0.7
+   ],
+   [
+    "peak",
+    280,
+    1.0,
+    -2.5
+   ],
+   [
+    "peak",
+    3200,
+    0.9,
+    3
+   ],
+   [
+    "hs",
+    10000,
+    0.7,
+    2
+   ]
+  ],
+  "deesser": [
+   5500,
+   9500,
+   -2,
+   3
+  ],
+  "comp": [
+   -6,
+   3.5,
+   4,
+   80
+  ],
+  "comp2": [
+   -1,
+   8,
+   0.5,
+   40
+  ]
+ },
+ "trilha": {
+  "eq": [
+   [
+    "hp",
+    32,
+    0.7
+   ],
+   [
+    "peak",
+    250,
+    0.8,
+    -1.5
+   ]
+  ],
+  "duck": -9,
+  "bolsao": -4,
+  "automacao": [
+   [
+    34.9,
+    37.16,
+    2
+   ]
+  ],
+  "fade_out": 1.0,
+  "voz_sobre_trilha": 12
+ },
+ "efeitos": {
+  "tipos": {
+   "hit": {
+    "src": "syn:hit",
+    "db": -10
+   },
+   "vibrate": {
+    "src": "lib:vibrate",
+    "db": -12,
+    "max": 0.7
+   },
+   "knife": {
+    "src": "lib:knife",
+    "db": -8
+   },
+   "pop": {
+    "src": "syn:pop",
+    "f": 820,
+    "db": -16
+   },
+   "slide": {
+    "src": "syn:whoosh",
+    "dur": 0.7,
+    "f0": 2000,
+    "f1": 300,
+    "db": -11,
+    "pan": "varre"
+   },
+   "dots": {
+    "src": "syn:dots",
+    "db": -18
+   },
+   "riser": {
+    "src": "syn:riser",
+    "dur": 1.1,
+    "db": -14
+   },
+   "tick": {
+    "src": "syn:tick",
+    "db": -18
+   },
+   "whoosh": {
+    "src": "syn:whoosh",
+    "dur": 0.45,
+    "db": -12,
+    "pan": "varre"
+   },
+   "tap": {
+    "src": "syn:tap",
+    "db": -16
+   },
+   "slam": {
+    "src": "lib:slam",
+    "db": -7
+   },
+   "ding": {
+    "src": "lib:ding",
+    "db": -9
+   },
+   "zoom": {
+    "src": "syn:whoosh",
+    "dur": 0.5,
+    "f0": 200,
+    "f1": 6000,
+    "db": -14
+   },
+   "impact": {
+    "src": "syn:impact",
+    "db": -6
+   },
+   "type": {
+    "src": "lib:type",
+    "db": -14,
+    "max": 0.75
+   }
+  },
+  "eq": [
+   [
+    "hp",
+    60,
+    0.7
+   ],
+   [
+    "peak",
+    4000,
+    0.8,
+    1.5
+   ]
+  ],
+  "reverb": [
+   0.6,
+   6000,
+   -18
+  ],
+  "duck": -3
+ },
+ "master": {
+  "cola": [
+   -3,
+   1.8,
+   25,
+   220
+  ]
+ }
+}

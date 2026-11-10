@@ -1,0 +1,57 @@
+{
+ "global": [
+  "instrumental commercial underscore for a voiceover ad",
+  "modern trap production",
+  "punchy 808 sub bass",
+  "crisp hi-hats",
+  "clean mix with space for voice",
+  "70 BPM half-time feel (140 BPM)",
+  "D minor"
+ ],
+ "evitar": [
+  "vocals",
+  "vocal chops",
+  "lyrics",
+  "lo-fi hiss",
+  "long reverb wash"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 11.37,
+   "estilo": [
+    "dark tense intro",
+    "ticking clock percussion",
+    "sparse 808 hits",
+    "suspense"
+   ]
+  },
+  {
+   "nome": "Solution",
+   "ate": 26.09,
+   "estilo": [
+    "confident uplifting trap groove",
+    "warm major synth chords",
+    "driving hi-hat rolls"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 30.97,
+   "estilo": [
+    "building tension riser",
+    "filtered drums",
+    "anticipation"
+   ]
+  },
+  {
+   "nome": "Finale",
+   "ate": 0,
+   "estilo": [
+    "final big hit",
+    "short powerful ending",
+    "brief tail then silence"
+   ]
+  }
+ ]
+}

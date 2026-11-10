@@ -1,0 +1,37 @@
+{
+ "tema": "lucro",
+ "voz": "MZxV5lN3cv7hi1376O0m",
+ "nome": "Ana Dias",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.8,
+  "style": 0.25
+ },
+ "falas": [
+  {
+   "texto": "Pergunta rápida: quanto custa fazer o seu bolo mais vendido?"
+  },
+  {
+   "texto": "Se precisou pensar, este vídeo é para você."
+  },
+  {
+   "texto": "Quem sabe o custo define o preço com segurança. Quem não sabe, chuta."
+  },
+  {
+   "texto": "O sistema calcula o custo de cada produto pela ficha técnica, mostra o lucro bruto, e destaca em vermelho a margem apertada."
+  },
+  {
+   "texto": "No fim do mês, o DRE mostra se sobrou dinheiro."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Fale com a gente e veja com os seus produtos."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.03
+}

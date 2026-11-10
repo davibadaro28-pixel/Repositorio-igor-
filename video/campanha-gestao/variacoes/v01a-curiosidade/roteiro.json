@@ -1,0 +1,41 @@
+{
+ "tema": "taxas",
+ "voz": "6pQlwCgfwffNdI3jjzM6",
+ "dono": "664087a39b1a",
+ "nome": "Fernando Borges",
+ "ajustes": {
+  "stability": 0.4,
+  "similarity_boost": 0.8,
+  "style": 0.4
+ },
+ "falas": [
+  {
+   "texto": "Tem um cliente que você paga para atender."
+  },
+  {
+   "texto": "E ele já é seu."
+  },
+  {
+   "texto": "Pelo aplicativo, uma parte de cada pedido fica no caminho."
+  },
+  {
+   "texto": "Os apps trazem cliente novo. Mas pagar de novo por quem já é seu?"
+  },
+  {
+   "texto": "Com um cardápio com a sua marca, o pedido cai na hora no seu painel."
+  },
+  {
+   "texto": "Sem comissão por pedido. E o cliente fica na sua base, com histórico e WhatsApp."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Tenha o seu canal próprio. Fale com a gente."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.07
+}

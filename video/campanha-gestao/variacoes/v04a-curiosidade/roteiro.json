@@ -1,0 +1,43 @@
+{
+ "tema": "cardapio",
+ "voz": "iScHbNW8K33gNo3lGgbo",
+ "nome": "Marianne",
+ "ajustes": {
+  "stability": 0.45,
+  "similarity_boost": 0.8,
+  "style": 0.35
+ },
+ "falas": [
+  {
+   "texto": "Seu doce é lindo."
+  },
+  {
+   "texto": "A foto no WhatsApp, nem tanto. E o cliente decide pela foto."
+  },
+  {
+   "texto": "Foto borrada, lista de preços, pedido perdido no meio da conversa…"
+  },
+  {
+   "texto": "Agora imagine a sua vitrine assim:"
+  },
+  {
+   "texto": "Com a sua marca, as suas cores e as suas fotos."
+  },
+  {
+   "texto": "Categorias organizadas, tamanhos, encomenda com data e hora…"
+  },
+  {
+   "texto": "E o pedido chega certinho no seu painel."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Quem vê, tem vontade. Fale com a gente e veja o seu cardápio."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.0
+}

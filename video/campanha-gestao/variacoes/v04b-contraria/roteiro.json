@@ -1,0 +1,37 @@
+{
+ "tema": "cardapio",
+ "voz": "iScHbNW8K33gNo3lGgbo",
+ "nome": "Marianne",
+ "ajustes": {
+  "stability": 0.45,
+  "similarity_boost": 0.8,
+  "style": 0.35
+ },
+ "falas": [
+  {
+   "texto": "Cada passo entre a vontade e o pedido é uma chance de o cliente desistir."
+  },
+  {
+   "texto": "No WhatsApp é assim: pede o cardápio, espera, lê a lista, pergunta o preço, espera de novo."
+  },
+  {
+   "texto": "No cardápio digital: vê a foto, escolhe o tamanho, marca data e hora, e envia."
+  },
+  {
+   "texto": "O pedido chega completo no seu painel, sem mensagem perdida."
+  },
+  {
+   "texto": "E tudo com a sua marca, as suas cores e as suas fotos."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Fale com a gente e veja o seu."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.0
+}

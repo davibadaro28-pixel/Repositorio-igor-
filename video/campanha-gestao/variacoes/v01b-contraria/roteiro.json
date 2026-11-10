@@ -1,0 +1,41 @@
+{
+ "tema": "taxas",
+ "voz": "6pQlwCgfwffNdI3jjzM6",
+ "dono": "664087a39b1a",
+ "nome": "Fernando Borges",
+ "ajustes": {
+  "stability": 0.4,
+  "similarity_boost": 0.8,
+  "style": 0.4
+ },
+ "falas": [
+  {
+   "texto": "App de delivery é ótimo para achar cliente novo."
+  },
+  {
+   "texto": "E péssimo para guardar o cliente que você já conquistou."
+  },
+  {
+   "texto": "Cada pedido dele passa pelo app, e uma parte fica lá."
+  },
+  {
+   "texto": "Use o app para ser encontrado. E dê para quem já é seu um caminho direto:"
+  },
+  {
+   "texto": "o seu cardápio digital, com a sua marca. O pedido cai na hora no seu painel."
+  },
+  {
+   "texto": "Sem comissão por pedido do sistema."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Quer ver com a sua marca? Fale com a gente."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.07
+}

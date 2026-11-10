@@ -1,0 +1,43 @@
+{
+ "tema": "gestao",
+ "voz": "ohZOfA9iwlZ5nOsoY7LB",
+ "nome": "Roberta",
+ "ajustes": {
+  "stability": 0.35,
+  "similarity_boost": 0.8,
+  "style": 0.5
+ },
+ "falas": [
+  {
+   "texto": "Cinco coisas que você faz de cabeça na doceria, e podia estar vendo numa tela."
+  },
+  {
+   "texto": "Um: as encomendas do dia, por horário."
+  },
+  {
+   "texto": "Dois: os pedidos de todos os canais num quadro só."
+  },
+  {
+   "texto": "Três: os insumos abaixo do mínimo."
+  },
+  {
+   "texto": "Quatro: quem são os seus clientes mais fiéis."
+  },
+  {
+   "texto": "Cinco: quanto sobrou no fim do mês."
+  },
+  {
+   "texto": "Tudo isso no computador e no celular."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Quer ver na prática? Fale com a gente."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.0
+}

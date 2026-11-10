@@ -1,0 +1,184 @@
+{
+ "seed": 5,
+ "voz": {
+  "eq": [
+   [
+    "hp",
+    100,
+    0.7
+   ],
+   [
+    "peak",
+    350,
+    1.0,
+    -2
+   ],
+   [
+    "peak",
+    3500,
+    0.9,
+    3
+   ],
+   [
+    "hs",
+    10000,
+    0.7,
+    2
+   ]
+  ],
+  "deesser": [
+   5500,
+   10000,
+   -2,
+   3
+  ],
+  "comp": [
+   -7,
+   4,
+   3,
+   70
+  ],
+  "comp2": [
+   -1,
+   8,
+   0.5,
+   40
+  ]
+ },
+ "trilha": {
+  "eq": [
+   [
+    "hp",
+    30,
+    0.7
+   ],
+   [
+    "peak",
+    300,
+    0.8,
+    -1.5
+   ]
+  ],
+  "duck": -8,
+  "bolsao": -4.5,
+  "automacao": [
+   [
+    39.3,
+    41.6,
+    2
+   ]
+  ],
+  "ataque_ms": 70,
+  "release_ms": 300,
+  "fade_out": 1.0,
+  "voz_sobre_trilha": 11
+ },
+ "efeitos": {
+  "tipos": {
+   "hit": {
+    "src": "syn:hit",
+    "db": -9
+   },
+   "sticker": {
+    "src": "lib:sticker",
+    "db": -11,
+    "max": 0.35
+   },
+   "impact": {
+    "src": "syn:impact",
+    "dur": 0.6,
+    "db": -12
+   },
+   "boom": {
+    "src": "lib:boom",
+    "db": -6
+   },
+   "flip": {
+    "src": "lib:flip",
+    "db": -12,
+    "max": 0.45
+   },
+   "whoosh": {
+    "src": "syn:whoosh",
+    "dur": 0.4,
+    "db": -13,
+    "pan": "varre"
+   },
+   "register": {
+    "src": "lib:register",
+    "db": -9
+   },
+   "page": {
+    "src": "lib:page",
+    "db": -11
+   },
+   "tick": {
+    "src": "syn:tick",
+    "db": -18
+   },
+   "zoom": {
+    "src": "syn:whoosh",
+    "dur": 0.5,
+    "f0": 200,
+    "f1": 7000,
+    "db": -13
+   },
+   "notif": {
+    "src": "syn:blips",
+    "fs": [
+     1568,
+     2093
+    ],
+    "db": -15
+   },
+   "bell": {
+    "src": "lib:bell",
+    "db": -10
+   },
+   "alarm": {
+    "src": "lib:alarm",
+    "db": -10
+   },
+   "pop": {
+    "src": "syn:pop",
+    "db": -14
+   },
+   "rise": {
+    "src": "syn:rise",
+    "db": -15
+   },
+   "tap": {
+    "src": "syn:tap",
+    "db": -15
+   }
+  },
+  "eq": [
+   [
+    "hp",
+    50,
+    0.7
+   ],
+   [
+    "peak",
+    5000,
+    0.8,
+    2
+   ]
+  ],
+  "drive": 4,
+  "reverb": [
+   0.5,
+   7000,
+   -20
+  ],
+  "duck": -2.5
+ },
+ "master": {
+  "cola": [
+   -3,
+   2.0,
+   15,
+   180
+  ]
+ }
+}

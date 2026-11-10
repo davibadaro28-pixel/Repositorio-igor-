@@ -1,0 +1,41 @@
+{
+ "tema": "taxas",
+ "voz": "6pQlwCgfwffNdI3jjzM6",
+ "dono": "664087a39b1a",
+ "nome": "Fernando Borges",
+ "ajustes": {
+  "stability": 0.4,
+  "similarity_boost": 0.8,
+  "style": 0.4
+ },
+ "falas": [
+  {
+   "texto": "Quem criou este sistema tem doceria."
+  },
+  {
+   "texto": "E cansou de ver parte de cada pedido ficar no aplicativo."
+  },
+  {
+   "texto": "Pagava comissão até em cliente fiel, que já era da casa."
+  },
+  {
+   "texto": "E os cardápios digitais mal deixavam colocar a cara da loja."
+  },
+  {
+   "texto": "Então construiu o que queria usar: cardápio com a marca da loja, e o pedido caindo na hora no painel."
+  },
+  {
+   "texto": "Cliente com histórico e WhatsApp, e sem comissão por pedido."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Feito por quem tem doceria. Fale com a gente."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.07
+}

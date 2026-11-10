@@ -1,0 +1,40 @@
+{
+ "tema": "estoque",
+ "voz": "bJrNspxJVFovUxNBQ0wh",
+ "nome": "Marcelo Costa",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.8,
+  "style": 0.25
+ },
+ "falas": [
+  {
+   "texto": "Tem dinheiro parado na sua cozinha agora. Você sabe quanto?"
+  },
+  {
+   "texto": "Leite condensado, chocolate, morango, embalagem… tudo isso é dinheiro na prateleira."
+  },
+  {
+   "texto": "No sistema, você vê o valor do estoque na hora."
+  },
+  {
+   "texto": "Ele avisa quando um insumo fica abaixo do mínimo."
+  },
+  {
+   "texto": "Com a ficha técnica, cada venda dá baixa sozinha nos ingredientes."
+  },
+  {
+   "texto": "Você registra compras, perdas e inventário, e sabe o custo real de cada produto."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Estoque organizado é menos surpresa e mais controle. Fale com a gente."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.05
+}

@@ -1,0 +1,37 @@
+{
+ "tema": "cardapio",
+ "voz": "iScHbNW8K33gNo3lGgbo",
+ "nome": "Marianne",
+ "ajustes": {
+  "stability": 0.45,
+  "similarity_boost": 0.8,
+  "style": 0.35
+ },
+ "falas": [
+  {
+   "texto": "Para quem faz doce bonito e quer um cardápio à altura."
+  },
+  {
+   "texto": "Você capricha no acabamento, na foto, na embalagem. O cardápio precisa acompanhar."
+  },
+  {
+   "texto": "No cardápio digital, entram o logo, as cores e as fotos da sua doceria."
+  },
+  {
+   "texto": "Categorias, tamanhos e encomenda com data e hora."
+  },
+  {
+   "texto": "E o pedido cai organizado no seu painel."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Quem vê, tem vontade. Crie o seu cardápio personalizado."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.0
+}

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@500;600;700;800;900&display=block');
+:root { --or: #ff5a1f; --ink: #121214; }
+  .big { position: absolute; left: 0; width: 1080px; text-align: center; font: 400 210px/0.95 'Anton', sans-serif; color: #fff; letter-spacing: .005em; text-transform: uppercase; }
+  .anton { font-family: 'Anton', sans-serif; font-weight: 400; text-transform: uppercase; color: #fff; }
+  .it { font-family: 'Inter Tight', sans-serif; }
+  .caps.v1 .chunk { font: 800 64px/1.08 'Inter Tight', sans-serif; color: #fff; letter-spacing: -.01em; text-shadow: 0 4px 24px rgba(0,0,0,.65), 0 2px 4px rgba(0,0,0,.5); }
+  .caps.v1 .cw { opacity: .55; transition: none; }
+  .caps.v1 .cw.said { opacity: 1; }
+  .caps.v1 .cw.on { color: var(--or); }
+  .lbl { position: absolute; font: 800 30px/1 'Inter Tight', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
+  .chip { position: absolute; display: inline-flex; align-items: center; gap: 14px; padding: 18px 28px; border-radius: 999px; font: 800 34px/1 'Inter Tight', sans-serif; white-space: nowrap; }
+  .notif { position: absolute; left: 14px; top: 150px; width: 362px; padding: 16px 18px; border-radius: 26px; background: rgba(245,240,236,.92); box-shadow: 0 12px 30px rgba(0,0,0,.35); display: flex; gap: 14px; align-items: center; }
+  .notif .ic { width: 52px; height: 52px; border-radius: 14px; background: var(--or); flex: none; display: grid; place-items: center; }
+  .notif b { display: block; font: 700 19px/1.2 'Inter Tight', sans-serif; color: #111; }
+  .notif span { display: block; font: 500 17px/1.25 'Inter Tight', sans-serif; color: #444; }
+  .shadow { box-shadow: 0 60px 120px -30px rgba(0,0,0,.85), 0 0 0 1px rgba(255,255,255,.06); }

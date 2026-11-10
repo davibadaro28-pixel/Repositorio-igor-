@@ -1,0 +1,37 @@
+{
+ "tema": "lucro",
+ "voz": "MZxV5lN3cv7hi1376O0m",
+ "nome": "Ana Dias",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.8,
+  "style": 0.25
+ },
+ "falas": [
+  {
+   "texto": "Vender mais nem sempre resolve."
+  },
+  {
+   "texto": "Se o preço está abaixo do custo, cada venda a mais aumenta o prejuízo."
+  },
+  {
+   "texto": "Às vezes, o produto que mais vende é o que menos deixa dinheiro."
+  },
+  {
+   "texto": "Com a ficha técnica, você vê o custo e o lucro bruto de cada produto."
+  },
+  {
+   "texto": "Cada pedido mostra o custo estimado. E o DRE do mês mostra o resultado."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Pare de adivinhar. Peça uma demonstração."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.03
+}

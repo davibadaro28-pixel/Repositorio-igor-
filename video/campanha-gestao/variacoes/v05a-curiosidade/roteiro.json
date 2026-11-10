@@ -1,0 +1,50 @@
+{
+ "tema": "gestao",
+ "voz": "ohZOfA9iwlZ5nOsoY7LB",
+ "nome": "Roberta",
+ "ajustes": {
+  "stability": 0.35,
+  "similarity_boost": 0.8,
+  "style": 0.5
+ },
+ "falas": [
+  {
+   "texto": "Você abriu uma doceria para empreender…"
+  },
+  {
+   "texto": "ou para apagar incêndio o dia inteiro?"
+  },
+  {
+   "texto": "Oito da manhã: abre o caixa."
+  },
+  {
+   "texto": "Dez: as encomendas do dia."
+  },
+  {
+   "texto": "Meio-dia: todos os pedidos num quadro só. A cozinha vê tudo na tela."
+  },
+  {
+   "texto": "Três da tarde: alerta de estoque baixo."
+  },
+  {
+   "texto": "Seis da tarde: o resultado do dia."
+  },
+  {
+   "texto": "No fim do mês, o DRE mostra se sobrou dinheiro."
+  },
+  {
+   "texto": "Na doceria de quem criou o sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "No computador e no celular. Fale com a gente."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%",
+  "Oito da manhã": "8h da manhã",
+  "Dez": "10h",
+  "Três da tarde": "15h",
+  "Seis da tarde": "18h"
+ },
+ "velocidade": 1.0
+}

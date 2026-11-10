@@ -1,0 +1,54 @@
+{
+ "global": [
+  "instrumental corporate fintech underscore for a voiceover ad",
+  "minimal modern piano",
+  "soft electronic pulse",
+  "clean and premium",
+  "96 BPM",
+  "A minor to C major"
+ ],
+ "evitar": [
+  "vocals",
+  "lyrics",
+  "heavy drums",
+  "distorted guitar"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 10.28,
+   "estilo": [
+    "minimal sparse piano notes",
+    "low sub pulse",
+    "thoughtful, questioning"
+   ]
+  },
+  {
+   "nome": "Solution",
+   "ate": 31.13,
+   "estilo": [
+    "light clean beat",
+    "plucked synth ostinato",
+    "piano chords",
+    "confident, analytical"
+   ]
+  },
+  {
+   "nome": "Proof",
+   "ate": 36.01,
+   "estilo": [
+    "warm strings swell",
+    "building optimism"
+   ]
+  },
+  {
+   "nome": "Finale",
+   "ate": 0,
+   "estilo": [
+    "resolved major chord",
+    "uplifting clean ending",
+    "short tail"
+   ]
+  }
+ ]
+}

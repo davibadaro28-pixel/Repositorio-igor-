@@ -1,0 +1,41 @@
+{
+ "tema": "taxas",
+ "voz": "6pQlwCgfwffNdI3jjzM6",
+ "dono": "664087a39b1a",
+ "nome": "Fernando Borges",
+ "ajustes": {
+  "stability": 0.4,
+  "similarity_boost": 0.8,
+  "style": 0.4
+ },
+ "falas": [
+  {
+   "texto": "Na doceria de quem criou este sistema, o lucro subiu trinta por cento."
+  },
+  {
+   "texto": "Depois que os clientes fiéis passaram a pedir direto com a loja."
+  },
+  {
+   "texto": "Antes, pediam pelo aplicativo, e uma parte de cada pedido ficava no caminho."
+  },
+  {
+   "texto": "Com o próprio sistema, o cardápio tem a marca da loja, e o pedido cai na hora no painel."
+  },
+  {
+   "texto": "O cliente fica na base, com histórico e WhatsApp, e ganha cupom para pedir direto."
+  },
+  {
+   "texto": "Sem comissão por pedido do sistema."
+  },
+  {
+   "texto": "É o resultado de uma doceria. Cada negócio tem o seu."
+  },
+  {
+   "texto": "Quer ver como funciona? Fale com a gente."
+  }
+ ],
+ "legenda": {
+  "trinta por cento": "30%"
+ },
+ "velocidade": 1.07
+}

@@ -1,0 +1,173 @@
+{
+ "seed": 3,
+ "voz": {
+  "eq": [
+   [
+    "hp",
+    75,
+    0.7
+   ],
+   [
+    "peak",
+    220,
+    1.0,
+    -3
+   ],
+   [
+    "peak",
+    2800,
+    0.9,
+    3
+   ],
+   [
+    "hs",
+    9500,
+    0.7,
+    1.5
+   ]
+  ],
+  "deesser": [
+   5000,
+   9000,
+   -2,
+   3
+  ],
+  "comp": [
+   -6,
+   3,
+   5,
+   90
+  ],
+  "comp2": [
+   -1,
+   8,
+   0.5,
+   40
+  ]
+ },
+ "trilha": {
+  "eq": [
+   [
+    "hp",
+    35,
+    0.7
+   ],
+   [
+    "peak",
+    200,
+    0.8,
+    -2
+   ]
+  ],
+  "duck": -9,
+  "bolsao": -4,
+  "automacao": [
+   [
+    32.9,
+    35.21,
+    2
+   ]
+  ],
+  "fade_out": 1.0,
+  "voz_sobre_trilha": 13
+ },
+ "efeitos": {
+  "tipos": {
+   "beep": {
+    "src": "lib:scan",
+    "db": -15,
+    "max": 0.35
+   },
+   "hit": {
+    "src": "syn:hit",
+    "db": -10
+   },
+   "whip": {
+    "src": "syn:whoosh",
+    "dur": 0.3,
+    "f0": 400,
+    "f1": 6000,
+    "db": -13,
+    "pan": "varre"
+   },
+   "coins": {
+    "src": "lib:coins",
+    "db": -11
+   },
+   "impact": {
+    "src": "syn:impact",
+    "db": -8
+   },
+   "scan": {
+    "src": "syn:whoosh",
+    "dur": 0.36,
+    "f0": 6000,
+    "f1": 900,
+    "db": -15
+   },
+   "tick": {
+    "src": "syn:tick",
+    "f": 2200,
+    "db": -17
+   },
+   "alarm": {
+    "src": "lib:alarm",
+    "db": -11
+   },
+   "whoosh": {
+    "src": "syn:whoosh",
+    "dur": 0.45,
+    "db": -13,
+    "pan": "varre"
+   },
+   "alert": {
+    "src": "syn:blips",
+    "fs": [
+     740,
+     520
+    ],
+    "db": -12
+   },
+   "stamp": {
+    "src": "lib:stamp",
+    "db": -9
+   },
+   "pop": {
+    "src": "syn:pop",
+    "db": -15
+   },
+   "tap": {
+    "src": "syn:tap",
+    "db": -16
+   }
+  },
+  "eq": [
+   [
+    "hp",
+    80,
+    0.7
+   ],
+   [
+    "peak",
+    3000,
+    1.0,
+    2
+   ]
+  ],
+  "drive": 3,
+  "reverb": [
+   0.35,
+   5000,
+   -16
+  ],
+  "duck": -3
+ },
+ "master": {
+  "cola": [
+   -3,
+   1.8,
+   20,
+   200
+  ]
+ }
+}
