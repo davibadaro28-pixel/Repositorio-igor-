@@ -240,7 +240,9 @@ window.TEMA = (() => {
     tl.to(ph.el, { rotateY: -8, duration: 2, ease: 'sine.inOut' }, a + 0.8);
     tl.to(ph.el, { rotateY: 6, duration: 2, ease: 'sine.inOut' }, a + 2.8);
     M.real(a, b - 0.1);
-    float(s, [[a + 0.8, b, 0.07]]);
+    const tEnd = o.chega ? o.chega + 0.9 : b - 1.5;
+    float(s, [[a + 0.8, tEnd, 0.05], [tEnd, b, 0.09]]);
+    if (o.chega) tl.to(ph.el, { rotateY: -10, rotateX: 6, duration: Math.max(0.6, b - tEnd), ease: 'sine.inOut' }, tEnd);
     return s;
   };
 
