@@ -18,13 +18,18 @@ Feitos com a skill **ad-copy** (Rob Palmer, CC BY 4.0) para os 5 vídeos da camp
 
 ## O que ficou de fora (e o que liberaria)
 
-- **Nenhum número inventado:** sem "X docerias usam", sem percentual de taxa de app, sem promessa de
-  lucro ou economia. A variação de **prova social** que a skill pede ficou de fora por falta de dado
-  real. Ela pode entrar quando houver: número de docerias usando, pedidos processados no mês, ou um
-  depoimento com nome e autorização.
-- **Seu resultado próprio** (por exemplo, o aumento de conversão que você comentou) só deve entrar se
-  estiver medido: pedidos pelo cardápio antes e depois, no mesmo período e com o mesmo esforço de
-  divulgação. Com esse número em mãos, eu monto a variação de prova.
+- **Prova social:** o V01 tem uma 4ª variação com o seu resultado (**lucro +30%**), contada como
+  resultado da sua doceria, não como promessa para o cliente. Antes de publicar, preencha os
+  colchetes e confira três pontos:
+  1. **O que subiu 30%:** o lucro do mês (o "Resultado do período" do DRE). Se foi outra medida, como
+     faturamento ou pedidos, troque a palavra no texto.
+  2. **Períodos comparados:** por exemplo, "3 meses antes" e "3 meses depois" de usar o sistema.
+  3. **Guarde a prova** (DRE ou extratos dos dois períodos). O código do CONAR pede que resultado em
+     anúncio seja verdadeiro e comprovável, e o Meta pode pedir. Não escreva "você vai lucrar 30%":
+     o texto fala do seu resultado e diz que cada negócio tem o seu.
+- **Fora isso, nenhum número inventado:** sem "X docerias usam", sem percentual de taxa de app.
+  Número de docerias usando, pedidos processados ou depoimento de cliente (com nome e autorização)
+  entram quando existirem.
 - **"Sem comissão por pedido"** fala do sistema. As taxas de Pix e cartão seguem as do meio de
   pagamento, como aparece no vídeo V01.
 - A variação **"História do fundador"** (V01) está em primeira pessoa e conta a sua história. Use só
@@ -101,6 +106,28 @@ Hoje uso na minha doceria. Se quiser ver funcionando, me chama.
 ```
 **Título:** Feito por quem tem doceria (26)  
 **Descrição:** Veja funcionando (16)
+
+### Variação 4: Prova: resultado do fundador
+**Texto principal** (gancho: 111 caracteres)
+
+```
+Na minha doceria, o lucro subiu 30% em [período] depois que meus clientes fiéis passaram a pedir direto comigo.
+
+Eu tenho doceria e vivia o mesmo problema que você: cliente fiel pedindo pelo app, e uma parte de cada pedido ficando lá.
+
+Então criei o meu próprio sistema:
+→ cardápio digital com a minha marca, cores e fotos
+→ pedido caindo na hora no painel
+→ cliente na minha base, com histórico e WhatsApp
+→ cupom para trazer quem pedia pelo app para o meu canal
+→ e o sistema não cobra comissão por pedido
+
+Resultado da minha doceria, comparando [período antes] com [período depois]. Cada negócio tem o seu.
+
+Quer ver como funciona? Me chama no WhatsApp.
+```
+**Título:** Meu lucro subiu 30% (19)  
+**Descrição:** Veja como funciona (18)
 
 ---
 
