@@ -290,7 +290,7 @@
         inicio: 27 * GRAUS_POR_SEMANA,
         fim: 270,
         nome: "3º trimestre",
-        texto: "Reta final: azia, intestino preso e estômago apertado. Refeições menores e mais frequentes, e a alimentação do pós-parto já pensada, enquanto a doula prepara você para o parto.",
+        texto: "Reta final: azia, intestino preso e estômago apertado. Refeições menores e mais frequentes, e a alimentação dos primeiros dias com o bebê já pensada.",
       },
       {
         inicio: 270,

@@ -384,8 +384,31 @@ a {
   text-underline-offset: 0.45em;
 }
 
-.menu .menu-cta {
+.menu .menu-cta,
+.menu .menu-insta {
   display: none;
+}
+
+.topo-insta {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.6rem;
+  height: 2.6rem;
+  margin-right: -0.75rem;
+  color: var(--suave);
+  border-radius: var(--raio);
+  transition: color 0.2s var(--ease), background-color 0.2s var(--ease);
+}
+
+.topo-insta:hover {
+  color: var(--marrom-escuro);
+  background: var(--bege);
+}
+
+.topo-insta .icone {
+  width: 1.35rem;
+  height: 1.35rem;
 }
 
 .menu-botao {
@@ -1628,6 +1651,11 @@ a {
   gap: clamp(2rem, 4vw, 3.5rem);
 }
 
+.papeis-dois {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 52rem;
+}
+
 .papel {
   display: flex;
   flex-direction: column;
@@ -2250,6 +2278,14 @@ a {
   .menu a[aria-current="page"] {
     text-decoration: none;
     color: var(--marrom);
+  }
+
+  .menu .menu-insta {
+    display: block;
+  }
+
+  .topo-insta {
+    display: none;
   }
 
   .menu .menu-cta {

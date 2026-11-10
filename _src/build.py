@@ -24,7 +24,7 @@ COMUNIDADE = "https://chat.whatsapp.com/F7X6syXfhyw20rirQbO9eo"
 
 PAGINAS = [
     ("index", "Bea Paes | Nutricionista na gestação e no pós-parto",
-     "Acompanhamento nutricional da nutricionista Bea Paes para gestantes e mulheres no pós-parto, com doula parceira e alinhamento com o obstetra."),
+     "Acompanhamento nutricional da nutricionista Bea Paes para gestantes e mulheres no pós-parto, com o plano alinhado ao obstetra."),
     ("programa", "O programa | Bea Paes, nutricionista",
      "Como funciona o acompanhamento nutricional da Bea Paes na gestação e no pós-parto: etapas, o que está incluso, equipe e investimento."),
     ("alimentacao", "Alimentação e ganho de peso na gestação | Bea Paes",
@@ -66,7 +66,7 @@ DADOS_ESTRUTURADOS = {
     "makesOffer": {
         "@type": "Offer",
         "name": "Acompanhamento nutricional na gestação e no pós-parto",
-        "price": "5000",
+        "price": "3700",
         "priceCurrency": "BRL",
     },
 }
@@ -89,6 +89,7 @@ def menu(atual):
     for slug, nome in MENU:
         corrente = ' aria-current="page"' if slug == atual else ""
         itens.append(f'        <a href="{slug}.html"{corrente}>{nome}</a>')
+    itens.append(f'        <a class="menu-insta" href="{INSTAGRAM}" rel="noopener">Instagram @beapaes_</a>')
     itens.append('        <a class="menu-cta" href="index.html#contato">Comece por uma conversa</a>')
     return "\n".join(itens)
 
@@ -118,7 +119,7 @@ def pagina(slug, titulo, descricao):
   <meta property="og:image" content="{URL_BASE}img/og.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Beatriz Paes, nutricionista, com o título Bem nutrida na gestação. Inteira no pós-parto.">
+  <meta property="og:image:alt" content="Bea Paes, nutricionista, sorrindo com o teste de gravidez positivo, e o título Bem nutrida na gestação. Inteira no pós-parto.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#FAF7F2">
   <link rel="icon" href="{FAVICON}">
@@ -139,6 +140,7 @@ def pagina(slug, titulo, descricao):
       <nav id="menu" class="menu" aria-label="Páginas">
 {menu(slug)}
       </nav>
+      <a class="topo-insta" href="{INSTAGRAM}" rel="noopener" aria-label="Instagram da Bea, @beapaes_"><svg class="icone" aria-hidden="true"><use href="#i-instagram"/></svg></a>
       <a class="botao botao-pequeno topo-cta js-contato" href="{wa}" rel="noopener">Conversar com a Bea</a>
     </div>
   </header>
@@ -151,7 +153,7 @@ def pagina(slug, titulo, descricao):
     <div class="largura rodape-grid">
       <div class="rodape-sobre">
         <p class="rodape-marca">Bea Paes</p>
-        <p>Nutricionista. Acompanhamento nutricional na gestação e no pós-parto, com doula parceira e alinhamento com o obstetra.</p>
+        <p>Nutricionista. Acompanhamento nutricional na gestação e no pós-parto, alinhado com o seu obstetra.</p>
       </div>
       <nav class="rodape-links" aria-label="Páginas do site">
         <p class="rodape-titulo">Site</p>
