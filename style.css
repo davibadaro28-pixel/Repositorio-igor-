@@ -1398,6 +1398,61 @@ a {
   background: #3D2E26;
 }
 
+.preco-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.preco-duracao {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgba(184, 190, 159, 0.45);
+  border-radius: var(--raio);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #D9DCC8;
+}
+
+.preco-duracao .icone {
+  width: 1rem;
+  height: 1rem;
+  color: #B8BE9F;
+}
+
+.preco-mes {
+  margin-top: 1.5rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid rgba(184, 190, 159, 0.35);
+  border-radius: var(--raio);
+  background: rgba(184, 190, 159, 0.08);
+}
+
+.preco-mes-pre,
+.preco-mes-pos {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #CDBFB2;
+}
+
+.preco-mes-valor {
+  margin: 0.15rem 0 0.2rem;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.875rem, 3vw, 2.25rem);
+  line-height: 1.1;
+  white-space: nowrap;
+  color: var(--off);
+}
+
+.preco-mes-valor span {
+  font-family: var(--fonte-texto);
+  font-size: 1rem;
+  color: #E9DED3;
+}
+
 .preco-rotulo {
   font-size: 0.875rem;
   font-weight: 500;

@@ -25,7 +25,7 @@ COMUNIDADE = "https://chat.whatsapp.com/F7X6syXfhyw20rirQbO9eo"
 
 PAGINAS = [
     ("index", "Bea Paes | Nutricionista na gestação e no pós-parto",
-     "Acompanhamento nutricional da nutricionista Bea Paes para gestantes e mulheres no pós-parto, com o plano alinhado ao obstetra."),
+     "Acompanhamento nutricional de 12 meses da nutricionista Bea Paes para gestantes e mulheres no pós-parto, com o plano alinhado ao obstetra."),
     ("programa", "O programa | Bea Paes, nutricionista",
      "Como funciona o acompanhamento nutricional da Bea Paes na gestação e no pós-parto: etapas, o que está incluso, equipe e investimento."),
     ("alimentacao", "Alimentação e ganho de peso na gestação | Bea Paes",
@@ -67,6 +67,7 @@ DADOS_ESTRUTURADOS = {
     "makesOffer": {
         "@type": "Offer",
         "name": "Acompanhamento nutricional na gestação e no pós-parto",
+        "description": "12 meses de acompanhamento nutricional individualizado, da gestação ao pós-parto.",
         "price": "3700",
         "priceCurrency": "BRL",
     },
