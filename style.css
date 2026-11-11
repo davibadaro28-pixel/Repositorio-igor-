@@ -1163,6 +1163,154 @@ a {
   color: var(--suave);
 }
 
+.relatos {
+  display: grid;
+  gap: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.relato {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 17rem) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4.5rem);
+  align-items: start;
+  max-width: 62rem;
+}
+
+.relato + .relato {
+  padding-top: clamp(3.5rem, 7vw, 5.5rem);
+  border-top: 1px solid var(--areia);
+}
+
+.relato-video,
+.relato-foto {
+  display: block;
+  width: 100%;
+  border-radius: var(--raio-foto);
+  background: var(--nude);
+}
+
+.relato-video {
+  aspect-ratio: 9 / 16;
+  height: auto;
+  object-fit: cover;
+  background: var(--tinta);
+}
+
+.relato-foto {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.relato-texto {
+  max-width: 38rem;
+  padding-top: 0.5rem;
+}
+
+.relato-citacao {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.625rem, 3vw, 2.25rem);
+  font-style: italic;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--marrom-escuro);
+}
+
+.relato-trecho {
+  margin-top: 1.25rem;
+  font-size: 1.0625rem;
+  color: #5C4B41;
+}
+
+.relato-quem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 1.5rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--oliva);
+  font-size: 0.9375rem;
+  color: var(--suave);
+}
+
+.relato-nome {
+  font-weight: 600;
+  color: var(--tinta);
+}
+
+.relato-detalhes {
+  margin-top: 1.75rem;
+  border-top: 1px solid var(--areia);
+}
+
+.relato-detalhes summary {
+  position: relative;
+  display: inline-block;
+  padding: 1rem 1.75rem 0.25rem 0;
+  font-weight: 500;
+  font-size: 0.9375rem;
+  color: var(--marrom);
+  cursor: pointer;
+  list-style: none;
+}
+
+.relato-detalhes summary::-webkit-details-marker {
+  display: none;
+}
+
+.relato-detalhes summary::after {
+  content: "";
+  position: absolute;
+  right: 0.25rem;
+  top: calc(50% + 0.25rem);
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-75%) rotate(45deg);
+  transition: transform 0.25s var(--ease);
+}
+
+.relato-detalhes[open] summary::after {
+  transform: translateY(-25%) rotate(-135deg);
+}
+
+.relato-detalhes summary:hover {
+  color: var(--marrom-escuro);
+}
+
+.relato-detalhes::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition: block-size 0.35s var(--ease), content-visibility 0.35s allow-discrete;
+}
+
+.relato-detalhes[open]::details-content {
+  block-size: auto;
+}
+
+.relato-completo {
+  padding-top: 1rem;
+  font-size: 0.975rem;
+  color: var(--suave);
+}
+
+.relato-completo p + p {
+  margin-top: 0.75rem;
+}
+
+.relatos-aviso {
+  max-width: 40rem;
+  margin-top: clamp(3rem, 6vw, 4rem);
+  font-size: 0.8125rem;
+  color: var(--suave);
+}
+
+.depoimentos:empty {
+  display: none;
+}
+
 /* Investimento */
 
 .investimento {
@@ -2216,6 +2364,8 @@ a {
   .braco,
   .faq summary::after,
   .faq details::details-content,
+  .relato-detalhes::details-content,
+  .relato-detalhes summary::after,
   .whats-flutuante,
   .guias a {
     transition: none;
@@ -2440,6 +2590,15 @@ a {
 
   .linha .marco-com-foto {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .relato {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem;
+  }
+
+  .relato-midia {
+    max-width: 17rem;
   }
 
   .marco-foto {

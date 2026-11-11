@@ -23,7 +23,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,400..600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..500;1,6..72,400&display=swap">
-  <link rel="stylesheet" href="style.css?v=4bd89167">
+  <link rel="stylesheet" href="style.css?v=9134d0b7">
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Beatriz Paes", "alternateName": "Bea Paes", "jobTitle": "Nutricionista", "description": "Acompanhamento nutricional na gestação e no pós-parto.", "url": "https://davibadaro28-pixel.github.io/Repositorio-igor-/", "image": "https://davibadaro28-pixel.github.io/Repositorio-igor-/img/bea-800.jpg", "sameAs": ["https://www.instagram.com/beapaes_/", "https://www.youtube.com/@beapaesnutri"], "makesOffer": {"@type": "Offer", "name": "Acompanhamento nutricional na gestação e no pós-parto", "price": "3700", "priceCurrency": "BRL"}}</script>
 </head>
 <body>
@@ -347,13 +347,66 @@
       </div>
     </section>
 
-    <!-- Depoimentos: a seção só aparece quando houver relatos reais e autorizados em CONFIG.depoimentos (main.js). -->
-    <section id="depoimentos" class="secao secao-bege" aria-labelledby="depoimentos-titulo" hidden>
+    <!-- Depoimentos reais enviados por pacientes da Bea. Antes de publicar um novo, guarde a autorização por escrito da paciente
+         (nome, foto, voz e informações de saúde). Pela ética do CFN, não use fotos de corpo, antes e depois, exames ou números de peso. -->
+    <section id="depoimentos" class="secao secao-bege" aria-labelledby="depoimentos-titulo">
       <div class="largura">
-        <div class="cabeca-secao">
+        <div class="cabeca-secao" data-revelar>
           <h2 id="depoimentos-titulo">Quem já foi acompanhada pela Bea</h2>
+          <p class="secao-intro">Relatos enviados por pacientes, nas palavras delas.</p>
         </div>
+
+        <div class="relatos">
+          <article class="relato" data-revelar>
+            <div class="relato-midia">
+              <video class="relato-video" controls playsinline preload="none" poster="img/depoimento-pos-parto-capa.jpg" width="540" height="960" aria-describedby="relato-1-transcricao">
+                <source src="midia/depoimento-pos-parto.mp4" type="video/mp4">
+                <track kind="captions" src="midia/depoimento-pos-parto.vtt" srclang="pt-BR" label="Português" default>
+                <a href="midia/depoimento-pos-parto.mp4">Assistir ao vídeo do depoimento</a>
+              </video>
+            </div>
+            <div class="relato-texto">
+              <blockquote class="relato-citacao"><p>“A Bea me ajudou muito, muito mesmo nessa fase.”</p></blockquote>
+              <p class="relato-trecho">“Dois meses após o nascimento do meu segundo filho foi quando eu conheci a Bea, e foi num momento, assim, muito importante.”</p>
+              <!-- PREENCHER: primeiro nome da paciente, se ela autorizar. -->
+              <p class="relato-quem"><span class="relato-nome">Acompanhada no pós-parto</span><span>Depoimento em vídeo, 1 minuto, com legenda</span></p>
+              <details class="relato-detalhes" id="relato-1-transcricao">
+                <summary>Ler a transcrição</summary>
+                <div class="relato-completo">
+                  <p>Dois meses após o nascimento do meu segundo filho foi quando eu conheci a Bea, e foi num momento, assim, muito importante, porque eu lembro que com a amamentação eu sentia muita fome e, ao invés de eu estar perdendo peso, recuperando o peso que eu estava antes da gestação, eu estava ganhando ainda mais.</p>
+                  <p>Diferente da minha primeira gestação, que eu logo consegui recuperar, em meio à ansiedade de estar com dois filhos, cuidando ali a todo momento, eu acabava descontando essa ansiedade com a comida, nas oportunidades que tinha, e não tinha o conhecimento nutricional, o conhecimento que aquilo estava me fazendo bem.</p>
+                  <p>E com a Bea, a Bea me ajudou muito, muito mesmo nessa fase. Eu sou muito grata a ela, hoje eu já recuperei o meu peso e estou muito satisfeita com o resultado que eu estou.</p>
+                  <p>Hoje em dia, quem me pergunta, as pessoas sempre estão falando, e eu sempre recomendo a Bea porque, nossa, ela me ajudou demais nesse processo.</p>
+                </div>
+              </details>
+            </div>
+          </article>
+
+          <article class="relato" data-revelar>
+            <div class="relato-midia">
+              <img class="relato-foto" src="img/depoimento-endometriose-800.jpg" srcset="img/depoimento-endometriose-480.jpg 480w, img/depoimento-endometriose-800.jpg 800w" sizes="(max-width: 640px) 70vw, 17rem" width="800" height="1000" alt="Paciente da Bea sorrindo, de blusa preta" loading="lazy" decoding="async">
+            </div>
+            <div class="relato-texto">
+              <blockquote class="relato-citacao"><p>“O acompanhamento da Beatriz fez muita diferença na minha qualidade de vida!”</p></blockquote>
+              <p class="relato-trecho">“O que mais fez diferença para mim foi me sentir muito acolhida e ter um acompanhamento realmente próximo.”</p>
+              <!-- PREENCHER: primeiro nome da paciente, se ela autorizar. -->
+              <p class="relato-quem"><span class="relato-nome">Acompanhada na endometriose</span><span>e na intolerância à lactose</span></p>
+              <details class="relato-detalhes">
+                <summary>Ler o relato completo</summary>
+                <div class="relato-completo">
+                  <p>Comecei meu acompanhamento com a Beatriz quando descobri que tinha endometriose. Na época, eu tinha muita dificuldade com a alimentação, porque vários alimentos me causavam inchaço, retenção, cólicas e, além disso, também tinha intolerância à lactose. Percebia que alguns alimentos me faziam mais mal em determinados períodos do mês e também tinha muita dificuldade para perder peso.</p>
+                  <p>Sempre tive dificuldade em aceitar que precisava deixar de comer algumas coisas por causa da endometriose, e a Beatriz foi essencial nesse processo. Ela me ajudou não só com a alimentação e o peso, mas principalmente a mudar minha relação com a comida e a entender melhor o que fazia sentido para o meu corpo.</p>
+                  <p>O que mais fez diferença para mim foi me sentir muito acolhida e ter um acompanhamento realmente próximo. Ela sempre foi muito presente, respondia rápido pelo WhatsApp e, praticamente toda semana, estávamos em contato para ajustar o que fosse necessário e dar suporte.</p>
+                  <p>Hoje me sinto muito melhor e consigo lidar de uma forma muito mais tranquila com a alimentação, com meu peso, com a intolerância à lactose e, principalmente, com a endometriose.</p>
+                  <p>O acompanhamento da Beatriz fez muita diferença na minha qualidade de vida!</p>
+                </div>
+              </details>
+            </div>
+          </article>
+        </div>
+
         <div class="depoimentos" id="depoimentos-lista"></div>
+        <p class="relatos-aviso">Cada pessoa responde de um jeito ao acompanhamento nutricional. Estes relatos contam experiências individuais e não são garantia de resultado.</p>
       </div>
     </section>
 
@@ -545,6 +598,6 @@
     <svg class="whats-icone" aria-hidden="true"><use href="#i-whatsapp"/></svg>
   </a>
 
-  <script src="main.js?v=9059ae61" defer></script>
+  <script src="main.js?v=add5deb4" defer></script>
 </body>
 </html>

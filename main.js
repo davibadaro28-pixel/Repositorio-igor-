@@ -5,8 +5,8 @@
     whatsapp: "5511945364807",
     instagram: "beapaes_",
 
-    // Depoimentos reais e autorizados por escrito. Enquanto a lista estiver vazia, a seção fica escondida.
-    // Formato de cada item:
+    // Os depoimentos principais estão em _src/parciais/depoimentos.html. Itens desta lista entram como cartões extras
+    // na mesma seção. Use só relatos reais, com autorização por escrito da paciente. Formato de cada item:
     // { texto: "O que ela disse", nome: "Primeiro nome", fase: "Acompanhada na gestação", foto: "img/arquivo.jpg" }
     // A foto é opcional. Pela Resolução CFN 856/2026, não use fotos de corpo, antes e depois ou resultados de exames.
     depoimentos: [],
