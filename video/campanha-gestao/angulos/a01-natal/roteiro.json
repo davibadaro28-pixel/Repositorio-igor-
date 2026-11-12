@@ -1,0 +1,36 @@
+{
+ "tema": "ig",
+ "angulo": "Encomendas de fim de ano",
+ "publico": "quem faz bolo e doce por encomenda",
+ "voz": "ORgG8rwdAiMYRug8RJwR",
+ "nome": "anaalice",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.04,
+ "ritmo_alvo": 2.7,
+ "cauda": 2.6,
+ "legenda": {
+  "trinta dias": "30 dias"
+ },
+ "falas": [
+  {
+   "texto": "Doceira, as encomendas de Natal já vão começar. Onde você vai anotar?",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Aqui o cliente escolhe, marca o dia e a hora, e cai tudo na sua agenda.",
+   "pausa": 0.38
+  },
+  {
+   "texto": "E ela já mostra o que produzir em cada dia.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Organiza isso antes de dezembro. Fala com a gente.",
+   "pausa": 0.4
+  }
+ ]
+}

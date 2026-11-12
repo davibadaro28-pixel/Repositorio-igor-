@@ -1,0 +1,37 @@
+{
+ "global": [
+  "bright bossa-nova inspired pop instrumental",
+  "nylon guitar",
+  "shaker and light percussion",
+  "soft electric piano",
+  "96 BPM",
+  "optimistic"
+ ],
+ "evitar": [
+  "vocals",
+  "heavy drums"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 3.79,
+   "estilo": [
+    "gentle questioning start"
+   ]
+  },
+  {
+   "nome": "Body",
+   "ate": 13.79,
+   "estilo": [
+    "warm swinging groove, sunny bakery morning"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "sweet resolved ending, short tail"
+   ]
+  }
+ ]
+}

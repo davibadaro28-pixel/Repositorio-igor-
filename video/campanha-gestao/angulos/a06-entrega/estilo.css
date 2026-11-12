@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800;900&display=block');
+/* A06 · entrega: mapa claro com ruas brancas, rotas tracejadas e pinos vermelhos */
+.caps.a06 .chunk { font: 800 52px/1.18 'Outfit', sans-serif; color: #fff; background: #1d2433; padding: 12px 28px; border-radius: 18px; box-shadow: 0 14px 30px -14px rgba(0,0,0,.5); }
+.caps.a06 .cw { opacity: .6; }
+.caps.a06 .cw.said { opacity: 1; }
+.caps.a06 .cw.on { color: #ff8a7a; }
+.pino { position: absolute; padding: 12px 22px; border-radius: 999px; background: #1d2433; color: #fff; font: 800 34px/1 'Outfit', sans-serif; white-space: nowrap; box-shadow: 0 12px 22px -10px rgba(0,0,0,.5); }
+.moto { position: absolute; left: 0; top: 0; width: 62px; height: 62px; margin: -31px 0 0 -31px; border-radius: 50%; background: #ff4d3d; border: 6px solid #fff; box-shadow: 0 10px 20px -6px rgba(0,0,0,.5); display: grid; place-items: center; font: 900 34px 'Outfit', sans-serif; color: #fff; }

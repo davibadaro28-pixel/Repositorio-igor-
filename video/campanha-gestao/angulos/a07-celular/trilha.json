@@ -1,0 +1,38 @@
+{
+ "global": [
+  "breezy tropical house instrumental",
+  "marimba plucks",
+  "soft kick",
+  "airy pads",
+  "relaxed sunny feel",
+  "100 BPM",
+  "G major"
+ ],
+ "evitar": [
+  "vocals",
+  "heavy drums"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 3.9,
+   "estilo": [
+    "curious light intro with plucks"
+   ]
+  },
+  {
+   "nome": "Body",
+   "ate": 11.15,
+   "estilo": [
+    "full relaxed groove, freedom"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "gentle ending, short tail"
+   ]
+  }
+ ]
+}

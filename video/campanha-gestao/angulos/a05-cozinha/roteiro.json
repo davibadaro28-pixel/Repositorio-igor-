@@ -1,0 +1,36 @@
+{
+ "tema": "ig",
+ "angulo": "Equipe na cozinha",
+ "publico": "quem tem ajudante ou equipe",
+ "voz": "ohZOfA9iwlZ5nOsoY7LB",
+ "nome": "robertac",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 2.8,
+ "cauda": 2.6,
+ "legenda": {
+  "trinta dias": "30 dias"
+ },
+ "falas": [
+  {
+   "texto": "Tem doceria e ouve \"o que eu faço agora?\" o dia inteiro?",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Coloca uma tela na cozinha.",
+   "pausa": 0.38
+  },
+  {
+   "texto": "Ela mostra o total pra produzir e cada pedido na ordem. Ficou pronto? É só tocar.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Aí a resposta fica na tela, não em você. Fala com a gente.",
+   "pausa": 0.4
+  }
+ ]
+}

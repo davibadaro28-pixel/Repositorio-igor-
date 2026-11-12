@@ -1,0 +1,36 @@
+{
+ "tema": "ig",
+ "angulo": "Contas a pagar",
+ "publico": "quem cuida do financeiro sozinha",
+ "voz": "2CECaLAGTS5NRGxgbcxr",
+ "nome": "daviandrei",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 0.96,
+ "ritmo_alvo": 3.3,
+ "cauda": 2.6,
+ "legenda": {
+  "trinta dias": "30 dias"
+ },
+ "falas": [
+  {
+   "texto": "Qual conta da sua doceria vence essa semana? Sem olhar o caderno.",
+   "pausa": 0.25
+  },
+  {
+   "texto": "Aluguel, gás, fornecedor… no sistema fica tudo num lugar só: o que tá pendente e o que já venceu.",
+   "pausa": 0.38
+  },
+  {
+   "texto": "E o fluxo de caixa mostra o saldo de cada dia.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Chega de susto com boleto. Fala com a gente.",
+   "pausa": 0.4
+  }
+ ]
+}

@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@600;700;800;900&display=block');
+/* A02 · clientes: festa de aniversário em creme e rosa, confete, bolo com vela */
+.caps.a02 .chunk { font: 800 54px/1.18 'Nunito', sans-serif; color: #2b1b3d; background: #fff; padding: 12px 28px; border-radius: 22px; box-shadow: 0 16px 36px -16px rgba(43,27,61,.4); }
+.caps.a02 .cw { opacity: .5; }
+.caps.a02 .cw.said { opacity: 1; }
+.caps.a02 .cw.on { color: #ff4f87; }
+.vela { position: absolute; width: 22px; height: 120px; border-radius: 8px; background: repeating-linear-gradient(45deg, #ff4f87 0 14px, #fff 14px 28px); }
+.chama { position: absolute; left: -9px; top: -52px; width: 40px; height: 56px; border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; background: radial-gradient(circle at 50% 70%, #fff7b0, #ffb703 55%, #ff7b00); transform-origin: 50% 100%; }
+.quem { position: absolute; width: 150px; height: 150px; border-radius: 50%; background: #e7dcf5; display: grid; place-items: center; font: 800 96px 'Baloo 2', sans-serif; color: #7b5ea7; box-shadow: 0 16px 30px -14px rgba(43,27,61,.45); }

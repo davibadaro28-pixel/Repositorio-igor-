@@ -1,0 +1,36 @@
+{
+ "tema": "ig",
+ "angulo": "Entrega própria",
+ "publico": "quem entrega com motoboy próprio",
+ "voz": "GDzHdQOi6jjf8zaXhCYD",
+ "nome": "raquel",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 3.1,
+ "cauda": 2.6,
+ "legenda": {
+  "trinta dias": "30 dias"
+ },
+ "falas": [
+  {
+   "texto": "Sua doceria entrega? Então me diz: quem saiu com qual pedido agora?",
+   "pausa": 0.25
+  },
+  {
+   "texto": "No sistema, cada bairro tem a sua taxa, e o cliente já vê o valor na hora de pedir.",
+   "pausa": 0.38
+  },
+  {
+   "texto": "Você escolhe o entregador e acompanha o que tá em rota.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "E no fim do dia, tem o acerto com cada um. Fala com a gente.",
+   "pausa": 0.4
+  }
+ ]
+}

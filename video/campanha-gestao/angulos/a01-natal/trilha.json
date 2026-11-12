@@ -1,0 +1,39 @@
+{
+ "global": [
+  "cozy festive Christmas instrumental",
+  "sleigh bells",
+  "glockenspiel",
+  "pizzicato strings",
+  "warm upright bass",
+  "108 BPM",
+  "F major"
+ ],
+ "evitar": [
+  "vocals",
+  "choir",
+  "heavy drums"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 6.54,
+   "estilo": [
+    "playful and a little urgent, sleigh bells from the first beat"
+   ]
+  },
+  {
+   "nome": "Body",
+   "ate": 16.82,
+   "estilo": [
+    "warm bouncy groove, organized and cheerful"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "festive resolved ending with bells, short tail"
+   ]
+  }
+ ]
+}

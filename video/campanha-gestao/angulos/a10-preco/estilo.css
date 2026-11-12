@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter+Tight:wght@500;600;700;800;900&display=block');
+/* A10 · preço: preto e dourado de pódio; a medalha de "nº 1 em vendas" vira "último em lucro?" */
+.caps.a10 .chunk { font: 800 54px/1.18 'Inter Tight', sans-serif; color: #fff; text-shadow: 0 3px 18px rgba(0,0,0,.9); }
+.caps.a10 .cw { opacity: .55; }
+.caps.a10 .cw.said { opacity: 1; }
+.caps.a10 .cw.on { color: #f5c542; }
+.med { position: absolute; width: 300px; height: 300px; border-radius: 50%; display: grid; place-items: center; text-align: center; font: 400 64px/0.95 'Bebas Neue', sans-serif; letter-spacing: .02em; box-shadow: 0 30px 60px -20px rgba(0,0,0,.8), inset 0 0 0 10px rgba(255,255,255,.35); }
+.med b { display: block; font: 400 130px/0.85 'Bebas Neue', sans-serif; }

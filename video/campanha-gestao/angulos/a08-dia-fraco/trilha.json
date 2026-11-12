@@ -1,0 +1,37 @@
+{
+ "global": [
+  "quirky quiz synth-pop instrumental",
+  "curious staccato plucks",
+  "bouncy bass",
+  "claps",
+  "110 BPM",
+  "E minor to G major"
+ ],
+ "evitar": [
+  "vocals",
+  "guitar"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 4.13,
+   "estilo": [
+    "question mark feel, suspense with humor"
+   ]
+  },
+  {
+   "nome": "Body",
+   "ate": 15.31,
+   "estilo": [
+    "clever upbeat groove, discovery"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "confident ending, short tail"
+   ]
+  }
+ ]
+}

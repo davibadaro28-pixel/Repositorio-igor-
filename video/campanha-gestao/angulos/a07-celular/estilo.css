@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&display=block');
+/* A07 · sair da loja: fim de tarde em laranja e roxo, lista de ligações e o painel no celular */
+.caps.a07 .chunk { font: 800 52px/1.18 'Plus Jakarta Sans', sans-serif; color: #fff; background: rgba(40,10,60,.88); padding: 12px 28px; border-radius: 20px; box-shadow: 0 16px 34px -14px rgba(0,0,0,.6); }
+.caps.a07 .cw { opacity: .6; }
+.caps.a07 .cw.said { opacity: 1; }
+.caps.a07 .cw.on { color: #ffe27a; }
+.lig { position: absolute; left: 110px; width: 860px; padding: 26px 34px; border-radius: 30px; background: rgba(255,255,255,.94); display: flex; align-items: center; gap: 26px; box-shadow: 0 20px 40px -18px rgba(40,10,60,.6); font: 700 44px/1.1 'Plus Jakarta Sans', sans-serif; color: #c1121f; }
+.lig i { width: 74px; height: 74px; border-radius: 50%; background: #34c759; flex: none; display: grid; place-items: center; font: 800 38px 'Plus Jakarta Sans'; color: #fff; font-style: normal; }
+.lig small { display: block; font: 600 30px 'Plus Jakarta Sans', sans-serif; color: #6b6b76; }
+.lig span { margin-left: auto; font: 600 32px 'Plus Jakarta Sans', sans-serif; color: #6b6b76; }

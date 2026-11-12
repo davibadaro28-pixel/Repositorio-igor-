@@ -1,0 +1,36 @@
+{
+ "tema": "ig",
+ "angulo": "Caixa que não bate",
+ "publico": "quem vende no balcão",
+ "voz": "7lu3ze7orhWaNeSPowWx",
+ "nome": "lucas",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 3.4,
+ "cauda": 2.6,
+ "legenda": {
+  "trinta dias": "30 dias"
+ },
+ "falas": [
+  {
+   "texto": "Fim do dia na doceria: o caixa bateu, ou você fechou no olho?",
+   "pausa": 0.25
+  },
+  {
+   "texto": "No sistema você abre o caixa com o troco, lança sangria, e vê quanto entrou em Pix, cartão e dinheiro.",
+   "pausa": 0.38
+  },
+  {
+   "texto": "Na hora de fechar, ele mostra a diferença.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Sem conta de cabeça. Fala com a gente.",
+   "pausa": 0.4
+  }
+ ]
+}

@@ -1,0 +1,36 @@
+{
+ "tema": "ig",
+ "angulo": "Cliente que some",
+ "publico": "quem depende de cliente que volta",
+ "voz": "GM2UA3fbsIaLHcswCDX9",
+ "nome": "nina",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 2.9,
+ "cauda": 2.6,
+ "legenda": {
+  "trinta dias": "30 dias"
+ },
+ "falas": [
+  {
+   "texto": "Tem cliente da sua doceria fazendo aniversário essa semana. Você sabe quem é?",
+   "pausa": 0.25
+  },
+  {
+   "texto": "O sistema sabe. E mostra também quem sumiu faz mais de trinta dias.",
+   "pausa": 0.38
+  },
+  {
+   "texto": "Aí é um toque, e você chama no WhatsApp.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Quer cuidar dos seus clientes assim? Fala com a gente.",
+   "pausa": 0.4
+  }
+ ]
+}

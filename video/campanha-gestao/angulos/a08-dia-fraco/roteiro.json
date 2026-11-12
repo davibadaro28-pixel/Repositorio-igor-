@@ -1,0 +1,36 @@
+{
+ "tema": "ig",
+ "angulo": "Dia fraco",
+ "publico": "quem faz promoção no palpite",
+ "voz": "5p9IbzcK4R8rN1fpGdMF",
+ "nome": "davi",
+ "ajustes": {
+  "stability": 0.5,
+  "similarity_boost": 0.75,
+  "style": 0.08
+ },
+ "velocidade": 1.0,
+ "ritmo_alvo": 3.0,
+ "cauda": 2.6,
+ "legenda": {
+  "trinta dias": "30 dias"
+ },
+ "falas": [
+  {
+   "texto": "Qual é o dia mais fraco da sua doceria? Não vale chutar.",
+   "pausa": 0.25
+  },
+  {
+   "texto": "O relatório mostra quanto vende cada dia da semana, e em que horário chega mais pedido.",
+   "pausa": 0.38
+  },
+  {
+   "texto": "Aí você faz um cupom pra movimentar o dia parado, e vê quantas vezes ele foi usado.",
+   "pausa": 0.3
+  },
+  {
+   "texto": "Promoção com número, não com palpite. Fala com a gente.",
+   "pausa": 0.4
+  }
+ ]
+}

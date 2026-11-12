@@ -1,0 +1,38 @@
+{
+ "global": [
+  "funky groove instrumental",
+  "slap bass",
+  "clavinet",
+  "tight dry drums",
+  "cowbell",
+  "104 BPM",
+  "E minor"
+ ],
+ "evitar": [
+  "vocals",
+  "guitar solo"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 4.63,
+   "estilo": [
+    "punchy funk hit start, cheeky and questioning"
+   ]
+  },
+  {
+   "nome": "Body",
+   "ate": 12.49,
+   "estilo": [
+    "steady confident funk groove"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "tight final hit, short tail"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter+Tight:wght@500;600;700;800&display=block');
+/* A04 · contas: azul-marinho e laranja de alerta; caixinha de pergunta e boletos sem data */
+.caps.a04 .chunk { font: 700 54px/1.18 'Inter Tight', sans-serif; color: #fff; text-shadow: 0 3px 18px rgba(5,10,25,.9); }
+.caps.a04 .cw { opacity: .55; }
+.caps.a04 .cw.said { opacity: 1; }
+.caps.a04 .cw.on { color: #ff8a3d; }
+.cx { position: absolute; left: 90px; top: 290px; width: 900px; border-radius: 40px; background: #fff; overflow: hidden; box-shadow: 0 40px 80px -30px rgba(0,0,0,.6); }
+.cx .h { background: #ff8a3d; color: #0f1b33; font: 800 36px/1 'Sora', sans-serif; letter-spacing: .1em; padding: 22px; text-align: center; }
+.cx .q { font: 800 76px/1.08 'Sora', sans-serif; color: #0f1b33; padding: 34px 44px 44px; text-align: center; }
+.bol { position: absolute; width: 640px; height: 290px; border-radius: 18px; background: #fdfdf8; box-shadow: 0 30px 50px -22px rgba(0,0,0,.6); padding: 26px 34px; font: 600 30px/1.3 'Inter Tight', sans-serif; color: #2a3350; }
+.bol b { display: block; font: 800 60px/1.1 'Sora', sans-serif; color: #e5383b; }
+.bol .bar { position: absolute; left: 34px; right: 34px; bottom: 26px; height: 54px; background: repeating-linear-gradient(90deg, #111 0 6px, transparent 6px 10px, #111 10px 12px, transparent 12px 20px, #111 20px 28px, transparent 28px 32px); }
+.tagc { position: absolute; padding: 18px 34px; border-radius: 16px; background: #fff; color: #0f1b33; font: 800 56px/1 'Sora', sans-serif; box-shadow: 0 18px 36px -16px rgba(0,0,0,.6); }

@@ -1,0 +1,37 @@
+{
+ "global": [
+  "upbeat driving electro-pop instrumental",
+  "pulsing bassline",
+  "bright synth plucks",
+  "four-on-the-floor kick",
+  "124 BPM",
+  "D minor"
+ ],
+ "evitar": [
+  "vocals",
+  "guitar"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 4.5,
+   "estilo": [
+    "urgent driving start, motion"
+   ]
+  },
+  {
+   "nome": "Body",
+   "ate": 13.9,
+   "estilo": [
+    "steady travel groove, in control"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "final chord, short tail"
+   ]
+  }
+ ]
+}

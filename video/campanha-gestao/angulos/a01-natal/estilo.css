@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Caveat:wght@600;700&family=Inter+Tight:wght@500;600;700;800&display=block');
+/* A01 · Natal: vermelho profundo, dourado, neve caindo; calendário de dezembro lotado de bilhetes */
+.caps.a01 .chunk { font: 700 54px/1.18 'Inter Tight', sans-serif; color: #fff6e6; text-shadow: 0 3px 18px rgba(40,6,12,.9); }
+.caps.a01 .cw { opacity: .6; }
+.caps.a01 .cw.said { opacity: 1; }
+.caps.a01 .cw.on { color: #f6c453; }
+.cal01 { position: absolute; border-radius: 30px; overflow: visible; background: #fffaf2; box-shadow: 0 50px 100px -30px rgba(0,0,0,.65); }
+.cal01 .topo { background: #c8102e; color: #fff; font: 400 70px/1 'DM Serif Display', serif; padding: 26px; text-align: center; border-radius: 30px 30px 0 0; letter-spacing: .06em; }
+.cal01 .g { display: grid; grid-template-columns: repeat(7, 1fr); gap: 10px; padding: 22px; }
+.cal01 .g i { display: block; height: 88px; border-radius: 12px; background: #f3ebdf; font: 700 30px/88px 'Inter Tight', sans-serif; color: #8a7a66; text-align: center; font-style: normal; }
+.bil { position: absolute; width: 124px; height: 112px; padding: 12px 10px; box-shadow: 0 10px 18px -8px rgba(0,0,0,.45); font: 700 30px/0.95 'Caveat', cursive; color: #3a2a12; text-align: center; }

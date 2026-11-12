@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Inter+Tight:wght@500;600;700;800&display=block');
+/* A09 · produção: tela dividida (hoje sobrou / ontem faltou), creme, tomate e chocolate */
+.caps.a09 .chunk { font: 800 52px/1.18 'Inter Tight', sans-serif; color: #2a1a12; background: #fff; padding: 12px 28px; border-radius: 18px; box-shadow: 0 14px 30px -14px rgba(0,0,0,.5); }
+.caps.a09 .cw { opacity: .5; }
+.caps.a09 .cw.said { opacity: 1; }
+.caps.a09 .cw.on { color: #e2452f; }
+.eti { position: absolute; padding: 14px 30px; border-radius: 999px; background: #fff; color: #2a1a12; font: 800 44px/1 'Bricolage Grotesque', sans-serif; letter-spacing: .06em; box-shadow: 0 12px 24px -10px rgba(0,0,0,.5); }
+.prato { position: absolute; left: 240px; top: 1180px; width: 600px; height: 250px; border-radius: 50%; background: radial-gradient(ellipse at 50% 40%, #fdfdfb, #d9d2c6 70%, #b9b0a2); box-shadow: 0 40px 50px -20px rgba(0,0,0,.6), inset 0 -14px 0 rgba(0,0,0,.08); }
+.prato::after { content: ''; position: absolute; left: 110px; top: 60px; width: 380px; height: 120px; border-radius: 50%; border: 5px dashed rgba(42,26,18,.3); }
+.mig { position: absolute; width: 16px; height: 12px; border-radius: 50%; background: #8a5a3c; }

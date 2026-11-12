@@ -48,6 +48,9 @@ def canon(t):
     t = re.sub(r'\bem comenda', 'encomenda', t)
     t = re.sub(r'\biora\b', 'e hora', t)
     t = re.sub(r'\bpra\b', 'para', t)
+    t = re.sub(r'\bpro\b', 'para o', t)
+    t = re.sub(r'\bta\b', 'esta', t)
+    t = re.sub(r'\btao\b', 'estao', t)
     return t.split()
 
 

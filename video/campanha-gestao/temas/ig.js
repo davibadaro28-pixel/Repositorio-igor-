@@ -92,7 +92,7 @@ window.IG = (() => {
     const s = L.scene(a, b, o.parent || world);
     const ph = L.phone(s, o.sb || '#7d2949');
     telas.forEach(([t, nome], i) => {
-      const im = L.img(ph.view, L.M(nome), 390, 797);
+      const im = L.img(ph.view, (o.painel ? L.P : L.M)(nome), 390, o.alto || 797, o.alto ? { objectFit: 'cover', objectPosition: 'top' } : {});
       if (i) { hid(im); tl.fromTo(im, { autoAlpha: 1, y: o.deslizar === false ? 0 : 797 }, { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power3.out', immediateRender: false }, t); }
     });
     (o.toques || []).forEach(([t, x, y]) => L.tap(ph.view, x, y, t));
@@ -359,6 +359,14 @@ window.IG = (() => {
     L.tap(s, 660, (o.botaoTop ?? 1130) + 50, o.toque);
     tl.to(btn, { scale: 0.95, duration: 0.08, yoyo: true, repeat: 1 }, o.toque);
     tl.to(btn, { scale: 1.05, duration: 0.25, yoyo: true, repeat: 5, ease: 'sine.inOut' }, o.toque + 0.3);
+    if (o.prova) {
+      const cor = o.cor || S.fg;
+      const pv = $('div', null, s, { position: 'absolute', left: '110px', width: '860px', top: px((o.botaoTop ?? 1130) + 185), textAlign: 'center', padding: '24px 28px', borderRadius: '28px', border: `2px solid ${o.provaBorda || 'rgba(255,255,255,.28)'}`, background: o.provaBg || 'rgba(0,0,0,.16)' });
+      pv.innerHTML = `<div style="font:${S.weight || 900} 64px/1 ${S.font};color:${o.provaCor || S.accent}">+30% de lucro</div><div style="font:700 30px/1.25 ${S.fontText};color:${cor};margin-top:10px">na doceria de quem criou o sistema</div><div style="font:500 22px/1.3 ${S.fontText};color:${cor};opacity:.72;margin-top:8px">Resultado informado pelo criador do sistema. Cada negócio tem o seu</div>`;
+      hid(pv);
+      tl.fromTo(pv, { autoAlpha: 0, y: 40 }, { autoAlpha: 1, y: 0, duration: 0.45, ease: 'expo.out', immediateRender: false }, o.botao[0] + 0.45);
+      L.cue(o.botao[0] + 0.45, 'tick');
+    }
     if (o.sub) { const sb = $('div', null, s, { position: 'absolute', left: '90px', width: '900px', top: px((o.botaoTop ?? 1130) + 170), textAlign: 'center', font: `700 34px/1.3 ${S.fontText}`, color: o.subCor || S.fg, opacity: 0.85 }); sb.textContent = o.sub; hid(sb); tl.to(sb, { autoAlpha: 0.85, duration: 0.4 }, o.botao[0] + 0.3); }
     push(s, [[a, o.botao[0], 0.06], [o.toque, L.D, 0.05]]);
     return s;
@@ -445,6 +453,42 @@ window.IG = (() => {
     tl.fromTo(im, { scale: 1.18 }, { scale: 1.02, duration: o.zoomDur || 3, ease: 'none', immediateRender: false }, t);
     if (o.cue !== false) L.cue(t, o.cue || 'whoosh');
     return card;
+  };
+  M.neve = (parent, o = {}) => {
+    const r = L.rng(o.seed || 7);
+    const fl = Array.from({ length: o.n || 46 }, () => ({ x: r() * 1080, y: r() * 1920, v: 60 + r() * 130, a: 12 + r() * 30, f: 0.4 + r() * 1.2, d: 6 + r() * 14, p: r() * 6 }));
+    const els = fl.map((f) => $('div', null, parent, { position: 'absolute', left: '0', top: '0', width: px(f.d), height: px(f.d), borderRadius: '50%', background: o.cor || '#fff', opacity: String(0.35 + (f.d / 20) * 0.5) }));
+    L.onFrame((t) => { fl.forEach((f, i) => { els[i].style.transform = `translate(${f.x + Math.sin(t * f.f + f.p) * f.a}px, ${((f.y + t * f.v) % 2000) - 40}px)`; }); });
+  };
+  M.confete = (parent, t0, o = {}) => {
+    const r = L.rng(o.seed || 21);
+    const cores = o.cores || ['#ff4f87', '#ffd166', '#06d6a0', '#4cc9f0', '#b388ff'];
+    const cx = o.x ?? 540, cy = o.y ?? 760, dur = o.dur || 2.2;
+    const ps = Array.from({ length: o.n || 70 }, (_, i) => ({ an: r() * Math.PI * 2, v: 500 + r() * 1100, w: 14 + r() * 18, h: 8 + r() * 14, rot: r() * 360, vr: (r() - 0.5) * 900, c: cores[i % cores.length] }));
+    const els = ps.map((q) => $('div', null, parent, { position: 'absolute', left: '0', top: '0', width: px(q.w), height: px(q.h), background: q.c, borderRadius: '3px', visibility: 'hidden' }));
+    L.onFrame((t) => {
+      const u = t - t0;
+      ps.forEach((q, i) => {
+        const e = els[i];
+        if (u < 0 || u > dur) { e.style.visibility = 'hidden'; return; }
+        const k = 1 - Math.exp(-u * 2.2);
+        e.style.visibility = 'visible';
+        e.style.opacity = String(Math.min(1, (dur - u) * 2));
+        e.style.transform = `translate(${cx + Math.cos(q.an) * q.v * k * 0.55}px, ${cy + Math.sin(q.an) * q.v * k * 0.55 + 520 * u * u}px) rotate(${q.rot + q.vr * u}deg)`;
+      });
+    });
+    L.cue(t0, o.cue || 'pop');
+  };
+  // balão de fala solto (quebra de padrão): entra com tranco
+  M.fala = (parent, t, html, o = {}) => {
+    const b = $('div', null, parent, { position: 'absolute', left: px(o.x ?? 120), top: px(o.y ?? 400), maxWidth: px(o.w || 760), padding: o.pad || '30px 40px', background: o.bg || '#fff', color: o.cor || '#111', borderRadius: o.radius || '44px', font: o.font || `800 ${o.size || 62}px/1.12 ${S.fontText}`, boxShadow: '0 26px 60px -22px rgba(0,0,0,.5)', transform: `rotate(${o.rot || 0}deg)` });
+    b.innerHTML = html;
+    if (o.rabo !== false) $('div', null, b, { position: 'absolute', [o.lado === 'dir' ? 'right' : 'left']: '60px', bottom: '-26px', width: '54px', height: '54px', background: o.bg || '#fff', transform: 'rotate(45deg)', borderRadius: '8px', zIndex: -1 });
+    hid(b);
+    tl.fromTo(b, { autoAlpha: 0, scale: 0.3, rotate: (o.rot || 0) * 3 }, { autoAlpha: 1, scale: 1, rotate: o.rot || 0, duration: 0.3, ease: 'back.out(2.4)', immediateRender: false }, t);
+    if (o.ate) tl.to(b, { autoAlpha: 0, scale: 0.8, duration: 0.15 }, o.ate);
+    L.cue(t, o.cue || 'pop', { n: o.n || 0 });
+    return b;
   };
   M.ui = () => ui;
   M.world = () => world;

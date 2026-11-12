@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&display=block');
+/* A05 · cozinha: azulejo verde-petróleo, amarelo-manteiga, balões de fala */
+.caps.a05 .chunk { font: 800 56px/1.15 'Rubik', sans-serif; color: #fff; text-shadow: 0 4px 0 #0a2f39, 0 6px 22px rgba(0,0,0,.6); }
+.caps.a05 .cw.on { color: #ffd166; }
+.tab5 { position: absolute; border-radius: 44px; background: #14181b; box-shadow: 0 60px 100px -30px rgba(0,0,0,.7), inset 0 0 0 3px #2c3439; padding: 30px; }
+.tab5 .tela { position: relative; width: 100%; height: 100%; border-radius: 16px; overflow: hidden; background: #fffaf6; }
+.ord { position: absolute; width: 92px; height: 92px; border-radius: 50%; background: #ffd166; color: #0f4c5c; display: grid; place-items: center; font: 900 60px 'Rubik', sans-serif; box-shadow: 0 12px 24px -8px rgba(0,0,0,.5); }

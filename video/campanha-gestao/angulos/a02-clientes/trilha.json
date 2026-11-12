@@ -1,0 +1,40 @@
+{
+ "global": [
+  "happy party pop instrumental",
+  "ukulele",
+  "hand claps",
+  "bright whistle melody",
+  "tambourine",
+  "112 BPM",
+  "C major",
+  "original melody"
+ ],
+ "evitar": [
+  "vocals",
+  "heavy drums",
+  "traditional birthday song melody"
+ ],
+ "secoes": [
+  {
+   "nome": "Hook",
+   "ate": 5.52,
+   "estilo": [
+    "celebration burst from the first beat, joyful"
+   ]
+  },
+  {
+   "nome": "Body",
+   "ate": 13.22,
+   "estilo": [
+    "light bouncy groove, friendly and warm"
+   ]
+  },
+  {
+   "nome": "End",
+   "ate": 0,
+   "estilo": [
+    "cheerful ending, short tail"
+   ]
+  }
+ ]
+}
