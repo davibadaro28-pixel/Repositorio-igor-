@@ -54,7 +54,7 @@
   {
     const a = T(1) - 0.1, b = T(2) - 0.1;
     IG.texto(a, b, [[a + 0.05, 'cada bairro,', { fontSize: '100px' }], [W(1, 'taxa') - 0.25, 'uma taxa', { fontSize: '120px', color: RED }]], { top: 270, lh: '0.98', empurra: false });
-    IG.celular(a, b, [[a, 'checkout-2']], { x: 0, y: 95, k: 0.9, ry: 8 });
+    IG.celular(a, b, [[a, 'checkout-2']], { x: 0, y: 95, k: 0.9, ry: 8, toques: [[W(1, 'pedir') + 0.4, 195, 759]] });
     const s = L.scene(a, b, IG.world());
     const k = 2.4, zl = 540 - (362 * k) / 2, zt = 930;
     const zoom = L.crop(s, L.M('checkout-2'), 14, 296, 362, 96, { base: [390, 797], k, cls: 'panel', left: zl, top: zt, style: { borderRadius: '26px', backgroundColor: '#fffaf6', boxShadow: '0 50px 90px -24px rgba(0,0,0,.6), 0 0 0 6px #ff4d3d' } });
@@ -63,6 +63,12 @@
     L.cue(W(1, 'bairro') - 0.15, 'zoom');
     IG.anotar(s, W(1, 'taxa') - 0.1, { tipo: 'circulo', x: zl + 150 * k, y: zt + 36 * k, w: 100 * k, h: 26 * k }, { color: RED, largura: 9 });
     IG.anotar(s, W(1, 'valor') - 0.15, { tipo: 'sublinhado', x: zl + 28 * k, y: zt + 90 * k, w: 150 * k }, { color: RED, largura: 9 });
+    const ch = $('div', 'pino', s, { left: '250px', top: '1215px', background: RED, fontSize: '46px', padding: '18px 34px' });
+    ch.textContent = 'o cliente vê na hora de pedir';
+    IG.hid(ch);
+    tl.fromTo(ch, { autoAlpha: 0, scale: 0.4, y: 40 }, { autoAlpha: 1, scale: 1, y: 0, duration: 0.35, ease: 'back.out(2.2)', immediateRender: false }, W(1, 'hora') - 0.15);
+    tl.to(ch, { scale: 1.07, duration: 0.3, yoyo: true, repeat: 3, ease: 'sine.inOut' }, W(1, 'pedir') + 0.1);
+    L.cue(W(1, 'hora') - 0.15, 'pop');
   }
   // 3 · escolhe o entregador e acompanha o que está em rota
   {
