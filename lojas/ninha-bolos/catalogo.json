@@ -1,0 +1,292 @@
+[
+  {
+    "name": "Bolos de aniversário",
+    "section": "Bolos decorados",
+    "products": [
+      {
+        "name": "Bolo com rosas pintadas",
+        "description": "Chantilly branco com rosas e folhas pintadas à mão e detalhes dourados. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-rosas-vermelhas.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": true
+      },
+      {
+        "name": "Bolo floral com flores amarelas",
+        "description": "Chantilly branco com flores amarelas, folhas e pérolas douradas. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-flores-pintadas.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": false
+      },
+      {
+        "name": "Bolo com drip dourado e cookies",
+        "description": "Degradê azul, escorrido dourado, bombons e cookies no topo. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-drip-dourado-cookies.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": true
+      },
+      {
+        "name": "Bolo chantilly com flores secas",
+        "description": "Chantilly texturizado com flores secas e topo personalizado. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-chantilly-flores-secas.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": false
+      },
+      {
+        "name": "Bolo plissado de papel de arroz",
+        "description": "Lateral em papel de arroz plissado, pérolas e flores no topo. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-plissado-papel-de-arroz.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": false
+      },
+      {
+        "name": "Bolo coração com laço",
+        "description": "Formato de coração em chantilly colorido, corações e laço de cetim. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-coracao-laco.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": false
+      },
+      {
+        "name": "Bolo Happy Birthday preto e branco",
+        "description": "Preto e branco com topo Happy Birthday dourado. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-happy-birthday-preto.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": false
+      },
+      {
+        "name": "Bolo naked de morango",
+        "description": "Naked cake com morangos frescos e geleia no topo. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-naked-morango.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": false
+      }
+    ]
+  },
+  {
+    "name": "Bolos de andares",
+    "section": "Bolos decorados",
+    "products": [
+      {
+        "name": "Bolo de 3 andares floral",
+        "description": "Três andares em chantilly frisado com flores de papel rosa e dourado. Para casamento, 15 anos e festas grandes. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-andares-floral.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 72,
+        "featured": true
+      },
+      {
+        "name": "Bolo de 2 andares com pérolas",
+        "description": "Dois andares com pérolas e flores naturais artificiais em tons de creme. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-dois-andares-perolas.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Bolo de 2 andares degradê",
+        "description": "Dois andares em rosa e branco com pérolas. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-dois-andares-degrade.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Bolo de 3 andares vermelho e branco",
+        "description": "Três andares em vermelho e branco, com andar de acrílico decorado no meio e flores. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-tres-andares-vermelho.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 72,
+        "featured": false
+      }
+    ]
+  },
+  {
+    "name": "Bolos infantis e temáticos",
+    "section": "Bolos decorados",
+    "products": [
+      {
+        "name": "Bolo Homem-Aranha",
+        "description": "Dois andares, cidade e teias, com topo do personagem e idade. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-homem-aranha.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": true
+      },
+      {
+        "name": "Bolo Minnie",
+        "description": "Vermelho com laços de bolinha, flores e topo da Minnie. Também para mesversário. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-minnie.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": true
+      },
+      {
+        "name": "Bolo Hulk",
+        "description": "Chantilly verde frisado com o punho do Hulk e topo do personagem. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-hulk.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": false
+      },
+      {
+        "name": "Bolo Bob Esponja",
+        "description": "Fundo do mar em degradê azul com o Bob Esponja e amigos. Exemplo de bolo já feito pela Ninha. Tema, cores, nome no topo, sabor da massa e do recheio e tamanho você combina no WhatsApp.",
+        "image": "/img/produtos/bolo-bob-esponja.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": false
+      }
+    ]
+  },
+  {
+    "name": "Bolos de pote e doces",
+    "section": "Bolos e doces",
+    "products": [
+      {
+        "name": "Bolo de pote",
+        "description": "Bolo de pote em camadas. Sabores e quantidade: consulte no WhatsApp.",
+        "image": "/img/produtos/bolo-de-pote.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 24,
+        "featured": false
+      },
+      {
+        "name": "Bolo de banana caramelizado",
+        "description": "Bolo de banana com cobertura de banana caramelizada. Consulte tamanhos e disponibilidade.",
+        "image": "/img/produtos/bolo-de-banana-caramelizado.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 24,
+        "featured": false
+      },
+      {
+        "name": "Docinhos tradicionais para festa",
+        "description": "Doces tradicionais para a sua festa ficar mais doce. Sabores e quantidade (cento): consulte no WhatsApp.",
+        "image": "/img/produtos/docinhos-tradicionais.webp",
+        "variants": [
+          {
+            "name": null,
+            "price": 0
+          }
+        ],
+        "price_on_request": true,
+        "lead_time_hours": 48,
+        "featured": false
+      }
+    ]
+  }
+]

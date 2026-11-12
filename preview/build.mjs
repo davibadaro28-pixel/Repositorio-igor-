@@ -119,7 +119,9 @@ const tone = lacos ? { 50: '#fdf2f5', 100: '#fbe4ea', 500: '#c24d6d', 700: '#7d2
 const bg = theme.bg || (lacos ? '#fff9f6' : tone[50]);
 const esc = (t) => String(t ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]);
 const font = fontHref(theme);
-const page = `<title>${generica ? 'Sistema para Docerias' : esc(`Sistema ${store.name}`)}</title>
+const page = `<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>${generica ? 'Sistema para Docerias' : esc(`Sistema ${store.name}`)}</title>
 <meta name="description" content="${generica ? 'Demonstração: cardápio digital, pedidos, PDV, delivery, iFood, 99Food e nota fiscal para docerias' : esc(`Prévia do sistema de gestão da ${[store.name, store.tagline].filter(Boolean).join(' – ')}`)}">
 <meta name="theme-color" content="${themeColor(theme)}">
 <link rel="preconnect" href="https://fonts.googleapis.com">

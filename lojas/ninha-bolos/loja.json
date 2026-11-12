@@ -1,0 +1,160 @@
+{
+  "_fonte": "Nome, cidade, WhatsApp, formas de pagamento, aviso de pedido antecipado, logo e fotos tirados do Instagram @ninhabolos222 (prints enviados em 12/11/2026). Preços, sabores, tamanhos, horários, endereço, bairros de entrega e antecedência NÃO apareciam nos prints: confirmar com a cliente.",
+  "segment": "doceria",
+  "store": {
+    "name": "Ninha Bolos",
+    "tagline": "Amor em forma de bolos",
+    "slogan": "Bolos artesanais decorados por encomenda em João Pessoa",
+    "whatsapp": "5583988619794",
+    "phone": "(83) 98861-9794",
+    "instagram": "ninhabolos222",
+    "logo": "/img/logo.webp",
+    "address": "João Pessoa – PB",
+    "hours": {
+      "sunday": {
+        "active": false,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      "monday": {
+        "active": true,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      "tuesday": {
+        "active": true,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      "wednesday": {
+        "active": true,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      "thursday": {
+        "active": true,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      "friday": {
+        "active": true,
+        "open": "08:00",
+        "close": "18:00"
+      },
+      "saturday": {
+        "active": true,
+        "open": "08:00",
+        "close": "18:00"
+      }
+    },
+    "scheduling_enabled": true,
+    "prep_time_min": 30,
+    "delivery_time_min": 60,
+    "theme": {
+      "color": "#b65466",
+      "font": "script",
+      "style": "renda",
+      "bg": "#fff7f3"
+    }
+  },
+  "payment_methods_off": [
+    "vr",
+    "va"
+  ],
+  "fiscal": {
+    "razao_social": "Ninha Bolos"
+  },
+  "zones": [],
+  "fin_categories": [
+    [
+      "Vendas",
+      "receita"
+    ],
+    [
+      "Encomendas e eventos",
+      "receita"
+    ],
+    [
+      "Outras receitas",
+      "receita"
+    ],
+    [
+      "Insumos e matéria-prima",
+      "despesa"
+    ],
+    [
+      "Embalagens",
+      "despesa"
+    ],
+    [
+      "Aluguel",
+      "despesa"
+    ],
+    [
+      "Energia elétrica",
+      "despesa"
+    ],
+    [
+      "Água",
+      "despesa"
+    ],
+    [
+      "Gás",
+      "despesa"
+    ],
+    [
+      "Internet e telefone",
+      "despesa"
+    ],
+    [
+      "Salários e encargos",
+      "despesa"
+    ],
+    [
+      "Pró-labore",
+      "despesa"
+    ],
+    [
+      "Impostos (DAS)",
+      "despesa"
+    ],
+    [
+      "Taxas de cartão e apps",
+      "despesa"
+    ],
+    [
+      "Marketing",
+      "despesa"
+    ],
+    [
+      "Manutenção e equipamentos",
+      "despesa"
+    ],
+    [
+      "Entregadores",
+      "despesa"
+    ],
+    [
+      "Outras despesas",
+      "despesa"
+    ]
+  ],
+  "demo": {
+    "razao_social": "Ninha Bolos",
+    "streets": [
+      "Av. Epitácio Pessoa",
+      "Rua Josefa Taveira",
+      "Av. Cabo Branco",
+      "Rua Silvino Lopes",
+      "Av. Hilton Souto Maior",
+      "Rua Rodrigues de Aquino"
+    ],
+    "encomendas": "^Bolo",
+    "nota_encomenda": "Tema e nome no topo combinados no WhatsApp",
+    "notas": [
+      "Escrever Feliz Aniversário no topo",
+      "Retirada no fim da tarde",
+      "Cores: rosa e dourado"
+    ]
+  }
+}

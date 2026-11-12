@@ -62,6 +62,9 @@ export function generateDemoData() {
   });
 
   const zones = all('SELECT * FROM delivery_zones WHERE active = 1');
+  // loja sem bairros cadastrados ou sem produto com preço (tudo "a consultar"): não há como simular pedidos
+  const sellable = get('SELECT COUNT(*) AS n FROM products WHERE active = 1 AND price_on_request = 0').n;
+  if (!zones.length || !sellable) return;
   const customers = Array.from({ length: 45 }, (_, i) => {
     const z = pick(zones);
     const month = String(1 + Math.floor(rand() * 12)).padStart(2, '0');
