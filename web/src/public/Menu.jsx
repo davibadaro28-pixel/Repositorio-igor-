@@ -1,17 +1,19 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, ShoppingBag, Minus, Plus, MapPin, Clock, Instagram, MessageCircle, Star, X, Trash2, CalendarClock, Bike, Store, ChevronRight, Info, Cake } from 'lucide-react';
+import { Search, ShoppingBag, Minus, Plus, MapPin, Clock, Instagram, MessageCircle, Star, X, Trash2, CalendarClock, Bike, Store, ChevronRight, Info, Cake, Users, Heart } from 'lucide-react';
 import { api, useApi } from '../lib/api.js';
 import { BrandLogo } from '../components/Brand.jsx';
 import OptionGroups, { missingGroup } from '../components/OptionGroups.jsx';
 import { brl, maskPhone, phone, todayISO, addDaysISO, weekdayOf, parseSP, optionsText } from '../lib/format.js';
 import { applyTheme } from '../lib/theme.js';
-import { segmentCopy } from '../lib/segment.js';
+import { segmentCopy, isParty, unitsOf } from '../lib/segment.js';
+import { asset } from '../lib/env.js';
 import { Button, Field, Input, Modal, Select, Spinner, Textarea, cx, ErrorBox } from '../components/ui.jsx';
 import { cleanDesc, displayName, norm, shortName, splitTitle } from '../lib/menuText.js';
 
 const CART_KEY = 'lacos_cart';
 const ME_KEY = 'lacos_cliente';
+const GUESTS_KEY = 'lacos_convidados';
 const load = (k, def) => {
   try {
     return JSON.parse(localStorage.getItem(k)) ?? def;
@@ -31,6 +33,12 @@ const DAY_KEYS = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'frida
 const DAY_NAMES = ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'];
 
 const minPrice = (p) => Math.min(...p.variants.map((v) => v.price_cents));
+// festas: preço da unidade a partir do pacote ("25 unidades" de R$ 60,00 → R$ 2,40)
+const unitPrice = (p) => {
+  const v = p.variants.find((x) => unitsOf(x.name));
+  return v ? Math.round(v.price_cents / unitsOf(v.name)) : 0;
+};
+const sweetsIn = (cart) => cart.reduce((n, i) => n + (unitsOf(i.variant_name) || 1) * i.qty, 0);
 
 const Logo = ({ store, className }) => <BrandLogo store={store} className={className} />;
 
@@ -56,10 +64,12 @@ export default function Menu() {
   const [cartOpen, setCartOpen] = useState(false);
   const [infoOpen, setInfoOpen] = useState(false);
   const [active, setActive] = useState('destaques');
+  const [guests, setGuests] = useState(() => load(GUESTS_KEY, ''));
   const tabsRef = useRef(null);
   const tabRefs = useRef({});
 
   useEffect(() => save(CART_KEY, cart), [cart]);
+  useEffect(() => save(GUESTS_KEY, guests), [guests]);
   useEffect(() => applyTheme(store.data), [store.data]);
   useEffect(() => {
     if (store.data?.name) document.title = `${store.data.name}${store.data.tagline ? ` – ${store.data.tagline}` : ''}`;
@@ -110,8 +120,10 @@ export default function Menu() {
     return <div className="p-8 text-center text-stone-600">Não foi possível carregar o cardápio. Tente novamente em instantes.</div>;
   }
   const s = store.data;
+  const party = isParty(s);
+  const sweets = sweetsIn(cart);
   const go = (id) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  const tabs = [...(featured.length ? [{ id: 'destaques', label: 'Mais pedidos' }] : []), ...sections.map((x) => ({ id: x.id, label: x.key }))];
+  const tabs = [...(featured.length ? [{ id: 'destaques', label: party ? 'Destaques' : 'Mais pedidos' }] : []), ...sections.map((x) => ({ id: x.id, label: x.key }))];
   const modes = [s.delivery_enabled && 'Entrega', s.pickup_enabled && 'Retirada', s.scheduling_enabled && 'Encomendas'].filter(Boolean);
 
   return (
@@ -131,9 +143,9 @@ export default function Menu() {
           </div>
         </div>
         <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-2 px-4 pb-7 text-xs">
-          <span className={cx('inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-semibold', s.status.open ? 'bg-emerald-400 text-emerald-950' : 'bg-white/15 text-white')}>
-            <span className={cx('size-1.5 rounded-full', s.status.open ? 'bg-emerald-900' : 'bg-white')} />
-            {s.status.open ? `Aberto até ${s.status.closes_at}` : s.status.reason}
+          <span className={cx('inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 font-semibold', party ? 'bg-gold text-brand-900' : s.status.open ? 'bg-emerald-400 text-emerald-950' : 'bg-white/15 text-white')}>
+            <span className={cx('size-1.5 rounded-full', party ? 'bg-brand-900' : s.status.open ? 'bg-emerald-900' : 'bg-white')} />
+            {party ? 'Encomendas para festas e eventos' : s.status.open ? `Aberto até ${s.status.closes_at}` : s.status.reason}
           </span>
           {modes.length > 0 && <span className="hidden rounded-full bg-white/12 px-3 py-1.5 sm:inline">{modes.join(' · ')}</span>}
           <button onClick={() => setInfoOpen(true)} className="inline-flex items-center gap-1 rounded-full bg-white px-3 py-1.5 font-medium text-brand-700 hover:bg-brand-50 cursor-pointer">
@@ -144,7 +156,9 @@ export default function Menu() {
       </header>
 
       {s.notice && <div className="mx-auto mt-3 max-w-5xl px-4"><p className="rounded-2xl bg-gold/15 px-4 py-2.5 text-center text-sm font-medium text-brand-900">{s.notice}</p></div>}
-      {!s.status.open && s.scheduling_enabled && (
+      {party && s.gallery?.length > 0 && <Gallery photos={s.gallery} />}
+      {party && <PartyPlanner guests={guests} setGuests={setGuests} sweets={sweets} perGuest={s.per_guest || 5} />}
+      {!party && !s.status.open && s.scheduling_enabled && (
         <div className="mx-auto mt-3 max-w-5xl px-4">
           <p className="flex items-center justify-center gap-2 rounded-2xl bg-brand-50 px-4 py-2.5 text-center text-sm text-brand-800">
             <CalendarClock className="size-4 shrink-0" /> Estamos fechados agora, mas você já pode agendar sua encomenda.
@@ -186,18 +200,18 @@ export default function Menu() {
           <section className="pt-5">
             <p className="mb-4 text-sm text-stone-500">{results.length ? `${results.length} resultado${results.length > 1 ? 's' : ''} para “${query}”` : `Nada encontrado para “${query}”.`}</p>
             <div className="grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-3 lg:grid-cols-4">
-              {results.map((p) => <ProductTile key={p.id} p={p} title={p.name} onOpen={() => setProduct(p)} />)}
+              {results.map((p) => <ProductTile key={p.id} p={p} title={p.name} party={party} onOpen={() => setProduct(p)} />)}
             </div>
           </section>
         ) : (
           <>
             {featured.length > 0 && (
               <section id="destaques" data-sec="destaques" className="scroll-mt-16 pt-6">
-                <h2 className="flex items-center gap-2 text-xl font-semibold text-brand-900"><Star className="size-5 fill-gold text-gold" /> Os mais pedidos</h2>
+                <h2 className="flex items-center gap-2 text-xl font-semibold text-brand-900"><Star className="size-5 fill-gold text-gold" /> {party ? 'Destaques da casa' : 'Os mais pedidos'}</h2>
                 <div className="no-scrollbar -mx-4 mt-3 flex snap-x scroll-px-4 gap-3 overflow-x-auto px-4 pb-1 sm:mx-0 sm:scroll-px-0 sm:px-0">
                   {featured.map((p) => (
                     <div key={p.id} className="w-40 shrink-0 snap-start sm:w-48">
-                      <ProductTile p={p} title={p.name} onOpen={() => setProduct(p)} />
+                      <ProductTile p={p} title={p.name} party={party} onOpen={() => setProduct(p)} />
                     </div>
                   ))}
                 </div>
@@ -226,7 +240,7 @@ export default function Menu() {
                         </h3>
                       )}
                       <div className={cx('grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-3 lg:grid-cols-4', single && 'pt-1')}>
-                        {c.products.map((p) => <ProductTile key={p.id} p={p} title={single ? p.name : p.short} onOpen={() => setProduct(p)} />)}
+                        {c.products.map((p) => <ProductTile key={p.id} p={p} title={single ? p.name : p.short} party={party} onOpen={() => setProduct(p)} />)}
                       </div>
                     </div>
                   ))}
@@ -250,7 +264,7 @@ export default function Menu() {
           <button onClick={() => setCartOpen(true)} className="mx-auto flex w-full max-w-lg items-center justify-between rounded-2xl bg-brand-700 px-5 py-3.5 text-white shadow-xl shadow-brand-900/20 cursor-pointer">
             <span className="flex items-center gap-2.5">
               <span className="relative"><ShoppingBag className="size-5" /><span className="absolute -right-2 -top-2 grid size-4 place-items-center rounded-full bg-gold text-[10px] font-bold text-brand-900">{count}</span></span>
-              <span className="font-medium">Ver sacola</span>
+              <span className="font-medium">Ver sacola{party && sweets > 0 && <span className="font-normal text-white/80"> · {sweets} doces</span>}</span>
             </span>
             <span className="font-semibold">{brl(subtotal)}</span>
           </button>
@@ -260,6 +274,7 @@ export default function Menu() {
       <ProductModal
         product={product}
         whatsapp={s.whatsapp}
+        party={party}
         notePlaceholder={segmentCopy(s).itemNote}
         onClose={() => setProduct(null)}
         onAdd={(line) => {
@@ -268,8 +283,50 @@ export default function Menu() {
         }}
       />
       <StoreInfo open={infoOpen} onClose={() => setInfoOpen(false)} store={s} />
-      <Checkout open={cartOpen} onClose={() => setCartOpen(false)} cart={cart} setCart={setCart} store={s} />
+      <Checkout open={cartOpen} onClose={() => setCartOpen(false)} cart={cart} setCart={setCart} store={s} party={party} guests={guests} setGuests={setGuests} />
     </div>
+  );
+}
+
+// fotos das mesas montadas (festas e eventos)
+function Gallery({ photos }) {
+  return (
+    <section className="mx-auto mt-4 max-w-5xl" aria-label="Nossas mesas">
+      <div className="no-scrollbar flex snap-x scroll-px-4 gap-2 overflow-x-auto px-4">
+        {photos.map((src) => <img key={src} src={asset(src)} alt="" loading="lazy" className="h-44 w-36 shrink-0 snap-start rounded-2xl object-cover shadow-sm sm:h-56 sm:w-44" />)}
+      </div>
+    </section>
+  );
+}
+
+// quantos doces a festa precisa, pelo número de convidados
+function PartyPlanner({ guests, setGuests, sweets, perGuest }) {
+  const n = Number(guests) || 0;
+  const target = n * perGuest;
+  const pct = target ? Math.min(100, Math.round((sweets / target) * 100)) : 0;
+  return (
+    <section className="mx-auto mt-4 max-w-5xl px-4">
+      <div className="rounded-2xl bg-white p-4 shadow-sm ring-1 ring-brand-100">
+        <div className="flex items-center gap-3">
+          <span className="grid size-10 shrink-0 place-items-center rounded-full bg-brand-50 text-brand-700"><Users className="size-5" /></span>
+          <div className="min-w-0 flex-1">
+            <p className="font-semibold leading-tight text-stone-900">Quantos convidados na sua festa?</p>
+            <p className="mt-0.5 text-xs text-stone-500">A gente calcula os doces: cerca de {perGuest} por convidado.</p>
+          </div>
+          <Input value={guests} onChange={(e) => setGuests(e.target.value.replace(/\D/g, '').slice(0, 4))} inputMode="numeric" placeholder="Ex.: 100" aria-label="Número de convidados" className="w-24 text-center" />
+        </div>
+        {n > 0 && (
+          <div className="mt-3">
+            <div className="flex justify-between gap-2 text-sm">
+              <span className="text-stone-700">Sugestão: <b className="text-brand-800">{target} doces</b></span>
+              <span className={sweets >= target ? 'font-semibold text-emerald-700' : 'text-stone-600'}>{sweets} na sacola</span>
+            </div>
+            <div className="mt-1.5 h-2 overflow-hidden rounded-full bg-brand-50"><div className="h-full rounded-full bg-brand-600 transition-all" style={{ width: `${pct}%` }} /></div>
+            <p className="mt-1.5 text-xs text-stone-500">{sweets >= target ? 'Pronto: a quantidade sugerida já está na sacola.' : `Faltam ${target - sweets} doces. Cada sabor sai em pacotes de 25, 50 ou 100.`}</p>
+          </div>
+        )}
+      </div>
+    </section>
   );
 }
 
@@ -277,15 +334,16 @@ function NewBadge({ children }) {
   return <span className="rounded-full bg-gold/20 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-brand-800">{children}</span>;
 }
 
-function ProductTile({ p, title, onOpen }) {
+function ProductTile({ p, title, onOpen, party }) {
   const multi = p.variants.length > 1;
+  const perUnit = party ? unitPrice(p) : 0;
   return (
     <button onClick={onOpen} disabled={!p.available} className="group flex w-full flex-col text-left cursor-pointer disabled:cursor-default">
       <div className="relative aspect-square w-full overflow-hidden rounded-2xl bg-brand-50 ring-1 ring-brand-900/5">
         {p.image
           ? <img src={p.image} alt="" loading="lazy" className={cx('size-full object-cover transition duration-300 group-hover:scale-[1.03]', !p.available && 'grayscale')} />
           : <span className="grid size-full place-items-center text-brand-200"><Cake className="size-1/3" strokeWidth={1.25} /></span>}
-        {p.lead_time_hours > 0 && <span className="absolute left-2 top-2 rounded-full bg-white/95 px-2 py-0.5 text-[11px] font-medium text-brand-800 shadow-sm">Encomenda {p.lead_time_hours}h</span>}
+        {p.lead_time_hours > 0 && !party && <span className="absolute left-2 top-2 rounded-full bg-white/95 px-2 py-0.5 text-[11px] font-medium text-brand-800 shadow-sm">Encomenda {p.lead_time_hours}h</span>}
         {p.available ? (
           <span className="absolute bottom-2 right-2 grid size-9 place-items-center rounded-full bg-white text-brand-700 shadow-md transition group-hover:bg-brand-700 group-hover:text-white">{p.price_on_request ? <MessageCircle className="size-[18px]" /> : <Plus className="size-5" />}</span>
         ) : (
@@ -294,7 +352,9 @@ function ProductTile({ p, title, onOpen }) {
       </div>
       <p className="mt-2 line-clamp-2 text-[15px] font-medium leading-snug text-stone-900">{displayName(title)}</p>
       <p className="mt-0.5 text-sm">
-        {p.price_on_request ? <span className="font-medium text-brand-700">Preço a consultar</span> : <>
+        {p.price_on_request ? <span className="font-medium text-brand-700">Preço a consultar</span> : perUnit ? <>
+          <span className="font-semibold text-brand-700">{brl(perUnit)}</span><span className="text-xs text-stone-500"> a unidade</span>
+        </> : <>
           {multi && <span className="text-xs text-stone-500">a partir de </span>}
           <span className="font-semibold text-brand-700">{brl(minPrice(p))}</span>
         </>}
@@ -310,9 +370,17 @@ function StoreInfo({ open, onClose, store: s }) {
   return (
     <Modal open onClose={onClose} title="Informações da loja">
       <div className="space-y-6 text-sm">
+        {s.about && (
+          <section>
+            <h3 className="mb-2 flex items-center gap-2 font-semibold text-stone-900"><Heart className="size-4 text-brand-600" /> Quem somos</h3>
+            <p className="leading-relaxed text-stone-700">{s.about}</p>
+          </section>
+        )}
         <section>
           <h3 className="mb-2 flex items-center gap-2 font-semibold text-stone-900"><ShoppingBag className="size-4 text-brand-600" /> Como pedir</h3>
-          <p className="text-stone-700">{[s.delivery_enabled && 'Entrega em casa', s.pickup_enabled && 'retirada na loja', s.scheduling_enabled && 'encomendas com data marcada'].filter(Boolean).join(', ')}.</p>
+          {isParty(s)
+            ? <p className="text-stone-700">Tudo é feito por encomenda para a data da sua festa. Escolha os sabores em pacotes de 25, 50 ou 100 unidades{[s.delivery_enabled && ', com entrega no local do evento', s.pickup_enabled && ' ou retirada'].filter(Boolean).join('')}.{s.delivery_enabled && !s.zones.length ? ' A taxa de entrega é combinada pelo WhatsApp.' : ''}</p>
+            : <p className="text-stone-700">{[s.delivery_enabled && 'Entrega em casa', s.pickup_enabled && 'retirada na loja', s.scheduling_enabled && 'encomendas com data marcada'].filter(Boolean).join(', ')}.</p>}
           {s.min_order_cents > 0 && <p className="mt-1 text-stone-500">Pedido mínimo de {brl(s.min_order_cents)}.</p>}
         </section>
         <section>
@@ -391,7 +459,7 @@ function ConsultModal({ product: p, whatsapp, onClose }) {
   );
 }
 
-function ProductModal({ product: p, onClose, onAdd, notePlaceholder, whatsapp }) {
+function ProductModal({ product: p, onClose, onAdd, notePlaceholder, whatsapp, party }) {
   const [variantId, setVariantId] = useState(null);
   const [opts, setOpts] = useState([]);
   const [qty, setQty] = useState(1);
@@ -429,18 +497,18 @@ function ProductModal({ product: p, onClose, onAdd, notePlaceholder, whatsapp })
         <Button className="flex-1" size="lg" onClick={add}>Adicionar · {brl(unit * qty)}</Button>
       </div>
     }>
-      {p.image && <img src={p.image} alt="" className="-mt-1 mb-4 aspect-[4/3] w-full rounded-2xl object-cover" />}
+      {p.image && <img src={p.image} alt="" className={cx('-mt-1 mb-4 rounded-2xl object-cover', party ? 'mx-auto aspect-square w-full max-w-72' : 'aspect-[4/3] w-full')} />}
       {cleanDesc(p.description, p.name) && <p className="text-sm leading-relaxed text-stone-600">{cleanDesc(p.description, p.name)}</p>}
-      {p.lead_time_hours > 0 && <p className="mt-3 rounded-xl bg-brand-50 px-3 py-2 text-sm text-brand-800"><CalendarClock className="mr-1 inline size-4" /> Somente por encomenda com {p.lead_time_hours}h de antecedência.</p>}
+      {p.lead_time_hours > 0 && <p className="mt-3 rounded-xl bg-brand-50 px-3 py-2 text-sm text-brand-800"><CalendarClock className="mr-1 inline size-4" /> {party ? `Feito para a sua festa: peça com pelo menos ${p.lead_time_hours % 24 === 0 ? `${p.lead_time_hours / 24} dias` : `${p.lead_time_hours}h`} de antecedência.` : `Somente por encomenda com ${p.lead_time_hours}h de antecedência.`}</p>}
 
       {p.variants.length > 1 && (
         <div className="mt-4">
-          <p className="mb-2 text-sm font-semibold text-stone-800">Tamanho</p>
+          <p className="mb-2 text-sm font-semibold text-stone-800">{party ? 'Quantidade' : 'Tamanho'}</p>
           <div className="grid gap-2">
             {p.variants.map((v) => (
               <label key={v.id} className={cx('flex cursor-pointer items-center justify-between rounded-xl px-3 py-2.5 ring-1 transition', v.id === variant.id ? 'bg-brand-50 ring-brand-400' : 'ring-stone-200')}>
                 <span className="flex items-center gap-2 text-sm"><input type="radio" className="accent-brand-600" checked={v.id === variant.id} onChange={() => setVariantId(v.id)} /> {v.name}</span>
-                <span className="text-sm font-semibold text-brand-700">{brl(v.price_cents)}</span>
+                <span className="text-right text-sm font-semibold text-brand-700">{brl(v.price_cents)}{party && unitsOf(v.name) > 0 && <span className="block text-[11px] font-normal text-stone-500">{brl(Math.round(v.price_cents / unitsOf(v.name)))} a unidade</span>}</span>
               </label>
             ))}
           </div>
@@ -473,11 +541,11 @@ function slotsFor(store, ymd, minDate) {
   return out;
 }
 
-function Checkout({ open, onClose, cart, setCart, store }) {
+function Checkout({ open, onClose, cart, setCart, store, party, guests, setGuests }) {
   const navigate = useNavigate();
   const me = load(ME_KEY, {});
   const [type, setType] = useState(store.delivery_enabled ? 'entrega' : 'retirada');
-  const [when, setWhen] = useState(store.status.open ? 'agora' : 'agendar');
+  const [when, setWhen] = useState(store.status.open && !party ? 'agora' : 'agendar');
   const [day, setDay] = useState(todayISO());
   const [time, setTime] = useState('');
   const [name, setName] = useState(me.name || '');
@@ -499,7 +567,7 @@ function Checkout({ open, onClose, cart, setCart, store }) {
   const discount = coupon ? (coupon.type === 'frete' ? fee : coupon.discount_cents) : 0;
   const total = Math.max(0, subtotal + fee - discount);
   const lead = Math.max(0, ...cart.map((i) => i.lead_time_hours || 0));
-  const mustSchedule = !store.status.open || lead > 0;
+  const mustSchedule = !store.status.open || lead > 0 || party;
   const minDate = new Date(Date.now() + Math.max(lead * 60, store.prep_time_min || 30) * 60000);
   const days = Array.from({ length: 14 }, (_, i) => addDaysISO(todayISO(), i)).filter((d) => slotsFor(store, d, minDate).length);
   const slots = slotsFor(store, day, minDate);
@@ -543,7 +611,7 @@ function Checkout({ open, onClose, cart, setCart, store }) {
         payment_method: payment,
         change_for_cents: payment === 'dinheiro' && changeFor ? Math.round(Number(changeFor.replace(',', '.')) * 100) : null,
         coupon_code: coupon?.code || null,
-        notes,
+        notes: party && Number(guests) > 0 ? [`Festa para ${Number(guests)} convidados`, notes].filter(Boolean).join(' · ') : notes,
         customer_doc: store.cpf_na_nota ? doc : null,
         items: cart.map((i) => ({ variant_id: i.variant_id, qty: i.qty, options: i.options, notes: i.notes })),
       };
@@ -576,7 +644,7 @@ function Checkout({ open, onClose, cart, setCart, store }) {
     }>
       <div className="space-y-5">
         <section>
-          <h3 className="mb-2 text-sm font-semibold text-stone-800">Itens</h3>
+          <h3 className="mb-2 flex justify-between text-sm font-semibold text-stone-800">Itens{party && <span className="font-normal text-stone-500">{sweetsIn(cart)} doces</span>}</h3>
           <ul className="divide-y divide-stone-100 rounded-2xl ring-1 ring-stone-200">
             {cart.map((i) => (
               <li key={i.key} className="flex items-center gap-3 p-3">
@@ -596,21 +664,26 @@ function Checkout({ open, onClose, cart, setCart, store }) {
         <section>
           <h3 className="mb-2 text-sm font-semibold text-stone-800">Como você quer receber?</h3>
           <div className="flex gap-2">
-            {store.delivery_enabled && <button className={pill(type === 'entrega')} onClick={() => setType('entrega')}><Bike className="size-4" /> Entrega</button>}
+            {store.delivery_enabled && <button className={pill(type === 'entrega')} onClick={() => setType('entrega')}><Bike className="size-4" /> {party ? 'Entrega no local' : 'Entrega'}</button>}
             {store.pickup_enabled && <button className={pill(type === 'retirada')} onClick={() => setType('retirada')}><Store className="size-4" /> Retirar na loja</button>}
           </div>
           {type === 'retirada' && <p className="mt-2 text-xs text-stone-500">Retirada em: {store.address}</p>}
         </section>
 
         <section>
-          <h3 className="mb-2 text-sm font-semibold text-stone-800">Quando?</h3>
-          <div className="flex gap-2">
+          <h3 className="mb-2 text-sm font-semibold text-stone-800">{party ? 'Data e horário da entrega ou retirada' : 'Quando?'}</h3>
+          {party && (
+            <Field label="Quantos convidados?" className="mb-3" hint={Number(guests) > 0 ? `Sugestão: ${Number(guests) * (store.per_guest || 5)} doces (cerca de ${store.per_guest || 5} por convidado). Na sacola: ${sweetsIn(cart)}.` : 'Ajuda a conferir se a quantidade de doces está boa.'}>
+              <Input value={guests} onChange={(e) => setGuests(e.target.value.replace(/\D/g, '').slice(0, 4))} inputMode="numeric" placeholder="Ex.: 100" />
+            </Field>
+          )}
+          <div className={cx('flex gap-2', party && 'hidden')}>
             <button className={pill(when === 'agora')} disabled={mustSchedule} onClick={() => setWhen('agora')}>
               <Clock className="size-4" /> {store.status.open ? `Agora (~${type === 'entrega' ? store.delivery_time_min : store.prep_time_min} min)` : 'Fechado agora'}
             </button>
             {store.scheduling_enabled && <button className={pill(when === 'agendar')} onClick={() => setWhen('agendar')}><CalendarClock className="size-4" /> Agendar encomenda</button>}
           </div>
-          {lead > 0 && <p className="mt-2 text-xs text-brand-700">Sua sacola tem item feito sob encomenda ({lead}h de antecedência).</p>}
+          {lead > 0 && <p className="mt-2 text-xs text-brand-700">{party ? `Os doces são feitos para a sua festa: as datas abaixo já contam ${lead % 24 === 0 ? `${lead / 24} dias` : `${lead}h`} de preparo.` : `Sua sacola tem item feito sob encomenda (${lead}h de antecedência).`}</p>}
           {when === 'agendar' && (
             <div className="mt-3 grid grid-cols-2 gap-2">
               <Field label="Data">

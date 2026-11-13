@@ -1,0 +1,772 @@
+[
+  {
+    "name": "Linha Bronze",
+    "section": "Linha Bronze",
+    "products": [
+      {
+        "name": "Brigadeiro ao leite",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/brigadeiro-ao-leite.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Brigadeiro branco",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/brigadeiro-branco.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Brigadeiro tradicional",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/brigadeiro-tradicional.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Doce de maracujá",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/doce-de-maracuja.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Brigadeiro de nozes",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/brigadeiro-de-nozes.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Beijinho",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/beijinho.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Delícia de limão",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/delicia-de-limao.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Dois amores",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/dois-amores.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Paçoca gourmet",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/pacoca-gourmet.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      }
+    ]
+  },
+  {
+    "name": "Linha Prata",
+    "section": "Linha Prata",
+    "products": [
+      {
+        "name": "Brigadeiro etílico",
+        "description": "Com Amarula ou de caipirinha. R$ 2,80 a unidade.",
+        "image": "/img/produtos/brigadeiro-etilico.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 70.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 140.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 280.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false,
+        "option_groups": [
+          {
+            "name": "Sabor",
+            "min": 1,
+            "max": 1,
+            "options": [
+              {
+                "name": "Amarula",
+                "price": 0
+              },
+              {
+                "name": "Caipirinha",
+                "price": 0
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Surpresa de uva",
+        "description": "R$ 2,80 a unidade.",
+        "image": "/img/produtos/surpresa-de-uva.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 70.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 140.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 280.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Nozes (douradinho)",
+        "description": "R$ 2,80 a unidade.",
+        "image": "/img/produtos/nozes-douradinho.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 70.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 140.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 280.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Ninho com Nutella",
+        "description": "R$ 2,80 a unidade.",
+        "image": "/img/produtos/ninho-com-nutella.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 70.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 140.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 280.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": true
+      },
+      {
+        "name": "Churros com doce de leite caseiro",
+        "description": "R$ 2,60 a unidade.",
+        "image": "/img/produtos/churros-doce-de-leite.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 65.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 130.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 260.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Coco queimado (sococo)",
+        "description": "R$ 2,60 a unidade.",
+        "image": "/img/produtos/coco-queimado.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 65.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 130.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 260.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Olho de sogra",
+        "description": "R$ 2,60 a unidade.",
+        "image": "/img/produtos/olho-de-sogra.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 65.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 130.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 260.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      }
+    ]
+  },
+  {
+    "name": "Linha Ouro",
+    "section": "Linha Ouro",
+    "products": [
+      {
+        "name": "Vulcão de queijo com lava de goiabada",
+        "description": "R$ 3,60 a unidade.",
+        "image": "/img/produtos/vulcao-de-queijo-goiabada.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 90.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 180.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 360.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Brigadeiro ao leite 33% de cacau com vermicelli ao leite",
+        "description": "R$ 3,80 a unidade.",
+        "image": "/img/produtos/brigadeiro-ao-leite-33.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 95.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 190.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 380.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Brigadeiro de castanha de caju",
+        "description": "R$ 2,80 a unidade.",
+        "image": "/img/produtos/brigadeiro-castanha-de-caju.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 70.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 140.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 280.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Camafeu",
+        "description": "R$ 3,80 a unidade.",
+        "image": "/img/produtos/camafeu.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 95.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 190.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 380.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": true
+      },
+      {
+        "name": "Brigadeiro gourmet de nozes",
+        "description": "R$ 4,20 a unidade.",
+        "image": "/img/produtos/brigadeiro-gourmet-de-nozes.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 105.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 210.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 420.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Quadrado de chocolate tipo nobre com leguminosas",
+        "description": "R$ 2,80 a unidade.",
+        "image": "/img/produtos/quadrado-leguminosas.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 70.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 140.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 280.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Gotas de maracujá",
+        "description": "R$ 2,60 a unidade.",
+        "image": "/img/produtos/gotas-de-maracuja.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 65.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 130.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 260.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Doce de leite no chocolate branco",
+        "description": "R$ 2,60 a unidade.",
+        "image": "/img/produtos/doce-de-leite-chocolate-branco.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 65.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 130.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 260.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Chocolate preto com mousse de maracujá e limão",
+        "description": "R$ 2,60 a unidade.",
+        "image": "/img/produtos/chocolate-preto-mousse-maracuja.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 65.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 130.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 260.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Pistache com granulado",
+        "description": "R$ 4,60 a unidade.",
+        "image": "/img/produtos/pistache-granulado.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 115.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 230.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 460.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": true
+      },
+      {
+        "name": "Brigadeiro lasca de amêndoa",
+        "description": "R$ 4,20 a unidade.",
+        "image": "/img/produtos/brigadeiro-lasca-de-amendoa.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 105.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 210.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 420.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": true
+      },
+      {
+        "name": "Olho de sogro (damasco)",
+        "description": "R$ 3,80 a unidade.",
+        "image": "/img/produtos/olho-de-sogro-damasco.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 95.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 190.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 380.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Brigadeiro Oreo",
+        "description": "R$ 2,70 a unidade.",
+        "image": "/img/produtos/brigadeiro-oreo.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 67.5
+          },
+          {
+            "name": "50 unidades",
+            "price": 135.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 270.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Vasinho de chocolate com physalis",
+        "description": "R$ 3,20 a unidade.",
+        "image": "/img/produtos/vasinho-physalis.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 80.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 160.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 320.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": true
+      },
+      {
+        "name": "Cestinha de chocolate tipo nobre com cereja importada com talo",
+        "description": "R$ 2,80 a unidade.",
+        "image": "/img/produtos/cestinha-cereja.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 70.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 140.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 280.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": true
+      },
+      {
+        "name": "Prestígio banhado no chocolate tipo nobre",
+        "description": "R$ 3,80 a unidade.",
+        "image": "/img/produtos/prestigio-chocolate-nobre.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 95.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 190.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 380.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Brigadeiro africano",
+        "description": "R$ 3,70 a unidade.",
+        "image": "/img/produtos/brigadeiro-africano.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 92.5
+          },
+          {
+            "name": "50 unidades",
+            "price": 185.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 370.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      },
+      {
+        "name": "Coração com frutas vermelhas",
+        "description": "R$ 2,60 a unidade.",
+        "image": "/img/produtos/coracao-frutas-vermelhas.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 65.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 130.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 260.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": true
+      },
+      {
+        "name": "Bombom desconstruído",
+        "description": "R$ 2,40 a unidade.",
+        "image": "/img/produtos/bombom-desconstruido.webp",
+        "variants": [
+          {
+            "name": "25 unidades",
+            "price": 60.0
+          },
+          {
+            "name": "50 unidades",
+            "price": 120.0
+          },
+          {
+            "name": "100 unidades (cento)",
+            "price": 240.0
+          }
+        ],
+        "lead_time_hours": 72,
+        "featured": false
+      }
+    ]
+  }
+]

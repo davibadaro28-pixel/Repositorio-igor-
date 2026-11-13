@@ -154,7 +154,8 @@ test('cupom percentual e fidelidade', async () => {
 test('financeiro: conta recorrente, fluxo e DRE', async () => {
   const cats = (await api('/finance/categories', { token: admin })).data;
   const aluguel = cats.find((c) => c.name === 'Aluguel');
-  const today = new Date().toISOString().slice(0, 10);
+  // "hoje" no horário de São Paulo, como o sistema (perto da meia-noite o dia em UTC já é outro)
+  const today = new Date().toLocaleDateString('sv-SE', { timeZone: 'America/Sao_Paulo' });
   const r = await api('/finance/entries', {
     method: 'POST', token: admin,
     body: { type: 'despesa', category_id: aluguel.id, description: 'Aluguel loja', amount_cents: 250000, due_date: today, status: 'pago', repeat_months: 3 },

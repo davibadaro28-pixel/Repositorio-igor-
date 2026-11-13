@@ -78,6 +78,7 @@ function Store({ value, onSaved }) {
           <Field label="Nome"><Input value={s.name} onChange={set('name')} /></Field>
           <Field label="Subtítulo"><Input value={s.tagline} onChange={set('tagline')} /></Field>
           <Field label="Frase de destaque" className="sm:col-span-2"><Input value={s.slogan} onChange={set('slogan')} /></Field>
+          <Field label="Quem somos" className="sm:col-span-2" hint="Aparece em “Horários e entrega” no cardápio. Deixe vazio para esconder."><Textarea value={s.about || ''} onChange={set('about')} maxLength={800} /></Field>
           <Field label="WhatsApp que recebe pedidos" hint="Com DDI e DDD, só números. Ex.: 5511912345678"><Input value={s.whatsapp} onChange={set('whatsapp')} /></Field>
           <Field label="Telefone exibido"><Input value={s.phone} onChange={set('phone')} /></Field>
           <Field label="Instagram (sem @)"><Input value={s.instagram} onChange={set('instagram')} /></Field>
@@ -161,6 +162,11 @@ function Appearance({ s, setS, saved }) {
             {Object.entries(SEGMENTS).map(([k, label]) => <option key={k} value={k}>{label}</option>)}
           </Select>
         </Field>
+        {s.segment === 'festas' && (
+          <Field label="Doces por convidado" hint="Usado na calculadora “Quantos convidados?” do cardápio.">
+            <Input type="number" min={1} max={30} value={s.per_guest ?? 5} onChange={(e) => setS({ ...s, per_guest: Number(e.target.value) || 5 })} />
+          </Field>
+        )}
         <Field label="Fonte do nome">
           <Select value={theme.font} onChange={(e) => setTheme({ font: e.target.value })}>
             {Object.entries(FONTS).map(([k, f]) => <option key={k} value={k}>{f.label}</option>)}

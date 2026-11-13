@@ -6,6 +6,7 @@ export const DEFAULT_COLOR = '#973358';
 /** Fontes para o nome da loja. scale: ajuste de tamanho para caber no topo do cardápio */
 export const FONTS = {
   script: { label: 'Manuscrita (Dancing Script)', family: '"Dancing Script", cursive', google: 'Dancing+Script:wght@700', scale: 1 },
+  classica: { label: 'Clássica (Playfair Display)', family: '"Playfair Display", Georgia, serif', google: 'Playfair+Display:ital,wght@0,700;1,700', scale: 0.82 },
   pixel: { label: 'Gamer / pixel (Pixelify Sans)', family: '"Pixelify Sans", ui-sans-serif, sans-serif', google: 'Pixelify+Sans:wght@700', scale: 0.8 },
   impacto: { label: 'Impacto (Bebas Neue)', family: '"Bebas Neue", Impact, sans-serif', google: 'Bebas+Neue', scale: 1.08 },
   moderna: { label: 'Moderna (Poppins)', family: 'Poppins, ui-sans-serif, system-ui, sans-serif', google: null, scale: 0.78 },

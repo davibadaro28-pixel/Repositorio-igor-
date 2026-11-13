@@ -48,8 +48,8 @@ r.get('/stream', requireAuth, subscribe);
 // ---------- Configurações ----------
 
 const SETTING_KEYS = ['store', 'payment_methods', 'loyalty'];
-const SEGMENTS = ['doceria', 'hamburgueria', 'outro'];
-const FONTS = ['script', 'pixel', 'impacto', 'moderna', 'retro'];
+const SEGMENTS = ['doceria', 'festas', 'hamburgueria', 'outro'];
+const FONTS = ['script', 'classica', 'pixel', 'impacto', 'moderna', 'retro'];
 const HEX = /^#[0-9a-f]{6}$/i;
 /** Aparência do cardápio e do painel: cor principal, fonte do nome e borda do topo */
 function cleanTheme(theme, cur = {}) {
@@ -90,6 +90,11 @@ r.put('/settings/:key', requireModule('configuracoes'), (req, res) => {
       logo: value.logo === '' ? '' : /^(\/uploads\/|\/img\/|img\/|data:image\/)/.test(String(value.logo ?? '')) ? String(value.logo) : cur.logo,
       segment: SEGMENTS.includes(value.segment) ? value.segment : cur.segment || 'doceria',
       theme: cleanTheme(value.theme, cur.theme),
+      about: String(value.about ?? cur.about ?? '').slice(0, 800),
+      // fotos das mesas no topo do cardápio (só caminhos de imagem da loja)
+      gallery: (Array.isArray(value.gallery) ? value.gallery : cur.gallery || [])
+        .filter((g) => /^(\/uploads\/|\/img\/|img\/|data:image\/)/.test(String(g))).slice(0, 16),
+      per_guest: Math.max(1, Math.min(int(value.per_guest ?? cur.per_guest, 5), 30)),
     };
   }
   if (key === 'payment_methods') {

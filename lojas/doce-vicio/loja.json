@@ -1,0 +1,176 @@
+{
+  "_fonte": "Doces, preços, textos, fotos, logo, Instagram e WhatsApp do cardápio em PDF da Doce Vício (Menu de Doces), enviado em 13/11/2026. Pacotes de 25/50/100 unidades, 72 h de antecedência, horário, endereço de retirada, entrega e formas de pagamento NÃO estavam no PDF: confirmar com a loja.",
+  "segment": "festas",
+  "store": {
+    "name": "Doce Vício",
+    "tagline": "Doces finos para festas e eventos",
+    "slogan": "Doces finos elaborados para compor mesas elegantes e tornar cada celebração ainda mais especial.",
+    "about": "Empresa familiar artesanal de segunda geração no ramo de festas e eventos, dirigida por Adriana Bayer, que recebeu da mãe as receitas que fazem sucesso em casas de festas do Rio de Janeiro e hoje as transmite aos filhos, os chocolatiers Thiago e Rebecca Bayer. Mais de uma década de sabor em 2026.",
+    "whatsapp": "5521986916768",
+    "phone": "(21) 98691-6768",
+    "instagram": "docevicio_chocolates",
+    "logo": "/img/logo.webp",
+    "address": "Rio de Janeiro – RJ",
+    "hours": {
+      "sunday": {
+        "active": false,
+        "open": "09:00",
+        "close": "18:00"
+      },
+      "monday": {
+        "active": true,
+        "open": "09:00",
+        "close": "18:00"
+      },
+      "tuesday": {
+        "active": true,
+        "open": "09:00",
+        "close": "18:00"
+      },
+      "wednesday": {
+        "active": true,
+        "open": "09:00",
+        "close": "18:00"
+      },
+      "thursday": {
+        "active": true,
+        "open": "09:00",
+        "close": "18:00"
+      },
+      "friday": {
+        "active": true,
+        "open": "09:00",
+        "close": "18:00"
+      },
+      "saturday": {
+        "active": true,
+        "open": "09:00",
+        "close": "18:00"
+      }
+    },
+    "delivery_enabled": true,
+    "pickup_enabled": true,
+    "allow_out_of_zone": true,
+    "scheduling_enabled": true,
+    "prep_time_min": 60,
+    "delivery_time_min": 90,
+    "per_guest": 5,
+    "gallery": [
+      "/img/galeria/mesa-bombons.webp",
+      "/img/galeria/cestinhas-cereja.webp",
+      "/img/galeria/vasinhos-physalis.webp",
+      "/img/galeria/tacas-chocolate.webp",
+      "/img/galeria/cerejas-andares.webp",
+      "/img/galeria/trufas-pistache.webp",
+      "/img/galeria/quadrados-frutas.webp",
+      "/img/galeria/flores-amendoa.webp",
+      "/img/galeria/tacinhas-morango.webp",
+      "/img/galeria/brigadeiros-girassol.webp"
+    ],
+    "theme": {
+      "color": "#5a2416",
+      "font": "classica",
+      "style": "reto",
+      "bg": "#f7f0e4"
+    }
+  },
+  "payment_methods_off": [
+    "vr",
+    "va"
+  ],
+  "fiscal": {
+    "razao_social": "Doce Vício"
+  },
+  "zones": [],
+  "fin_categories": [
+    [
+      "Vendas",
+      "receita"
+    ],
+    [
+      "Encomendas e eventos",
+      "receita"
+    ],
+    [
+      "Outras receitas",
+      "receita"
+    ],
+    [
+      "Insumos e matéria-prima",
+      "despesa"
+    ],
+    [
+      "Embalagens",
+      "despesa"
+    ],
+    [
+      "Aluguel",
+      "despesa"
+    ],
+    [
+      "Energia elétrica",
+      "despesa"
+    ],
+    [
+      "Água",
+      "despesa"
+    ],
+    [
+      "Gás",
+      "despesa"
+    ],
+    [
+      "Internet e telefone",
+      "despesa"
+    ],
+    [
+      "Salários e encargos",
+      "despesa"
+    ],
+    [
+      "Pró-labore",
+      "despesa"
+    ],
+    [
+      "Impostos (DAS)",
+      "despesa"
+    ],
+    [
+      "Taxas de cartão e apps",
+      "despesa"
+    ],
+    [
+      "Marketing",
+      "despesa"
+    ],
+    [
+      "Manutenção e equipamentos",
+      "despesa"
+    ],
+    [
+      "Entregadores",
+      "despesa"
+    ],
+    [
+      "Outras despesas",
+      "despesa"
+    ]
+  ],
+  "demo": {
+    "razao_social": "Doce Vício",
+    "streets": [
+      "Av. das Américas",
+      "Rua Voluntários da Pátria",
+      "Av. Atlântica",
+      "Rua Conde de Bonfim",
+      "Estrada dos Bandeirantes"
+    ],
+    "encomendas": ".",
+    "nota_encomenda": "Festa de 15 anos: forminhas douradas",
+    "notas": [
+      "Separar por sabor",
+      "Forminhas douradas",
+      "Entregar no salão até 16h"
+    ]
+  }
+}

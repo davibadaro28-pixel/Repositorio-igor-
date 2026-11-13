@@ -34,6 +34,23 @@ const COPY = {
     emoji: '🍔',
     missYou: 'Bateu aquela vontade de um burger?',
   },
+  festas: {
+    label: 'Doces para festas e eventos',
+    search: 'Buscar brigadeiro, camafeu, cestinha…',
+    itemNote: 'Ex.: forminha dourada, embalar separado',
+    pdvNote: 'Ex.: forminha dourada',
+    share: (loja) => `🎉 Monte os doces da sua festa com a ${loja}. Escolha os sabores, a quantidade e a data do evento:`,
+    welcomeBack: 'Tem festa chegando? Monte os doces da sua mesa.',
+    couponEx: 'EX: FESTA10',
+    cmv: 'CMV ideal em doces finos: até ~35% do preço.',
+    sectionHint: 'Agrupa categorias no cardápio digital. Ex.: Linha Bronze, Linha Prata, Linha Ouro',
+    groupsHint: 'Ex.: “Sabor” (obrigatório, escolher 1) ou “Cor da forminha” (opcional).',
+    leadHint: 'Doces de festa são sempre por encomenda. Ex.: 72 para pedir com 3 dias de antecedência.',
+    fiscal: 'Os NCM e perfis abaixo foram sugeridos para doces e confeitaria no Simples Nacional (produção própria, CFOP 5101).',
+    confirmEmoji: '🎉',
+    emoji: '🎉',
+    missYou: 'Tem festa chegando?',
+  },
   outro: {
     label: 'Outro tipo de loja',
     search: 'Buscar no cardápio…',
@@ -57,3 +74,15 @@ export const SEGMENTS = Object.fromEntries(Object.entries(COPY).map(([k, v]) => 
 
 /** Textos da loja conforme o tipo de negócio */
 export const segmentCopy = (store) => COPY[store?.segment] || COPY.doceria;
+
+/** Loja só de festas e eventos: doces em pacotes, sempre por encomenda, com data do evento e nº de convidados */
+export const isParty = (store) => store?.segment === 'festas';
+
+/** Unidades de um pacote pelo nome da opção ("25 unidades", "Cento" = 100); 0 = não é pacote */
+export function unitsOf(variantName) {
+  const t = String(variantName || '').toLowerCase();
+  const m = /(\d+)\s*(un|unid|doces|pe[cç]as)/.exec(t);
+  if (m) return Number(m[1]);
+  if (/\bcento\b/.test(t)) return 100;
+  return 0;
+}

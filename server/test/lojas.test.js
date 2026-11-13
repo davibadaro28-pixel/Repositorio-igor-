@@ -99,6 +99,23 @@ test('aparência: cor e fonte são validadas ao salvar', async () => {
   assert.equal(saved.data.theme.style, 'onda');
 });
 
+test('festas e eventos: tipo de loja, doces por convidado e galeria são validados ao salvar', async () => {
+  const cur = (await api('/api/settings', { token: admin })).data.store;
+  const saved = await api('/api/settings/store', {
+    method: 'PUT', token: admin,
+    body: { ...cur, segment: 'festas', per_guest: 99, about: 'Doces finos', gallery: ['/img/galeria/mesa.webp', 'javascript:alert(1)'], theme: { ...cur.theme, font: 'classica' } },
+  });
+  assert.equal(saved.status, 200);
+  assert.equal(saved.data.segment, 'festas');
+  assert.equal(saved.data.per_guest, 30);
+  assert.deepEqual(saved.data.gallery, ['/img/galeria/mesa.webp']);
+  assert.equal(saved.data.theme.font, 'classica');
+  const pub = (await api('/api/public/store')).data;
+  assert.equal(pub.segment, 'festas');
+  assert.equal(pub.about, 'Doces finos');
+  await api('/api/settings/store', { method: 'PUT', token: admin, body: cur });
+});
+
 test('preço a consultar: aparece no cardápio, mas não entra em pedido até ter preço', async () => {
   const cats = (await api('/api/categories', { token: admin })).data;
   const created = await api('/api/products', {

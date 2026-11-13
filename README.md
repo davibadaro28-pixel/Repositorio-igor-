@@ -9,6 +9,7 @@ várias lojas: cada cliente tem uma pasta em [`lojas/`](lojas/) com o cardápio,
 | **VS Burger e Gelato** – hamburgueria gamer (Centro, Carapicuíba) | `lojas/vs-burger` | 75 produtos em 13 categorias, com ponto da carne, adicionais e combos família |
 | **A Fada dos Bolos** – confeitaria e café sem glúten e lactose (Bom Retiro, Curitiba) – demonstração | `lojas/fada-dos-bolos` | 37 produtos em 5 categorias (fatias, sobremesas, salgados e cafés) |
 | **Ninha Bolos** – bolos decorados por encomenda (João Pessoa – PB) | `lojas/ninha-bolos` | 19 bolos e doces em 4 categorias, todos com preço a consultar no WhatsApp até a loja passar os valores |
+| **Doce Vício** – doces finos só para festas e eventos (Rio de Janeiro – RJ) | `lojas/doce-vicio` | 35 doces em 3 linhas (Bronze, Prata e Ouro), vendidos em pacotes de 25, 50 e 100 unidades, com calculadora de convidados |
 
 Os cardápios vieram dos cardápios online atuais de cada loja (produtos, preços, adicionais e fotos).
 
@@ -137,9 +138,12 @@ node preview/build.mjs preview-vs --loja=vs-burger   # prévia no navegador da h
 
 **Cliente novo:** copie uma pasta de `lojas/` e troque:
 
-- `loja.json` – nome, contatos, endereço, horários, `segment` (`doceria`, `hamburgueria` ou `outro`: muda exemplos e
+- `loja.json` – nome, contatos, endereço, horários, `segment` (`doceria`, `festas`, `hamburgueria` ou `outro`: muda exemplos e
   textos do sistema), `theme` (cor principal, fonte do nome e borda do topo do cardápio), bairros e taxas de entrega,
   insumos e fichas técnicas, sugestões de NCM e dados de exemplo da demonstração.
+- Tipo **`festas`** (doces para festas e eventos): tudo por encomenda com data do evento, preço por unidade a partir
+  dos pacotes ("25 unidades", "Cento"), calculadora "Quantos convidados?" (`per_guest` doces por convidado), galeria
+  de fotos das mesas no topo (`gallery`) e texto "Quem somos" (`about`).
 - `catalogo.json` – categorias (com a seção do cardápio), produtos, preços, tamanhos e grupos de adicionais.
   Um grupo com `"repeat": true` aceita a mesma opção mais de uma vez (2x bacon, 4 lanches no combo família).
 - `public/img/` – `logo`, `favicon.png`, `icon-192.png`, `icon-512.png` e as fotos em `produtos/`.
