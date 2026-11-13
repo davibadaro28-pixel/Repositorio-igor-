@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Cardápio digital e sistema de gestão – Planos</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --vinho:#1f2340; --vinho2:#2e335a; --creme:#f5f3ef; --ouro:#f08a4b; --tx:#1c1d26; --mut:#6c6e7a; }
+  body { font-family: Poppins, sans-serif; color: var(--tx); font-size: 10.5pt; line-height: 1.45; }
+  .pg { width: 210mm; height: 297mm; position: relative; overflow: hidden; page-break-after: always; background: var(--creme); padding: 18mm 16mm; }
+  .pg:last-child { page-break-after: auto; }
+  h1, h2 { font-family: Poppins, sans-serif; font-weight:700; color: var(--vinho); line-height: 1.12; }
+  h2 { font-size: 23pt; margin-bottom: 4mm; }
+  .eyebrow { font-size: 8.5pt; letter-spacing: .14em; text-transform: uppercase; color: var(--ouro); font-weight: 600; margin-bottom: 2mm; }
+  .lead { color: var(--mut); font-size: 11pt; max-width: 150mm; }
+  .foot { position: absolute; bottom: 9mm; left: 16mm; right: 16mm; font-size: 7.5pt; color: var(--mut); display: flex; justify-content: space-between; }
+
+  /* capa */
+  .capa { background: var(--vinho); color: #fff; padding: 22mm 16mm; }
+  .capa h1 { color: #fff; font-size: 30pt; max-width: 98mm; margin: 4mm 0 6mm; }
+  .capa .lead { color: #c9cbe0; font-size: 12pt; max-width: 92mm; }
+  .capa .eyebrow { color: var(--ouro); }
+  .phones { position: absolute; right: 8mm; top: 70mm; width: 82mm; height: 190mm; }
+  .phone { position: absolute; width: 54mm; border-radius: 9mm; border: 2.2mm solid #1b0d08; overflow: hidden; box-shadow: 0 6mm 14mm rgba(0,0,0,.35); background:#000; }
+  .phone img { width: 100%; display: block; }
+  .phone.a { left: 0; top: 0; z-index: 2; }
+  .phone.b { left: 27mm; top: 40mm; z-index: 1; transform: rotate(4deg); opacity: .96; }
+  .chips { margin-top: 12mm; display: flex; flex-direction: column; gap: 3mm; max-width: 90mm; }
+  .chip { display: flex; gap: 3mm; align-items: flex-start; font-size: 10.5pt; color: #e4e5f2; }
+  .chip b { color: #fff; }
+  .dot { flex: none; width: 5.5mm; height: 5.5mm; border-radius: 50%; background: var(--ouro); color: var(--vinho); font-weight: 700; font-size: 8pt; display: grid; place-items: center; margin-top: .6mm; }
+  .capa .foot { color: #9a9dbd; }
+  .precoini { margin-top: 14mm; display: inline-block; border: 1px solid var(--ouro); border-radius: 3mm; padding: 3mm 5mm; color: #fff; }
+  .precoini small { display: block; color: #b5b8d3; font-size: 8pt; }
+  .precoini b { font-size: 17pt; color: var(--ouro); }
+
+  /* recursos */
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 6mm; }
+  .card { background: #fff; border-radius: 3.5mm; padding: 4.5mm 5mm; box-shadow: 0 .6mm 2mm rgba(31,35,64,.08); }
+  .card h3 { font-size: 11pt; color: var(--vinho); margin-bottom: 1.2mm; }
+  .card p { font-size: 9pt; color: #4a4c58; }
+  .shot { border-radius: 3mm; overflow: hidden; border: 1px solid #e3e1dc; background: #fff; }
+  .shot img { width: 100%; display: block; }
+  .shot figcaption { font-size: 8pt; color: var(--mut); padding: 1.6mm 3mm; }
+  .tag { font-size: 6.5pt; color: var(--mut); text-transform: uppercase; letter-spacing: .08em; }
+
+  /* planos */
+  .planos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 7mm; }
+  .plano { background: #fff; border-radius: 4mm; padding: 6mm 5mm 5mm; border: 1.2px solid #e3e1dc; display: flex; flex-direction: column; position: relative; }
+  .plano.top { border: 2px solid var(--vinho); box-shadow: 0 2mm 6mm rgba(31,35,64,.15); }
+  .selo { position: absolute; top: -3.2mm; left: 50%; transform: translateX(-50%); background: var(--vinho); color: #fff; font-size: 7.5pt; font-weight: 600; padding: 1mm 3.5mm; border-radius: 10mm; white-space: nowrap; }
+  .plano h3 { font-family: Poppins, sans-serif; font-weight:700; color: var(--vinho); font-size: 14pt; line-height: 1.15; min-height: 11mm; }
+  .plano .sub { font-size: 8.5pt; color: var(--mut); min-height: 9mm; margin-top: 1mm; }
+  .valor { margin: 4mm 0 4mm; }
+  .valor b { font-size: 20pt; color: var(--tx); }
+  .valor span { font-size: 8.5pt; color: var(--mut); }
+  .plano ul { list-style: none; font-size: 8.6pt; display: flex; flex-direction: column; gap: 1.5mm; }
+  .plano li { padding-left: 4.5mm; position: relative; }
+  .plano li::before { content: "✓"; position: absolute; left: 0; color: var(--ouro); font-weight: 700; }
+  .plano li.no { color: #b0a39a; }
+  .plano li.no::before { content: "–"; color: #c9bdb4; }
+
+  .trafego { margin-top: 8mm; background: var(--vinho); color: #fff; border-radius: 4mm; padding: 6mm; display: grid; grid-template-columns: 1.25fr 1fr; gap: 6mm; align-items: center; }
+  .trafego h3 { font-family: Poppins, sans-serif; font-weight:700; font-size: 16pt; }
+  .trafego p { font-size: 9pt; color: #c9cbe0; margin-top: 1.5mm; }
+  .trafego .v { text-align: right; }
+  .trafego .v b { font-size: 22pt; color: var(--ouro); }
+  .trafego .v span { display: block; font-size: 8.5pt; color: #b5b8d3; }
+
+  /* combos */
+  table { width: 100%; border-collapse: collapse; margin-top: 5mm; background: #fff; border-radius: 3.5mm; overflow: hidden; }
+  th, td { text-align: left; padding: 3.2mm 4mm; font-size: 9.5pt; border-bottom: 1px solid #eeece8; }
+  th { background: #ecebf3; color: var(--vinho); font-size: 8.5pt; text-transform: uppercase; letter-spacing: .06em; }
+  td.r, th.r { text-align: right; white-space: nowrap; }
+  tr.dest td { background: #fff4ec; font-weight: 600; }
+  .passos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin-top: 5mm; }
+  .passo { background: #fff; border-radius: 3.5mm; padding: 4mm; }
+  .passo .n { font-family: Poppins, sans-serif; font-weight:700; font-size: 18pt; color: var(--ouro); line-height: 1; }
+  .passo h4 { font-size: 9.5pt; color: var(--vinho); margin: 1.5mm 0 1mm; }
+  .passo p { font-size: 8.3pt; color: #4a4c58; }
+  .cta { margin-top: 6mm; background: var(--vinho); color: #fff; border-radius: 4mm; padding: 6mm 7mm; display: flex; justify-content: space-between; align-items: center; }
+  .cta h3 { font-family: Poppins, sans-serif; font-weight:700; font-size: 16pt; }
+  .cta p { font-size: 9pt; color: #c9cbe0; }
+  .cta .btn { background: var(--ouro); color: var(--vinho); font-weight: 700; padding: 3mm 6mm; border-radius: 10mm; font-size: 10pt; white-space: nowrap; }
+  .nota { font-size: 7.8pt; color: var(--mut); margin-top: 3mm; }
+</style>
+</head>
+<body>
+
+<!-- 1. CAPA -->
+<section class="pg capa">
+  <div class="eyebrow">Para docerias, confeitarias, hamburguerias, lanchonetes e restaurantes</div>
+  <h1>Seu cardápio digital e a gestão da loja num só lugar</h1>
+  <p class="lead">O cliente escolhe pelo celular e faz o pedido. Ele cai no seu painel na hora, com caixa, estoque e financeiro organizados.</p>
+
+  <div class="chips">
+    <div class="chip"><span class="dot">1</span><span><b>Sem comissão por pedido.</b> Mensalidade fixa, venda o quanto quiser.</span></div>
+    <div class="chip"><span class="dot">2</span><span><b>Com a cara da sua loja:</b> seu logo, suas cores, suas fotos.</span></div>
+    <div class="chip"><span class="dot">3</span><span><b>Link e QR Code</b> para o Instagram, o WhatsApp e o balcão.</span></div>
+    <div class="chip"><span class="dot">4</span><span><b>Nós montamos tudo:</b> cadastramos o seu cardápio e entregamos pronto.</span></div>
+  </div>
+
+  <div class="precoini"><small>Planos a partir de</small><b>R$ 199,90</b> <small style="display:inline">/mês</small></div>
+
+  <div class="phones">
+    <div class="phone a"><img src="img/cel-menu-top.jpg" alt=""></div>
+    <div class="phone b"><img src="img/cel-product-1.jpg" alt=""></div>
+  </div>
+  <div class="foot"><span>Telas reais do sistema com uma loja de demonstração</span><span>1/4</span></div>
+</section>
+
+<!-- 2. O QUE FAZ -->
+<section class="pg">
+  <div class="eyebrow">O que está incluído</div>
+  <h2>Do pedido no celular ao fechamento do caixa</h2>
+  <p class="lead">O cliente vê um cardápio bonito e fácil de usar. Você vê tudo o que acontece na loja, do computador ou do celular.</p>
+
+  <div class="grid2">
+    <div class="card"><h3>Cardápio digital</h3><p>Fotos, busca, tamanhos, adicionais, observações, cupom e Pix. Taxa de entrega por bairro calculada na hora, retirada e encomenda com dia e horário marcados.</p></div>
+    <div class="card"><h3>Pedidos em tempo real</h3><p>O pedido chega com aviso sonoro num quadro Novo → Em preparo → Pronto → Em entrega. O cliente acompanha o status pelo celular.</p></div>
+    <div class="card"><h3>Balcão (PDV) e caixa</h3><p>Venda no balcão, desconto, pagamento dividido e troco. Abertura com fundo de troco, sangria e fechamento conferido por forma de pagamento.</p></div>
+    <div class="card"><h3>Cozinha e encomendas</h3><p>Tela de produção para tablet com o total a produzir. Agenda das encomendas com a lista do que fazer em cada dia.</p></div>
+    <div class="card"><h3>Estoque e custo de cada produto</h3><p>Ficha técnica, baixa automática a cada venda, alerta de estoque mínimo e a margem de cada produto.</p></div>
+    <div class="card"><h3>Financeiro, clientes e relatórios</h3><p>Contas a pagar e receber, fluxo de caixa e DRE. Aniversariantes e clientes sumidos, com mensagem pronta no WhatsApp. Mais vendidos, horários e dias de pico.</p></div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:4mm;margin-top:6mm">
+    <figure class="shot"><img src="img/cel-menu-top.jpg" style="height:54mm;object-fit:cover;object-position:top"><figcaption>Cardápio</figcaption></figure>
+    <figure class="shot"><img src="img/cel-product-1.jpg" style="height:54mm;object-fit:cover;object-position:top"><figcaption>Produto e tamanhos</figcaption></figure>
+    <figure class="shot"><img src="img/cel-checkout-1.jpg" style="height:54mm;object-fit:cover;object-position:top"><figcaption>Entrega ou encomenda</figcaption></figure>
+    <figure class="shot"><img src="img/cel-track.jpg" style="height:54mm;object-fit:cover;object-position:top"><figcaption>Cliente acompanha</figcaption></figure>
+  </div>
+  
+  <p class="nota">Também: impressão de comanda em impressora térmica 80 mm, app do entregador e logins por função (caixa, cozinha, entregador).</p>
+  <div class="foot"><span></span><span>2/4</span></div>
+</section>
+
+<!-- 3. PLANOS -->
+<section class="pg">
+  <div class="eyebrow">Planos mensais</div>
+  <h2>Escolha o plano da sua loja</h2>
+  <p class="lead">Todos incluem a montagem do cardápio com as suas fotos e preços, o link e o QR Code e o suporte pelo WhatsApp.</p>
+
+  <div class="planos">
+    <div class="plano">
+      <h3>Cardápio digital</h3>
+      <div class="sub">Para começar a vender pelo link</div>
+      <div class="valor"><b>R$ 199,90</b> <span>/mês</span></div>
+      <ul>
+        <li>Cardápio online com fotos e a sua marca</li>
+        <li>Pedidos de entrega, retirada e encomenda</li>
+        <li>Taxa por bairro, cupom e Pix</li>
+        <li>Quadro de pedidos em tempo real</li>
+        <li>Link e QR Code</li>
+        <li class="no">PDV, caixa e cozinha</li>
+        <li class="no">Estoque e financeiro</li>
+        <li class="no">Clientes e relatórios</li>
+      </ul>
+    </div>
+
+    <div class="plano top">
+      <span class="selo">Mais escolhido</span>
+      <h3>Sistema + cardápio em site</h3>
+      <div class="sub">A loja inteira organizada</div>
+      <div class="valor"><b>R$ 299,90</b> <span>/mês</span></div>
+      <ul>
+        <li>Tudo do plano Cardápio digital</li>
+        <li>PDV de balcão e controle de caixa</li>
+        <li>Tela da cozinha e agenda de encomendas</li>
+        <li>Estoque, ficha técnica e custo</li>
+        <li>Financeiro com fluxo de caixa e DRE</li>
+        <li>Clientes, cupons e relatórios</li>
+        <li>Entregas e app do entregador</li>
+        <li>Logins por função</li>
+      </ul>
+    </div>
+
+    <div class="plano">
+      <h3>Sistema + cardápio em app</h3>
+      <div class="sub">A sua loja no celular do cliente</div>
+      <div class="valor"><b>R$ 599,90</b> <span>/mês</span></div>
+      <ul>
+        <li>Tudo do plano Sistema + site</li>
+        <li>App com o ícone e o nome da sua loja</li>
+        <li>O cliente instala no celular e pede pelo ícone</li>
+        <li>Abre direto no seu cardápio, sem procurar link</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="trafego">
+    <div>
+      <div class="eyebrow" style="color:var(--ouro)">Adicional</div>
+      <h3>Tráfego pago: anúncios no Instagram e no Facebook</h3>
+      <p>A gente cria os anúncios em vídeo, sobe as campanhas e leva o cliente direto para o seu cardápio ou WhatsApp. Todo mês você recebe o relatório com os resultados e ajustamos o que precisa.</p>
+    </div>
+    <div class="v"><b>R$ 999,99</b><span>/mês · soma a qualquer plano</span><span style="margin-top:1mm">Verba dos anúncios à parte, paga direto ao Meta</span></div>
+  </div>
+  <div class="foot"><span>Valores mensais.</span><span>3/4</span></div>
+</section>
+
+<!-- 4. PLANO COM TRÁFEGO -->
+<section class="pg">
+  <div class="eyebrow">Plano com tráfego</div>
+  <h2>Sistema + clientes chegando</h2>
+  <p class="lead">O cardápio recebe os pedidos e os anúncios trazem quem ainda não conhece a sua loja. Veja quanto fica cada plano com o tráfego pago:</p>
+
+  <table>
+    <thead><tr><th>Plano</th><th class="r">Plano</th><th class="r">Tráfego</th><th class="r">Total por mês</th></tr></thead>
+    <tbody>
+      <tr><td>Cardápio digital + tráfego</td><td class="r">R$ 199,90</td><td class="r">R$ 999,99</td><td class="r"><b>R$ 1.199,89</b></td></tr>
+      <tr class="dest"><td>Sistema + cardápio em site + tráfego</td><td class="r">R$ 299,90</td><td class="r">R$ 999,99</td><td class="r"><b>R$ 1.299,89</b></td></tr>
+      <tr><td>Sistema + cardápio em app + tráfego</td><td class="r">R$ 599,90</td><td class="r">R$ 999,99</td><td class="r"><b>R$ 1.599,89</b></td></tr>
+    </tbody>
+  </table>
+  <p class="nota">A verba dos anúncios (o valor que vai para o Meta) não está incluída. Ela é paga direto pelo seu cartão na conta de anúncios da loja e definida junto com você.</p>
+
+  <h3 style="font-family:Poppins,sans-serif;font-weight:700;color:var(--vinho);font-size:14pt;margin-top:8mm">Como funciona o tráfego, mês a mês</h3>
+  <div class="passos">
+    <div class="passo"><div class="n">1</div><h4>Conversa inicial</h4><p>Entendemos seus produtos, o que mais vende, a região que você atende e o seu público.</p></div>
+    <div class="passo"><div class="n">2</div><h4>Anúncios</h4><p>Criamos vídeos e textos diferentes, cada um falando com um tipo de cliente.</p></div>
+    <div class="passo"><div class="n">3</div><h4>Campanha no ar</h4><p>Anúncios na sua região levando para o cardápio ou para o WhatsApp da loja.</p></div>
+    <div class="passo"><div class="n">4</div><h4>Relatório e ajuste</h4><p>Mostramos quantas pessoas chegaram e quanto custou cada contato. O que funciona continua; o resto é trocado.</p></div>
+  </div>
+
+  <div class="grid2" style="margin-top:6mm">
+    <figure class="shot"><img src="img/d-fin-dre.jpg" style="height:48mm;object-fit:cover;object-position:top"><figcaption>Financeiro com DRE <span class="tag">· tela real, dados de demonstração</span></figcaption></figure>
+    <figure class="shot"><img src="img/d-cozinha.jpg" style="height:48mm;object-fit:cover;object-position:top"><figcaption>Tela da cozinha <span class="tag">· tela real, dados de demonstração</span></figcaption></figure>
+  </div>
+
+  <div class="cta">
+    <div><h3>Quer ver funcionando na sua loja?</h3><p>Mostramos uma demonstração com o seu cardápio antes de você decidir.</p></div>
+    <div class="btn">Chame no WhatsApp</div>
+  </div>
+  <div class="foot"><span>Resultados de anúncios variam conforme a região, a verba e o produto.</span><span>4/4</span></div>
+</section>
+
+</body>
+</html>
