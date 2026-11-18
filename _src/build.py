@@ -15,7 +15,7 @@ import re
 SRC = pathlib.Path(__file__).parent
 OUT = SRC.parent
 
-URL_BASE = "https://davibadaro28-pixel.github.io/Repositorio-igor-/"
+URL_BASE = "https://beanutricionista.lovable.app/"
 # Número usado como destino quando o JavaScript não carrega. O mesmo número fica em main.js (CONFIG).
 WHATSAPP = "5511945364807"
 WHATSAPP_VISIVEL = "(11) 94536-4807"
