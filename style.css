@@ -2385,6 +2385,11 @@ a {
   transform: translateY(-2px);
 }
 
+/* Selo "Edit with Lovable" do plano gratuito, no canto inferior direito: o botão sobe enquanto o selo estiver visível */
+body:has(#lovable-badge:not([style*="none"])) .whats-flutuante {
+  bottom: calc(3.25rem + env(safe-area-inset-bottom, 0px));
+}
+
 .whats-icone {
   width: 1.6rem;
   height: 1.6rem;
