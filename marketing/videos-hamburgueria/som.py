@@ -436,11 +436,11 @@ def grava_wav(path, x):
 
 
 def loudnorm(entrada, saida):
-    med = subprocess.run(['ffmpeg', '-hide_banner', '-i', str(entrada), '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11:print_format=json', '-f', 'null', '-'],
+    med = subprocess.run(['ffmpeg', '-hide_banner', '-i', str(entrada), '-af', 'loudnorm=I=-14:TP=-2:LRA=11:print_format=json', '-f', 'null', '-'],
                          capture_output=True, text=True).stderr
     j = json.loads(med[med.rindex('{'):med.rindex('}') + 1])
-    af = (f"loudnorm=I=-14:TP=-1.5:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
-          f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,alimiter=limit=0.78:level=false:attack=2:release=60")
+    af = (f"loudnorm=I=-14:TP=-2:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
+          f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,alimiter=limit=0.70:level=false:attack=1:release=50")
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(entrada), '-af', af, '-ar', '48000', str(saida)], check=True)
     return j
 
@@ -467,8 +467,9 @@ def processa(vid, pasta, final):
     env_fx = np.convolve(np.abs(fx), np.ones(2400) / 2400, mode='same')
     duck = 1 - 0.35 * np.clip(env_fx / 0.05, 0, 1)
     mix = musica * db(-6) * duck + fx
-    esq = mix + np.concatenate([np.zeros(240), musica[:-240]]) * db(-6) * 0.15
-    dir_ = mix
+    atraso = np.concatenate([np.zeros(240), musica[:-240]]) * db(-6) * 0.12
+    esq = mix + atraso
+    dir_ = mix - atraso
     est = np.stack([esq, dir_])
     est /= max(1e-9, np.abs(est).max()) / db(-3)
     bruto = final / f'{vid}.bruto.wav'
@@ -480,7 +481,7 @@ def processa(vid, pasta, final):
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(pasta / f'{vid}.mudo.mp4'), '-i', str(norm), '-map', '0:v', '-map', '1:a',
                     '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', str(out)], check=True)
     out45 = final / f'{vid}-4x5.mp4'
-    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(out), '-vf', 'crop=1080:1350:0:285', '-c:v', 'libx264', '-crf', '17', '-preset', 'medium',
+    subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(out), '-vf', 'crop=1080:1350:0:220', '-c:v', 'libx264', '-crf', '17', '-preset', 'medium',
                     '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-movflags', '+faststart', str(out45)], check=True)
     norm.unlink()
     return {'id': vid, 'lufs_entrada': j['input_i'], 'duracao': D}
