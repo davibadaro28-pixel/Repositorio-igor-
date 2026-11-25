@@ -1,0 +1,2102 @@
+[
+ {
+  "name": "Smash burgers",
+  "section": "Lanches",
+  "products": [
+   {
+    "name": "Smash Clássico",
+    "description": "Pão brioche, smash 80 g bem selado, queijo cheddar e maionese da casa.",
+    "image": "/img/produtos/smash-classico.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 22.9
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Smash Duplo",
+    "description": "Pão brioche, 2 smash de 80 g, cheddar em dobro, cebola picada e maionese da casa.",
+    "image": "/img/produtos/smash-duplo.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 29.9
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Smash Triplo",
+    "description": "Pão brioche, 3 smash de 80 g, cheddar triplo, bacon e maionese da casa.",
+    "image": "/img/produtos/smash-triplo.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 35.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Smash Bacon",
+    "description": "Pão brioche, smash 80 g, cheddar, bacon crocante e barbecue.",
+    "image": "/img/produtos/smash-bacon.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 26.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Artesanais 180 g",
+  "section": "Lanches",
+  "products": [
+   {
+    "name": "Clássico da Casa",
+    "description": "Pão brioche, blend bovino 180 g, queijo prato, alface, tomate, cebola roxa e maionese da casa.",
+    "image": "/img/produtos/classico.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 34.9
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Cheese Bacon",
+    "description": "Pão brioche, blend 180 g, cheddar, muito bacon e maionese da casa.",
+    "image": "/img/produtos/cheese-bacon.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 38.9
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Salada",
+    "description": "Pão com gergelim, blend 180 g, queijo prato, alface, tomate, picles e molho especial.",
+    "image": "/img/produtos/salada.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 36.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Barbecue Onion",
+    "description": "Pão brioche, blend 180 g, cheddar, onion rings, bacon e barbecue defumado.",
+    "image": "/img/produtos/barbecue-onion.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 39.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Gorgonzola",
+    "description": "Pão australiano, blend 180 g, creme de gorgonzola, cebola caramelizada e rúcula.",
+    "image": "/img/produtos/gorgonzola.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 42.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Picante",
+    "description": "Pão brioche, blend 180 g, pepper jack, jalapeño, bacon e molho chipotle.",
+    "image": "/img/produtos/picante.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 39.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Monstro Duplo",
+    "description": "Pão brioche, 2 blends de 180 g, cheddar duplo, bacon, cebola caramelizada e maionese da casa.",
+    "image": "/img/produtos/monstro-duplo.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 52.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Frango Crispy",
+    "description": "Pão brioche, sobrecoxa empanada crocante, queijo prato, alface, tomate e maionese de ervas.",
+    "image": "/img/produtos/frango-crispy.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 32.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     },
+     {
+      "name": "Tirar algum ingrediente?",
+      "min": 0,
+      "max": 5,
+      "options": [
+       {
+        "name": "Sem cebola",
+        "price": 0
+       },
+       {
+        "name": "Sem tomate",
+        "price": 0
+       },
+       {
+        "name": "Sem alface",
+        "price": 0
+       },
+       {
+        "name": "Sem picles",
+        "price": 0
+       },
+       {
+        "name": "Sem molho",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Combos",
+  "section": "Lanches",
+  "products": [
+   {
+    "name": "Combo Smash",
+    "description": "Smash Duplo + fritas + bebida.",
+    "image": "/img/produtos/combo-smash.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 42.9
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Batata do combo",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Fritas",
+        "price": 0
+       },
+       {
+        "name": "Fritas com cheddar e bacon",
+        "price": 8.0
+       },
+       {
+        "name": "Onion rings",
+        "price": 6.0
+       }
+      ]
+     },
+     {
+      "name": "Bebida do combo",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Coca-Cola lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Coca-Cola Zero lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Guaraná lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Fanta Laranja lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Água sem gás 500 ml",
+        "price": 0
+       },
+       {
+        "name": "Suco natural 400 ml",
+        "price": 4.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Clássico",
+    "description": "Clássico da Casa + fritas + bebida.",
+    "image": "/img/produtos/combo-classico.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 49.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Batata do combo",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Fritas",
+        "price": 0
+       },
+       {
+        "name": "Fritas com cheddar e bacon",
+        "price": 8.0
+       },
+       {
+        "name": "Onion rings",
+        "price": 6.0
+       }
+      ]
+     },
+     {
+      "name": "Bebida do combo",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Coca-Cola lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Coca-Cola Zero lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Guaraná lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Fanta Laranja lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Água sem gás 500 ml",
+        "price": 0
+       },
+       {
+        "name": "Suco natural 400 ml",
+        "price": 4.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Cheese Bacon",
+    "description": "Cheese Bacon + fritas + bebida.",
+    "image": "/img/produtos/combo-cheese-bacon.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 53.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Batata do combo",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Fritas",
+        "price": 0
+       },
+       {
+        "name": "Fritas com cheddar e bacon",
+        "price": 8.0
+       },
+       {
+        "name": "Onion rings",
+        "price": 6.0
+       }
+      ]
+     },
+     {
+      "name": "Bebida do combo",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Coca-Cola lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Coca-Cola Zero lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Guaraná lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Fanta Laranja lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Água sem gás 500 ml",
+        "price": 0
+       },
+       {
+        "name": "Suco natural 400 ml",
+        "price": 4.0
+       }
+      ]
+     },
+     {
+      "name": "Adicionais",
+      "min": 0,
+      "max": 6,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Carne extra 180 g",
+        "price": 12.0
+       },
+       {
+        "name": "Smash extra 80 g",
+        "price": 7.0
+       },
+       {
+        "name": "Queijo cheddar",
+        "price": 4.0
+       },
+       {
+        "name": "Queijo prato",
+        "price": 4.0
+       },
+       {
+        "name": "Bacon",
+        "price": 6.0
+       },
+       {
+        "name": "Ovo",
+        "price": 3.0
+       },
+       {
+        "name": "Cebola caramelizada",
+        "price": 4.0
+       },
+       {
+        "name": "Picles",
+        "price": 2.5
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 5.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Kids",
+    "description": "Smash Clássico, fritas pequenas, suco de caixinha e um brinde.",
+    "image": "/img/produtos/combo-kids.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 29.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Ponto da carne",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Ao ponto",
+        "price": 0
+       },
+       {
+        "name": "Ao ponto para bem",
+        "price": 0
+       },
+       {
+        "name": "Bem passado",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Casal",
+    "description": "2 lanches artesanais à sua escolha + fritas grande + 2 bebidas.",
+    "image": "/img/produtos/combo-casal.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 99.9
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Escolha os 2 lanches",
+      "min": 2,
+      "max": 2,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Clássico da Casa",
+        "price": 0
+       },
+       {
+        "name": "Cheese Bacon",
+        "price": 0
+       },
+       {
+        "name": "Salada",
+        "price": 0
+       },
+       {
+        "name": "Barbecue Onion",
+        "price": 0
+       },
+       {
+        "name": "Frango Crispy",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Bebidas (escolha 2)",
+      "min": 2,
+      "max": 2,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Coca-Cola lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Coca-Cola Zero lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Guaraná lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Fanta Laranja lata 350 ml",
+        "price": 0
+       },
+       {
+        "name": "Água sem gás 500 ml",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Combo Família",
+    "description": "4 lanches + 2 fritas grandes + refrigerante 2 litros.",
+    "image": "/img/produtos/combo-familia.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 179.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Escolha os 4 lanches",
+      "min": 4,
+      "max": 4,
+      "repeat": true,
+      "options": [
+       {
+        "name": "Smash Duplo",
+        "price": 0
+       },
+       {
+        "name": "Clássico da Casa",
+        "price": 0
+       },
+       {
+        "name": "Cheese Bacon",
+        "price": 0
+       },
+       {
+        "name": "Salada",
+        "price": 0
+       },
+       {
+        "name": "Barbecue Onion",
+        "price": 0
+       },
+       {
+        "name": "Frango Crispy",
+        "price": 0
+       }
+      ]
+     },
+     {
+      "name": "Refrigerante 2 L",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Coca-Cola 2 L",
+        "price": 0
+       },
+       {
+        "name": "Guaraná 2 L",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Porções",
+  "section": "Para acompanhar",
+  "products": [
+   {
+    "name": "Batata frita",
+    "description": "Batata crocante com sal e páprica.",
+    "image": "/img/produtos/fritas.webp",
+    "variants": [
+     {
+      "name": "Pequena (200 g)",
+      "price": 12.9
+     },
+     {
+      "name": "Grande (400 g)",
+      "price": 22.9
+     }
+    ],
+    "featured": true,
+    "option_groups": []
+   },
+   {
+    "name": "Onion rings",
+    "description": "Anéis de cebola empanados, com molho barbecue.",
+    "image": "/img/produtos/onion-rings.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 26.9
+     }
+    ],
+    "featured": false,
+    "option_groups": []
+   },
+   {
+    "name": "Tiras de frango",
+    "description": "Tiras de frango empanadas com molho de mostarda e mel.",
+    "image": "/img/produtos/tiras-frango.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 32.9
+     }
+    ],
+    "featured": false,
+    "option_groups": []
+   },
+   {
+    "name": "Molho extra",
+    "description": "Pote de 40 ml.",
+    "image": "/img/produtos/molhos.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 4.5
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Sabor",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Maionese da casa",
+        "price": 0
+       },
+       {
+        "name": "Barbecue",
+        "price": 0
+       },
+       {
+        "name": "Cheddar cremoso",
+        "price": 0
+       },
+       {
+        "name": "Chipotle",
+        "price": 0
+       },
+       {
+        "name": "Mostarda e mel",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Bebidas",
+  "section": "Bebidas",
+  "products": [
+   {
+    "name": "Refrigerante lata 350 ml",
+    "description": "Gelado.",
+    "image": "/img/produtos/refrigerante.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 7.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Sabor",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Coca-Cola",
+        "price": 0
+       },
+       {
+        "name": "Coca-Cola Zero",
+        "price": 0
+       },
+       {
+        "name": "Guaraná",
+        "price": 0
+       },
+       {
+        "name": "Fanta Laranja",
+        "price": 0
+       },
+       {
+        "name": "Sprite",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Água mineral 500 ml",
+    "description": "",
+    "image": "/img/produtos/agua.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 4.5
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Tipo",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Sem gás",
+        "price": 0
+       },
+       {
+        "name": "Com gás",
+        "price": 0.5
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Suco natural 400 ml",
+    "description": "Feito na hora.",
+    "image": "/img/produtos/suco.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 11.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Sabor",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Laranja",
+        "price": 0
+       },
+       {
+        "name": "Limão",
+        "price": 0
+       },
+       {
+        "name": "Maracujá",
+        "price": 0
+       },
+       {
+        "name": "Abacaxi com hortelã",
+        "price": 0
+       },
+       {
+        "name": "Morango",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Cerveja long neck",
+    "description": "",
+    "image": "/img/produtos/cerveja.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 12.9
+     }
+    ],
+    "featured": false,
+    "option_groups": [
+     {
+      "name": "Marca",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Heineken",
+        "price": 0
+       },
+       {
+        "name": "Stella Artois",
+        "price": 0
+       },
+       {
+        "name": "Budweiser",
+        "price": 0
+       },
+       {
+        "name": "Heineken 0,0",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name": "Sobremesas",
+  "section": "Sobremesas",
+  "products": [
+   {
+    "name": "Milk shake",
+    "description": "Cremoso, com chantilly.",
+    "image": "/img/produtos/milk-shake.webp",
+    "variants": [
+     {
+      "name": "400 ml",
+      "price": 18.9
+     },
+     {
+      "name": "500 ml",
+      "price": 22.9
+     }
+    ],
+    "featured": true,
+    "option_groups": [
+     {
+      "name": "Sabor",
+      "min": 1,
+      "max": 1,
+      "options": [
+       {
+        "name": "Chocolate",
+        "price": 0
+       },
+       {
+        "name": "Morango",
+        "price": 0
+       },
+       {
+        "name": "Baunilha",
+        "price": 0
+       },
+       {
+        "name": "Ovomaltine",
+        "price": 0
+       },
+       {
+        "name": "Doce de leite",
+        "price": 0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "name": "Petit gâteau",
+    "description": "Bolinho de chocolate com recheio cremoso e sorvete de creme.",
+    "image": "/img/produtos/petit-gateau.webp",
+    "variants": [
+     {
+      "name": null,
+      "price": 21.9
+     }
+    ],
+    "featured": false,
+    "option_groups": []
+   }
+  ]
+ }
+]

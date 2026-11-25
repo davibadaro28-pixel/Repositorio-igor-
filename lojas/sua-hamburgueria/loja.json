@@ -1,0 +1,1086 @@
+{
+ "_fonte": "Loja de demonstração genérica para apresentar o sistema a hamburguerias. Cardápio, preços, bairros, custos e dados de exemplo inventados. Fotos dos produtos: as da VS Burger (cliente), sem os logos dos lanches.",
+ "segment": "hamburgueria",
+ "store": {
+  "name": "Sua Hamburgueria",
+  "tagline": "Hambúrguer artesanal",
+  "slogan": "Smash, artesanal e batata crocante, do jeito que você gosta.",
+  "whatsapp": "",
+  "phone": "",
+  "instagram": "",
+  "logo": "/img/logo.webp",
+  "address": "Rua Exemplo, 100 – Centro – São Paulo – SP",
+  "hours": {
+   "sunday": {
+    "active": true,
+    "open": "18:00",
+    "close": "23:30"
+   },
+   "monday": {
+    "active": false,
+    "open": "18:00",
+    "close": "23:00"
+   },
+   "tuesday": {
+    "active": true,
+    "open": "18:00",
+    "close": "23:00"
+   },
+   "wednesday": {
+    "active": true,
+    "open": "18:00",
+    "close": "23:00"
+   },
+   "thursday": {
+    "active": true,
+    "open": "18:00",
+    "close": "23:00"
+   },
+   "friday": {
+    "active": true,
+    "open": "18:00",
+    "close": "00:00"
+   },
+   "saturday": {
+    "active": true,
+    "open": "18:00",
+    "close": "00:00"
+   }
+  },
+  "scheduling_enabled": false,
+  "prep_time_min": 25,
+  "delivery_time_min": 45,
+  "theme": {
+   "color": "#d9480f",
+   "font": "impacto",
+   "style": "reto",
+   "bg": "#f8f5f1"
+  }
+ },
+ "payment_methods_off": [
+  "va"
+ ],
+ "fiscal": {
+  "razao_social": "Sua Hamburgueria Ltda",
+  "cnpj": ""
+ },
+ "zones": [
+  [
+   "Centro",
+   500
+  ],
+  [
+   "Vila Nova",
+   500
+  ],
+  [
+   "Jardim das Flores",
+   600
+  ],
+  [
+   "Vila Esperança",
+   600
+  ],
+  [
+   "Parque das Árvores",
+   700
+  ],
+  [
+   "Jardim América",
+   700
+  ],
+  [
+   "Vila Industrial",
+   800
+  ],
+  [
+   "Bela Vista",
+   800
+  ],
+  [
+   "Jardim Primavera",
+   900
+  ],
+  [
+   "Residencial Sol Nascente",
+   1000
+  ]
+ ],
+ "fin_categories": [
+  [
+   "Vendas",
+   "receita"
+  ],
+  [
+   "Eventos e aniversários",
+   "receita"
+  ],
+  [
+   "Outras receitas",
+   "receita"
+  ],
+  [
+   "Insumos e matéria-prima",
+   "despesa"
+  ],
+  [
+   "Embalagens",
+   "despesa"
+  ],
+  [
+   "Aluguel",
+   "despesa"
+  ],
+  [
+   "Energia elétrica",
+   "despesa"
+  ],
+  [
+   "Água",
+   "despesa"
+  ],
+  [
+   "Gás",
+   "despesa"
+  ],
+  [
+   "Internet e telefone",
+   "despesa"
+  ],
+  [
+   "Salários e encargos",
+   "despesa"
+  ],
+  [
+   "Pró-labore",
+   "despesa"
+  ],
+  [
+   "Impostos (DAS)",
+   "despesa"
+  ],
+  [
+   "Taxas de cartão e apps",
+   "despesa"
+  ],
+  [
+   "Marketing",
+   "despesa"
+  ],
+  [
+   "Manutenção e equipamentos",
+   "despesa"
+  ],
+  [
+   "Entregadores",
+   "despesa"
+  ],
+  [
+   "Outras despesas",
+   "despesa"
+  ]
+ ],
+ "ingredients": [
+  [
+   "Pão brioche",
+   "un",
+   160
+  ],
+  [
+   "Pão com gergelim",
+   "un",
+   120
+  ],
+  [
+   "Pão australiano",
+   "un",
+   190
+  ],
+  [
+   "Blend bovino 180 g",
+   "un",
+   950
+  ],
+  [
+   "Smash bovino 80 g",
+   "un",
+   380
+  ],
+  [
+   "Sobrecoxa empanada",
+   "un",
+   520
+  ],
+  [
+   "Queijo cheddar fatia",
+   "un",
+   75
+  ],
+  [
+   "Queijo prato fatia",
+   "un",
+   70
+  ],
+  [
+   "Pepper jack fatia",
+   "un",
+   110
+  ],
+  [
+   "Creme de gorgonzola",
+   "g",
+   6.0
+  ],
+  [
+   "Bacon",
+   "g",
+   6.5
+  ],
+  [
+   "Alface americana",
+   "g",
+   1.2
+  ],
+  [
+   "Tomate",
+   "g",
+   0.9
+  ],
+  [
+   "Cebola roxa",
+   "g",
+   0.7
+  ],
+  [
+   "Cebola caramelizada",
+   "g",
+   2.2
+  ],
+  [
+   "Rúcula",
+   "g",
+   3.0
+  ],
+  [
+   "Picles",
+   "g",
+   2.5
+  ],
+  [
+   "Jalapeño",
+   "g",
+   4.5
+  ],
+  [
+   "Maionese da casa",
+   "g",
+   1.8
+  ],
+  [
+   "Molho especial",
+   "g",
+   2.0
+  ],
+  [
+   "Barbecue",
+   "g",
+   1.6
+  ],
+  [
+   "Molho chipotle",
+   "g",
+   2.4
+  ],
+  [
+   "Cheddar cremoso",
+   "g",
+   3.0
+  ],
+  [
+   "Manteiga",
+   "g",
+   4.5
+  ],
+  [
+   "Batata congelada",
+   "g",
+   1.4
+  ],
+  [
+   "Óleo",
+   "ml",
+   0.9
+  ],
+  [
+   "Anel de cebola congelado",
+   "g",
+   3.5
+  ],
+  [
+   "Tiras de frango empanadas",
+   "g",
+   3.2
+  ],
+  [
+   "Sorvete de creme",
+   "g",
+   2.0
+  ],
+  [
+   "Leite",
+   "ml",
+   0.55
+  ],
+  [
+   "Petit gâteau",
+   "un",
+   420
+  ],
+  [
+   "Embalagem de lanche",
+   "un",
+   90
+  ],
+  [
+   "Embalagem de batata",
+   "un",
+   45
+  ],
+  [
+   "Copo milk shake",
+   "un",
+   80
+  ],
+  [
+   "Saco delivery",
+   "un",
+   60
+  ],
+  [
+   "Refrigerante lata 350 ml",
+   "un",
+   300
+  ],
+  [
+   "Refrigerante 2 L",
+   "un",
+   850
+  ],
+  [
+   "Água 500 ml",
+   "un",
+   120
+  ],
+  [
+   "Long neck",
+   "un",
+   550
+  ],
+  [
+   "Fruta para suco",
+   "g",
+   1.0
+  ]
+ ],
+ "recipes": {
+  "Smash Clássico": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Smash bovino 80 g",
+    1
+   ],
+   [
+    "Queijo cheddar fatia",
+    1
+   ],
+   [
+    "Maionese da casa",
+    15
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Smash Duplo": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Smash bovino 80 g",
+    2
+   ],
+   [
+    "Queijo cheddar fatia",
+    2
+   ],
+   [
+    "Cebola roxa",
+    10
+   ],
+   [
+    "Maionese da casa",
+    15
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Smash Triplo": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Smash bovino 80 g",
+    3
+   ],
+   [
+    "Queijo cheddar fatia",
+    3
+   ],
+   [
+    "Bacon",
+    30
+   ],
+   [
+    "Maionese da casa",
+    15
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Smash Bacon": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Smash bovino 80 g",
+    1
+   ],
+   [
+    "Queijo cheddar fatia",
+    1
+   ],
+   [
+    "Bacon",
+    25
+   ],
+   [
+    "Barbecue",
+    15
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Clássico da Casa": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Blend bovino 180 g",
+    1
+   ],
+   [
+    "Queijo prato fatia",
+    1
+   ],
+   [
+    "Alface americana",
+    10
+   ],
+   [
+    "Tomate",
+    25
+   ],
+   [
+    "Cebola roxa",
+    10
+   ],
+   [
+    "Maionese da casa",
+    20
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Cheese Bacon": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Blend bovino 180 g",
+    1
+   ],
+   [
+    "Queijo cheddar fatia",
+    2
+   ],
+   [
+    "Bacon",
+    40
+   ],
+   [
+    "Maionese da casa",
+    20
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Salada": [
+   [
+    "Pão com gergelim",
+    1
+   ],
+   [
+    "Blend bovino 180 g",
+    1
+   ],
+   [
+    "Queijo prato fatia",
+    1
+   ],
+   [
+    "Alface americana",
+    15
+   ],
+   [
+    "Tomate",
+    30
+   ],
+   [
+    "Picles",
+    10
+   ],
+   [
+    "Molho especial",
+    20
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Barbecue Onion": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Blend bovino 180 g",
+    1
+   ],
+   [
+    "Queijo cheddar fatia",
+    1
+   ],
+   [
+    "Anel de cebola congelado",
+    40
+   ],
+   [
+    "Bacon",
+    25
+   ],
+   [
+    "Barbecue",
+    20
+   ],
+   [
+    "Óleo",
+    20
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Gorgonzola": [
+   [
+    "Pão australiano",
+    1
+   ],
+   [
+    "Blend bovino 180 g",
+    1
+   ],
+   [
+    "Creme de gorgonzola",
+    30
+   ],
+   [
+    "Cebola caramelizada",
+    30
+   ],
+   [
+    "Rúcula",
+    8
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Picante": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Blend bovino 180 g",
+    1
+   ],
+   [
+    "Pepper jack fatia",
+    1
+   ],
+   [
+    "Jalapeño",
+    15
+   ],
+   [
+    "Bacon",
+    25
+   ],
+   [
+    "Molho chipotle",
+    20
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Monstro Duplo": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Blend bovino 180 g",
+    2
+   ],
+   [
+    "Queijo cheddar fatia",
+    2
+   ],
+   [
+    "Bacon",
+    40
+   ],
+   [
+    "Cebola caramelizada",
+    30
+   ],
+   [
+    "Maionese da casa",
+    20
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Frango Crispy": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Sobrecoxa empanada",
+    1
+   ],
+   [
+    "Queijo prato fatia",
+    1
+   ],
+   [
+    "Alface americana",
+    10
+   ],
+   [
+    "Tomate",
+    25
+   ],
+   [
+    "Maionese da casa",
+    20
+   ],
+   [
+    "Óleo",
+    30
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Batata frita": [
+   [
+    "Batata congelada",
+    300
+   ],
+   [
+    "Óleo",
+    40
+   ],
+   [
+    "Embalagem de batata",
+    1
+   ]
+  ],
+  "Onion rings": [
+   [
+    "Anel de cebola congelado",
+    250
+   ],
+   [
+    "Óleo",
+    40
+   ],
+   [
+    "Barbecue",
+    30
+   ],
+   [
+    "Embalagem de batata",
+    1
+   ]
+  ],
+  "Tiras de frango": [
+   [
+    "Tiras de frango empanadas",
+    300
+   ],
+   [
+    "Óleo",
+    40
+   ],
+   [
+    "Embalagem de batata",
+    1
+   ]
+  ],
+  "Refrigerante lata 350 ml": [
+   [
+    "Refrigerante lata 350 ml",
+    1
+   ]
+  ],
+  "Água mineral 500 ml": [
+   [
+    "Água 500 ml",
+    1
+   ]
+  ],
+  "Cerveja long neck": [
+   [
+    "Long neck",
+    1
+   ]
+  ],
+  "Suco natural 400 ml": [
+   [
+    "Fruta para suco",
+    250
+   ]
+  ],
+  "Milk shake": [
+   [
+    "Sorvete de creme",
+    250
+   ],
+   [
+    "Leite",
+    100
+   ],
+   [
+    "Copo milk shake",
+    1
+   ]
+  ],
+  "Petit gâteau": [
+   [
+    "Petit gâteau",
+    1
+   ],
+   [
+    "Sorvete de creme",
+    80
+   ]
+  ],
+  "Combo Smash": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Smash bovino 80 g",
+    2
+   ],
+   [
+    "Queijo cheddar fatia",
+    2
+   ],
+   [
+    "Maionese da casa",
+    15
+   ],
+   [
+    "Batata congelada",
+    200
+   ],
+   [
+    "Óleo",
+    30
+   ],
+   [
+    "Refrigerante lata 350 ml",
+    1
+   ],
+   [
+    "Embalagem de batata",
+    1
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Combo Clássico": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Blend bovino 180 g",
+    1
+   ],
+   [
+    "Queijo prato fatia",
+    1
+   ],
+   [
+    "Alface americana",
+    10
+   ],
+   [
+    "Tomate",
+    25
+   ],
+   [
+    "Maionese da casa",
+    20
+   ],
+   [
+    "Batata congelada",
+    200
+   ],
+   [
+    "Óleo",
+    30
+   ],
+   [
+    "Refrigerante lata 350 ml",
+    1
+   ],
+   [
+    "Embalagem de batata",
+    1
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ],
+  "Combo Cheese Bacon": [
+   [
+    "Pão brioche",
+    1
+   ],
+   [
+    "Blend bovino 180 g",
+    1
+   ],
+   [
+    "Queijo cheddar fatia",
+    2
+   ],
+   [
+    "Bacon",
+    40
+   ],
+   [
+    "Maionese da casa",
+    20
+   ],
+   [
+    "Batata congelada",
+    200
+   ],
+   [
+    "Óleo",
+    30
+   ],
+   [
+    "Refrigerante lata 350 ml",
+    1
+   ],
+   [
+    "Embalagem de batata",
+    1
+   ],
+   [
+    "Manteiga",
+    5
+   ],
+   [
+    "Embalagem de lanche",
+    1
+   ]
+  ]
+ },
+ "low_stock": [
+  "Pão brioche",
+  "Bacon",
+  "Batata congelada"
+ ],
+ "ncm": {
+  "byName": [
+   [
+    "água",
+    "22011000",
+    "revenda_st"
+   ],
+   [
+    "refrigerante",
+    "22021000",
+    "revenda_st"
+   ],
+   [
+    "cerveja",
+    "22030000",
+    "revenda_st"
+   ],
+   [
+    "suco",
+    "22029900"
+   ],
+   [
+    "milk shake",
+    "21069090"
+   ],
+   [
+    "molho",
+    "21039099"
+   ],
+   [
+    "brownie|petit",
+    "19059090"
+   ]
+  ],
+  "byCategory": {
+   "Smash burgers": "21069090",
+   "Artesanais 180 g": "21069090",
+   "Combos": "21069090",
+   "Porções": "20041000",
+   "Bebidas": "22029900",
+   "Sobremesas": "21050010"
+  }
+ },
+ "demo": {
+  "razao_social": "Sua Hamburgueria Ltda",
+  "streets": [
+   "Rua das Palmeiras",
+   "Av. Brasil",
+   "Rua São José",
+   "Rua XV de Novembro",
+   "Av. Central",
+   "Rua dos Ipês",
+   "Rua Sete de Setembro",
+   "Av. das Nações",
+   "Rua Santa Rita",
+   "Rua Bela Vista"
+  ],
+  "notas": [
+   "Sem cebola, por favor",
+   "Capricha no molho",
+   "Carne bem passada",
+   "Sem picles",
+   "Mandar sachê de ketchup",
+   "Tocar o interfone 12"
+  ]
+ }
+}

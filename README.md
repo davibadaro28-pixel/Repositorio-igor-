@@ -10,6 +10,7 @@ várias lojas: cada cliente tem uma pasta em [`lojas/`](lojas/) com o cardápio,
 | **A Fada dos Bolos** – confeitaria e café sem glúten e lactose (Bom Retiro, Curitiba) – demonstração | `lojas/fada-dos-bolos` | 37 produtos em 5 categorias (fatias, sobremesas, salgados e cafés) |
 | **Ninha Bolos** – bolos decorados por encomenda (João Pessoa – PB) | `lojas/ninha-bolos` | 19 bolos e doces em 4 categorias, todos com preço a consultar no WhatsApp até a loja passar os valores |
 | **Doce Vício** – doces finos só para festas e eventos (Rio de Janeiro – RJ) | `lojas/doce-vicio` | 35 doces em 3 linhas (Bronze, Prata e Ouro), vendidos em pacotes de 25, 50 e 100 unidades, com calculadora de convidados |
+| **Sua Hamburgueria** – loja de demonstração genérica para vender o sistema a hamburguerias | `lojas/sua-hamburgueria` | 28 produtos em 6 categorias (smash, artesanais, combos, porções, bebidas e sobremesas), com ponto da carne, adicionais, "tirar ingrediente", combos com bebida e batata à escolha e ficha técnica de cada lanche. Fotos da VS Burger sem os logos dos lanches |
 
 Os cardápios vieram dos cardápios online atuais de cada loja (produtos, preços, adicionais e fotos).
 
@@ -130,6 +131,11 @@ logo (sem logo, o sistema mostra as iniciais do nome).
 
 Cada instalação atende **uma** loja, escolhida pela variável `LOJA` (nome da pasta em `lojas/`; sem ela, `lacos-de-mae`).
 O banco de dados, as fotos enviadas e as configurações ficam separados por instalação.
+
+```bash
+LOJA=sua-hamburgueria npm run demo                   # demonstração genérica para vender a hamburguerias
+node preview/build.mjs demo-hamburgueria --loja=sua-hamburgueria
+```
 
 ```bash
 LOJA=vs-burger npm run demo                          # demonstração da hamburgueria (server/data/demo-vs-burger.db)
