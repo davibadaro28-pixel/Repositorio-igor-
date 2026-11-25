@@ -1,0 +1,40 @@
+{
+ "id": "V33",
+ "tema": "noite",
+ "musica": "lofi",
+ "cenas": [
+  {
+   "tipo": "nota",
+   "nota": "Antes de assinar, veja funcionando.",
+   "texto": "Demonstração com *o seu cardápio*",
+   "dur": 3.0
+  },
+  {
+   "tipo": "carrossel",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "legenda": "O seu cardápio"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "legenda": "Os seus pedidos"
+    },
+    {
+     "img": "k01_cozinha",
+     "legenda": "A sua cozinha"
+    },
+    {
+     "img": "d_inicio",
+     "legenda": "O seu painel"
+    }
+   ],
+   "passo": 1.1
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "rodape": "Demonstração sem compromisso"
+  }
+ ]
+}

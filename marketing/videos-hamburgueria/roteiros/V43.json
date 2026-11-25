@@ -1,0 +1,39 @@
+{
+ "id": "V43",
+ "tema": "mostarda",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Delivery próprio *sem bagunça.*",
+   "dur": 2.0,
+   "modo": "bate"
+  },
+  {
+   "tipo": "carrossel",
+   "telas": [
+    {
+     "img": "p10_endereco",
+     "legenda": "Taxa por bairro"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "legenda": "Pedidos em ordem"
+    },
+    {
+     "img": "e01_entregador",
+     "legenda": "App do entregador"
+    },
+    {
+     "img": "p15_saiu",
+     "legenda": "Cliente acompanha"
+    }
+   ],
+   "passo": 1.1
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

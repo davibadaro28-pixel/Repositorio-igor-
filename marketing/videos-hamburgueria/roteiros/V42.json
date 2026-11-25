@@ -1,0 +1,33 @@
+{
+ "id": "V42",
+ "tema": "ketchup",
+ "musica": "trap",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Seu chapeiro sabe o *ponto de cada carne?*",
+   "dur": 2.3,
+   "foto": "cheese-bacon"
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_cozinha",
+     "dur": 3.0,
+     "legenda": "Na tela da cozinha, *cada lanche com o ponto*",
+     "foco": [
+      0.19,
+      0.3,
+      0.42,
+      0.33
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

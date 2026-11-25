@@ -1,0 +1,93 @@
+{
+ "id": "V10",
+ "tema": "ketchup",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "chat",
+   "msgs": [
+    [
+     "c",
+     "Quero o combo casal"
+    ],
+    [
+     "c",
+     "Um clássico e um cheese bacon"
+    ],
+    [
+     "c",
+     "Ah, troca a coca por guaraná"
+    ],
+    [
+     "c",
+     "E a batata é grande?"
+    ]
+   ],
+   "gap": 0.5,
+   "dur": 3.5,
+   "texto": "Combo pelo WhatsApp:",
+   "selo": "Confuso?"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "c01_menu",
+     "dur": 1.0,
+     "legenda": "No cardápio, *ele monta o combo*",
+     "toque": {
+      "x": 0.6872,
+      "y": 0.5489
+     }
+    },
+    {
+     "img": "c02_combo",
+     "dur": 0.9,
+     "toque": {
+      "x": 0.8923,
+      "y": 0.6333
+     }
+    },
+    {
+     "img": "c03_um",
+     "dur": 0.9,
+     "toque": {
+      "x": 0.8923,
+      "y": 0.6949
+     }
+    },
+    {
+     "img": "c04_lanches",
+     "dur": 0.9,
+     "legenda": "Escolhe *os lanches e as bebidas*",
+     "toque": {
+      "x": 0.8923,
+      "y": 0.535
+     }
+    },
+    {
+     "img": "c05_bebida1",
+     "dur": 0.9,
+     "toque": {
+      "x": 0.8923,
+      "y": 0.6582
+     }
+    },
+    {
+     "img": "c06_pronto",
+     "dur": 1.5,
+     "legenda": "Sem faltar nada",
+     "zoom": {
+      "x": 0.5,
+      "y": 0.6,
+      "s": 1.8
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

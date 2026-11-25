@@ -1,0 +1,43 @@
+{
+ "id": "V35",
+ "tema": "brasa",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Quem pede no seu link vira *seu cliente.*",
+   "dur": 2.3
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_clientes",
+     "dur": 2.6,
+     "legenda": "Nome, telefone e *histórico de cada um*",
+     "foco": [
+      0.19,
+      0.25,
+      0.7,
+      0.45
+     ]
+    },
+    {
+     "img": "d_clientes",
+     "dur": 2.2,
+     "legenda": "Pra você chamar *de volta no WhatsApp*",
+     "foco": [
+      0.6,
+      0.25,
+      0.39,
+      0.45
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

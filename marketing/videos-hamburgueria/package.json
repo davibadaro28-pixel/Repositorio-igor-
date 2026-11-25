@@ -1,0 +1,10 @@
+{
+  "name": "videos-hamburgueria",
+  "private": true,
+  "description": "Vídeos de anúncio (Meta Ads) do sistema para hamburguerias: cenas em HTML + GSAP + three.js, render quadro a quadro",
+  "type": "commonjs",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "three": "^0.181.0"
+  }
+}

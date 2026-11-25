@@ -1,0 +1,85 @@
+{
+ "id": "V02",
+ "tema": "noite",
+ "musica": "trap",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Seu cliente pede pelo direct e você *digita tudo* de novo?",
+   "dur": 2.3
+  },
+  {
+   "tipo": "chat",
+   "msgs": [
+    [
+     "c",
+     "Boa noite! Me manda o cardápio?"
+    ],
+    [
+     "c",
+     "Quanto tá o cheese bacon?"
+    ],
+    [
+     "c",
+     "Entrega no Jardim América?"
+    ],
+    [
+     "c",
+     "Pode ser sem cebola?"
+    ]
+   ],
+   "gap": 0.5,
+   "dur": 3.5,
+   "selo": "Toda noite"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "dur": 1.1,
+     "legenda": "Manda o link: ele *pede sozinho*",
+     "toque": {
+      "x": 0.6872,
+      "y": 0.5489
+     }
+    },
+    {
+     "img": "p02_produto",
+     "dur": 1.2,
+     "toque": {
+      "x": 0.1905,
+      "y": 0.631
+     }
+    },
+    {
+     "img": "p10_endereco",
+     "dur": 1.6,
+     "legenda": "A *taxa do bairro* entra no total",
+     "zoom": {
+      "x": 0.35,
+      "y": 0.2,
+      "s": 2.2
+     }
+    },
+    {
+     "img": "p11_pagamento",
+     "dur": 0.9,
+     "toque": {
+      "x": 0.5,
+      "y": 0.9573
+     }
+    },
+    {
+     "img": "p12_recebido",
+     "dur": 1.1,
+     "legenda": "E chega *pronto* no seu painel"
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

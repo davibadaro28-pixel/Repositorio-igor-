@@ -1,0 +1,43 @@
+{
+ "id": "V20",
+ "tema": "ketchup",
+ "musica": "funk",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Cardápio digital pra sua hamburgueria por *menos de R$ 7 por dia*",
+   "dur": 2.6
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "m_menu_longo",
+     "dur": 3.0,
+     "legenda": "Com fotos, *ponto da carne e adicionais*",
+     "rolar": [
+      0,
+      0.35
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "preco",
+   "plano": "Cardápio digital",
+   "valor": "199,90",
+   "itens": [
+    "Pedidos no painel em tempo real",
+    "Taxa por bairro, cupom e Pix",
+    "Link e QR Code"
+   ],
+   "texto": null,
+   "nota": "Sem comissão por pedido.",
+   "dur": 3.16
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

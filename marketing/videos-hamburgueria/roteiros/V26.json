@@ -1,0 +1,52 @@
+{
+ "id": "V26",
+ "tema": "noite",
+ "musica": "lofi",
+ "cenas": [
+  {
+   "tipo": "nota",
+   "nota": "Funcionário vendo o faturamento do mês?",
+   "texto": "Cada um vê *só o que precisa*",
+   "dur": 3.0
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_usuarios",
+     "dur": 2.4,
+     "legenda": "Um login para *cada função*",
+     "foco": [
+      0.1744,
+      0.1278,
+      0.5956,
+      0.41
+     ]
+    },
+    {
+     "img": "d_usuarios",
+     "dur": 2.2,
+     "legenda": "Caixa, cozinha e entregador com *acesso próprio*",
+     "foco": [
+      0.7411,
+      0.1378,
+      0.2589,
+      0.34
+     ],
+     "destaque": {
+      "caixa": [
+       0.7611,
+       0.1678,
+       0.2222,
+       0.28
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "id": "V11",
+ "tema": "brasa",
+ "musica": "funk",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "O *bacon extra* que ninguém ofereceu.",
+   "dur": 2.4,
+   "foto": "smash-bacon"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p02_produto",
+     "dur": 1.1,
+     "legenda": "No cardápio, os adicionais *aparecem em cada lanche*"
+    },
+    {
+     "img": "p03_adicionais",
+     "dur": 1.4,
+     "toque": {
+      "x": 0.8923,
+      "y": 0.535
+     },
+     "zoom": {
+      "x": 0.6,
+      "y": 0.5,
+      "s": 1.9
+     }
+    },
+    {
+     "img": "p04_bacon",
+     "dur": 1.8,
+     "legenda": "E o valor *soma sozinho*",
+     "zoom": {
+      "x": 0.66,
+      "y": 0.93,
+      "s": 2.2
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

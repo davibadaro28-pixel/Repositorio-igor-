@@ -1,0 +1,55 @@
+{
+ "id": "V36",
+ "tema": "noite",
+ "musica": "trap",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Cozinha lotada e *pedido chegando sem parar?*",
+   "dur": 2.4
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "h01_recebendo",
+     "dur": 1.6,
+     "legenda": "Pause os pedidos *com um toque*",
+     "toque": {
+      "x": 0.2738,
+      "y": 0.025
+     },
+     "foco": [
+      0.1,
+      0.0,
+      0.5,
+      0.25
+     ]
+    },
+    {
+     "img": "h02_pausado",
+     "dur": 2.2,
+     "legenda": "e retome quando der conta",
+     "foco": [
+      0.1,
+      0.0,
+      0.5,
+      0.25
+     ],
+     "destaque": {
+      "caixa": [
+       0.1889,
+       0.0117,
+       0.1336,
+       0.0267
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

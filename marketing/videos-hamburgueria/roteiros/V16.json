@@ -1,0 +1,53 @@
+{
+ "id": "V16",
+ "tema": "noite",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "pergunta",
+   "pergunta": "Que horas sua chapa mais trabalha?",
+   "resposta": "acho que umas 20h…",
+   "texto": null,
+   "dur": 3.0
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_relatorios_longo",
+     "dur": 2.8,
+     "legenda": "O relatório *mostra o horário de pico*",
+     "rolar": [
+      0.2735,
+      0.2735
+     ],
+     "foco": [
+      0.19,
+      0.36,
+      0.39,
+      0.3
+     ]
+    },
+    {
+     "img": "d_relatorios_longo",
+     "dur": 2.2,
+     "legenda": "E o *dia da semana* mais forte",
+     "rolar": [
+      0.2735,
+      0.2735
+     ],
+     "foco": [
+      0.59,
+      0.36,
+      0.39,
+      0.3
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

@@ -1,0 +1,45 @@
+{
+ "id": "V32",
+ "tema": "creme",
+ "musica": "boombap",
+ "cenas": [
+  {
+   "tipo": "split",
+   "texto": "Seu cardápio ainda é *um PDF no WhatsApp?*",
+   "antes": [
+    "Zoom no PDF",
+    "Pergunta o preço",
+    "Você digita"
+   ],
+   "depois": [
+    "Fotos e preços",
+    "Adicionais",
+    "Pedido no painel"
+   ],
+   "dur": 3.74,
+   "rotulos": [
+    "PDF",
+    "Cardápio digital"
+   ]
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "m_menu_longo",
+     "dur": 3.0,
+     "legenda": "Com foto, preço e *pedido com um toque*",
+     "rolar": [
+      0,
+      0.3
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "sub": "A gente transforma o seu PDF em cardápio digital."
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+ "id": "V19",
+ "tema": "brasa",
+ "musica": "trap",
+ "cenas": [
+  {
+   "tipo": "lista",
+   "texto": "Sua hamburgueria *ainda…*",
+   "itens": [
+    [
+     "anota pedido no WhatsApp?",
+     "pedido chega pelo cardápio"
+    ],
+    [
+     "calcula a taxa na mão?",
+     "taxa por bairro automática"
+    ],
+    [
+     "descobre que o pão acabou?",
+     "estoque avisa antes"
+    ],
+    [
+     "não sabe o custo do lanche?",
+     "ficha técnica e CMV"
+    ]
+   ],
+   "icone": "x",
+   "gap": 0.38,
+   "dur": 4.3
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "preco": "199,90"
+  }
+ ]
+}

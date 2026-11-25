@@ -1,0 +1,43 @@
+{
+ "id": "V34",
+ "tema": "ketchup",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "nota",
+   "nota": "Manda as fotos e os preços. A gente monta.",
+   "texto": "Seu cardápio digital *montado por nós*",
+   "dur": 3.0
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_produtos",
+     "dur": 2.4,
+     "legenda": "Lanches, tamanhos e adicionais *cadastrados*",
+     "foco": [
+      0.19,
+      0.12,
+      0.8,
+      0.55
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "dur": 2.2,
+     "legenda": "E o link *pronto pra divulgar*"
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

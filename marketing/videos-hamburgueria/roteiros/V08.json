@@ -1,0 +1,53 @@
+{
+ "id": "V08",
+ "tema": "noite",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "nota",
+   "nota": "Sábado, 20h: acabou o pão brioche.",
+   "texto": "Faltou insumo *no meio do serviço?*",
+   "dur": 3.0
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_inicio",
+     "dur": 2.6,
+     "legenda": "O estoque baixa *a cada venda*",
+     "foco": [
+      0.4411,
+      0.7522,
+      0.2956,
+      0.2478
+     ],
+     "destaque": {
+      "caixa": [
+       0.4611,
+       0.7722,
+       0.2556,
+       0.2
+      ],
+      "rotulo": "Estoque baixo"
+     }
+    },
+    {
+     "img": "d_estoque",
+     "dur": 2.0,
+     "legenda": "E avisa *antes de acabar*",
+     "foco": [
+      0.19,
+      0.14,
+      0.62,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

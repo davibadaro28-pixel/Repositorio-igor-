@@ -1,0 +1,56 @@
+{
+ "id": "V21",
+ "tema": "noite",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Cardápio, cozinha, caixa e estoque.\n*Um sistema só.*",
+   "dur": 2.5,
+   "modo": "bate"
+  },
+  {
+   "tipo": "carrossel",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "legenda": "Cardápio digital"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "legenda": "Quadro de pedidos"
+    },
+    {
+     "img": "k01_cozinha",
+     "legenda": "Tela da cozinha"
+    },
+    {
+     "img": "d_cmv",
+     "legenda": "Custo de cada lanche"
+    },
+    {
+     "img": "d_caixa",
+     "legenda": "Caixa"
+    }
+   ],
+   "passo": 1.0
+  },
+  {
+   "tipo": "preco",
+   "plano": "Sistema + cardápio em site",
+   "valor": "299,90",
+   "itens": [
+    "Balcão, caixa e cozinha",
+    "Estoque com ficha técnica",
+    "Financeiro e relatórios"
+   ],
+   "texto": null,
+   "nota": "Sem comissão por pedido.",
+   "dur": 3.16
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

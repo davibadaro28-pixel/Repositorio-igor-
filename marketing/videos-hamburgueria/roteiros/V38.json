@@ -1,0 +1,57 @@
+{
+ "id": "V38",
+ "tema": "mostarda",
+ "musica": "boombap",
+ "cenas": [
+  {
+   "tipo": "chat",
+   "msgs": [
+    [
+     "c",
+     "Leva troco pra 50?"
+    ],
+    [
+     "c",
+     "Ah, e aceita cartão?"
+    ],
+    [
+     "c",
+     "Ou pode ser Pix?"
+    ]
+   ],
+   "gap": 0.5,
+   "dur": 3.0,
+   "texto": "Na hora de pagar:",
+   "selo": "Anotou?"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p11_pagamento",
+     "dur": 2.0,
+     "legenda": "O cliente escolhe *como vai pagar*",
+     "zoom": {
+      "x": 0.4,
+      "y": 0.74,
+      "s": 1.8
+     }
+    },
+    {
+     "img": "e01_entregador",
+     "dur": 2.0,
+     "legenda": "E o motoboy sai *sabendo quanto cobrar*",
+     "zoom": {
+      "x": 0.4,
+      "y": 0.27,
+      "s": 1.6
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

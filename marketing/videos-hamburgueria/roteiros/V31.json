@@ -1,0 +1,41 @@
+{
+ "id": "V31",
+ "tema": "mostarda",
+ "musica": "funk",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Cartão fidelidade *sem carimbo e sem papel.*",
+   "dur": 2.3
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_clientes",
+     "dur": 2.8,
+     "legenda": "Cada pedido soma *pontos* para o cliente",
+     "foco": [
+      0.55,
+      0.26,
+      0.44,
+      0.5
+     ],
+     "destaque": {
+      "caixa": [
+       0.861,
+       0.278,
+       0.072,
+       0.45
+      ],
+      "rotulo": "Pontos"
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

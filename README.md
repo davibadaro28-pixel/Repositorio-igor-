@@ -259,3 +259,11 @@ web/src/courier    app do entregador
 hamburguerias, docerias e lojas de comida, com telas reais do sistema. Textos prontos em
 `textos/Textos dos anúncios.csv` e o passo a passo em [`COMO-SUBIR.md`](marketing/criativos-meta/COMO-SUBIR.md).
 As imagens são geradas por `gerar.py` + `render.cjs` (não ficam no repositório).
+
+## Vídeos para vender o sistema a hamburguerias (Meta Ads)
+
+[`marketing/videos-hamburgueria/`](marketing/videos-hamburgueria/): 50 vídeos de 10 a 18 s (9:16 e 4:5), sem locução,
+com telas e fluxos reais do sistema gravados da loja de demonstração "Sua Hamburgueria", cenas 3D em three.js
+(celular, painel, hambúrguer com o custo de cada camada), trilha e efeitos sonoros originais sintetizados.
+Textos dos anúncios em `roteiros/textos.json` e o passo a passo em [`COMO-SUBIR.md`](marketing/videos-hamburgueria/COMO-SUBIR.md).
+Os vídeos são gerados por `render.cjs` + `som.py` (não ficam no repositório).

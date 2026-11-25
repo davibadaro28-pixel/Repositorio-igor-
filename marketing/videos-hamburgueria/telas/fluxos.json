@@ -1,0 +1,171 @@
+{
+ "pedido": [
+  {
+   "tela": "p01_menu",
+   "toque": {
+    "x": 0.6872,
+    "y": 0.5489
+   }
+  },
+  {
+   "tela": "p02_produto",
+   "toque": {
+    "x": 0.1905,
+    "y": 0.631
+   }
+  },
+  {
+   "tela": "p03_adicionais",
+   "toque": {
+    "x": 0.8923,
+    "y": 0.535
+   }
+  },
+  {
+   "tela": "p04_bacon",
+   "toque": {
+    "x": 0.659,
+    "y": 0.9573
+   }
+  },
+  {
+   "tela": "p05_menu_sacola",
+   "toque": {
+    "x": 0.6872,
+    "y": 0.5489
+   }
+  },
+  {
+   "tela": "p06_batata",
+   "toque": {
+    "x": 0.2484,
+    "y": 0.7204
+   }
+  },
+  {
+   "tela": "p07_batata_grande",
+   "toque": {
+    "x": 0.659,
+    "y": 0.9573
+   }
+  },
+  {
+   "tela": "p08_sacola",
+   "toque": {
+    "x": 0.5,
+    "y": 0.955
+   }
+  },
+  {
+   "tela": "p09_checkout"
+  },
+  {
+   "tela": "p10_endereco"
+  },
+  {
+   "tela": "p11_pagamento",
+   "toque": {
+    "x": 0.5,
+    "y": 0.9573
+   }
+  },
+  {
+   "tela": "p12_recebido"
+  }
+ ],
+ "combo": [
+  {
+   "tela": "c01_menu",
+   "toque": {
+    "x": 0.6872,
+    "y": 0.5489
+   }
+  },
+  {
+   "tela": "c02_combo",
+   "toque": {
+    "x": 0.8923,
+    "y": 0.6333
+   }
+  },
+  {
+   "tela": "c03_um",
+   "toque": {
+    "x": 0.8923,
+    "y": 0.6949
+   }
+  },
+  {
+   "tela": "c04_lanches",
+   "toque": {
+    "x": 0.8923,
+    "y": 0.535
+   }
+  },
+  {
+   "tela": "c05_bebida1",
+   "toque": {
+    "x": 0.8923,
+    "y": 0.6582
+   }
+  },
+  {
+   "tela": "c06_pronto"
+  }
+ ],
+ "esgotado": [
+  {
+   "tela": "g01_produtos",
+   "toque": {
+    "x": 0.7513,
+    "y": 0.4714
+   }
+  },
+  {
+   "tela": "g02_esgotado"
+  }
+ ],
+ "pausa": [
+  {
+   "tela": "h01_recebendo",
+   "toque": {
+    "x": 0.2738,
+    "y": 0.025
+   }
+  },
+  {
+   "tela": "h02_pausado"
+  }
+ ],
+ "cozinha": [
+  {
+   "tela": "k01_cozinha",
+   "toque": {
+    "x": 0.5889,
+    "y": 0.6878
+   }
+  },
+  {
+   "tela": "k02_cozinha_pronto"
+  }
+ ],
+ "pdv": [
+  {
+   "tela": "v01_pdv",
+   "toque": {
+    "x": 0.3781,
+    "y": 0.4064
+   }
+  },
+  {
+   "tela": "v02_pdv",
+   "toque": {
+    "x": 0.508,
+    "y": 0.6781
+   }
+  },
+  {
+   "tela": "v03_pdv"
+  }
+ ]
+}

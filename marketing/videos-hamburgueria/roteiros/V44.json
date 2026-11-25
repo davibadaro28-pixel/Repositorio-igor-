@@ -1,0 +1,76 @@
+{
+ "id": "V44",
+ "tema": "brasa",
+ "musica": "trap",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Cardápio.",
+   "dur": 0.8,
+   "modo": "bate",
+   "corte": false
+  },
+  {
+   "tipo": "texto",
+   "texto": "Cozinha.",
+   "dur": 0.8,
+   "modo": "bate"
+  },
+  {
+   "tipo": "texto",
+   "texto": "*Caixa.*",
+   "dur": 0.9,
+   "modo": "bate"
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_pedidos_depois",
+     "dur": 1.6,
+     "legenda": "O pedido entra",
+     "foco": [
+      0.17,
+      0.173,
+      0.196,
+      0.278
+     ],
+     "destaque": {
+      "caixa": [
+       0.2,
+       0.213,
+       0.136,
+       0.198
+      ]
+     }
+    },
+    {
+     "img": "k01_cozinha",
+     "dur": 1.5,
+     "legenda": "a cozinha prepara",
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ]
+    },
+    {
+     "img": "d_caixa",
+     "dur": 1.7,
+     "legenda": "e o caixa *fecha certinho*",
+     "foco": [
+      0.19,
+      0.08,
+      0.8,
+      0.45
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

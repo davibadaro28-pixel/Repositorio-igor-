@@ -1,0 +1,39 @@
+{
+ "id": "V39",
+ "tema": "ketchup",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "pergunta",
+   "pergunta": "Qual bairro mais pede o seu lanche?",
+   "resposta": "o centro, eu acho",
+   "texto": null,
+   "dur": 2.9
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_relatorios_longo",
+     "dur": 3.2,
+     "legenda": "O relatório mostra *as entregas por bairro*",
+     "rolar": [
+      0.56,
+      0.56
+     ],
+     "foco": [
+      0.71,
+      0.2,
+      0.28,
+      0.6
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "sub": "Aí o anúncio vai pro bairro certo."
+  }
+ ]
+}

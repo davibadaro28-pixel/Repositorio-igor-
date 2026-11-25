@@ -1,0 +1,46 @@
+{
+ "id": "V48",
+ "tema": "mostarda",
+ "musica": "boombap",
+ "cenas": [
+  {
+   "tipo": "split",
+   "texto": "Sábado à noite *sem caderno*",
+   "antes": [
+    "Pedido anotado",
+    "Comanda perdida",
+    "Conta de cabeça"
+   ],
+   "depois": [
+    "Pedido no painel",
+    "Tela da cozinha",
+    "Caixa somado"
+   ],
+   "dur": 3.74,
+   "rotulos": [
+    "Caderno",
+    "Sistema"
+   ]
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_pedidos_depois",
+     "dur": 2.4,
+     "legenda": "Todos os pedidos *num quadro só*",
+     "foco": [
+      0.19,
+      0.08,
+      0.8,
+      0.55
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

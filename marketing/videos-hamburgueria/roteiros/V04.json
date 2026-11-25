@@ -1,0 +1,61 @@
+{
+ "id": "V04",
+ "tema": "noite",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "relogio",
+   "dia": "SEXTA-FEIRA",
+   "de": "20:59",
+   "para": "21:00",
+   "texto": "Chapa lotada. *Qual pedido sai primeiro?*",
+   "dur": 2.9
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_pedidos_antes",
+     "dur": 1.0,
+     "legenda": "Todos os pedidos *num quadro só*"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "dur": 1.9,
+     "legenda": "Pedido novo chega *com aviso*",
+     "foco": [
+      0.17,
+      0.173,
+      0.196,
+      0.278
+     ],
+     "destaque": {
+      "caixa": [
+       0.2,
+       0.213,
+       0.136,
+       0.198
+      ],
+      "rotulo": "Novo"
+     },
+     "som": "ding"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "dur": 1.8,
+     "legenda": "Cada coluna: *novo, preparo, pronto, entrega*",
+     "foco": [
+      0.19,
+      0.08,
+      0.8,
+      0.55
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

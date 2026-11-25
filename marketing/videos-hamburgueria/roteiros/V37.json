@@ -1,0 +1,41 @@
+{
+ "id": "V37",
+ "tema": "creme",
+ "musica": "funk",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Cliente que vem buscar *não precisa esperar na fila.*",
+   "dur": 2.4
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p09_checkout",
+     "dur": 2.0,
+     "legenda": "Ele escolhe *retirar na loja*",
+     "zoom": {
+      "x": 0.72,
+      "y": 0.48,
+      "s": 2.0
+     }
+    },
+    {
+     "img": "p14_pronto",
+     "dur": 2.0,
+     "legenda": "E vê quando *ficou pronto*",
+     "zoom": {
+      "x": 0.45,
+      "y": 0.48,
+      "s": 1.7
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

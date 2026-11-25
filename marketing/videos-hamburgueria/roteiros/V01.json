@@ -1,0 +1,103 @@
+{
+ "id": "V01",
+ "tema": "brasa",
+ "musica": "funk",
+ "cenas": [
+  {
+   "tipo": "numero",
+   "texto": "de comissão no pedido que chega pelo *seu* cardápio",
+   "para": 0,
+   "prefixo": "R$ ",
+   "sufixo": "",
+   "casas": 0,
+   "dur": 2.6,
+   "antes": "Quanto o seu cardápio cobra por pedido?"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "dur": 1.1,
+     "legenda": "O cliente pede *pelo seu link*",
+     "toque": {
+      "x": 0.6872,
+      "y": 0.5489
+     }
+    },
+    {
+     "img": "p02_produto",
+     "dur": 1.3,
+     "legenda": "O *ponto da carne* é obrigatório",
+     "toque": {
+      "x": 0.1905,
+      "y": 0.631
+     },
+     "zoom": {
+      "x": 0.4,
+      "y": 0.67,
+      "s": 2.0
+     }
+    },
+    {
+     "img": "p03_adicionais",
+     "dur": 1.0,
+     "legenda": "E o *adicional* entra com um toque",
+     "toque": {
+      "x": 0.8923,
+      "y": 0.535
+     }
+    },
+    {
+     "img": "p04_bacon",
+     "dur": 1.0,
+     "toque": {
+      "x": 0.659,
+      "y": 0.9573
+     },
+     "zoom": {
+      "x": 0.66,
+      "y": 0.93,
+      "s": 2.0
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_pedidos_antes",
+     "dur": 0.9,
+     "legenda": "E o pedido *cai no seu painel*"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "dur": 2.0,
+     "foco": [
+      0.17,
+      0.173,
+      0.196,
+      0.278
+     ],
+     "destaque": {
+      "caixa": [
+       0.2,
+       0.213,
+       0.136,
+       0.198
+      ],
+      "rotulo": "Pedido novo"
+     },
+     "som": "ding"
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "preco": "199,90",
+   "sub": "Mensalidade fixa. Sem comissão por pedido."
+  }
+ ]
+}

@@ -1,0 +1,72 @@
+{
+ "id": "V23",
+ "tema": "brasa",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Do link ao pedido.\n*Conta os toques.*",
+   "dur": 2.2,
+   "modo": "bate"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "dur": 0.85,
+     "legenda": "Toque *1*: o lanche",
+     "toque": {
+      "x": 0.6872,
+      "y": 0.5489
+     }
+    },
+    {
+     "img": "p02_produto",
+     "dur": 0.85,
+     "legenda": "Toque *2*: o ponto",
+     "toque": {
+      "x": 0.1905,
+      "y": 0.631
+     }
+    },
+    {
+     "img": "p04_bacon",
+     "dur": 0.85,
+     "legenda": "Toque *3*: adicionar",
+     "toque": {
+      "x": 0.659,
+      "y": 0.9573
+     }
+    },
+    {
+     "img": "p08_sacola",
+     "dur": 0.85,
+     "legenda": "Toque *4*: a sacola",
+     "toque": {
+      "x": 0.5,
+      "y": 0.955
+     }
+    },
+    {
+     "img": "p11_pagamento",
+     "dur": 0.95,
+     "legenda": "Toque *5*: enviar",
+     "toque": {
+      "x": 0.5,
+      "y": 0.9573
+     }
+    },
+    {
+     "img": "p12_recebido",
+     "dur": 1.3,
+     "legenda": "*Pedido feito.*"
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

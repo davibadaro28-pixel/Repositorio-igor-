@@ -1,0 +1,75 @@
+{
+ "id": "V07",
+ "tema": "brasa",
+ "musica": "trap",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Seu lanche mais vendido *dá lucro* mesmo?",
+   "dur": 2.3
+  },
+  {
+   "tipo": "burger",
+   "dur": 4.6,
+   "explode": 1.0,
+   "texto": "Quanto custa *cada camada*?",
+   "camadas": [
+    {
+     "camada": "pao_cima",
+     "nome": "Pão brioche",
+     "valor": "R$ 1,60"
+    },
+    {
+     "camada": "molho",
+     "nome": "Maionese da casa",
+     "valor": "R$ 0,36"
+    },
+    {
+     "camada": "bacon",
+     "nome": "Bacon (40 g)",
+     "valor": "R$ 2,60"
+    },
+    {
+     "camada": "queijo",
+     "nome": "Cheddar (2 fatias)",
+     "valor": "R$ 1,50"
+    },
+    {
+     "camada": "carne",
+     "nome": "Blend 180 g",
+     "valor": "R$ 9,50"
+    }
+   ],
+   "total": "Custo do Cheese Bacon: R$ 16,69 · vende a R$ 38,90"
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_cmv",
+     "dur": 2.6,
+     "legenda": "O sistema calcula o *CMV de cada lanche*",
+     "foco": [
+      0.19,
+      0.2,
+      0.62,
+      0.55
+     ],
+     "destaque": {
+      "caixa": [
+       0.655,
+       0.255,
+       0.082,
+       0.5
+      ],
+      "rotulo": "CMV"
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

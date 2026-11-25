@@ -1,0 +1,68 @@
+{
+ "id": "V29",
+ "tema": "brasa",
+ "musica": "trap",
+ "cenas": [
+  {
+   "tipo": "pergunta",
+   "pergunta": "Quanto custa fazer o seu cheese bacon?",
+   "resposta": "uns 10 reais?",
+   "texto": null,
+   "dur": 2.9
+  },
+  {
+   "tipo": "burger",
+   "dur": 4.8,
+   "explode": 1.0,
+   "texto": "O sistema calcula *camada por camada*",
+   "camadas": [
+    {
+     "camada": "pao_cima",
+     "nome": "Pão brioche",
+     "valor": "R$ 1,60"
+    },
+    {
+     "camada": "molho",
+     "nome": "Maionese da casa",
+     "valor": "R$ 0,36"
+    },
+    {
+     "camada": "bacon",
+     "nome": "Bacon (40 g)",
+     "valor": "R$ 2,60"
+    },
+    {
+     "camada": "queijo",
+     "nome": "Cheddar (2 fatias)",
+     "valor": "R$ 1,50"
+    },
+    {
+     "camada": "carne",
+     "nome": "Blend 180 g",
+     "valor": "R$ 9,50"
+    }
+   ],
+   "total": "Custo do Cheese Bacon: R$ 16,69 · vende a R$ 38,90"
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_ficha",
+     "dur": 2.4,
+     "legenda": "Pela *ficha técnica* de cada lanche",
+     "foco": [
+      0.28,
+      0.12,
+      0.44,
+      0.66
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

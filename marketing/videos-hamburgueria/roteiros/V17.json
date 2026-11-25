@@ -1,0 +1,30 @@
+{
+ "id": "V17",
+ "tema": "brasa",
+ "musica": "lofi",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Saiu da hamburgueria?\nEla vai *no seu bolso.*",
+   "dur": 2.4
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "m_inicio_longo",
+     "dur": 4.2,
+     "legenda": "Vendas, pedidos e *mais vendidos*, de onde você estiver",
+     "rolar": [
+      0,
+      0.55
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

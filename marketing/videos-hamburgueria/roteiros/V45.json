@@ -1,0 +1,31 @@
+{
+ "id": "V45",
+ "tema": "ketchup",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Lanche *com foto* dá água na boca.\nLista de texto, não.",
+   "dur": 2.6,
+   "foto": "monstro-duplo"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "m_menu_longo",
+     "dur": 3.4,
+     "legenda": "Seu cardápio com *a foto de cada lanche*",
+     "rolar": [
+      0,
+      0.4
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

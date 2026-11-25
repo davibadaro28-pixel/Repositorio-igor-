@@ -1,0 +1,36 @@
+{
+ "id": "V49",
+ "tema": "brasa",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Sua hamburgueria *na tela do celular* do cliente.",
+   "dur": 2.4
+  },
+  {
+   "tipo": "appicone",
+   "legenda1": "O cliente instala o cardápio *com o seu ícone*",
+   "legenda2": "Tocou, *abriu o cardápio*",
+   "durHome": 1.8,
+   "durMenu": 1.8
+  },
+  {
+   "tipo": "preco",
+   "plano": "Sistema + cardápio em app",
+   "valor": "599,90",
+   "itens": [
+    "Ícone e nome da sua loja",
+    "Abre direto no cardápio",
+    "Sistema completo junto"
+   ],
+   "texto": null,
+   "nota": null,
+   "dur": 3.16
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

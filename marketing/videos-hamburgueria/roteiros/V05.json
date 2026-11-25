@@ -1,0 +1,49 @@
+{
+ "id": "V05",
+ "tema": "creme",
+ "musica": "boombap",
+ "cenas": [
+  {
+   "tipo": "nota",
+   "nota": "A comanda caiu na chapa. De novo.",
+   "texto": "Sua cozinha ainda depende de *papelzinho?*",
+   "dur": 3.0
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "k01_cozinha",
+     "dur": 2.2,
+     "legenda": "A cozinha vê *tudo numa tela*",
+     "toque": {
+      "x": 0.5889,
+      "y": 0.6878
+     },
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ]
+    },
+    {
+     "img": "k02_cozinha_pronto",
+     "dur": 1.6,
+     "legenda": "Ficou pronto? *Um toque.*",
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ],
+     "som": "success"
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

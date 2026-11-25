@@ -1,0 +1,107 @@
+{
+ "id": "V47",
+ "tema": "noite",
+ "musica": "funk",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "O caminho de um *Smash Duplo:*",
+   "dur": 1.9
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p02_produto",
+     "dur": 1.0,
+     "legenda": "1. O cliente pede",
+     "toque": {
+      "x": 0.1905,
+      "y": 0.631
+     }
+    },
+    {
+     "img": "p04_bacon",
+     "dur": 0.9,
+     "toque": {
+      "x": 0.659,
+      "y": 0.9573
+     }
+    },
+    {
+     "img": "p12_recebido",
+     "dur": 1.1
+    }
+   ]
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_pedidos_depois",
+     "dur": 1.6,
+     "legenda": "2. Cai no painel",
+     "foco": [
+      0.17,
+      0.173,
+      0.196,
+      0.278
+     ],
+     "destaque": {
+      "caixa": [
+       0.2,
+       0.213,
+       0.136,
+       0.198
+      ]
+     },
+     "som": "ding"
+    },
+    {
+     "img": "k01_cozinha",
+     "dur": 1.5,
+     "legenda": "3. A cozinha prepara",
+     "toque": {
+      "x": 0.5889,
+      "y": 0.6878
+     },
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ]
+    },
+    {
+     "img": "k02_cozinha_pronto",
+     "dur": 1.0,
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p15_saiu",
+     "dur": 1.6,
+     "legenda": "4. O cliente acompanha",
+     "zoom": {
+      "x": 0.45,
+      "y": 0.5,
+      "s": 1.7
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "id": "V03",
+ "tema": "ketchup",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Pediu *ao ponto*.\nChegou *bem passado*.",
+   "dur": 2.4,
+   "foto": "cheese-bacon",
+   "modo": "bate"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "dur": 1.0,
+     "legenda": "No seu cardápio",
+     "toque": {
+      "x": 0.6872,
+      "y": 0.5489
+     }
+    },
+    {
+     "img": "p02_produto",
+     "dur": 2.0,
+     "legenda": "o *ponto da carne* é obrigatório",
+     "toque": {
+      "x": 0.1905,
+      "y": 0.631
+     },
+     "zoom": {
+      "x": 0.4,
+      "y": 0.67,
+      "s": 2.2
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_cozinha",
+     "dur": 2.6,
+     "legenda": "E vai *escrito* na tela da cozinha",
+     "foco": [
+      0.19,
+      0.3,
+      0.42,
+      0.33
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

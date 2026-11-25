@@ -1,0 +1,57 @@
+{
+ "id": "V24",
+ "tema": "creme",
+ "musica": "boombap",
+ "cenas": [
+  {
+   "tipo": "nota",
+   "nota": "Acabou o Smash Triplo.",
+   "texto": "E o cliente *continua pedindo?*",
+   "dur": 2.8
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "g01_produtos",
+     "dur": 1.9,
+     "legenda": "Um toque e ele fica *esgotado*",
+     "toque": {
+      "x": 0.7513,
+      "y": 0.4714
+     },
+     "foco": [
+      0.38,
+      0.3,
+      0.6,
+      0.38
+     ]
+    },
+    {
+     "img": "g02_esgotado",
+     "dur": 2.0,
+     "legenda": "e *sai do cardápio* na hora",
+     "foco": [
+      0.38,
+      0.3,
+      0.6,
+      0.38
+     ],
+     "destaque": {
+      "caixa": [
+       0.3861,
+       0.4205,
+       0.5972,
+       0.0974
+      ],
+      "rotulo": "Esgotado"
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

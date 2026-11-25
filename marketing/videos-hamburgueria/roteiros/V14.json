@@ -1,0 +1,53 @@
+{
+ "id": "V14",
+ "tema": "creme",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Aquele cliente de toda sexta *sumiu.*\nVocê percebeu?",
+   "dur": 2.6
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_clientes",
+     "dur": 2.3,
+     "legenda": "O sistema guarda o *histórico de cada cliente*",
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.5
+     ]
+    },
+    {
+     "img": "d_clientes",
+     "dur": 2.4,
+     "legenda": "E separa *quem sumiu há 30 dias*",
+     "foco": [
+      0.1744,
+      0.1611,
+      0.6757,
+      0.1644
+     ],
+     "destaque": {
+      "caixa": [
+       0.578,
+       0.2256,
+       0.114,
+       0.0356
+      ],
+      "rotulo": "Sumidos"
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "sub": "Chame no WhatsApp com a mensagem pronta."
+  }
+ ]
+}

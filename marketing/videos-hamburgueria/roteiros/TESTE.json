@@ -1,0 +1,10 @@
+{"id":"TESTE","tema":"brasa","cenas":[
+ {"tipo":"texto","dur":2.2,"texto":"Seu cliente pede pelo direct e você *digita tudo* de novo?","etiqueta":"Para hamburguerias"},
+ {"tipo":"chat","dur":3.2,"texto":"Toda noite:","msgs":[["c","Me manda o cardápio?"],["c","Quanto tá o cheese bacon?"],["c","Entrega no Jardim América?"],["l","Pede pelo link 👇"]],"selo":"De novo?"},
+ {"tipo":"celular","telas":[{"img":"p01_menu","dur":1.4,"toque":{"x":0.6872,"y":0.5489},"legenda":"Ele pede pelo *seu cardápio*"},{"img":"p02_produto","dur":1.3,"toque":{"x":0.1905,"y":0.631},"legenda":"Escolhe o *ponto da carne*"},{"img":"p10_endereco","dur":1.8,"zoom":{"x":0.3,"y":0.075,"s":2.4},"legenda":"A *taxa do bairro* entra sozinha"}]},
+ {"tipo":"painel","telas":[{"img":"d_pedidos_antes","dur":1.0,"legenda":"E o pedido *cai no painel*"},{"img":"d_pedidos_depois","dur":2.0,"foco":[0.08,0.03,0.42,0.3],"destaque":{"caixa":[0.177,0.098,0.084,0.12],"rotulo":"Pedido novo"},"som":"ding"}]},
+ {"tipo":"burger","dur":4.2,"texto":"Quanto custa *cada camada*?","camadas":[{"camada":"pao_cima","nome":"Pão brioche","valor":"R$ 1,60"},{"camada":"bacon","nome":"Bacon 40 g","valor":"R$ 2,60"},{"camada":"queijo","nome":"Cheddar (2 fatias)","valor":"R$ 1,50"},{"camada":"carne","nome":"Blend 180 g","valor":"R$ 9,50"}],"total":"Custo do Cheese Bacon: R$ 16,69"},
+ {"tipo":"lista","dur":3.6,"texto":"Sua hamburgueria *ainda…*","itens":[["anota pedido no WhatsApp?","pedido chega pelo cardápio"],["calcula a taxa na mão?","taxa por bairro automática"]]},
+ {"tipo":"numero","dur":2.4,"prefixo":"R$ ","de":12.9,"para":0,"casas":0,"texto":"de comissão por pedido no *seu* cardápio"},
+ {"tipo":"cta","dur":3.0,"preco":"199,90"}
+]}

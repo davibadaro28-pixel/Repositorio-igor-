@@ -1,0 +1,39 @@
+{
+ "id": "V46",
+ "tema": "creme",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Vai abrir sua hamburgueria?\n*Comece organizado.*",
+   "dur": 2.5
+  },
+  {
+   "tipo": "carrossel",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "legenda": "Cardápio digital"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "legenda": "Pedidos"
+    },
+    {
+     "img": "d_cmv",
+     "legenda": "Custo dos lanches"
+    },
+    {
+     "img": "d_caixa",
+     "legenda": "Caixa"
+    }
+   ],
+   "passo": 1.1
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "preco": "199,90"
+  }
+ ]
+}

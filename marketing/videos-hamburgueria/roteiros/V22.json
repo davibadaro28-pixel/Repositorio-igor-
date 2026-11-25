@@ -1,0 +1,31 @@
+{
+ "id": "V22",
+ "tema": "mostarda",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "perfil",
+   "texto": "Um link na bio que *recebe pedido*",
+   "dur": 3.2
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "m_menu_longo",
+     "dur": 3.2,
+     "legenda": "Tocou no link, *caiu no cardápio*",
+     "rolar": [
+      0,
+      0.3
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "sub": "Link e QR Code para o Instagram, o WhatsApp e o balcão."
+  }
+ ]
+}

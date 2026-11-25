@@ -1,0 +1,61 @@
+{
+ "id": "V25",
+ "tema": "ketchup",
+ "musica": "trap",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Fila no balcão e *pedido anotado no papel?*",
+   "dur": 2.4
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "v01_pdv",
+     "dur": 1.4,
+     "legenda": "No balcão: *toca no lanche*",
+     "toque": {
+      "x": 0.3781,
+      "y": 0.4064
+     },
+     "foco": [
+      0.17,
+      0.05,
+      0.56,
+      0.6
+     ]
+    },
+    {
+     "img": "v02_pdv",
+     "dur": 1.3,
+     "toque": {
+      "x": 0.508,
+      "y": 0.6781
+     },
+     "foco": [
+      0.17,
+      0.05,
+      0.56,
+      0.6
+     ]
+    },
+    {
+     "img": "v03_pdv",
+     "dur": 2.2,
+     "legenda": "e o pedido *já sai somado*",
+     "foco": [
+      0.699,
+      0.0589,
+      0.301,
+      0.9367
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

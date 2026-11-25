@@ -1,0 +1,44 @@
+{
+ "id": "V15",
+ "tema": "ketchup",
+ "musica": "funk",
+ "cenas": [
+  {
+   "tipo": "nota",
+   "nota": "Terça-feira. Chapa fria.",
+   "texto": "Crie um cupom *só pro dia fraco*",
+   "dur": 3.0
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_cupons",
+     "dur": 2.0,
+     "legenda": "Cupons de desconto *no seu cardápio*",
+     "foco": [
+      0.1744,
+      0.1278,
+      0.8256,
+      0.2333
+     ]
+    },
+    {
+     "img": "d_cupom_novo",
+     "dur": 2.4,
+     "legenda": "Com *validade, mínimo e limite de usos*",
+     "foco": [
+      0.3,
+      0.2,
+      0.42,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

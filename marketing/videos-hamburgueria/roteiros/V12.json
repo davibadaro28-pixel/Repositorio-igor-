@@ -1,0 +1,67 @@
+{
+ "id": "V12",
+ "tema": "noite",
+ "musica": "lofi",
+ "cenas": [
+  {
+   "tipo": "chat",
+   "msgs": [
+    [
+     "c",
+     "Moço, meu lanche já saiu?"
+    ],
+    [
+     "c",
+     "Já tá vindo?"
+    ],
+    [
+     "c",
+     "??"
+    ]
+   ],
+   "gap": 0.55,
+   "dur": 2.85,
+   "texto": "Dez vezes por noite:"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p12_recebido",
+     "dur": 1.2,
+     "legenda": "O cliente acompanha *pelo celular*",
+     "zoom": {
+      "x": 0.45,
+      "y": 0.32,
+      "s": 1.7
+     }
+    },
+    {
+     "img": "p13_preparo",
+     "dur": 1.2,
+     "legenda": "*Em preparo*",
+     "zoom": {
+      "x": 0.45,
+      "y": 0.36,
+      "s": 1.7
+     }
+    },
+    {
+     "img": "p15_saiu",
+     "dur": 1.6,
+     "legenda": "*Saiu para entrega*",
+     "zoom": {
+      "x": 0.45,
+      "y": 0.5,
+      "s": 1.7
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "sub": "O status muda sozinho quando você avança o pedido."
+  }
+ ]
+}

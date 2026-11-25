@@ -1,0 +1,45 @@
+{
+ "id": "V28",
+ "tema": "creme",
+ "musica": "lofi",
+ "cenas": [
+  {
+   "tipo": "pergunta",
+   "pergunta": "Sobrou dinheiro esse mês?",
+   "resposta": "acho que sim…",
+   "texto": null,
+   "dur": 3.0
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_fluxo",
+     "dur": 2.4,
+     "legenda": "O fluxo de caixa mostra *entradas e saídas*",
+     "foco": [
+      0.1744,
+      0.2244,
+      0.8256,
+      0.2311
+     ]
+    },
+    {
+     "img": "d_fluxo",
+     "dur": 2.4,
+     "legenda": "e o *saldo de cada dia*",
+     "foco": [
+      0.1844,
+      0.3933,
+      0.8089,
+      0.3933
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

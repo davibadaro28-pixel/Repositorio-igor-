@@ -1,0 +1,44 @@
+{
+ "id": "V30",
+ "tema": "ketchup",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Tem cliente seu *fazendo aniversário* este mês.",
+   "dur": 2.4
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_clientes",
+     "dur": 1.6,
+     "legenda": "O sistema guarda *a data de cada cliente*",
+     "foco": [
+      0.19,
+      0.18,
+      0.8,
+      0.45
+     ]
+    },
+    {
+     "img": "d_aniversariantes",
+     "dur": 2.4,
+     "legenda": "E lista os *aniversariantes do mês*",
+     "foco": [
+      0.1844,
+      0.2922,
+      0.8089,
+      0.4956
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "sub": "Mande um cupom de presente pelo WhatsApp."
+  }
+ ]
+}

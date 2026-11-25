@@ -1,0 +1,48 @@
+{
+ "id": "V18",
+ "tema": "creme",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "split",
+   "texto": "Antes e depois de *organizar a hamburgueria*",
+   "antes": [
+    "Pedido no caderno",
+    "Taxa no chute",
+    "Caixa no olho"
+   ],
+   "depois": [
+    "Pedido pelo cardápio",
+    "Taxa por bairro",
+    "Caixa conferido"
+   ],
+   "dur": 3.74
+  },
+  {
+   "tipo": "carrossel",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "legenda": "Cardápio"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "legenda": "Pedidos"
+    },
+    {
+     "img": "d_cozinha",
+     "legenda": "Cozinha"
+    },
+    {
+     "img": "d_caixa",
+     "legenda": "Caixa"
+    }
+   ],
+   "passo": 1.1
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0
+  }
+ ]
+}

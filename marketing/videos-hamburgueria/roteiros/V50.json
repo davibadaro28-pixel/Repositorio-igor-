@@ -1,0 +1,22 @@
+{
+ "id": "V50",
+ "tema": "noite",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Quanto custa *organizar* sua hamburgueria?",
+   "dur": 2.3
+  },
+  {
+   "tipo": "planos",
+   "texto": "Escolha *o seu plano*",
+   "dur": 3.4
+  },
+  {
+   "tipo": "cta",
+   "dur": 3.0,
+   "sub": "Mensalidade fixa. Sem comissão por pedido."
+  }
+ ]
+}
