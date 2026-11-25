@@ -4,3 +4,4 @@ preview-dist/
 server/data/
 *.log
 .DS_Store
+__pycache__/
