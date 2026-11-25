@@ -252,3 +252,10 @@ web/src/public     cardápio digital e acompanhamento do pedido
 web/src/admin      painel de gestão
 web/src/courier    app do entregador
 ```
+
+## Criativos para vender o sistema (Meta Ads)
+
+[`marketing/criativos-meta/`](marketing/criativos-meta/): 50 anúncios estáticos (feed 4x5 e stories 9x16) para
+hamburguerias, docerias e lojas de comida, com telas reais do sistema. Textos prontos em
+`textos/Textos dos anúncios.csv` e o passo a passo em [`COMO-SUBIR.md`](marketing/criativos-meta/COMO-SUBIR.md).
+As imagens são geradas por `gerar.py` + `render.cjs` (não ficam no repositório).
