@@ -1,0 +1,264 @@
+﻿id;angulo;arquivo;duracao_s;texto_principal;titulo;descricao;botao;mensagem_pronta
+V01;Comissão por pedido;V01-comissao-por-pedido.mp4;14,8;"Quanto de cada X-Bacon fica com o aplicativo de delivery? 🍔
+
+No seu cardápio digital, o pedido não paga comissão. O cliente abre o link do seu Instagram ou do WhatsApp, escolhe o lanche, o ponto da carne e os adicionais, e o pedido cai direto no seu painel.
+
+Você paga uma mensalidade fixa. Vendeu 100 ou 1.000 lanches, o valor é o mesmo.
+
+Chama no WhatsApp que a gente mostra funcionando com o seu cardápio.";Seu cardápio, sem comissão;Mensalidade fixa;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V01) e quero saber mais sobre o sistema.
+V02;Pedido digitado do direct;V02-pedido-digitado-do-direct.mp4;15,6;"""Me manda o cardápio?"" ""Quanto tá?"" ""Entrega no meu bairro?"" Toda noite, as mesmas perguntas. 📱
+
+Com o cardápio digital você manda um link e pronto: o cliente vê fotos e preços, escolhe o ponto da carne e os adicionais, vê a taxa de entrega do bairro dele e envia. O pedido chega organizado no seu painel, sem ninguém digitar nada.
+
+Quer ver com os seus lanches? Chama no WhatsApp.";Pare de anotar pedido no chat;O pedido chega pronto;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V02) e quero saber mais sobre o sistema.
+V03;Ponto da carne errado;V03-ponto-da-carne-errado.mp4;12,9;"Pediu ao ponto, chegou bem passado. E a avaliação veio com uma estrela. 😬
+
+No cardápio digital, o cliente escolhe o ponto da carne antes de fechar o pedido (é obrigatório) e marca o que quer tirar: sem cebola, sem picles. Tudo chega escrito no pedido e na tela da cozinha, do jeito que ele pediu.
+
+Chama no WhatsApp e veja com o seu cardápio.";O ponto certo, sempre;Escrito no pedido;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V03) e quero saber mais sobre o sistema.
+V04;Pico de sexta à noite;V04-pico-de-sexta-a-noite.mp4;11,6;"Sexta à noite, 15 pedidos ao mesmo tempo: balcão, telefone e delivery. Qual sai primeiro? 🔥
+
+No quadro de pedidos você vê tudo em colunas: novo, em preparo, pronto, em entrega. Cada pedido mostra há quanto tempo está esperando e o sistema avisa quando algum atrasa. Pedido novo chega com aviso sonoro.
+
+Chama no WhatsApp e peça uma demonstração.";Pico de sexta sob controle;Quadro de pedidos ao vivo;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V04) e quero saber mais sobre o sistema.
+V05;Comanda de papel;V05-comanda-de-papel.mp4;10,8;"Comanda de papel molha, rasga e some bem na hora do pico. 🧾
+
+A tela da cozinha fica num tablet do lado da chapa: mostra o total a produzir e cada pedido com o ponto da carne e as observações em destaque. Terminou, toca em ""Pronto"" e o balcão já sabe.
+
+Prefere papel? O sistema também imprime a comanda na impressora térmica.
+
+Chama no WhatsApp.";Cozinha sem comanda perdida;Tela para tablet;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V05) e quero saber mais sobre o sistema.
+V06;Taxa de entrega no chute;V06-taxa-de-entrega-no-chute.mp4;12,5;"""Quanto fica a entrega pro Jardim das Flores?"" Aí você para tudo pra responder. 🛵
+
+No cardápio digital, cada bairro tem a sua taxa. O cliente escolhe o bairro e o valor entra sozinho no total. Bairro que você não atende nem aparece na lista.
+
+Menos mensagem e nenhum erro na conta. Chama no WhatsApp.";Taxa de entrega automática;Por bairro;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V06) e quero saber mais sobre o sistema.
+V07;Lanche que vende e não dá lucro;V07-lanche-que-vende-e-nao-da-lucro.mp4;13,5;"Vender muito não é o mesmo que lucrar. Tem lanche que sai toda noite e quase não deixa dinheiro. 🍔
+
+Com a ficha técnica, o sistema calcula quanto custa cada lanche (pão, carne, queijo, bacon, embalagem) e mostra o CMV e o lucro de cada um. Quando a margem aperta, aparece em vermelho.
+
+Aí você sabe onde mexer no preço. Chama no WhatsApp.";O custo de cada lanche;Ficha técnica e CMV;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V07) e quero saber mais sobre o sistema.
+V08;Pão acabou no sábado;V08-pao-acabou-no-sabado.mp4;11,5;"Sábado, 20h, fila de pedido... e acabou o pão brioche. 😩
+
+O sistema dá baixa no estoque a cada lanche vendido, pela ficha técnica: um pão, uma carne, uma fatia de cheddar. Quando um insumo chega no mínimo, o alerta aparece na tela inicial. Dá tempo de comprar antes de faltar.
+
+Chama no WhatsApp e veja funcionando.";Estoque que avisa antes;Baixa automática;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V08) e quero saber mais sobre o sistema.
+V09;Caixa que não bate;V09-caixa-que-nao-bate.mp4;11,7;"Fechou o caixa e faltou R$ 30. Foi troco errado? Sangria que ninguém anotou? 🤔
+
+No sistema, o caixa abre com o fundo de troco, cada sangria e suprimento fica registrado e o fechamento mostra quanto deveria ter em dinheiro, Pix e cartão. Se tiver diferença, ela aparece na hora, não no fim do mês.
+
+Chama no WhatsApp.";Caixa que fecha certinho;Conferido por pagamento;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V09) e quero saber mais sobre o sistema.
+V10;Combo virando quebra-cabeça;V10-combo-virando-quebra-cabeca.mp4;13,6;"Combo casal: 2 lanches, fritas e 2 bebidas. Pelo WhatsApp, vira quebra-cabeça. 🧩
+
+No cardápio digital, o cliente monta o combo: escolhe os lanches, as bebidas e a batata. O sistema não deixa fechar faltando nada e o pedido chega com cada escolha escrita.
+
+A gente monta os seus combos com você. Chama no WhatsApp.";Combos montados sem erro;Escolhas obrigatórias;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V10) e quero saber mais sobre o sistema.
+V11;Adicionais que ninguém oferece;V11-adicionais-que-ninguem-oferece.mp4;10,7;"Quantas vezes o cliente queria bacon extra e ninguém ofereceu? 🥓
+
+No cardápio digital, os adicionais aparecem dentro de cada lanche: carne extra, cheddar, bacon, ovo, cebola caramelizada, cada um com o seu preço. O cliente adiciona com um toque e o valor soma sozinho.
+
+O atendente esquece de oferecer. O cardápio não esquece. Chama no WhatsApp.";Adicionais que vendem;Com um toque;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V11) e quero saber mais sobre o sistema.
+V12;"""Meu lanche já saiu?""";V12-meu-lanche-ja-saiu.mp4;10,8;"""Moço, meu lanche já saiu?"" Essa mensagem chega dez vezes por noite. 📲
+
+Com o cardápio digital, o cliente acompanha o pedido em tempo real: recebido, confirmado, em preparo, saiu para entrega. Você avança o pedido no painel e a tela dele atualiza sozinha.
+
+Menos mensagem, menos interrupção. Chama no WhatsApp.";O cliente vê onde está o lanche;Acompanhamento ao vivo;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V12) e quero saber mais sobre o sistema.
+V13;Acerto com o motoboy;V13-acerto-com-o-motoboy.mp4;12,2;"Fim da noite: o motoboy volta com dinheiro, maquininha e um monte de papel. Quanto ele tem que te passar? 🛵
+
+No sistema, cada entrega fica no nome do entregador. Pelo app do entregador, ele vê a rota no Google Maps, o valor a cobrar e o troco, e marca ""Saí"" e ""Entreguei"". No fim, o acerto por período sai pronto.
+
+Chama no WhatsApp.";Acerto com motoboy sem papel;App do entregador;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V13) e quero saber mais sobre o sistema.
+V14;Cliente fiel que sumiu;V14-cliente-fiel-que-sumiu.mp4;11,3;"Tem cliente que pedia toda sexta e parou. E ninguém percebeu. 👀
+
+O sistema guarda o histórico de cada cliente e separa quem sumiu há mais de 30 dias, quem mais compra e quem faz aniversário no mês. Com um toque, abre o WhatsApp com uma mensagem pronta (que tal um cupom de volta?).
+
+Chama no WhatsApp.";Traga de volta quem sumiu;Clientes + WhatsApp;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V14) e quero saber mais sobre o sistema.
+V15;Terça parada;V15-terca-parada.mp4;11,4;"Terça-feira, chapa fria e motoboy parado. 🥶
+
+Crie um cupom para o dia fraco: desconto em %, valor fixo ou frete grátis, com pedido mínimo, validade e limite de usos. Ou um cupom só para a primeira compra, para quem ainda não conhece a casa. Você divulga no Instagram e o cliente digita no cardápio.
+
+Na tela de cupons, você vê quantas vezes cada um foi usado. Chama no WhatsApp.";Movimente o dia fraco;Cupons no cardápio;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V15) e quero saber mais sobre o sistema.
+V16;Horário de pico no palpite;V16-horario-de-pico-no-palpite.mp4;12,0;"Que horas chega mais pedido? Qual dia da semana vende menos? Qual lanche puxa as vendas? 📊
+
+Os relatórios mostram o faturamento por dia, por horário e por dia da semana, os mais vendidos, os bairros que mais pedem e o ticket médio. Dá para montar a escala e as promoções olhando número, não palpite.
+
+Chama no WhatsApp.";Decida olhando número;Relatórios prontos;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V16) e quero saber mais sobre o sistema.
+V17;A loja no bolso;V17-a-loja-no-bolso.mp4;10,6;"Dá pra sair da loja sem ligar a cada 20 minutos pra saber como está? Dá. 📱
+
+O painel abre no celular: vendas do dia, ticket médio, pedidos em aberto, os mais vendidos e o que está acabando no estoque. Tudo atualizado na hora.
+
+Chama no WhatsApp e veja no seu celular.";Sua loja no celular;Painel em tempo real;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V17) e quero saber mais sobre o sistema.
+V18;Antes e depois;V18-antes-e-depois.mp4;11,9;"Antes: pedido no caderno, taxa de entrega no chute, caixa conferido no olho e estoque na memória. 📓
+
+Depois: pedido chegando organizado pelo cardápio digital, taxa por bairro automática, caixa fechado por forma de pagamento e estoque que avisa antes de acabar.
+
+A gente monta o seu cardápio e te ensina a usar. Chama no WhatsApp.";Saia do caderno;Montamos seu cardápio;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V18) e quero saber mais sobre o sistema.
+V19;Checklist de dores;V19-checklist-de-dores.mp4;7,3;"Responde rápido: sua hamburgueria ainda…
+❌ anota pedido no WhatsApp?
+❌ calcula a taxa de entrega na mão?
+❌ descobre que o pão acabou na hora do pedido?
+❌ não sabe quanto custa cada lanche?
+
+Se marcou um, o sistema resolve: cardápio digital, taxa por bairro, estoque com alerta e ficha técnica, tudo junto. 👇
+
+Chama no WhatsApp.";Marcou algum? Fala com a gente;Demonstração sem compromisso;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V19) e quero saber mais sobre o sistema.
+V20;Oferta: cardápio digital;V20-oferta-cardapio-digital.mp4;12,7;"Cardápio digital com a cara da sua hamburgueria por R$ 199,90 por mês. Sem comissão por pedido. 🍔
+
+✅ Fotos, ponto da carne e adicionais
+✅ Taxa de entrega por bairro, cupom e Pix
+✅ Pedidos chegando no painel em tempo real
+✅ Link e QR Code para o Instagram e o balcão
+
+A gente cadastra o seu cardápio e entrega pronto. Chama no WhatsApp.";Cardápio digital: R$ 199,90/mês;Sem comissão por pedido;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V20) e quero saber mais sobre o sistema.
+V21;Oferta: sistema completo;V21-oferta-sistema-completo.mp4;14,5;"Tudo o que a hamburgueria precisa num lugar só, por R$ 299,90 por mês. 💻
+
+Cardápio digital, quadro de pedidos, balcão, caixa, tela da cozinha, estoque com ficha técnica, financeiro, clientes, cupons, entregas e relatórios. Sem comissão por pedido.
+
+A gente monta o seu cardápio e te ensina a usar. Chama no WhatsApp e peça uma demonstração.";Sistema completo: R$ 299,90/mês;Sem comissão por pedido;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V21) e quero saber mais sobre o sistema.
+V22;Link da bio que não vende;V22-link-da-bio-que-nao-vende.mp4;10,4;"Seu Instagram tem visita todo dia. E o link da bio leva para… um PDF? Para lugar nenhum? 🔗
+
+Com o cardápio digital, o link da bio vira pedido: o cliente toca, escolhe o lanche e envia. Você também ganha um QR Code para colar no balcão e na embalagem.
+
+Chama no WhatsApp.";Link da bio que vende;Link e QR Code;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V22) e quero saber mais sobre o sistema.
+V23;Pedido em poucos toques;V23-pedido-em-poucos-toques.mp4;11,8;"Quanto menos passo, mais pedido. 👆
+
+No cardápio digital, o cliente escolhe o lanche, o ponto da carne, o adicional, informa o endereço e envia, em poucos toques e sem precisar baixar nada. O pedido chega organizado no seu painel.
+
+Quer ver com os seus lanches? Chama no WhatsApp.";Do link ao pedido;Sem baixar aplicativo;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V23) e quero saber mais sobre o sistema.
+V24;Esgotado com um toque;V24-esgotado-com-um-toque.mp4;10,6;"Acabou o produto e o cliente continua pedindo. Aí é desculpa, estorno e cliente chateado. 😕
+
+No painel, um toque marca o item como esgotado e ele some do cardápio na hora. Cozinha lotada? Pause os pedidos por um tempo e volte quando der conta.
+
+Chama no WhatsApp.";Esgotado com um toque;E pausa nos pedidos;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V24) e quero saber mais sobre o sistema.
+V25;Fila no balcão;V25-fila-no-balcao.mp4;11,3;"Fila no balcão, papelzinho na mão e conta de cabeça. 🧾
+
+No PDV do sistema, o atendente toca nos lanches com foto, escolhe o ponto da carne e o pedido já sai somado, com desconto, troco e forma de pagamento. Vai direto para a tela da cozinha e para o caixa.
+
+Chama no WhatsApp e peça uma demonstração.";Balcão rápido e somado;PDV com foto;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V25) e quero saber mais sobre o sistema.
+V26;Equipe com acesso a tudo;V26-equipe-com-acesso-a-tudo.mp4;11,5;"Funcionário no caixa vendo o faturamento do mês? Não precisa. 🔐
+
+Cada pessoa da equipe tem o seu login: o caixa vê pedidos e caixa, a cozinha vê a tela de produção, o entregador vê as entregas dele. Financeiro e relatórios, só para quem você liberar.
+
+Chama no WhatsApp.";Um login para cada função;Você no controle;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V26) e quero saber mais sobre o sistema.
+V27;Boleto esquecido;V27-boleto-esquecido.mp4;11,2;"Aluguel, gás, fornecedor, folha… e um boleto que você só lembra depois que venceu. 📆
+
+No financeiro, ficam as contas a pagar e a receber (até as que se repetem todo mês), com o que está pendente e o que venceu. O fluxo de caixa mostra o saldo de cada dia.
+
+Chama no WhatsApp.";Sem susto com boleto;Contas e fluxo de caixa;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V27) e quero saber mais sobre o sistema.
+V28;Sobrou dinheiro no mês?;V28-sobrou-dinheiro-no-mes.mp4;11,8;"""Acho que sobrou."" Achar não paga o fornecedor. 💸
+
+No financeiro do sistema, entradas e saídas ficam lançadas e o fluxo de caixa mostra o saldo de cada dia. Você vê o que entrou, o que saiu e o que vence na semana.
+
+Chama no WhatsApp e peça uma demonstração.";Saiba quanto sobrou;Fluxo de caixa;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V28) e quero saber mais sobre o sistema.
+V29;Quanto custa o cheese bacon?;V29-quanto-custa-o-cheese-bacon.mp4;14,0;"Quanto custa fazer o seu cheese bacon? Se a resposta foi ""uns 10 reais"", o preço pode estar errado. 🍔
+
+Com a ficha técnica, o sistema soma o custo de cada ingrediente (pão, carne, queijo, bacon, molho e embalagem) e mostra o custo e a margem de cada lanche. Quando o custo do insumo muda, a conta muda junto.
+
+Chama no WhatsApp.";O custo real de cada lanche;Ficha técnica;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V29) e quero saber mais sobre o sistema.
+V30;Aniversariantes;V30-aniversariantes.mp4;10,4;"Tem cliente seu fazendo aniversário este mês. Quem vai lembrar dele: você ou a concorrência? 🎂
+
+O sistema guarda o histórico e a data de aniversário de quem pede, lista os aniversariantes do mês e abre o WhatsApp com uma mensagem pronta. Dá para mandar um cupom de presente.
+
+Chama no WhatsApp.";Aniversariantes do mês;Mensagem pronta;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V30) e quero saber mais sobre o sistema.
+V31;Fidelidade sem cartão de papel;V31-fidelidade-sem-cartao-de-papel.mp4;9,0;"Cartão de papel com carimbo: o cliente perde, esquece em casa e você nunca sabe quantos tem. 🎟️
+
+No sistema, cada pedido soma pontos no cadastro do cliente. Você vê os pontos de cada um e o resgate é feito no balcão. O cliente volta para trocar.
+
+Chama no WhatsApp.";Fidelidade por pontos;Sem cartão de papel;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V31) e quero saber mais sobre o sistema.
+V32;Cardápio em PDF;V32-cardapio-em-pdf.mp4;10,7;"Cardápio em PDF: o cliente dá zoom, se perde, pergunta o preço mesmo assim… e você digita o pedido. 📄
+
+No cardápio digital, ele vê fotos e preços, escolhe adicionais, vê a taxa de entrega do bairro e envia. O pedido chega organizado no seu painel, com aviso sonoro.
+
+A gente transforma o seu PDF em cardápio digital. Chama no WhatsApp.";Troque o PDF por pedido;Montamos para você;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V32) e quero saber mais sobre o sistema.
+V33;Veja antes de assinar;V33-veja-antes-de-assinar.mp4;11,2;"Não quer assinar no escuro? Justo. 👀
+
+A gente mostra o sistema funcionando com os seus produtos: o cardápio do jeito que o seu cliente vai ver, o pedido chegando no painel, a cozinha, o caixa e os relatórios. Você decide depois.
+
+Chama no WhatsApp e marque a sua demonstração.";Veja antes de assinar;Demonstração sem compromisso;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V33) e quero saber mais sobre o sistema.
+V34;A gente monta o cardápio;V34-a-gente-monta-o-cardapio.mp4;12,5;"""Deve dar um trabalhão cadastrar tudo…"" Não dá: quem cadastra somos nós. ✍️
+
+Você manda o cardápio que já tem (PDF, foto do cardápio impresso ou lista no WhatsApp) e as fotos. A gente cadastra os produtos, os tamanhos, os adicionais e as taxas de entrega, e entrega o cardápio pronto, com link e QR Code.
+
+Chama no WhatsApp.";A gente monta pra você;Cardápio pronto;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V34) e quero saber mais sobre o sistema.
+V35;O cliente é seu;V35-o-cliente-e-seu.mp4;11,1;"Quem pede pelo seu cardápio digital vira cliente seu: nome, telefone, bairro, o que pediu e quanto gastou ficam no sistema. 📇
+
+Dá para ver quem compra mais, quem sumiu e quem faz aniversário, e chamar no WhatsApp com uma mensagem pronta.
+
+Chama no WhatsApp e peça uma demonstração.";O cliente fica com você;Histórico e WhatsApp;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V35) e quero saber mais sobre o sistema.
+V36;Cozinha lotada;V36-cozinha-lotada.mp4;10,2;"Sexta à noite, cozinha no limite e o pedido continua chegando. 🔥
+
+No painel, um toque pausa os pedidos do cardápio digital. Quando a cozinha respirar, outro toque e a loja volta a receber.
+
+Chama no WhatsApp e veja funcionando.";Pause os pedidos;Com um toque;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V36) e quero saber mais sobre o sistema.
+V37;Retirada no balcão;V37-retirada-no-balcao.mp4;10,4;"Pedido para retirar: o cliente chega e fica esperando no balcão, perguntando se está pronto. 🛍️
+
+No cardápio digital ele escolhe ""Retirar na loja"" e acompanha o pedido pelo celular. Quando a cozinha marca como pronto, ele vê na hora.
+
+Chama no WhatsApp.";Retirada sem fila;Acompanhamento ao vivo;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V37) e quero saber mais sobre o sistema.
+V38;Troco pra 50;V38-troco-pra-50.mp4;11,0;"O motoboy chega, o cliente só tem nota de 100 e ninguém levou troco. 💵
+
+No cardápio digital, o cliente escolhe como vai pagar (Pix, cartão ou dinheiro) e informa o troco. Vem tudo no pedido e no app do entregador, com o valor a cobrar.
+
+Chama no WhatsApp.";Pagamento e troco no pedido;Pix, cartão ou dinheiro;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V38) e quero saber mais sobre o sistema.
+V39;Qual bairro mais pede?;V39-qual-bairro-mais-pede.mp4;10,1;"Qual bairro mais pede o seu lanche? Se a resposta veio no ""acho"", tem coisa melhor. 📍
+
+Os relatórios mostram quantos pedidos e quanto faturou cada bairro, além dos horários e dias mais fortes. Dá para escolher onde anunciar e onde vale a pena entregar.
+
+Chama no WhatsApp.";Os bairros que mais pedem;Relatórios prontos;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V39) e quero saber mais sobre o sistema.
+V40;Ticket médio;V40-ticket-medio.mp4;11,1;"Você sabe quanto cada cliente gasta, em média, por pedido? 🧾
+
+O painel mostra o ticket médio do dia, as vendas, os pedidos em aberto e os mais vendidos. Combos e adicionais no cardápio ajudam esse número a subir, e você acompanha.
+
+Chama no WhatsApp.";Ticket médio na tela;Painel do dia;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V40) e quero saber mais sobre o sistema.
+V41;O lanche que segura a semana;V41-o-lanche-que-segura-a-semana.mp4;9,0;"Qual lanche segura a sua semana? E qual só ocupa espaço no cardápio? 🍔
+
+O painel mostra os mais vendidos dos últimos 7 dias, com quantidade e faturamento. Com a ficha técnica, você também vê a margem de cada um.
+
+Chama no WhatsApp.";Seus campeões de venda;Mais vendidos;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V41) e quero saber mais sobre o sistema.
+V42;O chapeiro e o ponto;V42-o-chapeiro-e-o-ponto.mp4;9,3;"Ao ponto, ao ponto para bem, bem passado. Na correria, alguém troca. 🥩
+
+No cardápio digital, o ponto da carne é obrigatório. Na tela da cozinha, cada lanche aparece com o ponto escrito e as observações em destaque, do jeito que o cliente pediu.
+
+Chama no WhatsApp.";O ponto certo na chapa;Tela da cozinha;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V42) e quero saber mais sobre o sistema.
+V43;Delivery próprio sem bagunça;V43-delivery-proprio-sem-bagunca.mp4;10,2;"Delivery próprio dá lucro, mas vira bagunça sem controle. 🛵
+
+No sistema: taxa por bairro no cardápio, pedidos em ordem no painel, app do entregador com rota e valor a cobrar, e o cliente acompanhando o pedido pelo celular.
+
+Chama no WhatsApp e peça uma demonstração.";Delivery próprio organizado;Sem comissão por pedido;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V43) e quero saber mais sobre o sistema.
+V44;Cardápio, cozinha, caixa;V44-cardapio-cozinha-caixa.mp4;11,3;"Cardápio, cozinha e caixa conversando entre si. ⚙️
+
+O pedido que entra pelo cardápio aparece no quadro de pedidos, vai para a tela da cozinha e cai no caixa, já na forma de pagamento certa. Sem redigitar nada.
+
+Chama no WhatsApp.";Tudo conectado;Cardápio, cozinha e caixa;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V44) e quero saber mais sobre o sistema.
+V45;Foto que dá fome;V45-foto-que-da-fome.mp4;10,0;"Lanche com foto dá água na boca. Lista de texto, não. 🤤
+
+No cardápio digital, cada lanche aparece com foto, descrição e preço, com adicionais e ponto da carne. O cliente vê, escolhe e pede pelo link.
+
+A gente monta o cardápio com as suas fotos. Chama no WhatsApp.";Cardápio com foto;Montamos para você;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V45) e quero saber mais sobre o sistema.
+V46;Hamburgueria nova;V46-hamburgueria-nova.mp4;10,7;"Vai abrir sua hamburgueria? Comece com tudo no lugar. 🚀
+
+Cardápio digital com o seu link, pedidos num quadro, tela da cozinha, caixa, ficha técnica com o custo de cada lanche e relatórios desde o primeiro dia.
+
+Planos a partir de R$ 199,90 por mês, sem comissão por pedido. Chama no WhatsApp.";Abra já organizado;A partir de R$ 199,90/mês;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V46) e quero saber mais sobre o sistema.
+V47;O caminho de um pedido;V47-o-caminho-de-um-pedido.mp4;16,4;"Do cardápio ao caixa, o caminho de um pedido sem papel. 🍔
+
+O cliente pede pelo link, o pedido cai no painel com aviso, a cozinha vê na tela e marca pronto, e o cliente acompanha até chegar. No fim do dia, está tudo no caixa e nos relatórios.
+
+Chama no WhatsApp.";Um pedido sem papel;Do cardápio ao caixa;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V47) e quero saber mais sobre o sistema.
+V48;Sábado sem caderno;V48-sabado-sem-caderno.mp4;10,1;"Sábado à noite com caderno, comanda de papel e conta de cabeça: alguma coisa se perde. 📓
+
+No sistema, os pedidos chegam num quadro só, a cozinha vê tudo numa tela e o caixa soma sozinho.
+
+Chama no WhatsApp e peça uma demonstração.";Sábado sem caderno;Pedidos num quadro só;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V48) e quero saber mais sobre o sistema.
+V49;Oferta: app;V49-oferta-app.mp4;13,1;"E se o cliente não precisasse procurar o seu link toda vez? 📲
+
+No plano com app, o cliente instala o cardápio no celular e ele fica na tela inicial com o ícone e o nome da sua loja. Tocou, abriu o cardápio. Junto vem o sistema completo: pedidos, caixa, cozinha, estoque e financeiro.
+
+R$ 599,90 por mês, sem comissão por pedido. Chama no WhatsApp.";O ícone da sua loja no celular;Sistema + app;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V49) e quero saber mais sobre o sistema.
+V50;Planos;V50-planos.mp4;8,7;"Três planos, mensalidade fixa e nenhuma comissão por pedido. 👇
+
+📱 Cardápio digital: R$ 199,90/mês
+💻 Sistema + cardápio em site: R$ 299,90/mês
+📲 Sistema + cardápio em app: R$ 599,90/mês
+
+Todos com a montagem do cardápio, link e QR Code e suporte pelo WhatsApp. Chama no WhatsApp e escolha o seu.";Planos a partir de R$ 199,90;Sem comissão por pedido;Enviar mensagem (WhatsApp);Oi! Vi o vídeo (V50) e quero saber mais sobre o sistema.

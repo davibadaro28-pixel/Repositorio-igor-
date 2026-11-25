@@ -436,11 +436,12 @@ def grava_wav(path, x):
 
 
 def loudnorm(entrada, saida):
-    med = subprocess.run(['ffmpeg', '-hide_banner', '-i', str(entrada), '-af', 'loudnorm=I=-14:TP=-2:LRA=11:print_format=json', '-f', 'null', '-'],
+    pre = 'lowpass=f=15500:p=2,lowpass=f=15500:p=2'   # o AAC corta acima de ~16 kHz; filtrar antes evita estouro de pico
+    med = subprocess.run(['ffmpeg', '-hide_banner', '-i', str(entrada), '-af', pre + ',loudnorm=I=-14:TP=-2:LRA=11:print_format=json', '-f', 'null', '-'],
                          capture_output=True, text=True).stderr
     j = json.loads(med[med.rindex('{'):med.rindex('}') + 1])
-    af = (f"loudnorm=I=-14:TP=-2:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
-          f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,alimiter=limit=0.70:level=false:attack=1:release=50")
+    af = (f"{pre},loudnorm=I=-14:TP=-2:LRA=11:measured_I={j['input_i']}:measured_TP={j['input_tp']}:measured_LRA={j['input_lra']}"
+          f":measured_thresh={j['input_thresh']}:offset={j['target_offset']}:linear=true,alimiter=limit=0.63:level=false:attack=1:release=50")
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(entrada), '-af', af, '-ar', '48000', str(saida)], check=True)
     return j
 
@@ -479,7 +480,7 @@ def processa(vid, pasta, final):
     bruto.unlink()
     out = final / f'{vid}-9x16.mp4'
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(pasta / f'{vid}.mudo.mp4'), '-i', str(norm), '-map', '0:v', '-map', '1:a',
-                    '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-shortest', '-movflags', '+faststart', str(out)], check=True)
+                    '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-aac_ms', '0', '-aac_is', '0', '-aac_pns', '0', '-shortest', '-movflags', '+faststart', str(out)], check=True)
     out45 = final / f'{vid}-4x5.mp4'
     subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(out), '-vf', 'crop=1080:1350:0:220', '-c:v', 'libx264', '-crf', '17', '-preset', 'medium',
                     '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-movflags', '+faststart', str(out45)], check=True)
