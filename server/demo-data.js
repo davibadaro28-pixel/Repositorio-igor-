@@ -146,7 +146,7 @@ export function generateDemoData() {
   };
 
   const make = (dayOffset, { status = 'concluido', hour, channel: forced } = {}) => {
-    const channel = forced || weighted([['cardapio', 45], ['pdv', 28], ['whatsapp', 7], ['ifood', 14], ['99food', 6]]);
+    const channel = forced || weighted(demo.apps === false ? [['cardapio', 60], ['pdv', 32], ['whatsapp', 8]] : [['cardapio', 45], ['pdv', 28], ['whatsapp', 7], ['ifood', 14], ['99food', 6]]);
     if (channel === 'ifood' || channel === '99food') {
       const order = fromApp(channel, weighted([[1, 40], [2, 40], [3, 20]]), status);
       if (dayOffset !== 0) {
@@ -204,8 +204,9 @@ export function generateDemoData() {
   run('INSERT INTO cash_sessions (opened_by, opened_at, opening_cents) VALUES (?, ?, ?)', admin.id, `${today()} 10:45:00`, 15000);
   for (let i = 0; i < 6; i++) make(0, { status: 'concluido' });
   ['novo', 'novo', 'preparo', 'preparo', 'pronto', 'entrega'].forEach((status) => make(0, { status, channel: weighted([['cardapio', 60], ['pdv', 40]]) }));
-  make(0, { status: 'novo', channel: 'ifood' });
-  make(0, { status: 'preparo', channel: '99food' });
+  // demo.apps === false: loja de demonstração sem pedidos do iFood/99Food
+  make(0, { status: 'novo', channel: demo.apps === false ? 'cardapio' : 'ifood' });
+  make(0, { status: 'preparo', channel: demo.apps === false ? 'cardapio' : '99food' });
 
   // encomendas dos próximos dias (lojas que trabalham com encomenda)
   for (let d = 1; d <= 5 && store.scheduling_enabled !== false && cakes.length; d++) {
