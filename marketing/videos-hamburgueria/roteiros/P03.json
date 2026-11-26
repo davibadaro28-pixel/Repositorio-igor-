@@ -1,0 +1,82 @@
+{
+ "id": "P03",
+ "tema": "pro",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Sua hamburgueria merece *mais que um app de delivery.*",
+   "dur": 2.6
+  },
+  {
+   "tipo": "lista",
+   "texto": "Quatro serviços, *uma operação*",
+   "itens": [
+    "Cardápio digital sem comissão",
+    "Sistema de gestão completo",
+    "Site com a sua marca",
+    "Tráfego pago no Instagram"
+   ],
+   "icone": "ok",
+   "gap": 0.55,
+   "dur": 3.5
+  },
+  {
+   "tipo": "carrossel",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "legenda": "Cardápio digital"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "legenda": "Sistema de gestão"
+    },
+    {
+     "img": "site_desktop",
+     "legenda": "Site"
+    },
+    {
+     "img": "ad_V22",
+     "legenda": "Tráfego pago"
+    }
+   ],
+   "passo": 1.4
+  },
+  {
+   "tipo": "avisos",
+   "texto": "E os pedidos *chegando*",
+   "tela": "p01_menu",
+   "dur": 3.8,
+   "itens": [
+    [
+     "Novo pedido #296",
+     "Smash Duplo e batata grande",
+     "R$ 65,80",
+     ""
+    ],
+    [
+     "Em preparo",
+     "#295 na tela da cozinha",
+     "8 min",
+     "am"
+    ],
+    [
+     "Saiu para entrega",
+     "#294 para o Jardim América",
+     "Rogério",
+     "vd"
+    ]
+   ]
+  },
+  {
+   "tipo": "planos",
+   "texto": "Planos a partir de *R$ 199,90*",
+   "dur": 4.2
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.5
+  }
+ ]
+}

@@ -1,0 +1,114 @@
+{
+ "id": "P05",
+ "tema": "pro",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Sistema de gestão feito para *hamburgueria*",
+   "dur": 2.4
+  },
+  {
+   "tipo": "relogio",
+   "dia": "Sexta-feira",
+   "de": "20:59",
+   "para": "21:00",
+   "texto": "Pico de pedidos. *Tudo sob controle?*",
+   "dur": 2.9
+  },
+  {
+   "tipo": "avisos",
+   "texto": "Cada pedido chega *com aviso*",
+   "tela": "p01_menu",
+   "dur": 4.2,
+   "itens": [
+    [
+     "Novo pedido #296",
+     "Smash Duplo e batata grande",
+     "R$ 65,80",
+     ""
+    ],
+    [
+     "Em preparo",
+     "#295 na tela da cozinha",
+     "8 min",
+     "am"
+    ],
+    [
+     "Saiu para entrega",
+     "#294 para o Jardim América",
+     "Rogério",
+     "vd"
+    ]
+   ]
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_pedidos_depois",
+     "dur": 2.2,
+     "legenda": "Todos os pedidos *num quadro só*",
+     "foco": [
+      0.19,
+      0.08,
+      0.8,
+      0.55
+     ]
+    },
+    {
+     "img": "k01_cozinha",
+     "dur": 1.6,
+     "legenda": "A cozinha vê *na tela*",
+     "toque": {
+      "x": 0.5889,
+      "y": 0.6878
+     },
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ]
+    },
+    {
+     "img": "k02_cozinha_pronto",
+     "dur": 1.0,
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ],
+     "som": "success"
+    },
+    {
+     "img": "d_cmv",
+     "dur": 2.0,
+     "legenda": "O custo de *cada lanche*",
+     "foco": [
+      0.19,
+      0.2,
+      0.62,
+      0.55
+     ]
+    },
+    {
+     "img": "d_caixa",
+     "dur": 2.2,
+     "legenda": "E o caixa *fecha certinho*",
+     "foco": [
+      0.19,
+      0.08,
+      0.8,
+      0.45
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.5
+  }
+ ]
+}

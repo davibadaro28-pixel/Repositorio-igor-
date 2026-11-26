@@ -1,0 +1,71 @@
+{
+ "id": "P07",
+ "tema": "pro",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "O cliente procura. *A sua marca aparece?*",
+   "dur": 2.4
+  },
+  {
+   "tipo": "pergunta",
+   "pergunta": "Quem procura sua hamburgueria no Google encontra o quê?",
+   "resposta": "só o Instagram…",
+   "texto": null,
+   "dur": 3.2
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "site_desktop",
+     "dur": 3.0,
+     "legenda": "Um site com *a sua marca*"
+    },
+    {
+     "img": "site_desktop",
+     "dur": 2.4,
+     "legenda": "Cardápio, horários e *botão de pedir*",
+     "foco": [
+      0.12,
+      0.32,
+      0.76,
+      0.42
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "m_menu_longo",
+     "dur": 3.4,
+     "legenda": "E no celular, *rápido*",
+     "rolar": [
+      0,
+      0.35
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "lista",
+   "texto": "O que vem no site",
+   "itens": [
+    "A sua identidade visual",
+    "Cardápio e pedido direto",
+    "Horários e endereço"
+   ],
+   "icone": "ok",
+   "gap": 0.55,
+   "dur": 2.95
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.6,
+   "rodape": "Orçamento do site pelo WhatsApp"
+  }
+ ]
+}

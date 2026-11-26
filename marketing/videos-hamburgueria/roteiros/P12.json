@@ -1,0 +1,65 @@
+{
+ "id": "P12",
+ "tema": "pro",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Quanto custa ter *tudo isso?*",
+   "dur": 2.2
+  },
+  {
+   "tipo": "carrossel",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "legenda": "Cardápio digital"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "legenda": "Sistema de gestão"
+    },
+    {
+     "img": "site_desktop",
+     "legenda": "Site"
+    },
+    {
+     "img": "ad_V07",
+     "legenda": "Tráfego pago"
+    }
+   ],
+   "passo": 1.1
+  },
+  {
+   "tipo": "planos",
+   "texto": "Escolha *o seu plano*",
+   "dur": 4.4
+  },
+  {
+   "tipo": "preco",
+   "plano": "Adicional: tráfego pago",
+   "valor": "999,99",
+   "itens": [
+    "Criação dos anúncios",
+    "Gestão das campanhas",
+    "Relatório mensal"
+   ],
+   "texto": null,
+   "nota": "A verba dos anúncios é paga direto ao Meta.",
+   "dur": 3.6
+  },
+  {
+   "tipo": "numero",
+   "texto": "de comissão por pedido, em todos os planos",
+   "para": 0,
+   "prefixo": "R$ ",
+   "sufixo": "",
+   "casas": 0,
+   "dur": 2.8
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.5
+  }
+ ]
+}

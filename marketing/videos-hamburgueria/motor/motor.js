@@ -21,6 +21,21 @@ const E = { out: (x) => 1 - Math.pow(1 - x, 3), inOut: (x) => (x < 0.5 ? 4 * x *
 const prog = (t, a, d) => clamp((t - a) / d);
 
 const tl = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
+// Antes de começar, um fromTo com immediateRender:false deixa o elemento como ele é no CSS (visível). Para que cada
+// elemento espere a hora dele já no estado de entrada, guardamos o fromTo que começa mais cedo em cada alvo e,
+// no fim da montagem, aplicamos esses valores de partida no instante 0.
+const PARTIDA = new Map();
+const fromTo0 = tl.fromTo.bind(tl);
+tl.fromTo = (alvo, de, para, pos) => {
+  if (para?.immediateRender === false && typeof pos === 'number') {
+    for (const a of (Array.isArray(alvo) ? alvo : [alvo])) {
+      if (!a || typeof a === 'string') continue;
+      const p = PARTIDA.get(a);
+      if (!p || pos < p.t) PARTIDA.set(a, { t: pos, de });
+    }
+  }
+  return fromTo0(alvo, de, para, pos);
+};
 const CUES = [];
 const cue = (t, tipo, extra = {}) => CUES.push({ t: Math.round(t * 1000) / 1000, tipo, ...extra });
 const cenasEl = document.getElementById('cenas');
@@ -30,6 +45,9 @@ await document.fonts.load('400 100px Anton');
 await document.fonts.load('700 40px Poppins');
 await document.fonts.load('600 40px Poppins');
 await document.fonts.load('700 60px Caveat');
+await document.fonts.load('700 80px "Schibsted Grotesk"');
+await document.fonts.load('500 40px "Schibsted Grotesk"');
+await document.fonts.load('800 80px "Schibsted Grotesk"');
 await document.fonts.ready;
 
 // ---------------------------------------------------------------- texto
@@ -453,6 +471,53 @@ CENA.cta = (c, t0, d, L) => {
   tl.to(dd, { opacity: 0, duration: 0.2 }, tt + 0.7);
 };
 
+CENA.avisos = (c, t0, d, L) => {
+  if (c.texto) {
+    const z = $('div', 'zona topo', L); z.style.height = '300px';
+    const h = $('h1', 'hk', z); const ws = palavras(c.texto, h); fit(h, 960, 290, 104);
+    entraPalavras(ws, t0 + 0.05, 0.06, null);
+  }
+  const f = $('div', 'fone', L); const im = $('img', null, f); im.src = `${BASE}telas/${c.tela || 'p01_menu'}.jpg`;
+  tl.fromTo(f, { y: 500, opacity: 0, xPercent: -50 }, { y: 0, opacity: 1, xPercent: -50, duration: 0.8, ease: 'power3.out', immediateRender: false }, t0 + 0.1);
+  tl.fromTo(f, { y: 0 }, { y: -40, duration: d, ease: 'none', immediateRender: false }, t0 + 0.9);
+  cue(t0 + 0.1, 'whoosh');
+  const box = $('div', 'toasts', L);
+  (c.itens || []).forEach(([titulo, sub, valor, cor], i) => {
+    const el = $('div', 'toast', box, `<i class="${cor || ''}"></i><div><b>${titulo}</b><small>${sub}</small></div><em>${valor || ''}</em>`);
+    const t = t0 + 0.9 + i * (c.passo || 0.85);
+    tl.fromTo(el, { x: 140, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5, ease: 'power3.out', immediateRender: false }, t);
+    cue(t + 0.05, i === 0 ? 'ding' : 'pop');
+  });
+  const r = $('div', 'rot', L, RT); Object.assign(r.style, { position: 'absolute', left: '72px', top: c.texto ? '548px' : '560px' });
+  tl.fromTo(r, { opacity: 0 }, { opacity: 0.9, duration: 0.3, immediateRender: false }, t0 + 0.6);
+};
+
+CENA.marca = (c, t0, d, L) => {
+  const z = $('div', 'marca-fim', L);
+  const logo = $('img', null, z); logo.src = '/lojas/sua-hamburgueria/public/img/logo.webp';
+  const nome = $('div', 'nome', z, 'Sua Hamburgueria');
+  const linha = $('div', 'linha', z, c.linha || 'Tecnologia e marketing para hamburguerias');
+  const srvs = $('div', 'srvs', z, ['Cardápio digital', 'Sistema de gestão', 'Site', 'Tráfego pago'].map((x) => `<span>${x}</span>`).join(''));
+  const btn = $('div', 'btn', z, `<svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.6 3 15.5c0 2.6.8 5 2.2 7L4 29l6.8-1.9c1.6.8 3.4 1.2 5.2 1.2 7.2 0 13-5.6 13-12.5S23.2 3 16 3z" fill="currentColor"/><path d="M11.6 10.4c.4 0 .7 0 .9.6l1.1 2.6c.1.3.1.6-.1.8l-.8 1c-.2.2-.2.5 0 .8.8 1.3 1.9 2.4 3.3 3.2.3.2.6.1.8-.1l.9-1.1c.2-.3.5-.3.8-.2l2.5 1.2c.3.1.5.4.4.8-.2 1.4-1.5 2.4-2.9 2.3-4.3-.4-8.4-4.4-8.8-8.6-.1-1.6.8-3.2 1.9-3.3z" fill="var(--ac)"/></svg><span>${c.botao || 'Fale com a equipe'}</span>`);
+  const rod = $('div', 'rod', z, c.rodape || 'Teste o sistema no nosso site');
+  tl.fromTo(logo, { scale: 0.4, opacity: 0, rotation: -40 }, { scale: 1, opacity: 1, rotation: 0, duration: 0.7, ease: 'back.out(1.6)', immediateRender: false }, t0 + 0.05);
+  cue(t0 + 0.05, 'whoosh');
+  tl.fromTo(nome, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, immediateRender: false }, t0 + 0.35);
+  tl.fromTo(linha, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, immediateRender: false }, t0 + 0.55);
+  [...srvs.children].forEach((e, i) => { tl.fromTo(e, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, immediateRender: false }, t0 + 0.8 + i * 0.12); cue(t0 + 0.8 + i * 0.12, 'tick'); });
+  tl.fromTo(btn, { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: 'back.out(1.8)', immediateRender: false }, t0 + 1.4);
+  cue(t0 + 1.4, 'pop');
+  tl.fromTo(rod, { opacity: 0 }, { opacity: 1, duration: 0.4, immediateRender: false }, t0 + 1.7);
+  for (let t = t0 + 2.2; t < t0 + d - 0.4; t += 1.0) tl.to(btn, { scale: 1.05, duration: 0.2, yoyo: true, repeat: 1, ease: 'power2.out' }, t);
+  const dd = $('div', 'dedo', L); tl.set(dd, { opacity: 0 }, 0);
+  const tt = t0 + Math.min(d - 0.8, 2.6);
+  tl.call(() => { const a = btn.getBoundingClientRect(); dd.style.left = (a.left + a.width * 0.75) + 'px'; dd.style.top = (a.top + a.height * 0.6) + 'px'; }, null, tt - 0.01);
+  tl.fromTo(dd, { opacity: 0, scale: 1.6 }, { opacity: 1, scale: 1, duration: 0.25, immediateRender: false }, tt);
+  tl.to(dd, { scale: 0.8, duration: 0.1, yoyo: true, repeat: 1 }, tt + 0.28);
+  cue(tt + 0.28, 'tap');
+  tl.to(dd, { opacity: 0, duration: 0.2 }, tt + 0.7);
+};
+
 // ---------------------------------------------------------------- cenas 3D
 // celular: telas reais, rolagem, toques e zoom
 async function celular(c, t0, L) {
@@ -647,7 +712,7 @@ async function carrossel(c, t0, L) {
   });
   const passo = c.passo || 1.1;
   const t1 = t0 + 0.5 + n * passo + 0.3;
-  const lg = c.telas.map((s, i) => ({ t: t0 + 0.4 + i * passo, ate: t0 + 0.4 + (i + 1) * passo, texto: s.legenda, rot: i === 0 ? RT : null }));
+  const lg = c.telas.map((s, i) => ({ t: t0 + 0.4 + i * passo, ate: t0 + 0.4 + (i + 1) * passo, texto: s.legenda, rot: i === 0 ? (c.rot === undefined ? RT : c.rot) : null }));
   legendas(L, lg, 220);
   c.telas.forEach((s, i) => { if (i) cue(t0 + 0.4 + i * passo - 0.25, 'whoosh'); });
   cue(t0 + 0.05, 'whoosh');
@@ -803,9 +868,31 @@ const DURATION = Math.round(t * 30) / 30;
 // fundo vivo
 tl.fromTo('#blob', { x: -120, y: -80, scale: 1 }, { x: 140, y: 120, scale: 1.25, duration: DURATION, ease: 'sine.inOut' }, 0);
 tl.set({}, {}, DURATION);
+for (const [a, { de }] of PARTIDA) tl.set(a, { ...de }, 0);
+
+const brasa = document.getElementById('brasa2d');
+const bctx = brasa?.getContext('2d');
+const FAG = (() => { const r = (() => { let s = 99; return () => ((s = (s * 16807) % 2147483647) / 2147483647); })();
+  return Array.from({ length: 170 }, () => ({ x: r(), y: r(), v: 0.018 + r() * 0.05, tam: 1.5 + r() * 4.2, f: r() * 100, b: 0.35 + r() * 0.65 })); })();
+function fagulhas(tt) {
+  if (!bctx || SPEC.tema !== 'pro') return;
+  bctx.clearRect(0, 0, W, H);
+  bctx.globalCompositeOperation = 'lighter';
+  for (const p of FAG) {
+    const y = ((p.y - tt * p.v) % 1 + 1) % 1;
+    const x = p.x + Math.sin(tt * 0.6 + p.f) * 0.02 + Math.sin(tt * 1.7 + p.f * 2) * 0.006;
+    const vida = Math.min(1, (1 - y) * 3) * Math.min(1, y * 2.2);
+    const a = p.b * vida * (0.65 + 0.35 * Math.sin(tt * 3 + p.f * 5)) * 0.75;
+    if (a <= 0.01) continue;
+    const g = bctx.createRadialGradient(x * W, y * H, 0, x * W, y * H, p.tam * 3);
+    g.addColorStop(0, `rgba(255,200,120,${a})`); g.addColorStop(0.35, `rgba(242,102,28,${a * 0.7})`); g.addColorStop(1, 'rgba(242,102,28,0)');
+    bctx.fillStyle = g; bctx.beginPath(); bctx.arc(x * W, y * H, p.tam * 3, 0, Math.PI * 2); bctx.fill();
+  }
+}
 
 function renderAt(tt) {
   tl.seek(tt, false);
+  fagulhas(tt);
   let ativa = null;
   for (const s of ESC3D) { const on = tt >= s.t0 && tt < s.t1; if (on) ativa = s; }
   if (ativa) {

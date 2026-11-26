@@ -1,0 +1,123 @@
+{
+ "id": "P02",
+ "tema": "pro",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Do anúncio à entrega. *A gente cuida de tudo.*",
+   "dur": 2.6
+  },
+  {
+   "tipo": "carrossel",
+   "telas": [
+    {
+     "img": "ad_V07",
+     "legenda": "O anúncio atrai"
+    },
+    {
+     "img": "ad_V03",
+     "legenda": "feito para *hamburgueria*"
+    }
+   ],
+   "passo": 1.1,
+   "rot": "Exemplos de anúncios"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "dur": 1.1,
+     "legenda": "O cliente pede no *cardápio digital*",
+     "toque": {
+      "x": 0.6872,
+      "y": 0.5489
+     }
+    },
+    {
+     "img": "p02_produto",
+     "dur": 1.0,
+     "toque": {
+      "x": 0.1905,
+      "y": 0.631
+     }
+    },
+    {
+     "img": "p12_recebido",
+     "dur": 1.1
+    }
+   ]
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_pedidos_depois",
+     "dur": 2.0,
+     "legenda": "O pedido cai no *painel*",
+     "foco": [
+      0.17,
+      0.173,
+      0.196,
+      0.278
+     ],
+     "destaque": {
+      "caixa": [
+       0.2,
+       0.213,
+       0.136,
+       0.198
+      ]
+     },
+     "som": "ding"
+    },
+    {
+     "img": "k01_cozinha",
+     "dur": 1.6,
+     "legenda": "A cozinha prepara",
+     "toque": {
+      "x": 0.5889,
+      "y": 0.6878
+     },
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ]
+    },
+    {
+     "img": "k02_cozinha_pronto",
+     "dur": 1.0,
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ],
+     "som": "success"
+    }
+   ]
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p15_saiu",
+     "dur": 2.0,
+     "legenda": "E o cliente *acompanha*",
+     "zoom": {
+      "x": 0.45,
+      "y": 0.5,
+      "s": 1.7
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.8
+  }
+ ]
+}

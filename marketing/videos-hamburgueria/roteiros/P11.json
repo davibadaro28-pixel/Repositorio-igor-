@@ -1,0 +1,77 @@
+{
+ "id": "P11",
+ "tema": "pro",
+ "musica": "lofi",
+ "cenas": [
+  {
+   "tipo": "pergunta",
+   "pergunta": "Quanto você vendeu ontem?",
+   "resposta": "preciso abrir o caderno…",
+   "texto": null,
+   "dur": 3.0
+  },
+  {
+   "tipo": "texto",
+   "texto": "Sua loja *na palma da mão.*",
+   "dur": 2.2
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "m_inicio_longo",
+     "dur": 4.2,
+     "legenda": "Vendas e pedidos *de onde você estiver*",
+     "rolar": [
+      0,
+      0.55
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "m_relatorios_longo",
+     "dur": 3.6,
+     "legenda": "Relatórios por dia e *por horário*",
+     "rolar": [
+      0.15,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "avisos",
+   "texto": "E aviso de *cada pedido*",
+   "tela": "p01_menu",
+   "dur": 4.0,
+   "itens": [
+    [
+     "Novo pedido #296",
+     "Smash Duplo e batata grande",
+     "R$ 65,80",
+     ""
+    ],
+    [
+     "Em preparo",
+     "#295 na tela da cozinha",
+     "8 min",
+     "am"
+    ],
+    [
+     "Saiu para entrega",
+     "#294 para o Jardim América",
+     "Rogério",
+     "vd"
+    ]
+   ]
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.5
+  }
+ ]
+}

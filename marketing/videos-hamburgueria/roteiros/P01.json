@@ -1,0 +1,118 @@
+{
+ "id": "P01",
+ "tema": "pro",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Quanto da sua venda fica no *aplicativo de delivery?*",
+   "dur": 2.6
+  },
+  {
+   "tipo": "numero",
+   "texto": "de comissão no pedido que chega pelo seu cardápio",
+   "para": 0,
+   "prefixo": "R$ ",
+   "sufixo": "",
+   "casas": 0,
+   "dur": 2.8,
+   "antes": "Com a Sua Hamburgueria:"
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "dur": 1.2,
+     "legenda": "O cliente pede pelo *seu link*",
+     "toque": {
+      "x": 0.6872,
+      "y": 0.5489
+     }
+    },
+    {
+     "img": "p02_produto",
+     "dur": 1.2,
+     "legenda": "Escolhe o ponto e os adicionais",
+     "toque": {
+      "x": 0.1905,
+      "y": 0.631
+     },
+     "zoom": {
+      "x": 0.4,
+      "y": 0.67,
+      "s": 2.0
+     }
+    },
+    {
+     "img": "p04_bacon",
+     "dur": 1.0,
+     "toque": {
+      "x": 0.659,
+      "y": 0.9573
+     }
+    },
+    {
+     "img": "p11_pagamento",
+     "dur": 1.0,
+     "toque": {
+      "x": 0.5,
+      "y": 0.9573
+     }
+    },
+    {
+     "img": "p12_recebido",
+     "dur": 1.3,
+     "legenda": "Pedido confirmado"
+    }
+   ]
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_pedidos_antes",
+     "dur": 1.0,
+     "legenda": "E chega direto no *seu painel*"
+    },
+    {
+     "img": "d_pedidos_depois",
+     "dur": 2.2,
+     "foco": [
+      0.17,
+      0.173,
+      0.196,
+      0.278
+     ],
+     "destaque": {
+      "caixa": [
+       0.2,
+       0.213,
+       0.136,
+       0.198
+      ],
+      "rotulo": "Pedido novo"
+     },
+     "som": "ding"
+    }
+   ]
+  },
+  {
+   "tipo": "preco",
+   "plano": "Cardápio digital",
+   "valor": "199,90",
+   "itens": [
+    "Pedidos em tempo real",
+    "Taxa por bairro, cupom e Pix",
+    "Link e QR Code"
+   ],
+   "texto": "Mensalidade fixa",
+   "nota": "Sem comissão por pedido.",
+   "dur": 3.6
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.5
+  }
+ ]
+}

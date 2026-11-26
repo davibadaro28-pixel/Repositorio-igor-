@@ -1,0 +1,83 @@
+{
+ "id": "P06",
+ "tema": "pro",
+ "musica": "lofi",
+ "cenas": [
+  {
+   "tipo": "pergunta",
+   "pergunta": "Quanto custa fazer o seu cheese bacon?",
+   "resposta": "uns 10 reais?",
+   "texto": null,
+   "dur": 3.2
+  },
+  {
+   "tipo": "texto",
+   "texto": "Sem ficha técnica, *o preço é um chute.*",
+   "dur": 2.4
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_cmv",
+     "dur": 2.8,
+     "legenda": "O sistema calcula o *CMV de cada lanche*",
+     "foco": [
+      0.19,
+      0.2,
+      0.62,
+      0.55
+     ],
+     "destaque": {
+      "caixa": [
+       0.655,
+       0.255,
+       0.082,
+       0.5
+      ],
+      "rotulo": "CMV"
+     }
+    },
+    {
+     "img": "d_ficha",
+     "dur": 2.6,
+     "legenda": "Pela *ficha técnica*",
+     "foco": [
+      0.28,
+      0.12,
+      0.44,
+      0.66
+     ]
+    },
+    {
+     "img": "d_estoque",
+     "dur": 2.2,
+     "legenda": "E dá baixa no *estoque* a cada venda",
+     "foco": [
+      0.19,
+      0.14,
+      0.62,
+      0.5
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "preco",
+   "plano": "Sistema + cardápio em site",
+   "valor": "299,90",
+   "itens": [
+    "Ficha técnica e custo por lanche",
+    "Estoque com alerta",
+    "Financeiro e relatórios"
+   ],
+   "texto": "Tudo isso no plano",
+   "nota": null,
+   "dur": 3.8
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.8
+  }
+ ]
+}

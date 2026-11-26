@@ -1,0 +1,98 @@
+{
+ "id": "P09",
+ "tema": "pro",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Trocar de sistema *dá trabalho?*",
+   "dur": 2.4
+  },
+  {
+   "tipo": "texto",
+   "texto": "Com a gente, *não.*",
+   "dur": 1.6,
+   "modo": "bate"
+  },
+  {
+   "tipo": "lista",
+   "texto": "Como funciona a implantação",
+   "itens": [
+    "Você manda o cardápio e as fotos",
+    "A gente cadastra lanches e adicionais",
+    "Configura entrega e pagamento",
+    "Entrega o link e o QR Code"
+   ],
+   "icone": "ok",
+   "gap": 0.55,
+   "dur": 3.5
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_produtos",
+     "dur": 2.4,
+     "legenda": "Cardápio *cadastrado*",
+     "foco": [
+      0.19,
+      0.12,
+      0.8,
+      0.55
+     ]
+    },
+    {
+     "img": "d_bairros",
+     "dur": 2.2,
+     "legenda": "Taxas por bairro *configuradas*",
+     "foco": [
+      0.1844,
+      0.22,
+      0.8089,
+      0.7533
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "dur": 2.2,
+     "legenda": "E o link *pronto para divulgar*"
+    }
+   ]
+  },
+  {
+   "tipo": "avisos",
+   "texto": "Os primeiros pedidos *chegando*",
+   "tela": "p01_menu",
+   "dur": 3.8,
+   "itens": [
+    [
+     "Novo pedido #296",
+     "Smash Duplo e batata grande",
+     "R$ 65,80",
+     ""
+    ],
+    [
+     "Em preparo",
+     "#295 na tela da cozinha",
+     "8 min",
+     "am"
+    ],
+    [
+     "Saiu para entrega",
+     "#294 para o Jardim América",
+     "Rogério",
+     "vd"
+    ]
+   ]
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.5
+  }
+ ]
+}

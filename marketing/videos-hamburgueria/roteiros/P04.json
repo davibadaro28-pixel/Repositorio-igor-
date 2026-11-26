@@ -1,0 +1,72 @@
+{
+ "id": "P04",
+ "tema": "pro",
+ "musica": "pop",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Anúncio bonito não paga as contas. *Conversa no WhatsApp paga.*",
+   "dur": 3.0
+  },
+  {
+   "tipo": "pergunta",
+   "pergunta": "Quanto custa cada conversa que o seu anúncio traz?",
+   "resposta": "não sei…",
+   "texto": null,
+   "dur": 3.0
+  },
+  {
+   "tipo": "carrossel",
+   "telas": [
+    {
+     "img": "ad_V07",
+     "legenda": "Vídeos feitos para *hamburgueria*"
+    },
+    {
+     "img": "ad_V02",
+     "legenda": "Cada um fala de *um problema*"
+    },
+    {
+     "img": "ad_V03",
+     "legenda": "Testamos *vários ângulos*"
+    },
+    {
+     "img": "ad_V22",
+     "legenda": "e ficamos com os que *trazem conversa*"
+    }
+   ],
+   "passo": 1.4,
+   "rot": "Exemplos de anúncios"
+  },
+  {
+   "tipo": "lista",
+   "texto": "Como funciona, *todo mês*",
+   "itens": [
+    "Diagnóstico da sua hamburgueria",
+    "Criação dos anúncios",
+    "Campanhas na sua região",
+    "Relatório com o custo de cada conversa"
+   ],
+   "icone": "ok",
+   "gap": 0.5,
+   "dur": 3.3
+  },
+  {
+   "tipo": "preco",
+   "plano": "Tráfego pago",
+   "valor": "999,99",
+   "itens": [
+    "Criação dos anúncios",
+    "Gestão das campanhas",
+    "Relatório mensal"
+   ],
+   "texto": "Soma a qualquer plano",
+   "nota": "A verba dos anúncios é paga direto ao Meta.",
+   "dur": 3.6
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.5
+  }
+ ]
+}

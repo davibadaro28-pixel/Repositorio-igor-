@@ -1,0 +1,74 @@
+{
+ "P01": {
+  "angulo": "Comissão de aplicativo",
+  "texto": "Quanto do seu faturamento fica com o aplicativo de delivery? 🍔\n\nCom o cardápio digital da Sua Hamburgueria, o pedido que chega pelo seu link não paga comissão. O cliente escolhe o lanche, o ponto da carne e os adicionais, e o pedido cai direto no seu painel.\n\nMensalidade fixa, a partir de R$ 199,90. Fale com a nossa equipe no WhatsApp.",
+  "titulo": "Seu cardápio, sem comissão",
+  "desc": "A partir de R$ 199,90/mês"
+ },
+ "P02": {
+  "angulo": "Do anúncio à entrega",
+  "texto": "Anúncio, cardápio, cozinha e entrega: tudo conectado. 🚀\n\nA Sua Hamburgueria cria os anúncios que trazem o cliente, entrega o cardápio digital onde ele pede, o sistema onde o pedido chega e a tela da cozinha onde ele é preparado. E o cliente acompanha até a porta.\n\nFale com a nossa equipe no WhatsApp.",
+  "titulo": "Do anúncio à entrega",
+  "desc": "Tráfego, cardápio e sistema"
+ },
+ "P03": {
+  "angulo": "Quatro serviços",
+  "texto": "Cardápio digital, sistema de gestão, site e tráfego pago num parceiro só. 🍔\n\nA Sua Hamburgueria monta o seu cardápio sem comissão, organiza pedidos, cozinha, caixa e estoque, coloca a sua marca no Google e cria anúncios que trazem cliente.\n\nPlanos a partir de R$ 199,90 por mês. Fale com a nossa equipe no WhatsApp.",
+  "titulo": "Tudo para a sua hamburgueria",
+  "desc": "Planos a partir de R$ 199,90"
+ },
+ "P04": {
+  "angulo": "Tráfego pago",
+  "texto": "Curtida não paga fornecedor. Conversa no WhatsApp, sim. 📲\n\nNo tráfego pago da Sua Hamburgueria, criamos vídeos feitos para hamburgueria, cada um falando de um problema real do cliente, testamos vários ângulos e ficamos com os que trazem conversa mais barata. Todo mês você recebe o relatório com o custo de cada conversa.\n\nR$ 999,99 por mês, somando a qualquer plano (a verba dos anúncios é paga direto ao Meta). Fale com a nossa equipe.",
+  "titulo": "Anúncios que trazem conversa",
+  "desc": "Tráfego pago para hamburguerias"
+ },
+ "P05": {
+  "angulo": "Sistema de gestão",
+  "texto": "Sexta, 21h, pico de pedidos. Está tudo sob controle? 🔥\n\nNo sistema da Sua Hamburgueria, cada pedido chega com aviso num quadro só, a cozinha vê tudo numa tela, o estoque baixa sozinho, o custo de cada lanche aparece na ficha técnica e o caixa fecha conferido.\n\nFale com a nossa equipe e veja funcionando com os seus lanches.",
+  "titulo": "Sua operação num sistema só",
+  "desc": "Pedidos, cozinha e caixa"
+ },
+ "P06": {
+  "angulo": "Custo de cada lanche",
+  "texto": "Quanto custa fazer o seu cheese bacon? Se a resposta foi \"uns 10 reais\", o preço pode estar errado. 🍔\n\nNo sistema da Sua Hamburgueria, a ficha técnica calcula o custo e a margem de cada lanche, e o estoque baixa sozinho a cada venda. Você vê onde está o lucro e onde ajustar o preço.\n\nPlano completo por R$ 299,90 por mês. Fale com a nossa equipe.",
+  "titulo": "O custo real de cada lanche",
+  "desc": "Ficha técnica e CMV"
+ },
+ "P07": {
+  "angulo": "Site",
+  "texto": "Quem procura a sua hamburgueria no Google encontra o quê? 🔎\n\nA Sua Hamburgueria cria o seu site com a sua identidade visual, cardápio, horários, endereço e um botão de pedir direto, rápido no celular. Junto com o cardápio digital e o sistema, tudo conectado.\n\nPeça um orçamento pelo WhatsApp.",
+  "titulo": "Sua marca no Google",
+  "desc": "Site para hamburguerias"
+ },
+ "P08": {
+  "angulo": "Teste antes de contratar",
+  "texto": "Não quer contratar no escuro? Justo. 👀\n\nNo site da Sua Hamburgueria tem o sistema de verdade, aberto para testar: faça um pedido no cardápio, veja ele chegar no painel e marque como pronto na cozinha. Se quiser, mostramos com os seus lanches numa conversa.\n\nFale com a nossa equipe no WhatsApp.",
+  "titulo": "Teste antes de contratar",
+  "desc": "Demonstração no site"
+ },
+ "P09": {
+  "angulo": "Implantação",
+  "texto": "\"Trocar de sistema deve dar um trabalhão.\" Com a gente, não. ✍️\n\nVocê manda o cardápio que já tem e as fotos. A equipe da Sua Hamburgueria cadastra os lanches, os adicionais, as taxas de entrega e as formas de pagamento, e entrega o link e o QR Code prontos para divulgar.\n\nFale com a nossa equipe no WhatsApp.",
+  "titulo": "A gente monta tudo",
+  "desc": "Implantação inclusa"
+ },
+ "P10": {
+  "angulo": "Delivery próprio",
+  "texto": "Delivery próprio dá lucro, mas vira bagunça sem controle. 🛵\n\nCom a Sua Hamburgueria: taxa por bairro no cardápio, pagamento e troco no pedido, app do entregador com rota e valor a cobrar, cliente acompanhando pelo celular e o acerto pronto no fim do dia. Sem comissão por pedido.\n\nFale com a nossa equipe no WhatsApp.",
+  "titulo": "Delivery próprio organizado",
+  "desc": "Sem comissão por pedido"
+ },
+ "P11": {
+  "angulo": "Dono no celular",
+  "texto": "Quanto você vendeu ontem? Se precisou abrir o caderno, tem jeito melhor. 📱\n\nNo sistema da Sua Hamburgueria, o painel abre no celular: vendas do dia, ticket médio, pedidos em aberto, mais vendidos e relatórios por dia e por horário, de onde você estiver.\n\nFale com a nossa equipe no WhatsApp.",
+  "titulo": "Sua hamburgueria no celular",
+  "desc": "Painel em tempo real"
+ },
+ "P12": {
+  "angulo": "Planos",
+  "texto": "Quanto custa organizar a sua hamburgueria? 👇\n\n📱 Cardápio digital: R$ 199,90/mês\n💻 Sistema + cardápio em site: R$ 299,90/mês\n📲 Sistema + cardápio em app: R$ 599,90/mês\n🎯 Tráfego pago: + R$ 999,99/mês (verba paga direto ao Meta)\n\nNenhum plano cobra comissão por pedido, e a montagem do cardápio está incluída. Fale com a nossa equipe no WhatsApp.",
+  "titulo": "Planos a partir de R$ 199,90",
+  "desc": "Sem comissão por pedido"
+ }
+}

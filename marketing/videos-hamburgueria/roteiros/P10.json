@@ -1,0 +1,112 @@
+{
+ "id": "P10",
+ "tema": "pro",
+ "musica": "house",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Delivery próprio *sem bagunça.*",
+   "dur": 2.2
+  },
+  {
+   "tipo": "numero",
+   "texto": "de comissão nos pedidos do seu cardápio",
+   "para": 0,
+   "prefixo": "R$ ",
+   "sufixo": "",
+   "casas": 0,
+   "dur": 2.8
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p10_endereco",
+     "dur": 2.2,
+     "legenda": "Taxa por bairro *automática*",
+     "zoom": {
+      "x": 0.35,
+      "y": 0.2,
+      "s": 2.2
+     }
+    },
+    {
+     "img": "p11_pagamento",
+     "dur": 1.8,
+     "legenda": "Pagamento e troco *no pedido*",
+     "zoom": {
+      "x": 0.4,
+      "y": 0.74,
+      "s": 1.8
+     }
+    },
+    {
+     "img": "e01_entregador",
+     "dur": 2.2,
+     "legenda": "O entregador vê *rota e valor*",
+     "zoom": {
+      "x": 0.4,
+      "y": 0.27,
+      "s": 1.6
+     }
+    },
+    {
+     "img": "p15_saiu",
+     "dur": 2.0,
+     "legenda": "E o cliente *acompanha*",
+     "zoom": {
+      "x": 0.45,
+      "y": 0.5,
+      "s": 1.7
+     }
+    }
+   ]
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_acerto",
+     "dur": 2.4,
+     "legenda": "No fim do dia, *o acerto pronto*",
+     "foco": [
+      0.1844,
+      0.2144,
+      0.8089,
+      0.2822
+     ]
+    }
+   ]
+  },
+  {
+   "tipo": "avisos",
+   "texto": "Cada entrega *no lugar*",
+   "tela": "p01_menu",
+   "dur": 3.6,
+   "itens": [
+    [
+     "Pronto para entrega",
+     "#297 no balcão",
+     "2 min",
+     "am"
+    ],
+    [
+     "Saiu para entrega",
+     "#297 com o Rogério",
+     "R$ 48,90",
+     "vd"
+    ],
+    [
+     "Entregue",
+     "#296 no Jardim América",
+     "Pix",
+     "vd"
+    ]
+   ]
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.5
+  }
+ ]
+}

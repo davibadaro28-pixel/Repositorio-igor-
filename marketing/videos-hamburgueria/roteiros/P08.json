@@ -1,0 +1,125 @@
+{
+ "id": "P08",
+ "tema": "pro",
+ "musica": "lofi",
+ "cenas": [
+  {
+   "tipo": "texto",
+   "texto": "Teste o sistema *antes de contratar.*",
+   "dur": 2.4
+  },
+  {
+   "tipo": "celular",
+   "telas": [
+    {
+     "img": "p01_menu",
+     "dur": 1.0,
+     "legenda": "Faça um pedido de teste",
+     "toque": {
+      "x": 0.6872,
+      "y": 0.5489
+     }
+    },
+    {
+     "img": "p02_produto",
+     "dur": 1.0,
+     "toque": {
+      "x": 0.1905,
+      "y": 0.631
+     }
+    },
+    {
+     "img": "p04_bacon",
+     "dur": 0.9,
+     "toque": {
+      "x": 0.659,
+      "y": 0.9573
+     }
+    },
+    {
+     "img": "p08_sacola",
+     "dur": 0.9,
+     "toque": {
+      "x": 0.5,
+      "y": 0.955
+     }
+    },
+    {
+     "img": "p11_pagamento",
+     "dur": 0.9,
+     "toque": {
+      "x": 0.5,
+      "y": 0.9573
+     }
+    },
+    {
+     "img": "p12_recebido",
+     "dur": 1.2,
+     "legenda": "Pedido enviado"
+    }
+   ]
+  },
+  {
+   "tipo": "painel",
+   "telas": [
+    {
+     "img": "d_pedidos_depois",
+     "dur": 2.2,
+     "legenda": "Veja chegar no *painel*",
+     "foco": [
+      0.17,
+      0.173,
+      0.196,
+      0.278
+     ],
+     "destaque": {
+      "caixa": [
+       0.2,
+       0.213,
+       0.136,
+       0.198
+      ],
+      "rotulo": "Novo"
+     },
+     "som": "ding"
+    },
+    {
+     "img": "k01_cozinha",
+     "dur": 1.6,
+     "legenda": "Marque como *pronto* na cozinha",
+     "toque": {
+      "x": 0.5889,
+      "y": 0.6878
+     },
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ]
+    },
+    {
+     "img": "k02_cozinha_pronto",
+     "dur": 1.0,
+     "foco": [
+      0.19,
+      0.2,
+      0.8,
+      0.62
+     ],
+     "som": "success"
+    }
+   ]
+  },
+  {
+   "tipo": "texto",
+   "texto": "Está tudo *no nosso site*, aberto para testar.",
+   "dur": 2.6
+  },
+  {
+   "tipo": "marca",
+   "dur": 4.8,
+   "rodape": "Teste agora no nosso site"
+  }
+ ]
+}

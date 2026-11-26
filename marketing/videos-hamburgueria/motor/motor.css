@@ -154,3 +154,58 @@ body { font-family: Poppins, sans-serif; -webkit-font-smoothing: antialiased; }
 .cta .lg3 { font: 600 34px/1.35 Poppins; color: var(--mu); margin-top: 44px; }
 .cta .preco { margin-top: 26px; font: 700 40px/1 Poppins; color: var(--tx); }
 .cta .preco b { color: var(--ac); }
+
+/* ================================================================ tema profissional (vende a Sua Hamburgueria) */
+.t-pro { --bg: #121417; --bg2: #181b20; --tx: #ffffff; --mu: #c4c8ce; --ac: #f2661c; --ac2: #f2661c; --card: #1b1e23; --on: #ffffff; }
+.t-pro #bg { background: radial-gradient(1100px 760px at 50% 108%, rgba(242, 102, 28, .30), transparent 62%), radial-gradient(900px 700px at 90% -10%, rgba(255, 255, 255, .05), transparent 60%), linear-gradient(180deg, #181b20, #121417 60%); }
+.t-pro #blob { background: radial-gradient(circle, rgba(242, 102, 28, .10), transparent 70%); }
+.t-pro #vinheta { background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, .35) 100%); }
+.t-pro #grao { opacity: .05; }
+#brasa2d { position: absolute; inset: 0; width: 1080px; height: 1920px; display: none; }
+.t-pro #brasa2d { display: block; }
+.t-pro .hk, .t-pro .lg, .t-pro .cta .lg1 { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 700; text-transform: none; letter-spacing: -.035em; line-height: 1.04; }
+.t-pro .lg { font-weight: 700; }
+.t-pro .sub { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 500; }
+.t-pro .tag, .t-pro .rot, .t-pro .bub, .t-pro .it, .t-pro .pcard, .t-pro .plan, .t-pro .stk, .t-pro .dia { font-family: 'Schibsted Grotesk', sans-serif; }
+.t-pro .tag { letter-spacing: .02em; text-transform: none; font-size: 30px; font-weight: 600; background: rgba(242, 102, 28, .14); }
+.t-pro .big { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 800; letter-spacing: -.05em; }
+.t-pro .clock { font: 700 280px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.04em; }
+.t-pro .clock .dg { background: #1b1e23; border: 1px solid rgba(255, 255, 255, .08); }
+.t-pro .dia { letter-spacing: .02em; font-weight: 600; text-transform: none; }
+.t-pro .selo { font: 700 84px/1 'Schibsted Grotesk', sans-serif; letter-spacing: -.03em; background: var(--ac); text-transform: none; }
+.t-pro .it { border: 1px solid rgba(255, 255, 255, .08); font-weight: 600; }
+.t-pro .it .ic.ok { color: #fff; }
+.t-pro .pcard { border: 1px solid rgba(255, 255, 255, .1); border-top: 4px solid var(--ac); }
+.t-pro .pcard .ck:before, .t-pro .plan.top { color: #fff; }
+.t-pro .plan { border: 1px solid rgba(255, 255, 255, .1); }
+.t-pro .plan.top { border: 3px solid var(--ac); }
+.t-pro .pill3d { color: #fff; font-family: 'Schibsted Grotesk', sans-serif; }
+
+/* avisos de pedido sobre o celular */
+.fone { position: absolute; left: 50%; top: 820px; width: 470px; transform: translateX(-50%); border-radius: 62px; border: 13px solid #0b0c0e; background: #0b0c0e; overflow: hidden; box-shadow: 0 60px 120px rgba(0, 0, 0, .6); }
+.fone img { width: 100%; display: block; }
+.toasts { position: absolute; left: 70px; right: 70px; top: 610px; display: grid; gap: 22px; z-index: 3; }
+.toast { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 24px; padding: 28px 32px; border-radius: 28px; background: #1b1e23; border: 1px solid rgba(255, 255, 255, .12);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, .5); font-family: 'Schibsted Grotesk', sans-serif; color: #fff; }
+.toast i { width: 22px; height: 22px; border-radius: 50%; background: var(--ac); box-shadow: 0 0 0 9px rgba(242, 102, 28, .2); }
+.toast i.am { background: #e9b949; box-shadow: 0 0 0 9px rgba(233, 185, 73, .18); }
+.toast i.vd { background: #2f9e6b; box-shadow: 0 0 0 9px rgba(47, 158, 107, .2); }
+.toast b { display: block; font-size: 38px; font-weight: 650; letter-spacing: -.01em; }
+.toast small { display: block; font-size: 30px; color: #a1a6ae; margin-top: 2px; }
+.toast em { font-style: normal; font-size: 34px; font-weight: 650; }
+
+/* encerramento com a marca */
+.marca-fim { position: absolute; left: 60px; right: 60px; top: 300px; height: 1000px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; font-family: 'Schibsted Grotesk', sans-serif; }
+.marca-fim img { width: 190px; height: 190px; border-radius: 50%; box-shadow: 0 0 0 10px rgba(255, 255, 255, .06), 0 30px 70px rgba(0, 0, 0, .5); }
+.marca-fim .nome { font-size: 96px; font-weight: 800; letter-spacing: -.045em; margin-top: 44px; line-height: 1; }
+.marca-fim .linha { font-size: 40px; color: #c4c8ce; margin-top: 20px; font-weight: 500; }
+.marca-fim .srvs { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 46px; max-width: 640px; }
+.marca-fim .srvs span { font-size: 30px; font-weight: 600; padding: 14px 24px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .16); background: rgba(255, 255, 255, .04); }
+.marca-fim .btn { margin-top: 56px; display: inline-flex; align-items: center; gap: 20px; background: var(--ac); color: #fff; font-size: 46px; font-weight: 700; padding: 32px 50px 32px 38px; border-radius: 22px; box-shadow: 0 24px 60px rgba(242, 102, 28, .4); }
+.marca-fim .btn svg { width: 62px; height: 62px; }
+.marca-fim .rod { margin-top: 40px; font-size: 32px; color: #a1a6ae; }
+.marca-fim .rod b { color: #fff; font-weight: 650; }
+.t-pro .stk { border-radius: 32px; }
+.t-pro .stk .h { background: var(--ac); font: 600 32px/1 'Schibsted Grotesk', sans-serif; letter-spacing: .01em; }
+.t-pro .stk .q { font: 700 62px/1.12 'Schibsted Grotesk', sans-serif; letter-spacing: -.025em; }
+.t-pro .stk .a { font-family: 'Schibsted Grotesk', sans-serif; font-weight: 500; }
