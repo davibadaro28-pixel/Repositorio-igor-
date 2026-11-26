@@ -16,7 +16,7 @@ rm -rf -- "${DIST:?}"
 mkdir -p "$DIST"/{vendor,img,telas,videos,fontes}
 
 # código do site
-cp "$AQUI"/index.html "$AQUI"/site.css "$AQUI"/site.js "$AQUI"/burger3d.js "$DIST"/
+cp "$AQUI"/index.html "$AQUI"/site.css "$AQUI"/site.js "$AQUI"/brasa.js "$DIST"/
 cp "$AQUI"/fontes/* "$DIST"/fontes/
 
 # bibliotecas (instaladas em marketing/videos-hamburgueria/node_modules)
@@ -25,7 +25,6 @@ NM="$RAIZ/marketing/videos-hamburgueria/node_modules"
 cp "$NM/gsap/dist/gsap.min.js" "$NM/gsap/dist/ScrollTrigger.min.js" "$DIST"/vendor/
 cp "$NM/three/build/three.module.min.js" "$DIST"/vendor/
 cp "$NM/three/build/three.core.min.js" "$DIST"/vendor/ 2>/dev/null || true
-cp "$NM/three/examples/jsm/environments/RoomEnvironment.js" "$DIST"/vendor/
 
 # marca e fotos dos lanches
 L="$RAIZ/lojas/sua-hamburgueria/public/img"
@@ -38,7 +37,7 @@ python3 - "$T" "$DIST/telas" <<'PY'
 import sys
 from PIL import Image
 src, dst = sys.argv[1], sys.argv[2]
-desk = ['d_pedidos_depois', 'k01_cozinha', 'd_cmv', 'd_caixa', 'd_clientes', 'd_relatorios_longo']
+desk = ['d_inicio', 'd_pedidos_depois', 'k01_cozinha', 'd_cmv', 'd_caixa', 'd_clientes', 'd_relatorios_longo']
 mob = ['p01_menu', 'p02_produto', 'p10_endereco', 'p12_recebido', 'p15_saiu', 'm_inicio', 'e01_entregador']
 for n in desk:
     im = Image.open(f'{src}/{n}.jpg').convert('RGB')
@@ -49,6 +48,8 @@ for n in mob:
     im = Image.open(f'{src}/{n}.jpg').convert('RGB'); im.thumbnail((600, 1300)); im.save(f'{dst}/{n}.webp', quality=84)
 print(len(desk) + len(mob), 'telas')
 PY
+
+cp "$AQUI"/assets/*.webp "$DIST"/telas/
 
 # vídeos dos anúncios: 540x960, sem som (tocam mudos e em loop)
 if [ -n "$VIDEOS" ] && [ -d "$VIDEOS" ]; then

@@ -3,14 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sua Hamburgueria · Tráfego pago, cardápio digital, site e sistema para hamburguerias</title>
-<meta name="description" content="Tráfego pago, cardápio digital sem comissão, site e sistema de gestão feitos só para hamburguerias. Teste o sistema agora, direto no navegador.">
-<meta name="theme-color" content="#ffc21a">
+<title>Sua Hamburgueria: tecnologia e marketing para hamburguerias</title>
+<meta name="description" content="Cardápio digital sem comissão, sistema de gestão, site e tráfego pago para hamburguerias. Teste o sistema agora, direto no navegador.">
+<meta name="theme-color" content="#121417">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/icon-192.png">
-<meta property="og:title" content="Sua Hamburgueria: mais pedido no seu link">
-<meta property="og:description" content="Tráfego pago, cardápio digital, site e sistema de gestão para hamburguerias.">
+<meta property="og:title" content="Sua Hamburgueria: tecnologia e marketing para hamburguerias">
+<meta property="og:description" content="Cardápio digital sem comissão, sistema de gestão, site e tráfego pago.">
 <meta property="og:image" content="img/icon-512.png">
+<link rel="preload" href="fontes/SchibstedGrotesk-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="fontes/fontes.css">
 <link rel="stylesheet" href="site.css">
 <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
@@ -22,249 +23,273 @@
 <a class="pular" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="topo" id="topo">
-  <a class="marca" href="#conteudo" aria-label="Sua Hamburgueria, início">
-    <img src="img/logo.webp" alt="" width="44" height="44">
-    <span>Sua Hamburgueria</span>
-  </a>
-  <nav class="menu" aria-label="Seções">
-    <a href="#montagem">O que a gente faz</a>
-    <a href="#demo">Testar o sistema</a>
-    <a href="#planos">Planos</a>
-    <a href="#perguntas">Perguntas</a>
-  </nav>
-  <a class="botao botao-ketchup whats" href="#contato" data-whats="Oi! Vi o site e quero saber mais sobre os serviços para hamburguerias.">Chamar no WhatsApp</a>
+  <div class="topo-dentro">
+    <a class="marca" href="#conteudo" aria-label="Sua Hamburgueria, início">
+      <img src="img/logo.webp" alt="" width="36" height="36">
+      <span>Sua Hamburgueria</span>
+    </a>
+    <nav class="menu" aria-label="Seções">
+      <a href="#servicos">Serviços</a>
+      <a href="#plataforma">Plataforma</a>
+      <a href="#demo">Demonstração</a>
+      <a href="#planos">Planos</a>
+      <a href="#perguntas">Perguntas</a>
+    </nav>
+    <a class="botao botao-brasa botao-p whats" href="#contato" data-whats="Olá! Vi o site e quero falar com a equipe da Sua Hamburgueria.">Falar com a equipe</a>
+  </div>
 </header>
 
 <main id="conteudo">
 
-  <!-- ===================== montagem: o hambúrguer se monta com a rolagem ===================== -->
-  <section class="montagem" id="montagem" aria-labelledby="titulo-principal">
-    <div class="palco">
-      <canvas class="lanche3d" aria-hidden="true"></canvas>
-      <div class="abertura">
-        <h1 id="titulo-principal" class="titulo-gigante">
-          <span class="linha"><span>Mais pedido</span></span>
-          <span class="linha"><span>no seu link.</span></span>
-          <span class="linha menor"><span>Menos papel</span></span>
-          <span class="linha menor"><span>na chapa.</span></span>
-        </h1>
-        <p class="abre-sub">Tráfego pago, cardápio digital, site e sistema de gestão feitos só para hamburguerias. A gente monta tudo, camada por camada.</p>
-        <div class="abre-acoes">
-          <a class="botao botao-chapa" href="#demo">Testar o sistema agora</a>
-          <a class="botao botao-contorno whats" href="#contato" data-whats="Oi! Vi o site e quero montar a operação da minha hamburgueria.">Chamar no WhatsApp</a>
+  <!-- ===================== abertura ===================== -->
+  <section class="abertura" aria-labelledby="titulo-principal">
+    <canvas class="brasa" aria-hidden="true"></canvas>
+    <div class="abertura-dentro">
+      <div class="abertura-texto">
+        <h1 id="titulo-principal">Tecnologia e marketing para hamburguerias.</h1>
+        <p class="abertura-sub">Cardápio digital sem comissão, sistema de gestão, site e tráfego pago. Um parceiro para a operação inteira, do anúncio à entrega.</p>
+        <div class="acoes">
+          <a class="botao botao-brasa whats" href="#contato" data-whats="Olá! Quero agendar uma demonstração do sistema para a minha hamburgueria.">Agendar demonstração</a>
+          <a class="botao botao-vidro" href="#demo">Testar o sistema agora</a>
         </div>
-        <p class="role" aria-hidden="true">Role a página e veja o lanche montar</p>
+        <ul class="garantias">
+          <li>Sem comissão por pedido</li>
+          <li>Implantação feita pela nossa equipe</li>
+          <li>Suporte pelo WhatsApp</li>
+        </ul>
       </div>
 
-      <ol class="camadas" aria-label="Os quatro serviços, de baixo para cima">
-        <li class="comanda" data-camada="0">
-          <p class="cm-topo"><span>Camada 1 de 4</span><span>o pão de baixo</span></p>
-          <h2>Sistema de gestão</h2>
-          <p class="cm-desc">O que segura a operação inteira.</p>
-          <ul>
-            <li>Pedidos num quadro só, com aviso de pedido novo</li>
-            <li>Tela da cozinha com o ponto de cada carne</li>
-            <li>Caixa, estoque, custo de cada lanche e relatórios</li>
-          </ul>
+      <div class="vitrine" aria-hidden="true">
+        <figure class="navegador">
+          <div class="nav-barra"><i></i><i></i><i></i><span>painel.suahamburgueria.com.br</span></div>
+          <img src="telas/d_inicio.webp" alt="" width="1600" height="1000">
+        </figure>
+        <figure class="aparelho-mini">
+          <img src="telas/p01_menu.webp" alt="" width="600" height="1300">
+        </figure>
+        <div class="avisos">
+          <div class="aviso" data-tipo="novo"><span class="aviso-ponto"></span><div><b>Novo pedido #296</b><small>Smash Duplo e batata grande</small></div><em>R$ 65,80</em></div>
+          <div class="aviso" data-tipo="preparo"><span class="aviso-ponto"></span><div><b>Em preparo</b><small>#295 na tela da cozinha</small></div><em>8 min</em></div>
+          <div class="aviso" data-tipo="rota"><span class="aviso-ponto"></span><div><b>Saiu para entrega</b><small>#294 para o Jardim América</small></div><em>Rogério</em></div>
+        </div>
+      </div>
+    </div>
+    <p class="abertura-nota">Telas reais do sistema, com dados de demonstração.</p>
+  </section>
+
+  <!-- ===================== serviços ===================== -->
+  <section class="servicos" id="servicos" aria-labelledby="titulo-servicos">
+    <div class="cab">
+      <h2 id="titulo-servicos">Quatro serviços que trabalham juntos</h2>
+      <p>O anúncio leva o cliente ao cardápio, o pedido cai no sistema e o relatório mostra o que deu resultado. Você contrata o que precisa e soma o resto quando quiser.</p>
+    </div>
+    <div class="servicos-grade">
+      <ol class="servicos-lista">
+        <li class="srv" data-visual="cardapio">
+          <h3>Cardápio digital</h3>
+          <p>O seu cardápio no link do Instagram e do WhatsApp. O cliente escolhe o ponto da carne e os adicionais, vê a taxa do bairro e acompanha o pedido pelo celular.</p>
+          <ul><li>Sem comissão por pedido</li><li>Pix, cartão ou dinheiro com troco</li><li>Link e QR Code</li></ul>
         </li>
-        <li class="comanda" data-camada="1">
-          <p class="cm-topo"><span>Camada 2 de 4</span><span>a carne</span></p>
-          <h2>Cardápio digital</h2>
-          <p class="cm-desc">Onde o pedido acontece. Sem comissão por pedido.</p>
-          <ul>
-            <li>Foto, ponto da carne e adicionais em cada lanche</li>
-            <li>Taxa de entrega por bairro, cupom e Pix</li>
-            <li>O cliente acompanha o pedido pelo celular</li>
-          </ul>
+        <li class="srv" data-visual="sistema">
+          <h3>Sistema de gestão</h3>
+          <p>Pedidos, balcão, cozinha, caixa, estoque com ficha técnica, financeiro e relatórios no mesmo lugar, no computador, no tablet ou no celular.</p>
+          <ul><li>Aviso sonoro de pedido novo</li><li>Custo e margem de cada lanche</li><li>Logins por função</li></ul>
         </li>
-        <li class="comanda" data-camada="2">
-          <p class="cm-topo"><span>Camada 3 de 4</span><span>o queijo e o bacon</span></p>
-          <h2>Site</h2>
-          <p class="cm-desc">A cara da sua hamburgueria quando alguém procura no Google.</p>
-          <ul>
-            <li>Com a sua marca, as suas fotos e o seu cardápio</li>
-            <li>Horários, endereço e botão de pedir</li>
-            <li>Funciona bem no celular</li>
-          </ul>
+        <li class="srv" data-visual="site">
+          <h3>Site</h3>
+          <p>A sua hamburgueria apresentada como marca para quem procura no Google: cardápio, horários, endereço e um botão de pedir.</p>
+          <ul><li>Com a sua identidade visual</li><li>Rápido no celular</li><li>Pedido direto pelo site</li></ul>
         </li>
-        <li class="comanda" data-camada="3">
-          <p class="cm-topo"><span>Camada 4 de 4</span><span>o pão de cima</span></p>
-          <h2>Tráfego pago</h2>
-          <p class="cm-desc">O que o cliente vê primeiro: o anúncio.</p>
-          <ul>
-            <li>Vídeos e anúncios feitos para hamburgueria</li>
-            <li>Campanhas no Instagram e no Facebook na sua região</li>
-            <li>Relatório todo mês, com o custo de cada conversa</li>
-          </ul>
+        <li class="srv" data-visual="trafego">
+          <h3>Tráfego pago</h3>
+          <p>Campanhas no Instagram e no Facebook na sua região, com vídeos feitos para hamburgueria e um relatório mensal com o custo de cada conversa.</p>
+          <ul><li>Criação dos anúncios</li><li>Gestão das campanhas</li><li>Relatório e ajuste todo mês</li></ul>
         </li>
       </ol>
-      <p class="pronto" aria-hidden="true">Lanche montado. <span>Agora é só vender.</span></p>
+      <div class="servicos-visual" aria-hidden="true">
+        <div class="sv" data-v="cardapio">
+          <div class="dupla-cel">
+            <img src="telas/p02_produto.webp" alt="" loading="lazy">
+            <img src="telas/p15_saiu.webp" alt="" loading="lazy">
+          </div>
+        </div>
+        <div class="sv" data-v="sistema"><figure class="navegador"><div class="nav-barra"><i></i><i></i><i></i><span>Pedidos</span></div><img src="telas/d_pedidos_depois.webp" alt="" loading="lazy"></figure></div>
+        <div class="sv" data-v="site"><figure class="navegador"><div class="nav-barra"><i></i><i></i><i></i><span>suahamburgueria.com.br</span></div><img src="telas/cardapio-desktop.webp" alt="" loading="lazy"></figure></div>
+        <div class="sv" data-v="trafego"><div class="cel-video"><video muted loop playsinline preload="none" poster="videos/V47.jpg" data-src="videos/V47.mp4"></video></div></div>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== demonstração do sistema ===================== -->
+  <!-- ===================== plataforma ===================== -->
+  <section class="plataforma" id="plataforma" aria-labelledby="titulo-plataforma">
+    <div class="cab">
+      <h2 id="titulo-plataforma">Uma plataforma para a operação inteira</h2>
+      <p>Telas reais do sistema. O pedido que entra pelo cardápio aparece no quadro, vai para a cozinha, dá baixa no estoque e fecha no caixa, sem ninguém digitar de novo.</p>
+    </div>
+    <div class="mosaico">
+      <figure class="peca larga"><img src="telas/d_pedidos_depois.webp" alt="Quadro de pedidos com as colunas novo, confirmado, em preparo, pronto e em entrega" loading="lazy"><figcaption><b>Quadro de pedidos</b>Cada pedido com o tempo de espera, do novo à entrega.</figcaption></figure>
+      <figure class="peca"><img src="telas/k01_cozinha.webp" alt="Tela da cozinha com o total a produzir e os pedidos" loading="lazy"><figcaption><b>Cozinha</b>Total a produzir, ponto da carne e observações.</figcaption></figure>
+      <figure class="peca"><img src="telas/d_cmv.webp" alt="Tabela com custo, CMV e lucro de cada lanche" loading="lazy"><figcaption><b>Custo de cada lanche</b>Ficha técnica, CMV e margem.</figcaption></figure>
+      <figure class="peca"><img src="telas/d_caixa.webp" alt="Caixa com fundo de troco, vendas e recebido por forma de pagamento" loading="lazy"><figcaption><b>Caixa</b>Sangria, suprimento e fechamento conferido.</figcaption></figure>
+      <figure class="peca"><img src="telas/d_clientes.webp" alt="Lista de clientes com pedidos, total gasto e pontos" loading="lazy"><figcaption><b>Clientes</b>Histórico, fidelidade e quem sumiu.</figcaption></figure>
+      <figure class="peca alta"><img src="telas/m_inicio.webp" alt="Painel no celular com vendas do dia e pedidos em aberto" loading="lazy"><figcaption><b>No seu celular</b>Vendas e pedidos de onde você estiver.</figcaption></figure>
+      <figure class="peca larga"><img src="telas/d_relatorios_longo.webp" alt="Relatórios de faturamento por dia, por horário e por canal" loading="lazy"><figcaption><b>Relatórios</b>Faturamento por dia e por horário, mais vendidos, bairros e ticket médio.</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ===================== demonstração ===================== -->
   <section class="demo" id="demo" aria-labelledby="titulo-demo">
     <div class="demo-texto">
-      <h2 id="titulo-demo" class="titulo-secao">Teste o sistema agora, aqui mesmo</h2>
-      <p>É o sistema de verdade, rodando no seu navegador com uma hamburgueria de exemplo. Nada é enviado para lugar nenhum.</p>
-      <ol class="roteiro">
-        <li><strong>Faça um pedido</strong> no cardápio: escolha o ponto da carne e um adicional.</li>
-        <li><strong>Toque em Loja</strong> na barra de cima e veja o pedido chegar no painel.</li>
-        <li><strong>Abra a Cozinha</strong> no menu e marque o pedido como pronto.</li>
+      <h2 id="titulo-demo">Teste o sistema agora, direto no navegador</h2>
+      <p>É o sistema de verdade com uma hamburgueria de exemplo. Os dados ficam só no seu navegador.</p>
+      <ol class="passo-a-passo">
+        <li>Faça um pedido no cardápio, com o ponto da carne e um adicional.</li>
+        <li>Toque em <b>Loja</b> na barra de cima e veja o pedido chegar no painel.</li>
+        <li>Abra a <b>Cozinha</b> no menu e marque o pedido como pronto.</li>
       </ol>
-      <p class="demo-acesso">Os dados são de exemplo. Para começar do zero, use o botão de recomeçar na barra de cima.</p>
-      <a class="botao botao-contorno" href="demo/" target="_blank" rel="noopener">Abrir em tela cheia</a>
+      <a class="link-seta" href="demo/" target="_blank" rel="noopener">Abrir em tela cheia</a>
     </div>
-    <div class="aparelho" aria-label="Demonstração do sistema">
-      <div class="aparelho-tela">
+    <div class="cel-demo">
+      <div class="cel-demo-tela">
         <button class="ligar" type="button" aria-controls="quadro-demo">
           <img src="telas/p01_menu.webp" alt="" loading="lazy">
-          <span class="ligar-botao">Abrir a demonstração</span>
+          <span class="botao botao-brasa">Abrir a demonstração</span>
         </button>
         <iframe id="quadro-demo" title="Demonstração do sistema Sua Hamburgueria" hidden></iframe>
       </div>
     </div>
   </section>
 
-  <!-- ===================== tour do painel ===================== -->
-  <section class="tour" id="painel" aria-labelledby="titulo-tour">
-    <h2 id="titulo-tour" class="titulo-secao">O que você vê no painel</h2>
-    <div class="tour-grade">
-      <ul class="tour-itens">
-        <li data-tela="d_pedidos_depois"><h3>Pedidos</h3><p>Novos, em preparo, prontos e em entrega, cada um com o tempo de espera. Pedido novo chega com aviso sonoro.</p></li>
-        <li data-tela="k01_cozinha"><h3>Cozinha</h3><p>Uma tela no tablet com o total a produzir, o ponto da carne e as observações em destaque.</p></li>
-        <li data-tela="d_cmv"><h3>Custo de cada lanche</h3><p>Pela ficha técnica: pão, carne, queijo, bacon e embalagem. Margem apertada aparece em vermelho.</p></li>
-        <li data-tela="d_caixa"><h3>Caixa</h3><p>Abertura com troco, sangria e fechamento conferido por forma de pagamento.</p></li>
-        <li data-tela="d_clientes"><h3>Clientes</h3><p>Histórico de cada um, quem sumiu há 30 dias e quem faz aniversário no mês, com mensagem pronta no WhatsApp.</p></li>
-        <li data-tela="d_relatorios_longo"><h3>Relatórios</h3><p>Faturamento por dia e por horário, mais vendidos, bairros e ticket médio.</p></li>
-      </ul>
-      <div class="monitor" aria-hidden="true">
-        <div class="monitor-tela">
-          <img src="telas/d_pedidos_depois.webp" alt="" data-n="d_pedidos_depois" class="ativa">
-          <img src="telas/k01_cozinha.webp" alt="" data-n="k01_cozinha" loading="lazy">
-          <img src="telas/d_cmv.webp" alt="" data-n="d_cmv" loading="lazy">
-          <img src="telas/d_caixa.webp" alt="" data-n="d_caixa" loading="lazy">
-          <img src="telas/d_clientes.webp" alt="" data-n="d_clientes" loading="lazy">
-          <img src="telas/d_relatorios_longo.webp" alt="" data-n="d_relatorios_longo" loading="lazy">
-        </div>
-        <p class="legenda">Telas reais do sistema, com dados de demonstração</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== calculadora de comissão ===================== -->
-  <section class="conta" id="comissao" aria-labelledby="titulo-conta">
-    <div class="conta-texto">
-      <h2 id="titulo-conta" class="titulo-secao">Quanto fica no caminho a cada pedido?</h2>
-      <p>Coloque os números da sua hamburgueria. A comanda ao lado faz a conta.</p>
-      <form class="controles" onsubmit="return false">
-        <label>Pedidos por mês nos aplicativos
-          <output for="c-pedidos" id="o-pedidos">600</output>
-          <input id="c-pedidos" type="range" min="50" max="3000" step="10" value="600">
-        </label>
-        <label>Ticket médio
-          <output for="c-ticket" id="o-ticket">R$ 55</output>
-          <input id="c-ticket" type="range" min="20" max="150" step="1" value="55">
-        </label>
-        <label>Comissão que você paga hoje
-          <output for="c-taxa" id="o-taxa">20%</output>
-          <input id="c-taxa" type="range" min="0" max="35" step="0.5" value="20">
-        </label>
-      </form>
-      <p class="nota">Simulação com os números que você escolheu. Confira a taxa no seu contrato com o aplicativo.</p>
-    </div>
-    <div class="cupom" role="status" aria-live="polite">
-      <div class="cupom-papel">
-        <p class="cp-cab">SUA HAMBURGUERIA<br>simulação de comissão</p>
-        <p class="cp-linha"><span>Pedidos no mês</span><span id="r-pedidos">600</span></p>
-        <p class="cp-linha"><span>Faturamento nos apps</span><span id="r-fat">R$ 33.000,00</span></p>
-        <p class="cp-linha"><span>Comissão (<span id="r-taxa">20</span>%)</span><span id="r-com">R$ 6.600,00</span></p>
-        <p class="cp-sep"></p>
-        <p class="cp-linha forte"><span>Em 12 meses</span><span id="r-ano">R$ 79.200,00</span></p>
-        <p class="cp-sep"></p>
-        <p class="cp-linha"><span>Seu cardápio digital</span><span>R$ 199,90/mês</span></p>
-        <p class="cp-obs">No seu cardápio, o pedido não paga comissão. A mensalidade é a mesma com 50 ou 3.000 pedidos.</p>
-        <p class="cp-rodape">obrigado, volte sempre</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== tráfego pago ===================== -->
+  <!-- ===================== tráfego ===================== -->
   <section class="trafego" id="trafego" aria-labelledby="titulo-trafego">
-    <div class="trafego-topo">
-      <h2 id="titulo-trafego" class="titulo-secao">Anúncios feitos para quem vive de lanche</h2>
-      <p>Cada vídeo fala de um problema de verdade da hamburgueria e mostra o sistema funcionando. A campanha leva o cliente para o seu cardápio ou para o seu WhatsApp.</p>
+    <div class="cab">
+      <h2 id="titulo-trafego">Anúncios feitos para hamburgueria</h2>
+      <p>Cada vídeo fala de um problema real do dono de hamburgueria e mostra o sistema funcionando. Testamos vários ângulos e mantemos os que trazem conversa mais barata.</p>
     </div>
     <div class="trilho" aria-label="Exemplos de anúncios em vídeo">
       <div class="trilho-faixa">
-        <figure class="celular-video"><video muted loop playsinline preload="none" poster="videos/V07.jpg" data-src="videos/V07.mp4"></video><figcaption>Quanto custa cada camada do lanche</figcaption></figure>
-        <figure class="celular-video"><video muted loop playsinline preload="none" poster="videos/V47.jpg" data-src="videos/V47.mp4"></video><figcaption>O caminho de um pedido</figcaption></figure>
-        <figure class="celular-video"><video muted loop playsinline preload="none" poster="videos/V02.jpg" data-src="videos/V02.mp4"></video><figcaption>Pedido digitado do direct</figcaption></figure>
-        <figure class="celular-video"><video muted loop playsinline preload="none" poster="videos/V03.jpg" data-src="videos/V03.mp4"></video><figcaption>Ponto da carne errado</figcaption></figure>
-        <figure class="celular-video"><video muted loop playsinline preload="none" poster="videos/V11.jpg" data-src="videos/V11.mp4"></video><figcaption>O bacon extra que ninguém ofereceu</figcaption></figure>
-        <figure class="celular-video"><video muted loop playsinline preload="none" poster="videos/V22.jpg" data-src="videos/V22.mp4"></video><figcaption>Link da bio que recebe pedido</figcaption></figure>
+        <figure class="anuncio"><video muted loop playsinline preload="none" poster="videos/V07.jpg" data-src="videos/V07.mp4"></video><figcaption>Custo de cada lanche</figcaption></figure>
+        <figure class="anuncio"><video muted loop playsinline preload="none" poster="videos/V02.jpg" data-src="videos/V02.mp4"></video><figcaption>Pedido pelo direct</figcaption></figure>
+        <figure class="anuncio"><video muted loop playsinline preload="none" poster="videos/V03.jpg" data-src="videos/V03.mp4"></video><figcaption>Ponto da carne</figcaption></figure>
+        <figure class="anuncio"><video muted loop playsinline preload="none" poster="videos/V11.jpg" data-src="videos/V11.mp4"></video><figcaption>Adicionais</figcaption></figure>
+        <figure class="anuncio"><video muted loop playsinline preload="none" poster="videos/V22.jpg" data-src="videos/V22.mp4"></video><figcaption>Link da bio</figcaption></figure>
+        <figure class="anuncio"><video muted loop playsinline preload="none" poster="videos/V47.jpg" data-src="videos/V47.mp4"></video><figcaption>O caminho do pedido</figcaption></figure>
       </div>
     </div>
-    <ol class="passos" aria-label="Como funciona o tráfego, mês a mês">
-      <li><h3>Conversa</h3><p>Entendemos os seus lanches, o que mais vende e os bairros que você atende.</p></li>
-      <li><h3>Anúncios</h3><p>Criamos vídeos e textos diferentes, cada um falando com um tipo de cliente.</p></li>
-      <li><h3>Campanha no ar</h3><p>Anúncios na sua região, levando para o cardápio ou para o WhatsApp.</p></li>
-      <li><h3>Relatório e ajuste</h3><p>Mostramos quanto custou cada conversa. O que funciona fica, o resto troca.</p></li>
+    <ol class="etapas" aria-label="Como funciona o tráfego">
+      <li><span>1</span><h3>Diagnóstico</h3><p>Seus lanches, ticket médio, bairros atendidos e o que mais vende.</p></li>
+      <li><span>2</span><h3>Criação</h3><p>Vídeos e textos com ângulos diferentes, cada um para um tipo de cliente.</p></li>
+      <li><span>3</span><h3>Campanhas</h3><p>Anúncios na sua região, levando para o cardápio ou para o WhatsApp.</p></li>
+      <li><span>4</span><h3>Relatório</h3><p>Custo de cada conversa todo mês. O que funciona fica; o resto é trocado.</p></li>
     </ol>
   </section>
 
-  <!-- ===================== planos: um cardápio ===================== -->
-  <section class="planos" id="planos" aria-labelledby="titulo-planos">
-    <div class="quadro">
-      <h2 id="titulo-planos" class="quadro-titulo">Cardápio de planos</h2>
-      <p class="quadro-sub">Mensalidade fixa. Nenhum plano cobra comissão por pedido.</p>
-      <ul class="itens">
-        <li class="item">
-          <div class="item-linha"><h3>Cardápio digital</h3><span class="pontos" aria-hidden="true"></span><p class="preco"><small>R$</small> 199,90<small>/mês</small></p></div>
-          <p class="item-desc">Cardápio online com as suas fotos, pedidos chegando no painel, taxa por bairro, cupom, Pix, link e QR Code.</p>
-        </li>
-        <li class="item destaque">
-          <div class="item-linha"><h3>Sistema + cardápio em site <span class="selo">o mais pedido</span></h3><span class="pontos" aria-hidden="true"></span><p class="preco"><small>R$</small> 299,90<small>/mês</small></p></div>
-          <p class="item-desc">Tudo do cardápio, mais balcão (PDV), caixa, tela da cozinha, estoque com ficha técnica, financeiro, clientes, cupons, entregas e relatórios.</p>
-        </li>
-        <li class="item">
-          <div class="item-linha"><h3>Sistema + cardápio em app</h3><span class="pontos" aria-hidden="true"></span><p class="preco"><small>R$</small> 599,90<small>/mês</small></p></div>
-          <p class="item-desc">Tudo do sistema, mais o cardápio instalado na tela do celular do cliente, com o ícone e o nome da sua hamburgueria.</p>
-        </li>
-      </ul>
-      <div class="adicional">
-        <div class="item-linha"><h3>Adicional: tráfego pago</h3><span class="pontos" aria-hidden="true"></span><p class="preco"><small>+ R$</small> 999,99<small>/mês</small></p></div>
-        <p class="item-desc">Soma a qualquer plano. Criação dos anúncios, campanhas e relatório mensal. A verba dos anúncios é paga direto ao Meta, à parte.</p>
-      </div>
-      <a class="botao botao-ketchup whats" href="#contato" data-whats="Oi! Vi os planos no site e quero saber qual é o melhor para a minha hamburgueria.">Escolher meu plano no WhatsApp</a>
+  <!-- ===================== calculadora ===================== -->
+  <section class="conta" id="comissao" aria-labelledby="titulo-conta">
+    <div class="conta-texto">
+      <h2 id="titulo-conta">Quanto a comissão custa para a sua hamburgueria?</h2>
+      <p>Ajuste com os seus números. A conta usa só o que você informar.</p>
+      <form class="controles" onsubmit="return false">
+        <div class="ctl"><label for="c-pedidos">Pedidos por mês nos aplicativos</label><output for="c-pedidos" id="o-pedidos">600</output><input id="c-pedidos" type="range" min="50" max="3000" step="10" value="600"></div>
+        <div class="ctl"><label for="c-ticket">Ticket médio</label><output for="c-ticket" id="o-ticket">R$ 55</output><input id="c-ticket" type="range" min="20" max="150" step="1" value="55"></div>
+        <div class="ctl"><label for="c-taxa">Comissão que você paga hoje</label><output for="c-taxa" id="o-taxa">20%</output><input id="c-taxa" type="range" min="0" max="35" step="0.5" value="20"></div>
+      </form>
     </div>
+    <div class="resultado" role="status" aria-live="polite">
+      <p class="res-rot">Comissão por mês</p>
+      <p class="res-grande" id="r-com">R$ 6.600</p>
+      <dl class="res-lista">
+        <div><dt>Faturamento nos aplicativos</dt><dd id="r-fat">R$ 33.000</dd></div>
+        <div><dt>Comissão em 12 meses</dt><dd id="r-ano">R$ 79.200</dd></div>
+        <div class="res-nosso"><dt>Seu cardápio digital</dt><dd>R$ 199,90 por mês</dd></div>
+      </dl>
+      <p class="res-nota">No seu cardápio digital, o pedido não paga comissão: a mensalidade é a mesma com 50 ou 3.000 pedidos. Confira a taxa no seu contrato com o aplicativo.</p>
+    </div>
+  </section>
+
+  <!-- ===================== planos ===================== -->
+  <section class="planos" id="planos" aria-labelledby="titulo-planos">
+    <div class="cab cab-centro">
+      <h2 id="titulo-planos">Planos</h2>
+      <p>Mensalidade fixa e nenhuma comissão por pedido. A montagem do cardápio está incluída em todos.</p>
+    </div>
+    <div class="planos-grade">
+      <article class="plano">
+        <h3>Cardápio digital</h3>
+        <p class="plano-desc">Para começar a vender pelo seu link.</p>
+        <p class="plano-preco"><span>R$</span>199,90<small>/mês</small></p>
+        <a class="botao botao-contorno whats" href="#contato" data-whats="Olá! Tenho interesse no plano Cardápio digital.">Quero este plano</a>
+      </article>
+      <article class="plano plano-destaque">
+        <p class="plano-selo">Mais escolhido</p>
+        <h3>Sistema + cardápio em site</h3>
+        <p class="plano-desc">A operação inteira organizada.</p>
+        <p class="plano-preco"><span>R$</span>299,90<small>/mês</small></p>
+        <a class="botao botao-brasa whats" href="#contato" data-whats="Olá! Tenho interesse no plano Sistema + cardápio em site.">Quero este plano</a>
+      </article>
+      <article class="plano">
+        <h3>Sistema + cardápio em app</h3>
+        <p class="plano-desc">Sua marca na tela do celular do cliente.</p>
+        <p class="plano-preco"><span>R$</span>599,90<small>/mês</small></p>
+        <a class="botao botao-contorno whats" href="#contato" data-whats="Olá! Tenho interesse no plano Sistema + cardápio em app.">Quero este plano</a>
+      </article>
+    </div>
+    <div class="comparativo-envoltorio">
+      <table class="comparativo">
+        <caption class="sr">O que cada plano inclui</caption>
+        <thead><tr><th scope="col">Inclui</th><th scope="col">Cardápio digital</th><th scope="col">Sistema + site</th><th scope="col">Sistema + app</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Cardápio com a sua marca, link e QR Code</th><td class="s">Sim</td><td class="s">Sim</td><td class="s">Sim</td></tr>
+          <tr><th scope="row">Pedidos em tempo real no painel</th><td class="s">Sim</td><td class="s">Sim</td><td class="s">Sim</td></tr>
+          <tr><th scope="row">Taxa por bairro, cupons e Pix</th><td class="s">Sim</td><td class="s">Sim</td><td class="s">Sim</td></tr>
+          <tr><th scope="row">Balcão (PDV), caixa e tela da cozinha</th><td class="n">Não</td><td class="s">Sim</td><td class="s">Sim</td></tr>
+          <tr><th scope="row">Estoque, ficha técnica e custo por lanche</th><td class="n">Não</td><td class="s">Sim</td><td class="s">Sim</td></tr>
+          <tr><th scope="row">Financeiro, clientes, fidelidade e relatórios</th><td class="n">Não</td><td class="s">Sim</td><td class="s">Sim</td></tr>
+          <tr><th scope="row">Entregas e app do entregador</th><td class="n">Não</td><td class="s">Sim</td><td class="s">Sim</td></tr>
+          <tr><th scope="row">Cardápio instalado no celular do cliente, com o ícone da loja</th><td class="n">Não</td><td class="n">Não</td><td class="s">Sim</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="adicional">
+      <div>
+        <h3>Tráfego pago</h3>
+        <p>Soma a qualquer plano: criação dos anúncios, gestão das campanhas e relatório mensal. A verba dos anúncios é paga direto ao Meta.</p>
+      </div>
+      <p class="plano-preco"><span>+ R$</span>999,99<small>/mês</small></p>
+    </div>
+    <p class="planos-nota">Site institucional e outros projetos: orçamento pelo WhatsApp.</p>
   </section>
 
   <!-- ===================== perguntas ===================== -->
   <section class="perguntas" id="perguntas" aria-labelledby="titulo-perguntas">
-    <h2 id="titulo-perguntas" class="titulo-secao">Perguntas que dono de hamburgueria faz</h2>
+    <h2 id="titulo-perguntas">Perguntas frequentes</h2>
     <div class="lista-perguntas">
       <details><summary>Eu pago comissão pelos pedidos do cardápio digital?</summary><p>Não. Você paga a mensalidade do plano, e o pedido que chega pelo seu link não tem comissão.</p></details>
-      <details><summary>Quem cadastra o cardápio?</summary><p>A gente. Você manda o cardápio que já tem (PDF, foto do cardápio impresso ou uma lista no WhatsApp) e as fotos. Cadastramos os lanches, os adicionais e as taxas de entrega e entregamos com o link e o QR Code.</p></details>
+      <details><summary>Quem cadastra o cardápio?</summary><p>A nossa equipe. Você envia o cardápio que já tem (PDF, foto do cardápio impresso ou uma lista no WhatsApp) e as fotos. Cadastramos os lanches, os adicionais e as taxas de entrega e entregamos com o link e o QR Code.</p></details>
       <details><summary>Preciso de computador?</summary><p>Não. O painel abre no navegador do celular, do tablet ou do computador. Para a cozinha, um tablet funciona bem.</p></details>
       <details><summary>O app fica na Play Store ou na App Store?</summary><p>Não. O cliente instala o cardápio direto na tela do celular, pelo navegador, e ele aparece com o ícone e o nome da sua hamburgueria.</p></details>
-      <details><summary>A verba dos anúncios está incluída no tráfego pago?</summary><p>Não. Os R$ 999,99 são a gestão: criação, campanhas e relatório. A verba é paga direto ao Meta, no seu cartão, e definida junto com você.</p></details>
+      <details><summary>A verba dos anúncios está incluída no tráfego pago?</summary><p>Não. Os R$ 999,99 cobrem criação, gestão das campanhas e relatório. A verba é paga direto ao Meta, no seu cartão, e definida junto com você.</p></details>
       <details><summary>Dá para imprimir a comanda?</summary><p>Sim, em impressora térmica de 80 mm. Se preferir sem papel, a cozinha usa a tela do tablet.</p></details>
-      <details><summary>Consigo testar antes de contratar?</summary><p>Sim. A demonstração desta página é o sistema de verdade. Se quiser, mostramos com os seus lanches numa conversa pelo WhatsApp.</p></details>
+      <details><summary>Consigo testar antes de contratar?</summary><p>Sim. A demonstração desta página é o sistema de verdade. Também mostramos o sistema com os seus lanches numa conversa pelo WhatsApp.</p></details>
     </div>
   </section>
 
   <!-- ===================== chamada final ===================== -->
   <section class="final" id="contato" aria-labelledby="titulo-final">
-    <h2 id="titulo-final" class="titulo-final">Bora montar a sua?</h2>
-    <p>Chame no WhatsApp e conte como funciona a sua hamburgueria hoje. A gente mostra o sistema com os seus lanches.</p>
-    <a class="botao botao-ketchup botao-grande whats" href="#contato" data-whats="Oi! Vi o site e quero montar a operação da minha hamburgueria.">Chamar no WhatsApp</a>
+    <div class="final-dentro">
+      <h2 id="titulo-final">Vamos organizar a sua hamburgueria?</h2>
+      <p>Conte como funciona a sua operação hoje. Mostramos o sistema com os seus lanches e indicamos o plano certo.</p>
+      <a class="botao botao-brasa botao-g whats" href="#contato" data-whats="Olá! Vi o site e quero conversar sobre a minha hamburgueria.">Falar com a equipe no WhatsApp</a>
+    </div>
   </section>
 </main>
 
 <footer class="rodape">
-  <div class="rodape-marca"><img src="img/logo.webp" alt="" width="56" height="56"><p>Sua Hamburgueria<br><span>Tráfego pago, cardápio digital, site e sistema para hamburguerias.</span></p></div>
-  <p class="rodape-legal">As telas e vídeos desta página mostram o sistema com dados de demonstração.</p>
+  <div class="rodape-dentro">
+    <div class="rodape-marca"><img src="img/logo.webp" alt="" width="40" height="40"><div><b>Sua Hamburgueria</b><span>Tecnologia e marketing para hamburguerias</span></div></div>
+    <nav class="rodape-links" aria-label="Rodapé"><a href="#servicos">Serviços</a><a href="#plataforma">Plataforma</a><a href="#demo">Demonstração</a><a href="#planos">Planos</a></nav>
+    <p class="rodape-legal">As telas e os vídeos desta página mostram o sistema com dados de demonstração.</p>
+  </div>
 </footer>
 </body>
 </html>

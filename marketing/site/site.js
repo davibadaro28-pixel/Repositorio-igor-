@@ -1,169 +1,126 @@
-// Site da Sua Hamburgueria: montagem do lanche 3D na rolagem, demonstração do sistema, tour do painel,
-// calculadora de comissão e faixa de anúncios.
-import { criarHamburguer } from './burger3d.js';
+// Site da Sua Hamburgueria: abertura com o produto e avisos de pedido, fagulhas de brasa (three.js),
+// serviços com tela que troca na rolagem, demonstração ao vivo, calculadora e faixa de anúncios.
+import { criarBrasa } from './brasa.js';
 
 // ------------------------------------------------------------------ CONFIGURAÇÃO
-// Coloque aqui o WhatsApp da empresa com DDI e DDD, só números (ex.: '5511912345678').
+// WhatsApp da empresa com DDI e DDD, só números (ex.: '5511912345678').
 // Vazio: o botão abre o WhatsApp com a mensagem pronta para a pessoa escolher o contato.
 const WHATSAPP = '';
 // ------------------------------------------------------------------
 
 const reduzido = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const largo = () => window.matchMedia('(min-width: 981px)').matches;
-const $ = (s, el = document) => el.querySelector(s);
-const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const um = (s, el = document) => el.querySelector(s);
+const todos = (s, el = document) => [...el.querySelectorAll(s)];
 
-// WhatsApp em todos os botões
-for (const a of $$('a.whats')) {
-  const txt = encodeURIComponent(a.dataset.whats || 'Oi! Vi o site e quero saber mais.');
+for (const a of todos('a.whats')) {
+  const txt = encodeURIComponent(a.dataset.whats || 'Olá! Vi o site e quero saber mais.');
   a.href = WHATSAPP ? `https://wa.me/${WHATSAPP}?text=${txt}` : `https://wa.me/?text=${txt}`;
   a.target = '_blank';
   a.rel = 'noopener';
 }
 
-// topo ganha fundo depois que a página rola
-const topo = $('#topo');
-const marcaTopo = () => topo.classList.toggle('rolou', window.scrollY > 30);
+const topo = um('#topo');
+const marcaTopo = () => topo.classList.toggle('rolou', window.scrollY > 20);
 window.addEventListener('scroll', marcaTopo, { passive: true });
 marcaTopo();
 
-// ------------------------------------------------------------------ espera o GSAP (scripts com defer)
-await new Promise((ok) => (window.gsap && window.ScrollTrigger ? ok() : window.addEventListener('DOMContentLoaded', ok, { once: true })));
+// fagulhas de brasa no fundo da abertura
+try { criarBrasa(um('.brasa'), { reduzido }); } catch (e) { um('.brasa')?.remove(); }
+
+await new Promise((ok) => (window.gsap ? ok() : window.addEventListener('DOMContentLoaded', ok, { once: true })));
 const gsap = window.gsap;
-const semGsap = !gsap || !window.ScrollTrigger;
-if (!semGsap) gsap.registerPlugin(window.ScrollTrigger);
-if (reduzido || semGsap) document.body.classList.add('estatico');
+const comGsap = !!(gsap && window.ScrollTrigger) && !reduzido;
+if (comGsap) gsap.registerPlugin(window.ScrollTrigger);
 
-// ------------------------------------------------------------------ hambúrguer 3D
-let lanche = null;
-try {
-  lanche = await criarHamburguer($('.lanche3d'), { reduzido: reduzido || semGsap });
-} catch (e) {
-  console.warn('3D indisponível', e);
-  $('.lanche3d').remove();
-}
-
-// ------------------------------------------------------------------ abertura + montagem na rolagem
-if (!reduzido && !semGsap) {
+// ------------------------------------------------------------------ abertura
+const avisos = todos('.aviso');
+if (comGsap) {
   await document.fonts.ready;
-  // um único momento de entrada: as linhas do título sobem
-  gsap.from('.titulo-gigante .linha > span', { yPercent: 110, duration: 0.9, ease: 'power4.out', stagger: 0.08, delay: 0.15 });
-  gsap.from('.abre-sub, .abre-acoes, .role', { opacity: 0, y: 18, duration: 0.6, ease: 'power2.out', stagger: 0.08, delay: 0.6 });
-
-  const comandas = $$('.comanda');
-  gsap.set('.camadas', { autoAlpha: 0 });
-  const tl = gsap.timeline({ defaults: { ease: 'power2.out' } });
-  tl.to('.camadas', { autoAlpha: 1, duration: 0.02 }, 0.15);
-  tl.to('.abertura', { autoAlpha: 0, y: -80, duration: 0.1 }, 0.02);
-  // cada comanda desce no espeto quando a sua camada encaixa no lanche
-  const quando = [0.17, 0.34, 0.5, 0.66];
-  comandas.forEach((c, i) => {
-    const giro = [-2.5, 1.8, -1.2, 2.2][i];
-    tl.fromTo(c, { autoAlpha: 0, yPercent: -60, rotation: giro * 3 }, { autoAlpha: 1, yPercent: 0, rotation: giro, duration: 0.07, ease: 'back.out(1.6)' }, quando[i]);
-    c.style.zIndex = 10 + i;
-    // as anteriores ficam embaixo, empilhadas
-    if (i > 0) tl.to(comandas.slice(0, i), { y: (k) => (i - k) * 14, scale: (k) => 1 - (i - k) * 0.03, filter: 'brightness(.93)', duration: 0.05 }, quando[i]);
-    tl.call(() => lanche?.destaque(i), null, quando[i] + 0.02);
-  });
-  tl.to('.camadas', { autoAlpha: 0, x: -40, duration: 0.06 }, 0.84);
-  tl.fromTo('.pronto', { autoAlpha: 0, y: 30 }, { autoAlpha: 1, y: 0, duration: 0.06 }, 0.86);
-  tl.to({}, { duration: 0.08 }, 0.92);
-
-  window.ScrollTrigger.create({
-    trigger: '.palco',
-    start: 'top top',
-    end: () => '+=' + Math.round(window.innerHeight * 4.2),
-    pin: true,
-    scrub: 0.5,
-    animation: tl,
-    onUpdate: (st) => {
-      lanche?.montagem((st.progress - 0.1) / 0.72);
-      if (st.progress < 0.15) lanche?.destaque(-1);
-    },
-  });
-} else {
-  lanche?.montagem(1);
+  const ent = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  ent.from('.abertura h1', { y: 30, opacity: 0, duration: 0.9 })
+    .from('.abertura-sub, .acoes, .garantias', { y: 18, opacity: 0, duration: 0.7, stagger: 0.08 }, '-=0.55')
+    .from('.vitrine > .navegador', { y: 60, opacity: 0, rotateY: -18, duration: 1.1 }, 0.15)
+    .from('.aparelho-mini', { y: 80, opacity: 0, duration: 1 }, 0.45);
+  // avisos de pedido chegando em sequência, sem parar
+  gsap.set(avisos, { autoAlpha: 0, x: 40 });
+  const ciclo = gsap.timeline({ repeat: -1, delay: 1.2, repeatDelay: 0.6 });
+  avisos.forEach((a, i) => ciclo.to(a, { autoAlpha: 1, x: 0, duration: 0.55, ease: 'power3.out' }, i * 1.1));
+  ciclo.to(avisos, { autoAlpha: 0, y: -10, duration: 0.45, stagger: 0.08, ease: 'power2.in' }, '+=2.4');
+  ciclo.set(avisos, { y: 0, x: 40 });
+  // a vitrine acompanha o mouse de leve
+  const vit = um('.vitrine > .navegador');
+  window.addEventListener('pointermove', (e) => {
+    const x = e.clientX / window.innerWidth - 0.5, y = e.clientY / window.innerHeight - 0.5;
+    gsap.to(vit, { rotateY: -9 + x * 5, rotateX: 3 - y * 4, duration: 0.8, ease: 'power2.out' });
+  }, { passive: true });
 }
 
-// ------------------------------------------------------------------ demonstração do sistema
-const ligar = $('.ligar');
+// ------------------------------------------------------------------ serviços: a tela troca conforme a rolagem
+const srvs = todos('.srv');
+const visuais = todos('.sv');
+function ativaServico(li) {
+  srvs.forEach((x) => x.classList.toggle('ativo', x === li));
+  for (const v of visuais) {
+    const on = v.dataset.v === li.dataset.visual;
+    v.classList.toggle('ativo', on);
+    const vid = v.querySelector('video');
+    if (vid) {
+      if (on) { if (!vid.src) vid.src = vid.dataset.src; if (!reduzido) vid.play().catch(() => {}); }
+      else vid.pause();
+    }
+  }
+}
+const obsSrv = new IntersectionObserver((es) => { for (const e of es) if (e.isIntersecting) ativaServico(e.target); }, { rootMargin: '-48% 0px -48% 0px' });
+srvs.forEach((li) => obsSrv.observe(li));
+if (srvs[0]) ativaServico(srvs[0]);
+
+// ------------------------------------------------------------------ demonstração
+const ligar = um('.ligar');
 ligar?.addEventListener('click', () => {
-  const f = $('#quadro-demo');
+  const f = um('#quadro-demo');
   f.src = 'demo/';
   f.hidden = false;
   ligar.remove();
   f.focus();
 });
 
-// ------------------------------------------------------------------ tour do painel
-const itens = $$('.tour-itens li');
-const telas = $$('.monitor-tela img');
-function ativa(li) {
-  itens.forEach((x) => x.classList.toggle('ativo', x === li));
-  telas.forEach((im) => im.classList.toggle('ativa', im.dataset.n === li.dataset.tela));
-}
-const obsTour = new IntersectionObserver((es) => {
-  for (const e of es) if (e.isIntersecting) ativa(e.target);
-}, { rootMargin: '-45% 0px -45% 0px' });
-itens.forEach((li) => obsTour.observe(li));
-if (itens[0]) ativa(itens[0]);
-
-// ------------------------------------------------------------------ calculadora de comissão
-const brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
-const num = new Intl.NumberFormat('pt-BR');
-const ent = { pedidos: $('#c-pedidos'), ticket: $('#c-ticket'), taxa: $('#c-taxa') };
+// ------------------------------------------------------------------ calculadora
+const brl = (v) => 'R$ ' + Math.round(v).toLocaleString('pt-BR');
+const ent = { pedidos: um('#c-pedidos'), ticket: um('#c-ticket'), taxa: um('#c-taxa') };
 const atual = { fat: 0, com: 0, ano: 0 };
-function preenche(input) {
-  const p = ((input.value - input.min) / (input.max - input.min)) * 100;
-  input.style.setProperty('--p', p + '%');
-}
-function conta(animar = true) {
+function conta(animar) {
   const pedidos = +ent.pedidos.value, ticket = +ent.ticket.value, taxa = +ent.taxa.value;
-  $('#o-pedidos').textContent = num.format(pedidos);
-  $('#o-ticket').textContent = brl.format(ticket).replace(',00', '');
-  $('#o-taxa').textContent = String(taxa).replace('.', ',') + '%';
-  $('#r-pedidos').textContent = num.format(pedidos);
-  $('#r-taxa').textContent = String(taxa).replace('.', ',');
-  Object.values(ent).forEach(preenche);
-  const alvo = { fat: pedidos * ticket, com: pedidos * ticket * taxa / 100 };
+  um('#o-pedidos').textContent = pedidos.toLocaleString('pt-BR');
+  um('#o-ticket').textContent = 'R$ ' + ticket;
+  um('#o-taxa').textContent = String(taxa).replace('.', ',') + '%';
+  for (const i of Object.values(ent)) i.style.setProperty('--p', ((i.value - i.min) / (i.max - i.min)) * 100 + '%');
+  const alvo = { fat: pedidos * ticket, com: (pedidos * ticket * taxa) / 100 };
   alvo.ano = alvo.com * 12;
-  const escreve = () => {
-    $('#r-fat').textContent = brl.format(atual.fat);
-    $('#r-com').textContent = brl.format(atual.com);
-    $('#r-ano').textContent = brl.format(atual.ano);
-  };
-  if (animar && !reduzido && !semGsap) {
-    gsap.to(atual, { ...alvo, duration: 0.45, ease: 'power2.out', onUpdate: escreve, overwrite: true });
-    // a comanda "sai da impressora" um pouco a cada mudança
-    gsap.fromTo('.cupom-papel', { y: -8 }, { y: 0, duration: 0.3, ease: 'power2.out', overwrite: true });
-  } else { Object.assign(atual, alvo); escreve(); }
+  const escreve = () => { um('#r-fat').textContent = brl(atual.fat); um('#r-com').textContent = brl(atual.com); um('#r-ano').textContent = brl(atual.ano); };
+  if (animar && comGsap) gsap.to(atual, { ...alvo, duration: 0.5, ease: 'power2.out', onUpdate: escreve, overwrite: true });
+  else { Object.assign(atual, alvo); escreve(); }
 }
 Object.values(ent).forEach((i) => i.addEventListener('input', () => conta(true)));
 conta(false);
 
-// ------------------------------------------------------------------ faixa de anúncios
-const videos = $$('.celular-video video');
-const obsVideo = new IntersectionObserver((es) => {
+// ------------------------------------------------------------------ anúncios
+const obsVid = new IntersectionObserver((es) => {
   for (const e of es) {
     const v = e.target;
-    if (e.isIntersecting) {
-      if (!v.src) v.src = v.dataset.src;
-      if (!reduzido) v.play().catch(() => {});
-    } else v.pause();
+    if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; if (!reduzido) v.play().catch(() => {}); }
+    else v.pause();
   }
-}, { threshold: 0.35 });
-videos.forEach((v) => obsVideo.observe(v));
+}, { threshold: 0.4 });
+todos('.anuncio video').forEach((v) => obsVid.observe(v));
 
-if (!reduzido && !semGsap) {
+if (comGsap) {
   const mm = gsap.matchMedia();
-  mm.add('(min-width: 981px)', () => {
-    const faixa = $('.trilho-faixa');
+  mm.add('(min-width: 1081px)', () => {
+    const faixa = um('.trilho-faixa');
     const dist = () => Math.max(0, faixa.scrollWidth - window.innerWidth);
-    gsap.to(faixa, {
-      x: () => -dist(),
-      ease: 'none',
-      scrollTrigger: { trigger: '.trilho', start: 'center 55%', end: () => '+=' + dist(), pin: true, scrub: 0.6, invalidateOnRefresh: true },
-    });
+    gsap.to(faixa, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '.trilho', start: 'center 55%', end: () => '+=' + dist(), pin: true, scrub: 0.6, invalidateOnRefresh: true } });
   });
+  // títulos de seção entram uma vez, com discrição
+  todos('.cab h2').forEach((h) => gsap.from(h, { y: 24, opacity: 0, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: h, start: 'top 85%', once: true } }));
   window.addEventListener('load', () => window.ScrollTrigger.refresh());
 }
