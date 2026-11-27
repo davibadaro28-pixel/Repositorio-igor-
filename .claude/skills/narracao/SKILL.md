@@ -39,8 +39,14 @@ python3 scripts/texto_falado.py roteiro.json --estilo anuncio --motor elevenlabs
 ```
 
 Ele mostra o texto que vai para a voz, as trocas feitas (R$ 199,90 → "cento e noventa e nove e noventa", CMV → "cê-ême-vê"),
-a duração estimada de cada frase e, com janelas, se a frase cabe ou quantas sílabas cortar. Corte texto antes de gerar:
-acelerar o áudio depois deixa a voz atropelada e com cara de robô.
+a duração estimada de cada frase e, com janelas, se a frase cabe, quantas sílabas cortar e se ela é **curta demais** para
+a cena. Corte texto antes de gerar: acelerar o áudio depois deixa a voz atropelada e com cara de robô.
+
+**Ritmo vem de preencher.** Narração com ritmo tem pausas curtas e parecidas entre as falas (0,3 a 0,6 s) e voz em
+mais de 80% do tempo. Em vídeo com cenas, escreva cada fala **do tamanho da sua cena**: cerca de (duração da cena − 0,45 s)
+× 6,3 sílabas. Frase curta presa ao começo de uma cena longa deixa um buraco antes da próxima, e a narração fica picotada
+mesmo com cada frase perfeita sozinha. O `gerar_kokoro.py` ajusta a velocidade de cada frase (0,85 a 1,22×) para ela
+terminar 0,35 s antes do corte: o texto precisa estar perto do tamanho certo, e ele faz o acerto fino.
 
 ### 2. Gerar a voz
 
@@ -48,7 +54,14 @@ acelerar o áudio depois deixa a voz atropelada e com cara de robô.
   (`account_get_usage`), escolha a voz com `creative_list_voices` (idioma `pt`), gere **uma frase por chamada** com o
   texto que o `texto_falado.py --motor elevenlabs` devolveu, acompanhe com `creative_get_flow_run_status` e baixe os áudios
   como `01.mp3`, `02.mp3`…
-- **Piper (grátis, local, mais sintético):** para rascunho, teste de tempo ou quando não há crédito.
+- **Kokoro (grátis, local, bem mais natural que o Piper):** a opção grátis padrão. Vozes pt-BR `pm_alex` (masculina,
+  a mais estável), `pf_dora` (feminina) e `pm_santa` (masculina, mais grave e irregular).
+  ```bash
+  NARRACAO_MODELO=medium python3 scripts/gerar_kokoro.py --roteiro roteiro.json --voz pm_alex --tentativas 3 --saida narracao.wav
+  ```
+  Com janelas, cada frase é encaixada e acelerada ou desacelerada para preencher a cena. A saída avisa `NÃO CABE`
+  (corte sílabas) ou `CURTA` (acrescente sílabas). Ajuste o texto e refaça só aquelas frases com `--so`.
+- **Piper (grátis, local, mais sintético):** reserva para quando o Kokoro não estiver disponível.
   ```bash
   python3 scripts/gerar_piper.py --roteiro roteiro.json --voz cadu --ritmo 5.8 --saida narracao.wav
   python3 scripts/gerar_piper.py --roteiro roteiro.json --saida narracao.wav --so 1,4    # refaz só as frases 1 e 4
@@ -89,6 +102,9 @@ Avalie sempre a **narração sozinha** (antes da trilha). Com música por baixo 
 sincronia saem errados. Por isso, no áudio já mixado use `--mix`, que confere só se a fala se entende por cima da música
 e o volume final.
 
+Para a conferência final use `--modelo medium` (e `NARRACAO_MODELO=medium` nos geradores). O modelo `small` erra
+nomes de marca ("hamburguesia" onde a voz disse "hamburgueria") e manda refazer frases que estão certas.
+
 Leia `aval/relatorio.md` e **olhe o `aval/prosodia.png`**: o desenho mostra a forma de onda, a curva do tom, as
 pausas com a duração, cada palavra no seu tempo (em vermelho as divergentes) e os problemas numerados como no relatório.
 Uma curva de tom quase reta é voz robótica; degraus bruscos são falha da voz; pausa larga no meio de uma frase salta aos olhos.
@@ -110,6 +126,7 @@ com problema**, **Refazer a narração** (nota < 50).
 | Frase corrida ou lenta | Corte palavras. Se não der, ajuste a velocidade só daquela frase (Piper `"ritmo"` no .json + `--so N`; ElevenLabs `[slowly]` no v4 ou `speed` 0,9 a 1,1 no v2). |
 | Pausa no meio da frase | Gere de novo; se a pausa for intencional, ponha vírgula no roteiro. |
 | Frases emendadas | Separe em duas gerações ou deixe o `montar.py` pôr a pausa. |
+| Buraco entre frases, pausas irregulares, voz ocupa menos de 80% | A narração está picotada ("sem ritmo"): escreva falas que preencham as cenas e gere com `gerar_kokoro.py`. |
 | Monótona ou sem variação | Voz mais expressiva, tag de emoção (v4), estabilidade menor (v2), ênfase numa palavra (MAIÚSCULA com moderação). |
 | Pergunta sem tom de pergunta | Gere de novo; no v4, `[curious]` antes da frase. |
 | Estouro, ruído, corte seco | Gere ou exporte de novo; normalize com limitador em −1 dBTP. |

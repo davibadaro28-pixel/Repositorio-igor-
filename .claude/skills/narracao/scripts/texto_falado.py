@@ -307,6 +307,8 @@ def main():
             item['janela'] = round(janela, 2)
             item['cabe'] = dur <= janela - 0.15
             item['silabas_que_cabem'] = int((janela - 0.15 - (dur - s / ESTILOS[a.estilo]['alvo'])) * ESTILOS[a.estilo]['alvo'])
+            item['silabas_para_preencher'] = int((janela - 0.45) * 6.3)       # fala do tamanho da cena: pausas curtas e iguais
+            item['curta'] = s < 0.8 * item['silabas_para_preencher']
         total += dur
         out.append(item)
     if a.json:
@@ -319,6 +321,8 @@ def main():
         extra = ''
         if 'janela' in it:
             extra = f' | janela {it["janela"]} s: ' + ('cabe' if it['cabe'] else f'NÃO CABE (corte para ~{it["silabas_que_cabem"]} sílabas)')
+            if it['cabe'] and it['curta']:
+                extra += f', mas CURTA: para preencher a cena, ~{it["silabas_para_preencher"]} sílabas (senão sobra silêncio)'
         print(f'     {it["silabas"]} sílabas, ~{it["duracao_estimada"]} s{extra}')
     print(f'\nDuração estimada ({a.estilo}): {total:.1f} s')
 
