@@ -105,15 +105,20 @@ def montar(frases, arquivos, saida, pausa=None, inicio=0.15, fim=0.4, sr=TAXA):
     if len(arquivos) != len(frases):
         raise SystemExit(f'{len(arquivos)} trechos para {len(frases)} frases: precisam ser iguais (um arquivo por frase).')
     pecas, marcas, t = [], [], inicio
+    fim_anterior = None
     for fr, arq in zip(frases, arquivos):
         y, (f0, f1) = aparar(carregar(arq, sr), sr, com_folga=True)
         if 'inicio' in fr:
-            t = float(fr['inicio']) + 0.1            # entra 0,1 s depois do texto aparecer na tela
+            # entra 0,1 s depois do texto aparecer na tela, mas nunca por cima da fala anterior (deixa 0,2 s)
+            t = float(fr['inicio']) + 0.1
+            if fim_anterior is not None and t < fim_anterior + 0.2:
+                t = fim_anterior + 0.2
         pecas.append((t, y))
         # "inicio"/"fim" só existem quando o roteiro tinha janelas (assim o avaliador confere a sincronia com elas);
         # o tempo real da fala fica em falado_ini/falado_fim
         marcas.append({'texto': fr['texto'], 'falado_ini': round(t + f0, 3), 'falado_fim': round(t + len(y) / sr - f1, 3), 'arquivo': str(arq),
                        **({'inicio': fr['inicio'], 'fim': fr['fim']} if 'inicio' in fr and 'fim' in fr else {})})
+        fim_anterior = t + len(y) / sr
         t += len(y) / sr + (pausa if pausa is not None else pausa_depois(fr['texto']))
     total = max(p + len(y) / sr for p, y in pecas) + fim
     if any('fim' in fr for fr in frases):

@@ -253,7 +253,8 @@ def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, co
         elif f['tipo'] == 'frase' and f['pausa'] < 0.12:
             prob('atencao', 'pausas', f'Frases emendadas (pausa de {f["pausa"]:.2f} s): {par}', t0, t1,
                  'Separe em duas gerações ou ponha a pausa na montagem (0,3 a 0,6 s).')
-        elif f['tipo'] == 'frase' and f['pausa'] > 1.2:
+        elif f['tipo'] == 'frase' and f['pausa'] > 1.2 and not ('inicio' in frases[pb['frase']] and pa['frase'] != pb['frase']):
+            # (com janelas de cena, a pausa entre frases de cenas diferentes é o tempo da cena: não é defeito)
             prob('atencao', 'pausas', f'Pausa longa de {f["pausa"]:.2f} s entre frases: {par}', t0, t1, 'Encurte o silêncio na montagem.')
         elif f['tipo'] == 'virgula' and f['pausa'] > 0.9:
             prob('atencao', 'pausas', f'Pausa longa de {f["pausa"]:.2f} s na vírgula: {par}', t0, t1, 'Encurte o silêncio ou tire a vírgula.')
@@ -282,6 +283,13 @@ def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, co
             ini = corte_frase[('ini', fi)]
         if isinstance(corte_frase.get(fi), tuple):
             fim = corte_frase[fi][1]
+        # o reconhecedor costuma marcar o fim da última palavra cedo (até ~0,8 s): o fim real é o do trecho de som
+        # em que ela cai; o começo, o do trecho em que a primeira palavra cai
+        for a_, b_ in soando:
+            if a_ - 0.05 <= fim <= b_ + 0.05 and b_ > fim:
+                fim = b_
+            if a_ - 0.05 <= ini <= b_ + 0.05 and a_ < ini:
+                ini = a_
         if fi == 0 and abs(fala_ini - ini) < 0.3:
             ini = fala_ini
         if fi == len(frases) - 1 and abs(fala_fim - fim) < 0.4:

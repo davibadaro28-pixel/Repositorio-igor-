@@ -14,8 +14,14 @@
    "cena": "numero"
   },
   {
-   "texto": "Pelo seu link, ele escolhe o lanche, o ponto da carne e os adicionais. Pedido confirmado.",
+   "texto": "Pelo seu link, ele pede com o ponto da carne e os adicionais.",
    "inicio": 5.4,
+   "fim": 10.0,
+   "cena": "celular"
+  },
+  {
+   "texto": "Pedido confirmado.",
+   "inicio": 10.0,
    "fim": 12.05,
    "cena": "celular"
   },
@@ -26,13 +32,14 @@
    "cena": "painel"
   },
   {
-   "texto": "Só R$ 199,90 por mês.",
+   "texto": "Mensalidade fixa de R$ 199,90.",
    "inicio": 16.2,
    "fim": 19.8,
-   "cena": "preco"
+   "cena": "preco",
+   "ritmo": 6.6
   },
   {
-   "texto": "Sua Hamburgueria. Fale com a nossa equipe no WhatsApp.",
+   "texto": "Sua Hamburgueria. Fale com a gente no WhatsApp.",
    "inicio": 19.8,
    "fim": 24.3,
    "cena": "marca"
