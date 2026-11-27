@@ -1,0 +1,41 @@
+{
+ "video": "P11",
+ "frases": [
+  {
+   "texto": "Quanto você vendeu ontem?",
+   "inicio": 0.0,
+   "fim": 3,
+   "cena": "pergunta"
+  },
+  {
+   "texto": "Sua loja na palma da mão.",
+   "inicio": 3.0,
+   "fim": 5.2,
+   "cena": "texto"
+  },
+  {
+   "texto": "Vendas, pedidos e mais vendidos, de onde você estiver.",
+   "inicio": 5.2,
+   "fim": 10.35,
+   "cena": "celular"
+  },
+  {
+   "texto": "Relatórios por dia e por horário.",
+   "inicio": 10.35,
+   "fim": 14.9,
+   "cena": "celular"
+  },
+  {
+   "texto": "E um aviso a cada pedido novo.",
+   "inicio": 14.9,
+   "fim": 18.9,
+   "cena": "avisos"
+  },
+  {
+   "texto": "Sua Hamburgueria. Fale com a nossa equipe.",
+   "inicio": 18.9,
+   "fim": 23.4,
+   "cena": "marca"
+  }
+ ]
+}

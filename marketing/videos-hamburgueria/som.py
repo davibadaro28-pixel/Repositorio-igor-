@@ -6,6 +6,10 @@ instante exato da marca da animação, mixa, normaliza para -14 LUFS (pico real 
 Também exporta o recorte 4:5 (1080x1350) para o feed.
 
 Uso: python3 som.py <pasta-render> <pasta-final> V01 V02 ...
+     python3 som.py <pasta-render> <pasta-final> P01 P02 ... --narracao <pasta>   (com a narração <pasta>/<id>.wav)
+
+Com narração, a trilha abaixa sozinha enquanto a voz fala (cerca de 9 dB), os efeitos abaixam 6 dB sob a voz e a
+voz fica uns 13 dB acima da trilha abaixada.
 """
 import json
 import subprocess
@@ -446,7 +450,33 @@ def loudnorm(entrada, saida):
     return j
 
 
-def processa(vid, pasta, final):
+def carrega_voz(caminho, n):
+    """Narração mono em 48 kHz, com passa-altas em 80 Hz e compressão leve (iguala frases mais altas e mais baixas)."""
+    b = subprocess.run(['ffmpeg', '-v', 'error', '-i', str(caminho), '-af', 'highpass=f=80,acompressor=threshold=-20dB:ratio=2.5:attack=8:release=150',
+                        '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-'], capture_output=True, check=True).stdout
+    v = np.frombuffer(b, np.float32).astype(np.float64)
+    out = np.zeros(n)
+    out[:min(n, len(v))] = v[:n]
+    return out
+
+
+def envelope_voz(v):
+    """0 a 1: onde há voz, com ataque rápido (30 ms) e soltura lenta (350 ms) para a trilha não 'bombear'."""
+    hop = int(0.01 * SR)
+    rms = np.sqrt(np.convolve(v ** 2, np.ones(hop) / hop, mode='same'))
+    ativo = (rms > max(rms.max() * db(-38), 1e-6)).astype(float)
+    sm = np.zeros_like(ativo)
+    a, r = 1 - np.exp(-1 / (0.03 * SR)), 1 - np.exp(-1 / (0.35 * SR))
+    acc = 0.0
+    for i in range(0, len(ativo), hop):               # suavização por blocos de 10 ms (rápido em python)
+        alvo = ativo[i]
+        k = a if alvo > acc else r
+        acc += (alvo - acc) * (1 - (1 - k) ** hop)
+        sm[i:i + hop] = acc
+    return sm
+
+
+def processa(vid, pasta, final, narracao=None):
     rot = json.loads((AQUI / 'roteiros' / f'{vid}.json').read_text())
     cues = json.loads((pasta / f'{vid}.cues.json').read_text())
     D = cues['duracao']
@@ -468,9 +498,21 @@ def processa(vid, pasta, final):
     env_fx = np.convolve(np.abs(fx), np.ones(2400) / 2400, mode='same')
     duck = 1 - 0.35 * np.clip(env_fx / 0.05, 0, 1)
     mix = musica * db(-6) * duck + fx
+    voz = None
+    if narracao is not None:
+        voz = carrega_voz(Path(narracao) / f'{vid}.wav', len(musica))
+        ev = envelope_voz(voz)
+        cama = musica * db(-6) * duck * (1 - (1 - db(-9)) * ev)     # trilha 9 dB abaixo enquanto a voz fala
+        fx_v = fx * (1 - (1 - db(-6)) * ev)                           # efeitos 6 dB abaixo sob a voz
+        ativo = voz[ev > 0.5]
+        alvo = np.sqrt(np.mean((musica * db(-6)) ** 2)) * db(4)      # voz ~13 dB acima da trilha abaixada
+        voz *= alvo / max(1e-9, np.sqrt(np.mean(ativo ** 2)) if len(ativo) else 1.0)
+        mix = cama + fx_v
     atraso = np.concatenate([np.zeros(240), musica[:-240]]) * db(-6) * 0.12
-    esq = mix + atraso
-    dir_ = mix - atraso
+    if voz is not None:
+        atraso = atraso * (1 - (1 - db(-9)) * ev)
+    esq = mix + atraso + (voz if voz is not None else 0)
+    dir_ = mix - atraso + (voz if voz is not None else 0)
     est = np.stack([esq, dir_])
     est /= max(1e-9, np.abs(est).max()) / db(-3)
     bruto = final / f'{vid}.bruto.wav'
@@ -489,8 +531,14 @@ def processa(vid, pasta, final):
 
 
 if __name__ == '__main__':
-    pasta, final = Path(sys.argv[1]), Path(sys.argv[2])
+    args = sys.argv[1:]
+    narr = None
+    if '--narracao' in args:
+        k = args.index('--narracao')
+        narr = args[k + 1]
+        del args[k:k + 2]
+    pasta, final = Path(args[0]), Path(args[1])
     final.mkdir(parents=True, exist_ok=True)
-    for v in sys.argv[3:]:
-        r = processa(v, pasta, final)
+    for v in args[2:]:
+        r = processa(v, pasta, final, narr)
         print(v, f"{r['duracao']:.1f} s", 'ok')

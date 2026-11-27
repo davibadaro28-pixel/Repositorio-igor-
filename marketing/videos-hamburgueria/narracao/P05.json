@@ -1,0 +1,42 @@
+{
+ "video": "P05",
+ "frases": [
+  {
+   "texto": "Um sistema feito para hamburgueria.",
+   "inicio": 0.0,
+   "fim": 2.4,
+   "cena": "texto",
+   "ritmo": 6.4
+  },
+  {
+   "texto": "Sexta à noite. Tudo sob controle?",
+   "inicio": 2.4,
+   "fim": 5.3,
+   "cena": "relogio"
+  },
+  {
+   "texto": "Cada pedido chega com aviso, na hora.",
+   "inicio": 5.3,
+   "fim": 9.5,
+   "cena": "avisos"
+  },
+  {
+   "texto": "Todos os pedidos num quadro só, e a cozinha vê tudo na tela.",
+   "inicio": 9.5,
+   "fim": 14.9,
+   "cena": "painel"
+  },
+  {
+   "texto": "Você sabe o custo de cada lanche, e o caixa fecha certinho.",
+   "inicio": 14.9,
+   "fim": 19.45,
+   "cena": "painel"
+  },
+  {
+   "texto": "Sua Hamburgueria. Veja funcionando com os seus lanches.",
+   "inicio": 19.45,
+   "fim": 23.95,
+   "cena": "marca"
+  }
+ ]
+}

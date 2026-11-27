@@ -1,0 +1,41 @@
+{
+ "video": "P06",
+ "frases": [
+  {
+   "texto": "Quanto custa fazer o seu cheese bacon?",
+   "inicio": 0.0,
+   "fim": 3.2,
+   "cena": "pergunta"
+  },
+  {
+   "texto": "Sem ficha técnica, é chute.",
+   "inicio": 3.2,
+   "fim": 5.6,
+   "cena": "texto"
+  },
+  {
+   "texto": "O sistema calcula o custo de cada lanche, pela ficha técnica.",
+   "inicio": 5.6,
+   "fim": 11.6,
+   "cena": "painel"
+  },
+  {
+   "texto": "E baixa o estoque a cada venda.",
+   "inicio": 11.6,
+   "fim": 14.15,
+   "cena": "painel"
+  },
+  {
+   "texto": "Tudo isso por R$ 299,90.",
+   "inicio": 14.15,
+   "fim": 17.95,
+   "cena": "preco"
+  },
+  {
+   "texto": "Sua Hamburgueria. Descubra onde está o seu lucro.",
+   "inicio": 17.95,
+   "fim": 22.75,
+   "cena": "marca"
+  }
+ ]
+}

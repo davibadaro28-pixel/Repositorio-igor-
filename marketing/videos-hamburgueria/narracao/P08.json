@@ -1,0 +1,35 @@
+{
+ "video": "P08",
+ "frases": [
+  {
+   "texto": "Teste o sistema antes de contratar.",
+   "inicio": 0.0,
+   "fim": 2.4,
+   "cena": "texto"
+  },
+  {
+   "texto": "Faça um pedido de teste, como quem está com fome.",
+   "inicio": 2.4,
+   "fim": 9.25,
+   "cena": "celular"
+  },
+  {
+   "texto": "Veja ele chegar no painel e marque como pronto na cozinha.",
+   "inicio": 9.25,
+   "fim": 15,
+   "cena": "painel"
+  },
+  {
+   "texto": "Está tudo no nosso site.",
+   "inicio": 15.0,
+   "fim": 17.6,
+   "cena": "texto"
+  },
+  {
+   "texto": "Sua Hamburgueria. Teste agora, sem compromisso.",
+   "inicio": 17.6,
+   "fim": 22.4,
+   "cena": "marca"
+  }
+ ]
+}

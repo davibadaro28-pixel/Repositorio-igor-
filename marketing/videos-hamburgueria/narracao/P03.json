@@ -1,0 +1,43 @@
+{
+ "video": "P03",
+ "frases": [
+  {
+   "texto": "Sua hamburgueria merece mais que um app.",
+   "inicio": 0.0,
+   "fim": 2.6,
+   "cena": "texto",
+   "ritmo": 6.6
+  },
+  {
+   "texto": "São quatro serviços numa operação só.",
+   "inicio": 2.6,
+   "fim": 6.1,
+   "cena": "lista"
+  },
+  {
+   "texto": "Cardápio digital, sistema de gestão, site e tráfego pago, tudo conectado.",
+   "inicio": 6.1,
+   "fim": 12.5,
+   "cena": "carrossel"
+  },
+  {
+   "texto": "E os pedidos chegando, um atrás do outro.",
+   "inicio": 12.5,
+   "fim": 16.3,
+   "cena": "avisos"
+  },
+  {
+   "texto": "Planos a partir de R$ 199,90 por mês.",
+   "inicio": 16.3,
+   "fim": 20.5,
+   "cena": "planos",
+   "ritmo": 6.3
+  },
+  {
+   "texto": "Sua Hamburgueria. Chama a gente no WhatsApp.",
+   "inicio": 20.5,
+   "fim": 25,
+   "cena": "marca"
+  }
+ ]
+}

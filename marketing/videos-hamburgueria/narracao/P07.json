@@ -1,0 +1,41 @@
+{
+ "video": "P07",
+ "frases": [
+  {
+   "texto": "Quem procura, encontra a sua marca?",
+   "inicio": 0.0,
+   "fim": 2.4,
+   "cena": "texto"
+  },
+  {
+   "texto": "Ou só acha o seu Instagram?",
+   "inicio": 2.4,
+   "fim": 5.6,
+   "cena": "pergunta"
+  },
+  {
+   "texto": "A gente cria um site com a sua marca, com cardápio, horários e botão de pedir.",
+   "inicio": 5.6,
+   "fim": 11.95,
+   "cena": "painel"
+  },
+  {
+   "texto": "E abre rápido no celular.",
+   "inicio": 11.95,
+   "fim": 16.3,
+   "cena": "celular"
+  },
+  {
+   "texto": "Do seu jeito, com endereço e horários.",
+   "inicio": 16.3,
+   "fim": 19.25,
+   "cena": "lista"
+  },
+  {
+   "texto": "Sua Hamburgueria. Peça o seu orçamento no WhatsApp.",
+   "inicio": 19.25,
+   "fim": 23.85,
+   "cena": "marca"
+  }
+ ]
+}

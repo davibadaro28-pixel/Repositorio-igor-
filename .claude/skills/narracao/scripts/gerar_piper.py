@@ -6,6 +6,8 @@
   python3 gerar_piper.py --roteiro roteiro.json --saida narracao.wav --so 1,4                  # refaz só as frases 1 e 4
 
 Os trechos ficam em <saida>_trechos/ (01.wav, 02.wav…): com --so, os outros são reaproveitados.
+--tentativas 3 gera até 3 versões de cada frase e fica com a que a transcrição automática confere com o texto
+(o Piper varia a cada geração e às vezes engole uma palavra: "Hamburgueria" sai "hamburguesia" numa e certa noutra).
 Num roteiro .json, "ritmo" dentro de uma frase vale só para ela.
 
 Vozes: faber, cadu, jeff (masculinas, baixadas na primeira vez para ~/.cache/narracao/vozes, 63 MB cada).
@@ -52,6 +54,24 @@ def taxa_medida(caminho, texto):
     return tf.silabas(texto) / max(0.1, mt.tempo_de_fala(x, 22050))
 
 
+_ASR = None
+
+
+def confere(arq, texto_roteiro):
+    """0 a 1: quanto do texto a transcrição automática reconhece nesta versão (1 = tudo certo)."""
+    global _ASR
+    from difflib import SequenceMatcher
+    if _ASR is None:
+        from faster_whisper import WhisperModel
+        _ASR = WhisperModel('small', device='cpu', compute_type='int8', download_root=str(Path.home() / '.cache' / 'narracao' / 'whisper'))
+    x = mt.carregar(arq, 16000)
+    segs, _ = _ASR.transcribe(x, language='pt', beam_size=5, condition_on_previous_text=False)
+    ouvido = ' '.join(s.text for s in segs)
+    a = [t for t, _ in tf.tokens(texto_roteiro)[0]]
+    b = [t for t, _ in tf.tokens(ouvido)[0]]
+    return SequenceMatcher(None, a, b, autojunk=False).ratio(), ouvido.strip()
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument('--roteiro', required=True)
@@ -61,6 +81,7 @@ def main():
     ap.add_argument('--pronuncias', help='json extra de grafias (ver pronuncias.json)')
     ap.add_argument('--pausa', type=float)
     ap.add_argument('--so', help='refazer só estas frases (ex.: 1,4); as outras vêm de <saida>_trechos/')
+    ap.add_argument('--tentativas', type=int, default=1, help='versões por frase; fica com a que a transcrição confere (precisa de faster-whisper)')
     a = ap.parse_args()
     from piper import PiperVoice
     v = PiperVoice.load(str(voz(a.voz)))
@@ -84,7 +105,23 @@ def main():
             ls = min(2.2, max(0.7, ls * r / meta))
             sintetizar(v, texto, arq, ls)
             r = taxa_medida(arq, texto)
-        print(f'{i:02d} ritmo {r:.1f} sílabas/s (escala {ls:.2f}) · {texto}' + (f'  [trocas: {", ".join(f"{d}→{p}" for d, p in trocas)}]' if trocas else ''))
+        nota_txt = ''
+        if a.tentativas > 1:
+            melhor = confere(arq, fr['texto'])
+            for k in range(2, a.tentativas + 1):
+                if melhor[0] >= 0.999:
+                    break
+                outra = tmp / f'{i:02d}_t{k}.wav'
+                sintetizar(v, texto, outra, ls)
+                c = confere(outra, fr['texto'])
+                if c[0] > melhor[0]:
+                    outra.replace(arq)
+                    melhor = c
+                else:
+                    outra.unlink()
+            r = taxa_medida(arq, texto)
+            nota_txt = f' · confere {melhor[0]:.2f}' + ('' if melhor[0] >= 0.999 else f' (ouvido: "{melhor[1]}")')
+        print(f'{i:02d} ritmo {r:.1f} sílabas/s (escala {ls:.2f}){nota_txt} · {texto}' + (f'  [trocas: {", ".join(f"{d}→{p}" for d, p in trocas)}]' if trocas else ''))
         arqs.append(arq)
     marcas, sobre = mt.montar(frases, arqs, a.saida, a.pausa)
     for s in sobre:

@@ -1,0 +1,41 @@
+{
+ "video": "P01",
+ "frases": [
+  {
+   "texto": "Quanto da venda fica no aplicativo?",
+   "inicio": 0.0,
+   "fim": 2.6,
+   "cena": "texto"
+  },
+  {
+   "texto": "No seu cardápio, a comissão é zero.",
+   "inicio": 2.6,
+   "fim": 5.4,
+   "cena": "numero"
+  },
+  {
+   "texto": "Pelo seu link, ele escolhe o lanche, o ponto da carne e os adicionais. Pedido confirmado.",
+   "inicio": 5.4,
+   "fim": 12.05,
+   "cena": "celular"
+  },
+  {
+   "texto": "E o pedido chega direto no seu painel.",
+   "inicio": 12.05,
+   "fim": 16.2,
+   "cena": "painel"
+  },
+  {
+   "texto": "Só R$ 199,90 por mês.",
+   "inicio": 16.2,
+   "fim": 19.8,
+   "cena": "preco"
+  },
+  {
+   "texto": "Sua Hamburgueria. Fale com a nossa equipe no WhatsApp.",
+   "inicio": 19.8,
+   "fim": 24.3,
+   "cena": "marca"
+  }
+ ]
+}
