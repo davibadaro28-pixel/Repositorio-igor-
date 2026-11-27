@@ -11,7 +11,8 @@
    "texto": "No seu cardápio, a comissão é zero.",
    "inicio": 2.6,
    "fim": 5.4,
-   "cena": "numero"
+   "cena": "numero",
+   "ritmo": 6.7
   },
   {
    "texto": "Pelo seu link, ele pede com o ponto da carne e os adicionais.",
@@ -43,13 +44,14 @@
    "inicio": 19.8,
    "fim": 21.7,
    "cena": "marca",
-   "ritmo": 4.6
+   "ritmo": 5.5
   },
   {
    "texto": "Fale com a gente no WhatsApp.",
    "inicio": 21.7,
    "fim": 24.3,
-   "cena": "marca"
+   "cena": "marca",
+   "ritmo": 6.7
   }
  ]
 }

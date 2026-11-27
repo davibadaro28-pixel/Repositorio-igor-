@@ -8,10 +8,11 @@
    "cena": "texto"
   },
   {
-   "texto": "Cardápio, sistema, site e tráfego, num lugar só.",
+   "texto": "Sistema, cardápio, site e tráfego, num lugar só.",
    "inicio": 2.2,
    "fim": 7.4,
-   "cena": "carrossel"
+   "cena": "carrossel",
+   "ritmo": 5.8
   },
   {
    "texto": "Os planos começam em R$ 199,90.",
@@ -39,7 +40,7 @@
    "ritmo": 4.6
   },
   {
-   "texto": "Escolha o seu e fale com a gente.",
+   "texto": "Escolha o seu com a nossa equipe.",
    "inicio": 20.1,
    "fim": 22.7,
    "cena": "marca"

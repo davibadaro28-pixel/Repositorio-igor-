@@ -82,7 +82,12 @@ pico em −1 dBFS e grava `narracao.wav.marcas.json` com o tempo real de cada fr
 python3 scripts/avaliar.py --audio narracao.wav --roteiro roteiro.json --estilo anuncio --saida aval/
 python3 scripts/avaliar.py --audio take1.mp3 take2.mp3 take3.mp3 --roteiro roteiro.txt --saida aval/    # compara takes
 python3 scripts/avaliar.py --audio nova.wav --roteiro r.txt --referencia uma_que_eu_gosto.mp3 --saida aval/
+python3 scripts/avaliar.py --mix --audio final_com_trilha.wav --roteiro roteiro.json --saida aval_mix/   # depois de mixar
 ```
+
+Avalie sempre a **narração sozinha** (antes da trilha). Com música por baixo não há silêncio, e pausas, ritmo, tom e
+sincronia saem errados. Por isso, no áudio já mixado use `--mix`, que confere só se a fala se entende por cima da música
+e o volume final.
 
 Leia `aval/relatorio.md` e **olhe o `aval/prosodia.png`**: o desenho mostra a forma de onda, a curva do tom, as
 pausas com a duração, cada palavra no seu tempo (em vermelho as divergentes) e os problemas numerados como no relatório.

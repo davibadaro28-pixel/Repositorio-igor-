@@ -140,7 +140,7 @@ def para_fala(texto, motor='generico', moeda_estilo='anuncio', pronuncias=None):
 
     t = texto
     if not cfg['numeros']:
-        for k, v in (pronuncias or {}).items():
+        for k, v in sorted((pronuncias or {}).items(), key=lambda kv: -len(kv[0])):
             t = sub(r'(?<!\w)' + re.escape(k) + r'(?!\w)', lambda m, v=v: v, t, flags=re.IGNORECASE)
         return re.sub(r'\s+', ' ', t).strip(), trocas
     t = sub(r'R\$\s*(\d{1,3}(?:\.\d{3})*|\d+)(?:,(\d{1,2}))?', lambda m: moeda(m.group(1), m.group(2), moeda_estilo), t)
@@ -159,7 +159,7 @@ def para_fala(texto, motor='generico', moeda_estilo='anuncio', pronuncias=None):
     # siglas em maiúsculas: soletra, exceto as que se leem como palavra
     if cfg['siglas']:
         t = sub(r'\b([A-Z]{2,4})\b', lambda m: m.group(1) if m.group(1) in SIGLA_PALAVRA else '-'.join(LETRA[c.lower()] for c in m.group(1)), t)
-    for k, v in (pronuncias or {}).items():
+    for k, v in sorted((pronuncias or {}).items(), key=lambda kv: -len(kv[0])):   # "X-Bacon" antes de "bacon"
         t = sub(r'(?<!\w)' + re.escape(k) + r'(?!\w)', lambda m, v=v: v, t, flags=re.IGNORECASE)
     return re.sub(r'\s+', ' ', t).strip(), trocas
 
@@ -197,12 +197,24 @@ def som(tk):
     """Grafias que soam igual viram a mesma (a transcrição escreve "hamburgheria" para "hamburgueria")."""
     tk = re.sub(r'gh(?=[ei])', 'gu', tk)
     tk = tk.replace('ph', 'f').replace('y', 'i').replace('k', 'c')
+    tk = re.sub(r'x(?=[ptc])', 's', tk)              # "sexta" se fala "sesta", "texto" se fala "testo"
     return re.sub(r'(.)\1', r'\1', tk)          # letra dobrada (ss, rr, ll…) não muda a comparação
+
+
+# formas da fala que a transcrição escreve por extenso (e o contrário)
+CONTRACOES = {'pra': ['para'], 'pro': ['para', 'o'], 'pros': ['para', 'os'], 'pras': ['para', 'as'],
+              'num': ['em', 'um'], 'numa': ['em', 'uma'], 'nuns': ['em', 'uns'], 'numas': ['em', 'umas'],
+              'ta': ['esta'], 'to': ['estou'], 'ce': ['voce'], 'neh': ['nao', 'e']}
 
 
 def tokens_palavra(palavra):
     falado, _ = para_fala(palavra, moeda_estilo='formal')
-    return [som(tk) for tk in re.findall(r'\w+', sem_acento(falado.lower())) if tk not in DESCARTAR]
+    out = []
+    for tk in re.findall(r'\w+', sem_acento(falado.lower())):
+        if tk in DESCARTAR:
+            continue
+        out += [som(t) for t in CONTRACOES.get(tk, [tk])]
+    return out
 
 
 def tokens(texto, pronuncias_inversas=None):

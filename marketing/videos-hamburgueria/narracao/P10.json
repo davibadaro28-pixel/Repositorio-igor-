@@ -2,11 +2,10 @@
  "video": "P10",
  "frases": [
   {
-   "texto": "Delivery próprio sem bagunça.",
+   "texto": "Entrega própria, sem bagunça.",
    "inicio": 0.0,
    "fim": 2.2,
-   "cena": "texto",
-   "ritmo": 6.4
+   "cena": "texto"
   },
   {
    "texto": "E sem comissão no seu cardápio.",
@@ -21,7 +20,7 @@
    "cena": "celular"
   },
   {
-   "texto": "O motoboy vê a rota, e quem pediu acompanha.",
+   "texto": "O entregador vê o caminho, e quem pediu acompanha.",
    "inicio": 9.6,
    "fim": 14.15,
    "cena": "celular"
@@ -49,7 +48,8 @@
    "texto": "Fale com a nossa equipe.",
    "inicio": 23.0,
    "fim": 25.6,
-   "cena": "marca"
+   "cena": "marca",
+   "ritmo": 5.8
   }
  ]
 }

@@ -161,7 +161,7 @@ def alinhar(frases, asr):
 
 
 # ---------------------------------------------------------------- avaliação
-def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, com_roteiro=True):
+def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, com_roteiro=True, mix=False):
     inf = info(audio)
     x = carregar(audio)
     xr = carregar(audio, inf['taxa'])
@@ -186,7 +186,10 @@ def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, co
     if com_roteiro:
         for d in difs:
             if d['tipo'] == 'faltando':
-                prob('problema', 'texto', f'Não ouvi: "{d["esperado"]}"', d['ini'], d['fim'], 'Gere de novo a frase; confira se a palavra não sumiu na emenda dos trechos.')
+                # artigo ou preposição de uma letra ("o", "a", "à", "e") some na fala corrida e na transcrição: só atenção
+                curta = all(len(tf.sem_acento(w)) <= 1 for w in re.findall(r'\w+', d['esperado']))
+                prob('atencao' if curta else 'problema', 'texto', f'Não ouvi: "{d["esperado"]}"', d['ini'], d['fim'],
+                     'Ouça: palavra de uma letra costuma se juntar à vizinha.' if curta else 'Gere de novo a frase; confira se a palavra não sumiu na emenda dos trechos.')
             elif d['tipo'] == 'a mais':
                 if d['repetida']:
                     prob('problema', 'texto', f'Repetição: "{d["ouvido"]}" a mais', d['ini'], d['fim'], 'Gere de novo a frase (gagueira da voz sintética).')
@@ -218,7 +221,9 @@ def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, co
         def dist(f):      # distância entre o silêncio e o espaço entre as duas palavras (0 se encostam)
             lo, hi = sorted((pals[f['a']]['fim'], pals[f['b']]['ini']))
             return max(0.0, s0 - hi, lo - s1)
-        pont = [f for f in fronteiras if f['tipo'] != 'nenhuma' and dist(f) <= 0.35]
+        # entre frases diferentes (cenas) a tolerância é maior: é ali que a pausa é esperada
+        pont = [f for f in fronteiras if f['tipo'] != 'nenhuma'
+                and dist(f) <= (0.8 if pals[f['a']]['frase'] != pals[f['b']]['frase'] else 0.35)]
         melhor = min(pont, key=dist) if pont else min(fronteiras, key=lambda f: abs(f['meio'] - m), default=None)
         if melhor and (pont or abs(melhor['meio'] - m) < 0.45 + (s1 - s0) / 2):
             melhor['pausa'] += s1 - s0
@@ -440,7 +445,16 @@ def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, co
                     prob('atencao', 'referencia', f'{nome.capitalize()} {"acima" if rel > 0 else "abaixo"} da referência: {a_} x {b_} ({rel * 100:+.0f}%)', None, None,
                          'Aproxime do jeito da narração de referência (velocidade, voz ou estilo).')
         ref['comparacao'] = dif
-    return {'arquivo': str(audio), 'estilo': estilo, 'medidas': medidas, 'frases': det, 'problemas': probs, 'diferencas_texto': difs,
+    if mix:
+        # com trilha por baixo não há silêncio: pausas, ritmo, tom, ruído e sincronia não dão para medir. Ficam o texto
+        # (a voz se entende por cima da música?) e o volume/pico do áudio final.
+        probs[:] = [p for p in probs if p['categoria'] == 'texto' or p['msg'].startswith(('Estouro', 'Pico real'))]
+        for k in ('silabas_por_s', 'tom_desvio_st', 'pausa_media_entre_frases', 'ruido_dbfs', 'fala_ini', 'fala_fim'):
+            medidas[k] = None
+        for d in det:
+            for k in ('ini', 'fim', 'silabas_por_s', 'tom_faixa_st', 'tom_final_st'):
+                d.pop(k, None) if k not in ('ini', 'fim') else d.update({k: None})
+    return {'arquivo': str(audio), 'estilo': estilo, 'mix': mix, 'medidas': medidas, 'frases': det, 'problemas': probs, 'diferencas_texto': difs,
             'transcricao': ' '.join(w['p'] for w in asr), 'palavras': asr, 'referencia': ref,
             '_desenho': {'pr': pr, 'pals': pals, 'x': x, 'fronteiras': fronteiras, 'saltos': saltos}}
 
@@ -471,6 +485,9 @@ def relatorio_md(r):
     m = r['medidas']
     L = [f'# Avaliação da narração: {Path(r["arquivo"]).name}', '',
          f'**Nota: {r["nota"]}/100 · {r["veredito"]}**  ', f'Estilo esperado: {r["estilo"]} · duração {m["duracao"]} s', '']
+    if r.get('mix'):
+        L += ['> Áudio com trilha (`--mix`): só a clareza da fala (o texto que a transcrição entende por cima da música) e o',
+              '> volume final. Ritmo, pausas, tom e sincronia se avaliam na narração sozinha, antes de mixar.', '']
     probs = r['problemas']
     for nivel, titulo in (('problema', 'Problemas (corrigir)'), ('atencao', 'Atenção (ouvir e decidir)')):
         ps = [(i, p) for i, p in enumerate(probs, 1) if p['nivel'] == nivel]
@@ -617,6 +634,7 @@ def main():
     ap.add_argument('--referencia', help='uma narração que você considera boa, para comparar ritmo, tom e pausas')
     ap.add_argument('--modelo', default='small', help='modelo de transcrição (small; medium é mais preciso e mais lento)')
     ap.add_argument('--saida', required=True)
+    ap.add_argument('--mix', action='store_true', help='áudio já mixado com trilha: confere só a clareza da fala e o volume')
     a = ap.parse_args()
     frases = tf.ler_roteiro(a.roteiro) if a.roteiro else None
     saida = Path(a.saida)
@@ -625,7 +643,7 @@ def main():
     for arq in a.audio:
         pasta = saida if len(a.audio) == 1 else saida / Path(arq).stem
         pasta.mkdir(parents=True, exist_ok=True)
-        r = avaliar(arq, frases, a.estilo, a.modelo, a.referencia, com_roteiro=bool(frases))
+        r = avaliar(arq, frases, a.estilo, a.modelo, a.referencia, com_roteiro=bool(frases), mix=a.mix)
         r['nota'], r['veredito'] = nota(r['problemas'])
         desenhar(r, pasta / 'prosodia.png')
         r.pop('_desenho')

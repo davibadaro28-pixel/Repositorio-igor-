@@ -26,5 +26,7 @@ loudnorm=I=-14:TP=-1.5:LRA=11,alimiter=limit=0.84[a]" \
 
 ## Conferir depois de mixar
 
-Rode `avaliar.py` no áudio final (extraia com `ffmpeg -i video_final.mp4 -vn -ac 1 final.wav`) com o mesmo roteiro.
+Rode `avaliar.py --mix` no áudio final (extraia com `ffmpeg -i video_final.mp4 -vn -ac 1 final.wav`) com o mesmo roteiro.
+Com `--mix` ele confere só o que dá para medir com música por baixo: se a fala se entende (palavras divergentes) e o
+volume/pico. Sem `--mix` as pausas, o ritmo e a sincronia saem errados, porque com trilha não há silêncio.
 Se a transcrição piorar muito em relação à narração sozinha, a trilha está alta ou embolando a voz.
