@@ -185,6 +185,12 @@ def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, co
     # --- texto
     if com_roteiro:
         for d in difs:
+            if re.search(r'\d', d['esperado'] + ' ' + d['ouvido']):
+                # a transcrição escreve números e preços de jeito imprevisível ("cento e noventa e nove e noventa" vira
+                # "190,990"): divergência com número é para conferir ouvindo, não um erro provado
+                prob('atencao', 'texto', f'Número para conferir: esperado "{d["esperado"]}", a transcrição escreveu "{d["ouvido"] or "—"}"',
+                     d['ini'], d['fim'], 'Ouça o preço/número. A transcrição formata números mal; se a voz falou certo, está ok.')
+                continue
             if d['tipo'] == 'faltando':
                 # artigo ou preposição de uma letra ("o", "a", "à", "e") some na fala corrida e na transcrição: só atenção
                 curta = all(len(tf.sem_acento(w)) <= 1 for w in re.findall(r'\w+', d['esperado']))
@@ -211,7 +217,8 @@ def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, co
     for a, b in zip(com_tempo, com_tempo[1:]):
         pa, pb = pals[a], pals[b]
         pont = pa['pont']
-        tipo = 'frase' if (re.search(r'[.!?…:;]', pont) or (pa['ultima'] and pa['frase'] != pb['frase'])) else ('virgula' if re.search(r'[,—–)-]', pont) else 'nenhuma')
+        # dois-pontos na fala é pausa curta, como vírgula
+        tipo = 'frase' if (re.search(r'[.!?…;]', pont) or (pa['ultima'] and pa['frase'] != pb['frase'])) else ('virgula' if re.search(r'[,:—–)-]', pont) else 'nenhuma')
         fronteiras.append({'a': a, 'b': b, 'tipo': tipo, 'meio': (pa['fim'] + pb['ini']) / 2, 'pausa': 0.0, 'sils': []})
     sobra = []
     for s0, s1 in silencios:

@@ -14,13 +14,13 @@
    "cena": "numero"
   },
   {
-   "texto": "A taxa do bairro entra sozinha, e o pagamento e o troco já vêm no pedido.",
+   "texto": "A taxa do bairro entra sozinha, e o pagamento e o troco vêm no pedido.",
    "inicio": 5.0,
    "fim": 9.6,
    "cena": "celular"
   },
   {
-   "texto": "O motoboy vê a rota e o valor a cobrar, e o cliente acompanha a entrega.",
+   "texto": "O motoboy vê a rota e o valor, e o cliente acompanha a entrega.",
    "inicio": 9.6,
    "fim": 14.15,
    "cena": "celular"
@@ -38,7 +38,7 @@
    "cena": "avisos"
   },
   {
-   "texto": "Sua Hamburgueria. Fale com a nossa equipe e organize o seu delivery.",
+   "texto": "Sua Hamburgueria. Fale com a equipe e organize o seu delivery.",
    "inicio": 21.1,
    "fim": 25.6,
    "cena": "marca"

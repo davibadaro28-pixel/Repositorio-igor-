@@ -2,7 +2,7 @@
  "video": "P02",
  "frases": [
   {
-   "texto": "Do anúncio à entrega, cuidamos de tudo.",
+   "texto": "Do anúncio à entrega, com a gente.",
    "inicio": 0.0,
    "fim": 2.6,
    "cena": "texto"
@@ -26,13 +26,13 @@
    "cena": "painel"
   },
   {
-   "texto": "E o cliente acompanha tudo até a porta.",
+   "texto": "E o cliente acompanha até a porta.",
    "inicio": 15.3,
    "fim": 18.25,
    "cena": "celular"
   },
   {
-   "texto": "Sua Hamburgueria: do anúncio à entrega, tudo num lugar só. Fale com a gente.",
+   "texto": "Sua Hamburgueria. Do anúncio à entrega, num lugar só. Fale com a gente.",
    "inicio": 18.25,
    "fim": 23.05,
    "cena": "marca"
