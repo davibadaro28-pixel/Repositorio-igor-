@@ -8,33 +8,26 @@
    "cena": "texto"
   },
   {
-   "texto": "Faça um pedido de teste, como quem está com fome.",
+   "texto": "Faça um pedido de teste no cardápio: escolha o lanche, os adicionais e a forma de pagamento.",
    "inicio": 2.4,
    "fim": 9.25,
    "cena": "celular"
   },
   {
-   "texto": "Veja ele chegar no painel e marque como pronto na cozinha.",
+   "texto": "Veja o pedido chegar no painel na mesma hora, e depois marque como pronto na tela da cozinha.",
    "inicio": 9.25,
    "fim": 15,
    "cena": "painel"
   },
   {
-   "texto": "Está tudo no nosso site.",
+   "texto": "Está tudo no site, aberto para testar.",
    "inicio": 15.0,
    "fim": 17.6,
    "cena": "texto"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. Teste agora, sem compromisso, e fale com a gente.",
    "inicio": 17.6,
-   "fim": 19.5,
-   "cena": "marca",
-   "ritmo": 4.6
-  },
-  {
-   "texto": "Teste agora, sem compromisso.",
-   "inicio": 19.5,
    "fim": 22.4,
    "cena": "marca"
   }

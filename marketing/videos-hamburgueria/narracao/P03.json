@@ -2,46 +2,38 @@
  "video": "P03",
  "frases": [
   {
-   "texto": "Seu negócio merece mais que um app.",
+   "texto": "Você merece mais que um app de delivery.",
    "inicio": 0.0,
    "fim": 2.6,
    "cena": "texto"
   },
   {
-   "texto": "São quatro serviços numa operação só.",
+   "texto": "São quatro serviços juntos, numa operação só.",
    "inicio": 2.6,
    "fim": 6.1,
    "cena": "lista"
   },
   {
-   "texto": "Cardápio digital, sistema de gestão, site e tráfego pago, tudo conectado.",
+   "texto": "Cardápio digital sem comissão, sistema de gestão, site com a sua marca e tráfego pago no Instagram.",
    "inicio": 6.1,
    "fim": 12.5,
    "cena": "carrossel"
   },
   {
-   "texto": "E os pedidos chegando, um atrás do outro.",
+   "texto": "E os pedidos chegando, um atrás do outro, sem confusão.",
    "inicio": 12.5,
    "fim": 16.3,
    "cena": "avisos"
   },
   {
-   "texto": "Planos a partir de R$ 199,90 por mês.",
+   "texto": "Os planos começam em R$ 199,90 por mês.",
    "inicio": 16.3,
    "fim": 20.5,
-   "cena": "planos",
-   "ritmo": 6.3
+   "cena": "planos"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. Chama a gente no WhatsApp e tira suas dúvidas.",
    "inicio": 20.5,
-   "fim": 22.4,
-   "cena": "marca",
-   "ritmo": 4.6
-  },
-  {
-   "texto": "Chama a gente no WhatsApp.",
-   "inicio": 22.4,
    "fim": 25,
    "cena": "marca"
   }

@@ -8,20 +8,19 @@
    "cena": "texto"
   },
   {
-   "texto": "Sistema, cardápio, site e tráfego, num lugar só.",
+   "texto": "Cardápio digital, sistema de gestão, site e tráfego pago, tudo num lugar só.",
    "inicio": 2.2,
    "fim": 7.4,
-   "cena": "carrossel",
-   "ritmo": 5.8
+   "cena": "carrossel"
   },
   {
-   "texto": "Os planos começam em R$ 199,90.",
+   "texto": "Os planos começam em R$ 199,90 por mês.",
    "inicio": 7.4,
    "fim": 11.8,
    "cena": "planos"
   },
   {
-   "texto": "O tráfego pago é um adicional.",
+   "texto": "O tráfego pago é adicional, com relatório todo mês.",
    "inicio": 11.8,
    "fim": 15.4,
    "cena": "preco"
@@ -33,15 +32,8 @@
    "cena": "numero"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. Escolha o seu plano e fale com a nossa equipe hoje.",
    "inicio": 18.2,
-   "fim": 20.1,
-   "cena": "marca",
-   "ritmo": 4.6
-  },
-  {
-   "texto": "Escolha o seu com a nossa equipe.",
-   "inicio": 20.1,
    "fim": 22.7,
    "cena": "marca"
   }

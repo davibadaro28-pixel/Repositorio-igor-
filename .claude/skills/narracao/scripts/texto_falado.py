@@ -114,6 +114,7 @@ MOTORES = {
     'elevenlabs': {'numeros': False, 'siglas': False},       # eleven_v4 / eleven_v3
     'elevenlabs-v2': {'numeros': True, 'siglas': False},     # eleven_multilingual_v2, flash, turbo
     'piper': {'numeros': True, 'siglas': True},
+    'kokoro': {'numeros': True, 'siglas': True},
     'generico': {'numeros': True, 'siglas': True},
 }
 SING = {'quilos': 'quilo', 'gramas': 'grama', 'quilômetros': 'quilômetro', 'metros': 'metro', 'mililitros': 'mililitro',

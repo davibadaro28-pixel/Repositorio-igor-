@@ -63,7 +63,10 @@ def confere(arq, texto_roteiro):
     from difflib import SequenceMatcher
     if _ASR is None:
         from faster_whisper import WhisperModel
-        _ASR = WhisperModel('small', device='cpu', compute_type='int8', download_root=str(Path.home() / '.cache' / 'narracao' / 'whisper'))
+        import os
+        # NARRACAO_MODELO=medium confere com o modelo maior (mais lento, erra menos nomes como "Hamburgueria")
+        _ASR = WhisperModel(os.environ.get('NARRACAO_MODELO', 'small'), device='cpu', compute_type='int8',
+                            download_root=str(Path.home() / '.cache' / 'narracao' / 'whisper'))
     x = mt.carregar(arq, 16000)
     segs, _ = _ASR.transcribe(x, language='pt', beam_size=5, condition_on_previous_text=False)
     ouvido = ' '.join(s.text for s in segs)

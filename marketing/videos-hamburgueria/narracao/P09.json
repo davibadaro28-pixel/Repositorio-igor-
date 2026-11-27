@@ -2,7 +2,7 @@
  "video": "P09",
  "frases": [
   {
-   "texto": "Trocar de sistema parece trabalhoso.",
+   "texto": "Trocar de sistema dá trabalho?",
    "inicio": 0.0,
    "fim": 2.4,
    "cena": "texto"
@@ -14,39 +14,32 @@
    "cena": "texto"
   },
   {
-   "texto": "Você manda o cardápio e as fotos.",
+   "texto": "Você manda o cardápio que já tem, com as fotos.",
    "inicio": 4.0,
    "fim": 7.5,
    "cena": "lista"
   },
   {
-   "texto": "A gente cadastra os lanches e configura as taxas de entrega.",
+   "texto": "A gente cadastra os lanches e adicionais, e configura as taxas de entrega e o pagamento.",
    "inicio": 7.5,
    "fim": 13.05,
    "cena": "painel"
   },
   {
-   "texto": "E entrega o link pronto pra divulgar.",
+   "texto": "E entrega o link pronto pra divulgar no Instagram.",
    "inicio": 13.05,
    "fim": 16.2,
    "cena": "celular"
   },
   {
-   "texto": "Aí é só ver os pedidos chegando.",
+   "texto": "Aí é só ver os primeiros pedidos chegando no painel.",
    "inicio": 16.2,
    "fim": 20,
    "cena": "avisos"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. A gente monta tudo pra você começar.",
    "inicio": 20.0,
-   "fim": 21.9,
-   "cena": "marca",
-   "ritmo": 4.6
-  },
-  {
-   "texto": "A gente monta tudo pra você.",
-   "inicio": 21.9,
    "fim": 24.5,
    "cena": "marca"
   }

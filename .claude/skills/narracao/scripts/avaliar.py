@@ -417,6 +417,28 @@ def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, co
         elif d['ini'] > j0 + 0.8:
             prob('atencao', 'sincronia', f'Frase {d["n"]} começa {d["ini"] - j0:.2f} s depois da cena', j0, d['ini'], 'Adiante o trecho (comece 0,1–0,3 s depois do texto aparecer).')
 
+    # --- fluidez: buracos e pausas irregulares entre as frases deixam a narração picotada, "sem ritmo"
+    com_t = [d for d in det if d.get('ini') is not None and d.get('fim') is not None]
+    buracos = [(a_['n'], b_['n'], b_['ini'] - a_['fim'], a_['fim'], b_['ini']) for a_, b_ in zip(com_t, com_t[1:])]
+    for n1, n2, g, t0_, t1_ in buracos:
+        if g > 1.8:
+            prob('problema', 'ritmo', f'Buraco de {g:.2f} s entre as frases {n1} e {n2}: a narração fica picotada', t0_, t1_,
+                 'Escreva a frase seguinte mais longa ou a anterior mais longa, para a voz preencher a cena (pausa natural: 0,3 a 0,6 s).')
+        elif g > 1.0:
+            prob('atencao', 'ritmo', f'Pausa de {g:.2f} s entre as frases {n1} e {n2}', t0_, t1_,
+                 'Preencha a cena com um pouco mais de texto ou junte as frases.')
+    gs = [g for _, _, g, _, _ in buracos]
+    if len(gs) >= 3 and np.mean(gs) > 0 and np.std(gs) / np.mean(gs) > 0.45 and max(gs) - min(gs) > 0.6:
+        prob('atencao', 'ritmo', f'Pausas irregulares entre as frases (de {min(gs):.2f} a {max(gs):.2f} s): a narração perde o ritmo', None, None,
+             'Iguale as pausas: frases do tamanho da cena (gerar_kokoro.py ajusta a velocidade para preencher) ou pausa fixa na montagem.')
+    if com_t:
+        total = com_t[-1]['fim'] - com_t[0]['ini']
+        voz_t = sum(d['fim'] - d['ini'] for d in com_t)
+        ocup = voz_t / total if total > 0 else 1.0
+        if len(com_t) >= 3 and ocup < 0.75:
+            prob('atencao', 'ritmo', f'A voz ocupa só {ocup * 100:.0f}% do tempo entre a primeira e a última fala (natural: 80% ou mais)', None, None,
+                 'Há silêncio demais entre as falas: escreva frases que preencham as cenas.')
+
     # --- comparação com a referência
     ref = None
     if referencia:
@@ -433,6 +455,7 @@ def avaliar(audio, frases, estilo='anuncio', modelo='small', referencia=None, co
         'pausa_media_entre_frases': round(float(np.mean(entre)), 2) if entre else None,
         'lufs': lou['lufs'], 'pico_real': lou['pico_real'], 'ruido_dbfs': None if piso is None else round(piso, 1),
         'taxa_amostragem': inf['taxa'], 'palavras_roteiro': len(pals), 'palavras_com_problema': sum(1 for p in pals if not p['ok']),
+        'pausas_entre_frases': [round(g, 2) for g in gs],
     }
     if ref:
         dif = []

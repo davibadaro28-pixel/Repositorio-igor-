@@ -8,13 +8,13 @@
    "cena": "pergunta"
   },
   {
-   "texto": "Sem ficha técnica, é chute.",
+   "texto": "Sem a ficha técnica, o preço é chute.",
    "inicio": 3.2,
    "fim": 5.6,
    "cena": "texto"
   },
   {
-   "texto": "O sistema usa a ficha técnica e calcula o custo de cada lanche.",
+   "texto": "O sistema usa a ficha técnica e calcula o custo de cada lanche, ingrediente por ingrediente.",
    "inicio": 5.6,
    "fim": 11.6,
    "cena": "painel"
@@ -32,15 +32,8 @@
    "cena": "preco"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. Descubra onde está o seu lucro e fale com a gente.",
    "inicio": 17.95,
-   "fim": 19.85,
-   "cena": "marca",
-   "ritmo": 4.6
-  },
-  {
-   "texto": "Descubra onde está o seu lucro.",
-   "inicio": 19.85,
    "fim": 22.75,
    "cena": "marca"
   }

@@ -8,19 +8,19 @@
    "cena": "texto"
   },
   {
-   "texto": "Muitas vezes, só o Instagram.",
+   "texto": "Muitas vezes, só o Instagram, e o cliente desiste.",
    "inicio": 2.4,
    "fim": 5.6,
    "cena": "pergunta"
   },
   {
-   "texto": "A gente cria um site com a sua marca, os lanches, os horários e o botão de pedir.",
+   "texto": "A gente cria um site com a sua marca, os lanches, os horários e o botão de pedir bem à vista.",
    "inicio": 5.6,
    "fim": 11.95,
    "cena": "painel"
   },
   {
-   "texto": "E abre rápido no celular.",
+   "texto": "E ele abre rápido no celular, que é onde o seu cliente está.",
    "inicio": 11.95,
    "fim": 16.3,
    "cena": "celular"
@@ -32,15 +32,8 @@
    "cena": "lista"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. Peça o orçamento do seu site pelo WhatsApp.",
    "inicio": 19.25,
-   "fim": 21.15,
-   "cena": "marca",
-   "ritmo": 4.6
-  },
-  {
-   "texto": "Peça o seu orçamento no WhatsApp.",
-   "inicio": 21.15,
    "fim": 23.85,
    "cena": "marca"
   }

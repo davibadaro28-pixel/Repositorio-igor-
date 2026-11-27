@@ -2,48 +2,38 @@
  "video": "P04",
  "frases": [
   {
-   "texto": "Seguidor não paga conta. Conversa paga.",
+   "texto": "Curtida não paga conta. Conversa paga.",
    "inicio": 0.0,
    "fim": 3,
-   "cena": "texto",
-   "ritmo": 6.5
+   "cena": "texto"
   },
   {
-   "texto": "Quanto custa cada conversa que chega?",
+   "texto": "Quanto custa cada conversa que o seu anúncio traz?",
    "inicio": 3.0,
    "fim": 6,
    "cena": "pergunta"
   },
   {
-   "texto": "A gente cria vídeos sob medida, testa várias ideias e fica com os que trazem conversa.",
+   "texto": "A gente cria vídeos para hamburgueria, testa vários ângulos e fica com os que trazem conversa mais barata.",
    "inicio": 6.0,
    "fim": 12.4,
    "cena": "carrossel"
   },
   {
-   "texto": "E todo mês você recebe o relatório.",
+   "texto": "Todo mês, relatório com o custo de cada conversa.",
    "inicio": 12.4,
    "fim": 15.7,
-   "cena": "lista",
-   "ritmo": 6.5
+   "cena": "lista"
   },
   {
    "texto": "R$ 999,99 por mês.",
    "inicio": 15.7,
    "fim": 19.3,
-   "cena": "preco",
-   "ritmo": 6.6
+   "cena": "preco"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. Fale com a nossa equipe e veja como funciona.",
    "inicio": 19.3,
-   "fim": 21.2,
-   "cena": "marca",
-   "ritmo": 4.6
-  },
-  {
-   "texto": "Fale com a nossa equipe.",
-   "inicio": 21.2,
    "fim": 23.8,
    "cena": "marca"
   }

@@ -2,54 +2,46 @@
  "video": "P10",
  "frases": [
   {
-   "texto": "Entrega própria, sem bagunça.",
+   "texto": "Delivery próprio, sem bagunça.",
    "inicio": 0.0,
    "fim": 2.2,
    "cena": "texto"
   },
   {
-   "texto": "E sem comissão no seu cardápio.",
+   "texto": "Sem pagar comissão no seu cardápio.",
    "inicio": 2.2,
    "fim": 5,
    "cena": "numero"
   },
   {
-   "texto": "A taxa do bairro entra sozinha, e o pagamento já vem no pedido.",
+   "texto": "A taxa do bairro entra sozinha, e o pagamento e o troco já vêm no pedido.",
    "inicio": 5.0,
    "fim": 9.6,
    "cena": "celular"
   },
   {
-   "texto": "O entregador vê o caminho, e quem pediu acompanha.",
+   "texto": "O motoboy vê a rota e o valor a cobrar, e o cliente acompanha a entrega.",
    "inicio": 9.6,
    "fim": 14.15,
    "cena": "celular"
   },
   {
-   "texto": "No fim do dia, o acerto sai pronto.",
+   "texto": "No fim do dia, o acerto com cada entregador sai pronto.",
    "inicio": 14.15,
    "fim": 17.5,
    "cena": "painel"
   },
   {
-   "texto": "Cada entrega no lugar certo.",
+   "texto": "Cada entrega no lugar certo, e nenhum pedido perdido.",
    "inicio": 17.5,
    "fim": 21.1,
    "cena": "avisos"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. Fale com a nossa equipe e organize o seu delivery.",
    "inicio": 21.1,
-   "fim": 23.0,
-   "cena": "marca",
-   "ritmo": 4.6
-  },
-  {
-   "texto": "Fale com a nossa equipe.",
-   "inicio": 23.0,
    "fim": 25.6,
-   "cena": "marca",
-   "ritmo": 5.8
+   "cena": "marca"
   }
  ]
 }

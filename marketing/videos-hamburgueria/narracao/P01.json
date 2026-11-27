@@ -8,50 +8,40 @@
    "cena": "texto"
   },
   {
-   "texto": "No seu cardápio, a comissão é zero.",
+   "texto": "No seu cardápio próprio, a comissão é zero.",
    "inicio": 2.6,
    "fim": 5.4,
-   "cena": "numero",
-   "ritmo": 6.7
+   "cena": "numero"
   },
   {
-   "texto": "Pelo seu link, ele pede com o ponto da carne e os adicionais.",
+   "texto": "Pelo seu link, o cliente escolhe o ponto da carne e os adicionais.",
    "inicio": 5.4,
    "fim": 10.0,
    "cena": "celular"
   },
   {
-   "texto": "Pedido confirmado.",
+   "texto": "Pronto: pedido confirmado.",
    "inicio": 10.0,
    "fim": 12.05,
    "cena": "celular"
   },
   {
-   "texto": "E o pedido chega direto no seu painel.",
+   "texto": "O pedido chega na hora, direto no painel da sua loja.",
    "inicio": 12.05,
    "fim": 16.2,
    "cena": "painel"
   },
   {
-   "texto": "Mensalidade fixa de R$ 199,90.",
+   "texto": "Mensalidade de R$ 199,90.",
    "inicio": 16.2,
    "fim": 19.8,
-   "cena": "preco",
-   "ritmo": 6.6
+   "cena": "preco"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. Fale com a nossa equipe agora mesmo pelo WhatsApp.",
    "inicio": 19.8,
-   "fim": 21.7,
-   "cena": "marca",
-   "ritmo": 5.5
-  },
-  {
-   "texto": "Fale com a gente no WhatsApp.",
-   "inicio": 21.7,
    "fim": 24.3,
-   "cena": "marca",
-   "ritmo": 6.7
+   "cena": "marca"
   }
  ]
 }

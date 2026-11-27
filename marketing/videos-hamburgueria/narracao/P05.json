@@ -2,45 +2,38 @@
  "video": "P05",
  "frases": [
   {
-   "texto": "Um sistema para o seu delivery.",
+   "texto": "Um sistema feito para hamburgueria.",
    "inicio": 0.0,
    "fim": 2.4,
    "cena": "texto"
   },
   {
-   "texto": "Sexta à noite, pico de pedidos.",
+   "texto": "Sexta à noite, pico de pedidos. Tudo certo?",
    "inicio": 2.4,
    "fim": 5.3,
    "cena": "relogio"
   },
   {
-   "texto": "Cada pedido chega com aviso, na hora.",
+   "texto": "Cada pedido chega com aviso, e nenhum fica esquecido no balcão.",
    "inicio": 5.3,
    "fim": 9.5,
    "cena": "avisos"
   },
   {
-   "texto": "Todos os pedidos num quadro só, e a cozinha vê tudo na tela.",
+   "texto": "Todos os pedidos num quadro só, e a cozinha vê tudo na tela, na ordem certa.",
    "inicio": 9.5,
    "fim": 14.9,
    "cena": "painel"
   },
   {
-   "texto": "Você sabe o custo de cada lanche, e o caixa fecha certinho.",
+   "texto": "Você sabe o custo de cada lanche, e no fim o caixa fecha certinho.",
    "inicio": 14.9,
    "fim": 19.45,
    "cena": "painel"
   },
   {
-   "texto": "Sua Hamburgueria.",
+   "texto": "Sua Hamburgueria. Veja funcionando com os seus próprios lanches.",
    "inicio": 19.45,
-   "fim": 21.35,
-   "cena": "marca",
-   "ritmo": 4.6
-  },
-  {
-   "texto": "Veja funcionando com os seus lanches.",
-   "inicio": 21.35,
    "fim": 23.95,
    "cena": "marca"
   }
