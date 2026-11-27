@@ -32,8 +32,15 @@
    "cena": "numero"
   },
   {
-   "texto": "Sua Hamburgueria. Escolha o seu e fale com a gente.",
+   "texto": "Sua Hamburgueria.",
    "inicio": 18.2,
+   "fim": 20.1,
+   "cena": "marca",
+   "ritmo": 4.6
+  },
+  {
+   "texto": "Escolha o seu e fale com a gente.",
+   "inicio": 20.1,
    "fim": 22.7,
    "cena": "marca"
   }

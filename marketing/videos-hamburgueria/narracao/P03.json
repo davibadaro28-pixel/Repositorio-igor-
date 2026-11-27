@@ -2,11 +2,10 @@
  "video": "P03",
  "frases": [
   {
-   "texto": "Sua hamburgueria merece mais que um app.",
+   "texto": "Seu negócio merece mais que um app.",
    "inicio": 0.0,
    "fim": 2.6,
-   "cena": "texto",
-   "ritmo": 6.6
+   "cena": "texto"
   },
   {
    "texto": "São quatro serviços numa operação só.",
@@ -34,8 +33,15 @@
    "ritmo": 6.3
   },
   {
-   "texto": "Sua Hamburgueria. Chama a gente no WhatsApp.",
+   "texto": "Sua Hamburgueria.",
    "inicio": 20.5,
+   "fim": 22.4,
+   "cena": "marca",
+   "ritmo": 4.6
+  },
+  {
+   "texto": "Chama a gente no WhatsApp.",
+   "inicio": 22.4,
    "fim": 25,
    "cena": "marca"
   }

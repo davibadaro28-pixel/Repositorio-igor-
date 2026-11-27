@@ -101,8 +101,10 @@ def main():
         sintetizar(v, texto, arq, ls)
         meta = float(fr.get('ritmo', a.ritmo))           # "ritmo" numa frase do json vale só para ela
         r = taxa_medida(arq, texto)
-        if abs(r / meta - 1) > 0.08:
-            ls = min(2.2, max(0.7, ls * r / meta))
+        for _ in range(3):                                # até 3 correções: a relação escala x ritmo não é linear
+            if abs(r / meta - 1) <= 0.05:
+                break
+            ls = min(2.2, max(0.6, ls * r / meta))
             sintetizar(v, texto, arq, ls)
             r = taxa_medida(arq, texto)
         nota_txt = ''

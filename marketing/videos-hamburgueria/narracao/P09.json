@@ -2,7 +2,7 @@
  "video": "P09",
  "frases": [
   {
-   "texto": "Trocar de sistema dá trabalho?",
+   "texto": "Trocar de sistema parece trabalhoso.",
    "inicio": 0.0,
    "fim": 2.4,
    "cena": "texto"
@@ -38,8 +38,15 @@
    "cena": "avisos"
   },
   {
-   "texto": "Sua Hamburgueria. A gente monta tudo pra você.",
+   "texto": "Sua Hamburgueria.",
    "inicio": 20.0,
+   "fim": 21.9,
+   "cena": "marca",
+   "ritmo": 4.6
+  },
+  {
+   "texto": "A gente monta tudo pra você.",
+   "inicio": 21.9,
    "fim": 24.5,
    "cena": "marca"
   }

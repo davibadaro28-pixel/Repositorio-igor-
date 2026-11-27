@@ -32,8 +32,15 @@
    "cena": "preco"
   },
   {
-   "texto": "Sua Hamburgueria. Descubra onde está o seu lucro.",
+   "texto": "Sua Hamburgueria.",
    "inicio": 17.95,
+   "fim": 19.85,
+   "cena": "marca",
+   "ritmo": 4.6
+  },
+  {
+   "texto": "Descubra onde está o seu lucro.",
+   "inicio": 19.85,
    "fim": 22.75,
    "cena": "marca"
   }

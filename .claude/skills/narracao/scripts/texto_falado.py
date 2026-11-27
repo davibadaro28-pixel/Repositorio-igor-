@@ -193,9 +193,16 @@ def palavras_pontuadas(texto):
     return out
 
 
+def som(tk):
+    """Grafias que soam igual viram a mesma (a transcrição escreve "hamburgheria" para "hamburgueria")."""
+    tk = re.sub(r'gh(?=[ei])', 'gu', tk)
+    tk = tk.replace('ph', 'f').replace('y', 'i').replace('k', 'c')
+    return re.sub(r'(.)\1', r'\1', tk)          # letra dobrada (ss, rr, ll…) não muda a comparação
+
+
 def tokens_palavra(palavra):
     falado, _ = para_fala(palavra, moeda_estilo='formal')
-    return [tk for tk in re.findall(r'\w+', sem_acento(falado.lower())) if tk not in DESCARTAR]
+    return [som(tk) for tk in re.findall(r'\w+', sem_acento(falado.lower())) if tk not in DESCARTAR]
 
 
 def tokens(texto, pronuncias_inversas=None):

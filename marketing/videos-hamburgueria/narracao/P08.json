@@ -26,8 +26,15 @@
    "cena": "texto"
   },
   {
-   "texto": "Sua Hamburgueria. Teste agora, sem compromisso.",
+   "texto": "Sua Hamburgueria.",
    "inicio": 17.6,
+   "fim": 19.5,
+   "cena": "marca",
+   "ritmo": 4.6
+  },
+  {
+   "texto": "Teste agora, sem compromisso.",
+   "inicio": 19.5,
    "fim": 22.4,
    "cena": "marca"
   }

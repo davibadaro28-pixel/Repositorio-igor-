@@ -2,14 +2,13 @@
  "video": "P05",
  "frases": [
   {
-   "texto": "Um sistema feito para hamburgueria.",
+   "texto": "Um sistema feito pro seu delivery.",
    "inicio": 0.0,
    "fim": 2.4,
-   "cena": "texto",
-   "ritmo": 6.4
+   "cena": "texto"
   },
   {
-   "texto": "Sexta à noite. Tudo sob controle?",
+   "texto": "Sexta à noite, pico de pedidos.",
    "inicio": 2.4,
    "fim": 5.3,
    "cena": "relogio"
@@ -33,8 +32,15 @@
    "cena": "painel"
   },
   {
-   "texto": "Sua Hamburgueria. Veja funcionando com os seus lanches.",
+   "texto": "Sua Hamburgueria.",
    "inicio": 19.45,
+   "fim": 21.35,
+   "cena": "marca",
+   "ritmo": 4.6
+  },
+  {
+   "texto": "Veja funcionando com os seus lanches.",
+   "inicio": 21.35,
    "fim": 23.95,
    "cena": "marca"
   }

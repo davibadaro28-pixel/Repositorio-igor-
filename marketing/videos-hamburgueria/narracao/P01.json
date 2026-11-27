@@ -39,8 +39,15 @@
    "ritmo": 6.6
   },
   {
-   "texto": "Sua Hamburgueria. Fale com a gente no WhatsApp.",
+   "texto": "Sua Hamburgueria.",
    "inicio": 19.8,
+   "fim": 21.7,
+   "cena": "marca",
+   "ritmo": 4.6
+  },
+  {
+   "texto": "Fale com a gente no WhatsApp.",
+   "inicio": 21.7,
    "fim": 24.3,
    "cena": "marca"
   }

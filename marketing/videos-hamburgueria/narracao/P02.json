@@ -6,7 +6,7 @@
    "inicio": 0.0,
    "fim": 2.6,
    "cena": "texto",
-   "ritmo": 6.6
+   "ritmo": 6.9
   },
   {
    "texto": "O anúncio atrai quem está com fome.",
@@ -33,8 +33,15 @@
    "cena": "celular"
   },
   {
-   "texto": "Sua Hamburgueria. Fale com a gente.",
+   "texto": "Sua Hamburgueria.",
    "inicio": 18.25,
+   "fim": 20.15,
+   "cena": "marca",
+   "ritmo": 4.6
+  },
+  {
+   "texto": "Fale com a gente.",
+   "inicio": 20.15,
    "fim": 23.05,
    "cena": "marca"
   }

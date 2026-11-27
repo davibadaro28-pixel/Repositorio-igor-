@@ -39,8 +39,15 @@
    "cena": "avisos"
   },
   {
-   "texto": "Sua Hamburgueria. Fale com a nossa equipe.",
+   "texto": "Sua Hamburgueria.",
    "inicio": 21.1,
+   "fim": 23.0,
+   "cena": "marca",
+   "ritmo": 4.6
+  },
+  {
+   "texto": "Fale com a nossa equipe.",
+   "inicio": 23.0,
    "fim": 25.6,
    "cena": "marca"
   }

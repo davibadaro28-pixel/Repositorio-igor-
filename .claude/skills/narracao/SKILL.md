@@ -55,8 +55,13 @@ acelerar o áudio depois deixa a voz atropelada e com cara de robô.
   ```
   Ele já gera frase a frase, acerta a velocidade pela meta de sílabas por segundo e monta a faixa. Os trechos ficam em
   `narracao.wav_trechos/`, e `--so` refaz só as frases pedidas e reaproveita as outras. No .json, `"ritmo": 6.6`
-  dentro de uma frase vale só para ela, útil para a frase que precisa caber numa cena curta. As vozes (faber, cadu,
-  jeff) erram algumas palavras ("cliente", gírias, nomes em inglês): quando a avaliação apontar, troque por sinônimo.
+  dentro de uma frase vale só para ela, útil para a frase que precisa caber numa cena curta. Use `--tentativas 3`
+  ou 4: cada geração do Piper sai um pouco diferente, e o script fica com a versão que a transcrição confere.
+  Limites conhecidos das vozes grátis (faber, cadu, jeff):
+  - erram algumas palavras ("cliente", "ângulos", gírias, nomes em inglês). Troque por sinônimo;
+  - **não sobem o tom em pergunta de sim/não**. Prefira perguntas com quanto, o que, como (que descem no fim) ou afirmações;
+  - **nome de marca difícil** sai embolado no meio da frase. Ponha a marca numa fala própria, devagar
+    (`"ritmo": 4.6`), como assinatura no fim, e evite repeti-la no meio das frases.
 - **Gravação humana ou áudio pronto:** vá direto para a avaliação.
 
 Gerar frase a frase permite refazer só o trecho ruim e encaixar cada frase na sua cena. O custo é que o tom pode variar
