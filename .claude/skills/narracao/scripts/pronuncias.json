@@ -1,0 +1,19 @@
+{
+ "_leia": "Grafias que fazem a voz pronunciar certo. 'todos' vale para qualquer motor; as outras chaves, só para aquele motor. Acrescente palavras quando a avaliação apontar pronúncia errada.",
+ "todos": {},
+ "piper": {
+  "delivery": "delíveri",
+  "WhatsApp": "uatsápi",
+  "iFood": "aifúdi",
+  "Instagram": "instagrã",
+  "app": "épi",
+  "online": "onlaine",
+  "QR Code": "quiúar côudi",
+  "smash": "esméxi",
+  "burger": "bârguer",
+  "cheese": "xis",
+  "bacon": "bêicon"
+ },
+ "elevenlabs": {},
+ "elevenlabs-v2": {}
+}

@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: avaliar-locucao-sem-roteiro
+expected_outcome: |
+  Transcreve a locução, mede ritmo, pausas, entonação e qualidade técnica e conclui que está natural e utilizável
+  (ritmo em torno de 5,5 a 6 sílabas/s, variação de tom normal, sem estouro ou corte), sem inventar defeitos.
+  Aponta o que vale conferir ouvindo (ex.: "aprender a atenção" na transcrição pode ser "prender a atenção") e deixa
+  claro que timbre e adequação à marca dependem de ouvir.
+context:
+  scaffold_script: place-files.sh

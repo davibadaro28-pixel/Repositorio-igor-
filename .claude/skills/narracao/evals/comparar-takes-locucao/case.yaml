@@ -1,0 +1,8 @@
+schema_version: "1.1"
+name: comparar-takes-locucao
+expected_outcome: |
+  Recomenda o take2 como o melhor. Explica com tempos que o take1 está corrido (fala rápida demais) e tem palavras
+  mal pronunciadas (ex.: "Quanto do" virou "Quando o", "Mensalidade" virou "Minha salidade"), e que o take3 tem uma
+  pausa estranha no meio da segunda frase e termina cortado no preço. Indica os trechos para ouvir.
+context:
+  scaffold_script: place-files.sh

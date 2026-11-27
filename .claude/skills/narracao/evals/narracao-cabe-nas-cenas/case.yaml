@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: narracao-cabe-nas-cenas
+expected_outcome: |
+  Percebe que a frase 2 (lista longa de recursos) não cabe nos 4,8 s da cena e a reescreve mais curta para o ouvido,
+  gera a narração com uma voz grátis (Piper), posiciona cada frase na sua cena, avalia o resultado e entrega um áudio
+  em que nenhuma frase passa do tempo da cena, com ritmo natural (cerca de 4,4 a 7,2 sílabas/s), dizendo o que
+  avaliou, o que corrigiu e o que vale ouvir.
+context:
+  scaffold_script: place-files.sh

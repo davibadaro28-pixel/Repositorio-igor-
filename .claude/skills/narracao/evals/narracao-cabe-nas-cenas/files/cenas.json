@@ -1,0 +1,9 @@
+{
+ "video": "Anúncio de 16 s do cardápio digital da Sua Hamburgueria",
+ "frases": [
+  {"texto": "Seu cliente pede pelo direct e você digita tudo de novo?", "inicio": 0.0, "fim": 3.2},
+  {"texto": "Com o cardápio digital da Sua Hamburgueria, o cliente escolhe o lanche, o ponto da carne, os adicionais, a forma de pagamento e ainda acompanha o pedido até chegar em casa.", "inicio": 3.2, "fim": 8.0},
+  {"texto": "O pedido cai direto no seu painel, sem comissão.", "inicio": 8.0, "fim": 11.6},
+  {"texto": "Planos a partir de R$ 199,90 por mês. Chama no WhatsApp!", "inicio": 11.6, "fim": 16.0}
+ ]
+}
